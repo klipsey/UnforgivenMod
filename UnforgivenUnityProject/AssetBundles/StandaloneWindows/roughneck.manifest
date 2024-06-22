@@ -1,0 +1,183 @@
+ManifestFileVersion: 0
+CRC: 371003849
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: ca72f1b804909af66e64487340d2a26f
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 42d2694ece3e6464c0822cad42100938
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 23
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 33
+  Script: {instanceID: 0}
+- Class: 43
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 54
+  Script: {instanceID: 0}
+- Class: 64
+  Script: {instanceID: 0}
+- Class: 74
+  Script: {instanceID: 0}
+- Class: 90
+  Script: {instanceID: 0}
+- Class: 91
+  Script: {instanceID: 0}
+- Class: 95
+  Script: {instanceID: 0}
+- Class: 96
+  Script: {instanceID: 0}
+- Class: 108
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: f8258ea15b8f74c4889ce485d21cbbb1, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 67079b849227b734694872d8810229b8, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 2334069450a65d042a95a873e5229b20, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: db294d07add6b364f99a346939dd2a8a, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: fef0780b96a0f12448b6dd86f9c8139b, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 120
+  Script: {instanceID: 0}
+- Class: 135
+  Script: {instanceID: 0}
+- Class: 136
+  Script: {instanceID: 0}
+- Class: 137
+  Script: {instanceID: 0}
+- Class: 144
+  Script: {instanceID: 0}
+- Class: 198
+  Script: {instanceID: 0}
+- Class: 199
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+- Class: 222
+  Script: {instanceID: 0}
+- Class: 224
+  Script: {instanceID: 0}
+- Class: 319
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/Roughneck/Projectiles/texRampCrocoDiseaseDark.png
+- Assets/Roughneck/Animations/animInterrogatorCSS.controller
+- Assets/Roughneck/Animations/Armature_Point.anim
+- Assets/Roughneck/VFX/CritLightningMonsoon.prefab
+- Assets/Roughneck/interrogator_emoteskeleton.prefab
+- Assets/Roughneck/Animations/Armature_CSSIdle.anim
+- Assets/Roughneck/Textures/texGuilty.png
+- Assets/Roughneck/VFX/BloodSpurtEffect.prefab
+- Assets/Roughneck/HUD/ChargeBar.prefab
+- Assets/Roughneck/VFX/CritLightning.prefab
+- Assets/Roughneck/Animations/Armature_CSSIdleIn.anim
+- Assets/Roughneck/VFX/matShockwave.mat
+- Assets/Roughneck/Projectiles/meshSapper.mesh
+- Assets/Roughneck/Animations/Armature_BatSwing1.anim
+- Assets/Roughneck/VFX/Badass/BigExplosion.prefab
+- Assets/Roughneck/Meshes/meshBat.mesh
+- Assets/Roughneck/VFX/Badass/MetalHitEffect.prefab
+- Assets/Roughneck/Projectiles/CoinImpactHit.prefab
+- Assets/Roughneck/HUD/Textures/texBulletIndicator.png
+- Assets/Roughneck/Icons/Skill/texFalsifyIcon.png
+- Assets/Roughneck/VFX/matShockwave2.mat
+- Assets/Roughneck/Animations/Armature_AimPitch.anim
+- Assets/Roughneck/VFX/Badass/StoneHitEffect.prefab
+- Assets/Roughneck/Projectiles/CoinTracer.prefab
+- Assets/Roughneck/Animations/maskInterrogatorAim.mask
+- Assets/Roughneck/Animations/Armature_BatSwingCleaver.anim
+- Assets/Roughneck/Textures/texGuiltyBuff.png
+- Assets/Roughneck/Projectiles/CoinProjectile.prefab
+- Assets/Roughneck/Animations/Armature_Sprint.anim
+- Assets/Roughneck/Animations/Armature_IdleIn.anim
+- Assets/Roughneck/Materials/matInterrogator.mat
+- Assets/Roughneck/Animations/Armature_RunB.anim
+- Assets/Roughneck/Animations/Armature_SprintFast.anim
+- Assets/Roughneck/Animations/animInterrogator.controller
+- Assets/Roughneck/Icons/Skill/texInterrogatorPassive.png
+- Assets/Roughneck/Textures/texInterrogatorEmission.png
+- Assets/Roughneck/Textures/texRampConvicted.png
+- Assets/Roughneck/Textures/texInterrogator.png
+- Assets/Roughneck/Icons/Skill/texConvictIcon.png
+- Assets/Roughneck/Textures/texCloudPixel2.png
+- Assets/Roughneck/VFX/texShockwave.png
+- Assets/Roughneck/Meshes/meshJacket.mesh
+- Assets/Roughneck/Meshes/meshInterrogator.mesh
+- Assets/Roughneck/Projectiles/CoinOrbEffect.prefab
+- Assets/Roughneck/Meshes/meshCleaver.mesh
+- Assets/Roughneck/Animations/Armature_AimYaw.anim
+- Assets/Roughneck/Projectiles/texAlphaGradient6Mask.png
+- Assets/Roughneck/Textures/texInterrogatorNormal.png
+- Assets/Roughneck/Materials/matVisor.mat
+- Assets/Roughneck/Icons/Skill/texSwingIcon.png
+- Assets/Roughneck/Meshes/meshVisor.mesh
+- Assets/Roughneck/Animations/Armature_LightImpact.anim
+- Assets/Roughneck/Animations/Armature_Dash.anim
+- Assets/Roughneck/Animations/Armature_Jump.anim
+- Assets/Roughneck/HUD/WeaponChargeBar.prefab
+- Assets/Roughneck/mdlInterrogator.prefab
+- Assets/Roughneck/VFX/texSpyStreak.png
+- Assets/Roughneck/Animations/Armature_BatSwing2.anim
+- Assets/Roughneck/Textures/texConvictBuff.png
+- Assets/Roughneck/VFX/matSpyDefault.mat
+- Assets/Roughneck/Icons/texDefaultSkin.png
+- Assets/Roughneck/interrogatorCleaver.prefab
+- Assets/Roughneck/Animations/Armature_RunR.anim
+- Assets/Roughneck/VFX/Badass/TinyExplosion.prefab
+- Assets/Roughneck/VFX/Badass/SandHitEffect.prefab
+- Assets/Roughneck/HUD/ChargeRing.prefab
+- Assets/Roughneck/VFX/texBlackLightning.png
+- Assets/Roughneck/Projectiles/texRampCoin.png
+- Assets/Roughneck/Projectiles/CoinProjectileGhost.prefab
+- Assets/Roughneck/Projectiles/coin.asset
+- Assets/Roughneck/Animations/Armature_Idle.anim
+- Assets/Roughneck/Meshes/meshExtra.mesh
+- Assets/Roughneck/Animations/maskInterrogatorLeftArm.mask
+- Assets/Roughneck/Animations/Armature_DescendFast.anim
+- Assets/Roughneck/InterrogatorDisplay.prefab
+- Assets/Roughneck/HUD/Textures/texChargeRing.png
+- Assets/Roughneck/Projectiles/DriverStunGrenadeImpact.prefab
+- Assets/Roughneck/VFX/matSpyStreak.mat
+- Assets/Roughneck/Icons/Skill/texInterrogatorCleaverIcon.png
+- Assets/Roughneck/Projectiles/mdlSapper.prefab
+- Assets/Roughneck/Animations/Armature_RunL.anim
+- Assets/Roughneck/Animations/Armature_Ascend.anim
+- Assets/Roughneck/Icons/texInterrogatorIcon.png
+- Assets/Roughneck/Projectiles/DriverStunGrenadeGhost.prefab
+- Assets/Roughneck/Projectiles/texRampCoin2.png
+- Assets/Roughneck/VFX/Badass/WoodHitEffect.prefab
+- Assets/Roughneck/VFX/Badass/SmallExplosion.prefab
+- Assets/Roughneck/Animations/Armature_Descend.anim
+- Assets/Roughneck/Materials/matSword.mat
+- Assets/Roughneck/Animations/animInterrogatorEmotes.controller
+- Assets/Roughneck/Animations/Armature_RunF.anim
+- Assets/Roughneck/HUD/Textures/texSniperBulletIndicator.png
+- Assets/Roughneck/Icons/texMonsoonSkin.png
+- Assets/Roughneck/Meshes/meshSword.mesh
+- Assets/Roughneck/Animations/maskInterrogatorImpact.mask
+- Assets/Roughneck/Textures/texGuiltyDebuff.png
+- Assets/Roughneck/Animations/Armature_JumpSprint.anim
+- Assets/Roughneck/VFX/matBlackLightning.mat
+- Assets/Roughneck/Animations/maskInterrogatorGesture.mask
+- Assets/Roughneck/Icons/Skill/texConvictScepter.png
+- Assets/Roughneck/HUD/Textures/texWhite.png
+Dependencies: []

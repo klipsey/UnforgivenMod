@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{0E6DDC47-9831-4C9F-9E50-5872B4A7E01C}" SchemaVersion="97">
+	<Events>
+		<WorkUnit Name="Default Work Unit" ID="{0E6DDC47-9831-4C9F-9E50-5872B4A7E01C}" PersistMode="Standalone">
+			<ChildrenList>
+				<Event Name="sfx_unforgiven_throw_nado" ID="{B040B50E-DECF-49E4-9ED5-A20AD3D484CA}">
+					<ChildrenList>
+						<Action Name="" ID="{BF0FBA7D-A0EE-43AC-8946-199A5B38413E}" ShortID="115419247">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="sfx_unforgiven_throw_nado" ID="{8A2B096C-2E9B-45F7-A20C-56D727D7E466}" WorkUnitID="{FE3FA7C5-9E89-40FE-8C7C-97CE0994E519}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="sfx_unforgiven_stab_impact" ID="{A2D49AA4-864F-4547-9989-076C1C2142F4}">
+					<ChildrenList>
+						<Action Name="" ID="{FA1E0E28-C950-4B63-8CED-0C9A9DCD2B60}" ShortID="1050035406">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="sfx_unforgiven_stab_impact" ID="{A478843C-5595-42D9-83AD-BEA7142C418F}" WorkUnitID="{FE3FA7C5-9E89-40FE-8C7C-97CE0994E519}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="sfx_unforgiven_nado_impact" ID="{2939E85E-287A-48C6-829E-E18390D8F2D4}">
+					<ChildrenList>
+						<Action Name="" ID="{E79B2903-9A49-4EFB-A6B3-AB7DBFC2EC07}" ShortID="289521589">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="sfx_unforgiven_nado_impact" ID="{4694B805-15E8-48F4-BA95-BAC0B0AEC11B}" WorkUnitID="{FE3FA7C5-9E89-40FE-8C7C-97CE0994E519}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="sfx_unforgiven_max_stacks" ID="{8FD5725E-014D-4DEF-A6FB-55D90FB9ABF7}">
+					<ChildrenList>
+						<Action Name="" ID="{5773946B-6427-403B-87A9-F59A21720C1B}" ShortID="732544747">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="sfx_unforgiven_max_stacks" ID="{B7A2377F-818F-4935-940C-1ABEB0732FC7}" WorkUnitID="{FE3FA7C5-9E89-40FE-8C7C-97CE0994E519}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="sfx_unforgiven_lost_stacks" ID="{D4C34F04-53D9-4A95-A093-5709A2501B4B}">
+					<ChildrenList>
+						<Action Name="" ID="{81810F13-B64F-43E2-91DD-A51F645904BF}" ShortID="499601544">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="sfx_unforgiven_lost_stacks" ID="{DCFCC818-E47D-41CB-AC54-1083ABF5D59C}" WorkUnitID="{FE3FA7C5-9E89-40FE-8C7C-97CE0994E519}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="sfx_unforgiven_stab" ID="{D1DAA00B-4028-4E40-817B-36E55B2C1022}">
+					<ChildrenList>
+						<Action Name="" ID="{DD536E18-95DF-4F7A-BB2E-14DDE7BCCD3C}" ShortID="493829300">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="sfx_unforgiven_stab" ID="{AB024E37-97AB-40C0-9209-18838137E146}" WorkUnitID="{FE3FA7C5-9E89-40FE-8C7C-97CE0994E519}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+			</ChildrenList>
+		</WorkUnit>
+	</Events>
+</WwiseDocument>
