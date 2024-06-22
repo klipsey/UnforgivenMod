@@ -20,8 +20,6 @@ namespace UnforgivenMod.Unforgiven.Content
 
         //Materials
         internal static Material commandoMat;
-        internal static Material swordMat;
-        internal static Material batMat;
 
         //Projectiles
         internal static GameObject nadoPrefab;
@@ -254,6 +252,7 @@ namespace UnforgivenMod.Unforgiven.Content
 
             ProjectileController nadoController = nadoPrefab.GetComponent<ProjectileController>();
             nadoController.ghostPrefab = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Vulture/WindbladeProjectileGhost.prefab").WaitForCompletion().InstantiateClone("UnforgivenNadoGhost");
+            nadoController.ghostPrefab.AddComponent<NetworkIdentity>();
 
         }
         #endregion

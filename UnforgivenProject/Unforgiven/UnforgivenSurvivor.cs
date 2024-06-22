@@ -29,8 +29,8 @@ namespace UnforgivenMod.Unforgiven
         public override string assetBundleName => "unforgiven";
         public override string bodyName => "UnforgivenBody";
         public override string masterName => "UnforgivenMonsterMaster";
-        public override string modelPrefabName => "mdlInterrogator";
-        public override string displayPrefabName => "InterrogatorDisplay";
+        public override string modelPrefabName => "mdlUnforgiven";
+        public override string displayPrefabName => "UnforgivenDisplay";
 
         public const string UNFORGIVEN_PREFIX = UnforgivenPlugin.DEVELOPER_PREFIX + "_UNFORGIVEN_";
         public override string survivorTokenPrefix => UNFORGIVEN_PREFIX;
@@ -93,7 +93,7 @@ namespace UnforgivenMod.Unforgiven
                 new CustomRendererInfo
                 {
                     childName = "HeadDressModel",
-                },
+                }
         };
 
         public override UnlockableDef characterUnlockableDef => UnforgivenUnlockables.characterUnlockableDef;
@@ -506,7 +506,7 @@ namespace UnforgivenMod.Unforgiven
             On.RoR2.HealthComponent.TakeDamage += new On.RoR2.HealthComponent.hook_TakeDamage(HealthComponent_TakeDamage);
             RoR2.GlobalEventManager.onCharacterDeathGlobal += GlobalEventManager_onCharacterDeathGlobal;
 
-            if (UnforgivenPlugin.emotesInstalled) Emotes();
+            //if (UnforgivenPlugin.emotesInstalled) Emotes();
         }
 
         [MethodImpl(MethodImplOptions.NoInlining | MethodImplOptions.NoOptimization)]

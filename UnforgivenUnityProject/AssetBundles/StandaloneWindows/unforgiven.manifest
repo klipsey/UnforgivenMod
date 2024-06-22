@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 3391262584
+CRC: 2596150690
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 4a1e1455565855200704446239e66f12
+    Hash: adbc95d280495136936d95f6da4b35f8
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 4a3606fb2fb77958ca5e88f9118d8b6e
+    Hash: e40b2d41fa57638f558d971ed105a670
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -42,9 +42,9 @@ ClassTypes:
 - Class: 108
   Script: {instanceID: 0}
 - Class: 114
-  Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-- Class: 114
   Script: {fileID: 11500000, guid: f8258ea15b8f74c4889ce485d21cbbb1, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 67079b849227b734694872d8810229b8, type: 3}
 - Class: 115
@@ -72,10 +72,9 @@ ClassTypes:
 SerializeReferenceClassIdentifiers: []
 Assets:
 - Assets/Unforgiven/Projectiles/texRampCrocoDiseaseDark.png
-- Assets/Unforgiven/Animations/animInterrogatorCSS.controller
+- Assets/Unforgiven/Animations/animUnforgivenCSS.controller
 - Assets/Unforgiven/Animations/Armature_Point.anim
 - Assets/Unforgiven/VFX/CritLightningMonsoon.prefab
-- Assets/Unforgiven/interrogator_emoteskeleton.prefab
 - Assets/Unforgiven/Animations/Armature_CSSIdle.anim
 - Assets/Unforgiven/Textures/texGuilty.png
 - Assets/Unforgiven/VFX/BloodSpurtEffect.prefab
@@ -88,25 +87,29 @@ Assets:
 - Assets/Unforgiven/Projectiles/meshSapper.mesh
 - Assets/Unforgiven/Animations/Armature_BatSwing1.anim
 - Assets/Unforgiven/VFX/Badass/BigExplosion.prefab
-- Assets/Unforgiven/Meshes/meshBat.mesh
 - Assets/Unforgiven/VFX/Badass/MetalHitEffect.prefab
 - Assets/Unforgiven/Projectiles/CoinImpactHit.prefab
+- Assets/Unforgiven/Meshes/meshBody.mesh
 - Assets/Unforgiven/HUD/Textures/texBulletIndicator.png
 - Assets/Unforgiven/Icons/Skill/texFalsifyIcon.png
 - Assets/Unforgiven/VFX/matShockwave2.mat
 - Assets/Unforgiven/Animations/Armature_AimPitch.anim
 - Assets/Unforgiven/VFX/Badass/StoneHitEffect.prefab
+- Assets/Unforgiven/Meshes/meshHeadDress.mesh
 - Assets/Unforgiven/Projectiles/CoinTracer.prefab
-- Assets/Unforgiven/Animations/maskInterrogatorAim.mask
+- Assets/Unforgiven/Animations/maskUnforgivenAim.mask
 - Assets/Unforgiven/Animations/Armature_BatSwingCleaver.anim
+- Assets/Unforgiven/Meshes/meshDefaultSword.mesh
 - Assets/Unforgiven/Textures/texGuiltyBuff.png
 - Assets/Unforgiven/Projectiles/CoinProjectile.prefab
 - Assets/Unforgiven/Animations/Armature_Sprint.anim
 - Assets/Unforgiven/Animations/Armature_IdleIn.anim
 - Assets/Unforgiven/Materials/matKatana.mat
 - Assets/Unforgiven/Animations/Armature_RunB.anim
+- Assets/Unforgiven/Meshes/meshAccessories.mesh
 - Assets/Unforgiven/Animations/Armature_SprintFast.anim
-- Assets/Unforgiven/Animations/animInterrogator.controller
+- Assets/Unforgiven/Animations/animUnforgiven.controller
+- Assets/Unforgiven/Meshes/meshChestPlate.mesh
 - Assets/Unforgiven/Icons/Skill/texInterrogatorPassive.png
 - Assets/Unforgiven/Textures/texInterrogatorEmission.png
 - Assets/Unforgiven/Textures/texRampConvicted.png
@@ -114,23 +117,18 @@ Assets:
 - Assets/Unforgiven/Icons/Skill/texConvictIcon.png
 - Assets/Unforgiven/Textures/texCloudPixel2.png
 - Assets/Unforgiven/VFX/texShockwave.png
-- Assets/Unforgiven/Meshes/meshJacket.mesh
-- Assets/Unforgiven/Meshes/meshInterrogator.mesh
+- Assets/Unforgiven/Meshes/meshHead.mesh
 - Assets/Unforgiven/Textures/texUnforgivenEmission.png
 - Assets/Unforgiven/Projectiles/CoinOrbEffect.prefab
-- Assets/Unforgiven/Meshes/meshCleaver.mesh
 - Assets/Unforgiven/Animations/Armature_AimYaw.anim
 - Assets/Unforgiven/Textures/texUnforgivenSwordDiffuse.png
 - Assets/Unforgiven/Projectiles/texAlphaGradient6Mask.png
 - Assets/Unforgiven/Textures/texInterrogatorNormal.png
-- Assets/Unforgiven/Materials/matWeapon.mat
 - Assets/Unforgiven/Icons/Skill/texSwingIcon.png
-- Assets/Unforgiven/Meshes/meshVisor.mesh
 - Assets/Unforgiven/Animations/Armature_LightImpact.anim
 - Assets/Unforgiven/Animations/Armature_Dash.anim
 - Assets/Unforgiven/Animations/Armature_Jump.anim
 - Assets/Unforgiven/HUD/WeaponChargeBar.prefab
-- Assets/Unforgiven/mdlInterrogator.prefab
 - Assets/Unforgiven/Textures/texUnforgivenSwordEmission.png
 - Assets/Unforgiven/VFX/texSpyStreak.png
 - Assets/Unforgiven/Animations/Armature_BatSwing2.anim
@@ -147,36 +145,38 @@ Assets:
 - Assets/Unforgiven/Projectiles/CoinProjectileGhost.prefab
 - Assets/Unforgiven/Projectiles/coin.asset
 - Assets/Unforgiven/Animations/Armature_Idle.anim
-- Assets/Unforgiven/Meshes/meshExtra.mesh
-- Assets/Unforgiven/Animations/maskInterrogatorLeftArm.mask
+- Assets/Unforgiven/Materials/matUnforgiven.mat
+- Assets/Unforgiven/Animations/maskUnforgivenLeftArm.mask
 - Assets/Unforgiven/Animations/Armature_DescendFast.anim
-- Assets/Unforgiven/InterrogatorDisplay.prefab
 - Assets/Unforgiven/HUD/Textures/texChargeRing.png
+- Assets/Unforgiven/mdlUnforgiven.prefab
 - Assets/Unforgiven/Projectiles/DriverStunGrenadeImpact.prefab
 - Assets/Unforgiven/VFX/matSpyStreak.mat
+- Assets/Unforgiven/Materials/matWeapon.mat
+- Assets/Unforgiven/Meshes/meshSheath.mesh
 - Assets/Unforgiven/Icons/Skill/texInterrogatorCleaverIcon.png
 - Assets/Unforgiven/Projectiles/mdlSapper.prefab
 - Assets/Unforgiven/Textures/texUnforgivenWeaponExtraNormal.png
 - Assets/Unforgiven/Animations/Armature_RunL.anim
+- Assets/Unforgiven/UnforgivenDisplay.prefab
 - Assets/Unforgiven/Animations/Armature_Ascend.anim
 - Assets/Unforgiven/Icons/texInterrogatorIcon.png
 - Assets/Unforgiven/Projectiles/DriverStunGrenadeGhost.prefab
 - Assets/Unforgiven/Textures/texUnforgivenSwordNormal.png
 - Assets/Unforgiven/Projectiles/texRampCoin2.png
+- Assets/Unforgiven/Meshes/meshCables.mesh
 - Assets/Unforgiven/VFX/Badass/WoodHitEffect.prefab
 - Assets/Unforgiven/VFX/Badass/SmallExplosion.prefab
 - Assets/Unforgiven/Animations/Armature_Descend.anim
-- Assets/Unforgiven/Materials/matUnforgiven.mat
-- Assets/Unforgiven/Animations/animInterrogatorEmotes.controller
+- Assets/Unforgiven/Animations/animUnforgivenEmotes.controller
 - Assets/Unforgiven/Animations/Armature_RunF.anim
 - Assets/Unforgiven/HUD/Textures/texSniperBulletIndicator.png
 - Assets/Unforgiven/Icons/texMonsoonSkin.png
-- Assets/Unforgiven/Meshes/meshSword.mesh
-- Assets/Unforgiven/Animations/maskInterrogatorImpact.mask
+- Assets/Unforgiven/Animations/maskUnforgivenImpact.mask
 - Assets/Unforgiven/Textures/texGuiltyDebuff.png
 - Assets/Unforgiven/Animations/Armature_JumpSprint.anim
 - Assets/Unforgiven/VFX/matBlackLightning.mat
-- Assets/Unforgiven/Animations/maskInterrogatorGesture.mask
+- Assets/Unforgiven/Animations/maskUnforgivenGesture.mask
 - Assets/Unforgiven/Icons/Skill/texConvictScepter.png
 - Assets/Unforgiven/HUD/Textures/texWhite.png
 Dependencies: []

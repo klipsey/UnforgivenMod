@@ -10,7 +10,7 @@ namespace UnforgivenMod.Unforgiven.Components
     {
         public float maxTrackingDistance = 30f;
 
-        public float maxTrackingAngle = 25f;
+        public float maxTrackingAngle = 40f;
 
         public float trackerUpdateFrequency = 10f;
 

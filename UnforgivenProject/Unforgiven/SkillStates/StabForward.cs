@@ -67,12 +67,6 @@ namespace UnforgivenMod.Unforgiven.SkillStates
             }
 
             base.OnEnter();
-
-            if (NetworkServer.active)
-            {
-                stacks = base.characterBody.GetBuffCount(UnforgivenBuffs.stabStackingBuff);
-                base.characterBody.ClearTimedBuffs(UnforgivenBuffs.stabStackingBuff);
-            }
         }
 
         protected override void OnHitEnemyAuthority()
@@ -80,6 +74,11 @@ namespace UnforgivenMod.Unforgiven.SkillStates
             base.OnHitEnemyAuthority();
             if (NetworkServer.active && !hasGrantedStacks)
             {
+                if (NetworkServer.active)
+                {
+                    stacks = base.characterBody.GetBuffCount(UnforgivenBuffs.stabStackingBuff);
+                    base.characterBody.ClearTimedBuffs(UnforgivenBuffs.stabStackingBuff);
+                }
                 hasGrantedStacks = true;
                 if (stacks == 2)
                 {

@@ -34,9 +34,9 @@ namespace UnforgivenMod.Unforgiven.Content
             string outro = "..and so he left.";
             string outroFailure = "..and so he vanished.";
             
-            Language.Add(prefix + "NAME", "Unforgiven");
+            Language.Add(prefix + "NAME", "Wanderer");
             Language.Add(prefix + "DESCRIPTION", desc);
-            Language.Add(prefix + "SUBTITLE", "Lost Wanderer");
+            Language.Add(prefix + "SUBTITLE", "The Unforgiven");
             Language.Add(prefix + "LORE", lore);
             Language.Add(prefix + "OUTRO_FLAVOR", outro);
             Language.Add(prefix + "OUTRO_FAILURE", outroFailure);
