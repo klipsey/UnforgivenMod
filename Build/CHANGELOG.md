@@ -1,6 +1,6 @@
 # 0.1.2
 
-- Effects and fixes
+- Insane amount of smoothing and gameplay fixes
 
 # 0.1.1
 

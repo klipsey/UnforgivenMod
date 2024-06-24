@@ -124,7 +124,7 @@ namespace UnforgivenMod.Unforgiven.SkillStates
                 base.characterBody.ClearTimedBuffs(UnforgivenBuffs.stackingDashDamageBuff);
                 for (int i = 0; i < stacks + 1; i++)
                 {
-                    characterBody.AddTimedBuff(UnforgivenBuffs.stackingDashDamageBuff, 4f, 4);
+                    characterBody.AddTimedBuff(UnforgivenBuffs.stackingDashDamageBuff, 6f, 4);
                 }
             }
             base.OnExit();
