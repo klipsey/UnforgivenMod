@@ -30,7 +30,6 @@ namespace UnforgivenMod.Unforgiven.Components
                     if (!body.characterMotor.isGrounded)
                     {
                         if(NetworkServer.active) body.AddBuff(UnforgivenBuffs.airborneBuff);
-
                     }
                 }
             }

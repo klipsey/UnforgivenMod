@@ -6,8 +6,6 @@ namespace UnforgivenMod.Modules
     {
         public const string agilePrefix = "<style=cIsUtility>Agile</style>";
 
-        public const string interrogatorPressuredPrefix = "Pressured";
-
         public static string agileKeyword = KeywordText("Agile", "The skill can be used while sprinting.");
 
         public static string slayerKeyword = KeywordText("Slayer", "The skill deals 2% more damage per 1% of health the target has lost, up to <style=cIsDamage>3x</style> damage.");

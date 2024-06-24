@@ -47,24 +47,12 @@ namespace UnforgivenMod.Unforgiven.SkillStates
             swingSoundString = "sfx_unforgiven_stab";
             hitSoundString = "";
             playbackRateParam = "Swing.playbackRate";
-            swingEffectPrefab = UnforgivenAssets.swordSwingEffect;
+            swingEffectPrefab = UnforgivenAssets.stabSwingEffect;
             hitEffectPrefab = UnforgivenAssets.unforgivenHitEffect;
 
             impactSound = UnforgivenAssets.stabImpactSoundEvent.index;
 
-            switch (swingIndex)
-            {
-                case 0:
-                    muzzleString = "SwingMuzzle1";
-                    break;
-                case 1:
-                    muzzleString = "SwingMuzzle2";
-                    break;
-                case 2:
-                    muzzleString = "SwingMuzzle";
-                    swingSoundString = EntityStates.Merc.Weapon.GroundLight2.slash3Sound;
-                    break;
-            }
+            muzzleString = "StabMuzzle";
 
             base.OnEnter();
         }
@@ -72,30 +60,12 @@ namespace UnforgivenMod.Unforgiven.SkillStates
         protected override void OnHitEnemyAuthority()
         {
             base.OnHitEnemyAuthority();
-            if (NetworkServer.active && !hasGrantedStacks)
+            if (!hasGrantedStacks)
             {
-                if (NetworkServer.active)
-                {
-                    stacks = base.characterBody.GetBuffCount(UnforgivenBuffs.stabStackingBuff);
-                    base.characterBody.ClearTimedBuffs(UnforgivenBuffs.stabStackingBuff);
-                }
-                hasGrantedStacks = true;
-                if (stacks == 2)
-                {
-                    base.characterBody.AddTimedBuff(UnforgivenBuffs.stabMaxStacksBuff, 8f, 1);
-                }
-                else
-                {
-                    for (int i = 0; i < stacks + 1; i++)
-                    {
-                        base.characterBody.AddTimedBuff(UnforgivenBuffs.stabStackingBuff, 6f, 2);
-                    }
-                }
-                if (base.characterBody.HasBuff(UnforgivenBuffs.stabMaxStacksBuff) && !hasPlayedSound)
-                {
-                    hasPlayedSound = true;
-                    Util.PlaySound("sfx_unforgiven_max_stacks", base.gameObject);
-                }
+                NetworkIdentity identity = base.gameObject.GetComponent<NetworkIdentity>();
+                if (!identity) return;
+
+                new SyncStacks(identity.netId).Send(NetworkDestination.Server);
             }
         }
 
@@ -132,6 +102,15 @@ namespace UnforgivenMod.Unforgiven.SkillStates
         public override void OnExit()
         {
             base.OnExit();
+        }
+
+        public override InterruptPriority GetMinimumInterruptPriority()
+        {
+            if (stopwatch >= duration * earlyExitPercentTime)
+            {
+                return InterruptPriority.Any;
+            }
+            return InterruptPriority.PrioritySkill;
         }
     }
 }

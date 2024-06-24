@@ -30,9 +30,12 @@ namespace UnforgivenMod.Unforgiven.Content
             desc = desc + "< ! > " + Environment.NewLine + Environment.NewLine;
             desc = desc + "< ! > " + Environment.NewLine + Environment.NewLine;
 
-            string lore = "Insert lore here";
-            string outro = "..and so he left.";
-            string outroFailure = "..and so he vanished.";
+            string lore = " if you die to yasuo, you got outplayed " +
+                "it means he had to calculate (and execute) the fight exactly to his specifications, taking into account your cooldowns and his, the position of both junglers, the creep waves and the general \"feel\" of the lane (an ability that has to be honed through years, maybe decades of what you call merely \"gaming\"). " +
+                "Indeed, to be defeated by yasuo is to realise that you have found your better, both as a player and as a man. Your mettle failed you, but the yasuo player is solid steel -hard, cold, reliable- and as he secures first blood and you anxiously await the surrender vote, his mind is still operating at full capacity preparing strategies for a near infinite number of possibilities. " +
+                "I'll be taking my LP now, make sure you do your bans correctly next time.";
+            string outro = "..and so he left, 10/0.";
+            string outroFailure = "..and so he vanished, 0/10.";
             
             Language.Add(prefix + "NAME", "Wanderer");
             Language.Add(prefix + "DESCRIPTION", desc);
@@ -46,9 +49,9 @@ namespace UnforgivenMod.Unforgiven.Content
             #endregion
 
             #region Passive
-            Language.Add(prefix + "PASSIVE_NAME", "Way of the Wanderer");
-            Language.Add(prefix + "PASSIVE_DESCRIPTION", $"<color=#FFBF66>Unforgiven</color> builds up a passive <style=cIsHealing>shield</style> while moving. " +
-                $"At max stacks, the shield breaks and grants a <style=cIsHealing>barrier</style>. <color=#FFBF66>Unforgiven</color> has <style=cIsDamage>2x crit chance</style>.");
+            Language.Add(prefix + "PASSIVE_NAME", "Way of the Wind");
+            Language.Add(prefix + "PASSIVE_DESCRIPTION", $"<color=#FFBF66>Wanderer</color> builds up a passive <style=cIsHealing>shield</style> while moving. " +
+                $"At max stacks, the <style=cIsHealing>shield</style> breaks and grants a <style=cIsHealing>barrier</style>. <color=#FFBF66>Wanderer</color> has <style=cIsDamage>2x crit chance</style>.");
             #endregion
 
             #region Primary
@@ -59,7 +62,7 @@ namespace UnforgivenMod.Unforgiven.Content
             #region Secondary
             Language.Add(prefix + "SECONDARY_STEEL_NAME", "Steel Tempest");
             Language.Add(prefix + "SECONDARY_STEEL_DESCRIPTION", $"<style=cIsUtility>Swift</style>. Stab forward dealing <style=cIsDamage>{UnforgivenStaticValues.stabDamageCoefficient * 100f}% damage</style>. " +
-                $"On hit, gain a stack of <style=cIsUtility>Gathering Storm</style>. At 3 stacks, fire a tornado dealing <style=cIsDamage>{UnforgivenStaticValues.tornadoDamageCoefficient * 100f}& damage</style>.");
+                $"On hit, gain a stack of <style=cIsUtility>Gathering Storm</style>. At 3 stacks, fire a tornado dealing <style=cIsDamage>{UnforgivenStaticValues.tornadoDamageCoefficient * 100f}% damage</style>.");
             #endregion
 
             #region Utility 
@@ -71,7 +74,8 @@ namespace UnforgivenMod.Unforgiven.Content
 
             #region Special
             Language.Add(prefix + "SPECIAL_BREATH_NAME", "Last Breath");
-            Language.Add(prefix + "SPECIAL_BREATH_DESCRIPTION", $"Dash towards an <style=cIsUtility>airborne</style> enemy then rapidly attack in an area for <style=cIsDamage>{UnforgivenStaticValues.specialFirstDamageCoefficient * 100f} x 2 + {UnforgivenStaticValues.specialFinalDamageCoefficient * 100f}% damage</style>.");
+            Language.Add(prefix + "SPECIAL_BREATH_DESCRIPTION", $"Dash towards an <style=cIsUtility>airborne</style> enemy then rapidly attack in an area for <style=cIsDamage>2x{UnforgivenStaticValues.specialFirstDamageCoefficient * 100f}% + {UnforgivenStaticValues.specialFinalDamageCoefficient * 100f}% damage</style> " +
+                $"Gain <style=cIsDamage>armor shred</style> for 6 seconds.");
             #endregion
 
             #region Achievements

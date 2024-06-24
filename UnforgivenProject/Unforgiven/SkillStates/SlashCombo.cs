@@ -41,7 +41,7 @@ namespace UnforgivenMod.Unforgiven.SkillStates
             swingSoundString = EntityStates.Merc.Weapon.GroundLight2.slash1Sound;
             hitSoundString = "";
             playbackRateParam = "Swing.playbackRate";
-            swingEffectPrefab = UnforgivenAssets.swordSwingEffect;
+            swingEffectPrefab = empowered ? UnforgivenAssets.swordSwingEmpoweredEffect : UnforgivenAssets.swordSwingEffect;
             hitEffectPrefab = UnforgivenAssets.unforgivenHitEffect;
 
             impactSound = UnforgivenAssets.swordImpactSoundEvent.index;

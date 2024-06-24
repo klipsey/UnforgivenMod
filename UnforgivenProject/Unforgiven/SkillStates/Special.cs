@@ -30,6 +30,8 @@ namespace UnforgivenMod.Unforgiven.SkillStates
         private int numRounds = 3;
 
         private int roundsCompleted = 0;
+
+        private bool hasToggled;
         public override void OnEnter()
         {
             if(NetworkServer.active) base.characterBody.AddBuff(UnforgivenBuffs.lastBreathBuff);
@@ -42,15 +44,13 @@ namespace UnforgivenMod.Unforgiven.SkillStates
             }
             base.characterBody.SetAimTimer(1.5f);
 
-            Util.PlaySound("", base.gameObject);
-
             this.roundsCompleted = 0;
             this.roundStopwatch = this.roundDuration;
             float num = (this.attackSpeedStat - 1f) * 0.5f;
             this.roundDuration /= num + 1f;
             this.crit = base.RollCrit();
 
-            base.PlayAnimation("FullBody, Override", "Special", "Slash.playbackRate", (float)this.numRounds * this.roundDuration);
+            base.PlayAnimation("FullBody, Override", "Special", "Slash.playbackRate", this.numRounds * this.roundDuration);
         }
 
         public override void OnExit()
@@ -70,6 +70,8 @@ namespace UnforgivenMod.Unforgiven.SkillStates
 
             float damage = final ? finalDamageCoefficient : damageCoefficient;
 
+            Util.PlaySound(final ? EntityStates.Merc.Weapon.GroundLight2.slash3Sound : EntityStates.Merc.Weapon.GroundLight2.slash1Sound, base.gameObject);
+
             new BlastAttack
             {
                 attacker = base.gameObject,
@@ -78,8 +80,8 @@ namespace UnforgivenMod.Unforgiven.SkillStates
                 damageColorIndex = DamageColorIndex.Default,
                 damageType = empoweredSpecial ? DamageType.BypassArmor : DamageType.Stun1s,
                 procCoefficient = 1f,
-                bonusForce = Vector3.zero,
-                baseForce = 0,
+                bonusForce = Vector3.down * 3000f,
+                baseForce = 300f,
                 baseDamage = damage * this.damageStat,
                 falloffModel = BlastAttack.FalloffModel.None,
                 radius = this.maxRange,
@@ -90,7 +92,7 @@ namespace UnforgivenMod.Unforgiven.SkillStates
                 crit = this.crit
             }.Fire();
 
-            EffectManager.SpawnEffect(UnforgivenAssets.specialSlashingEffect, new EffectData
+            EffectManager.SpawnEffect(empowered ? UnforgivenAssets.specialEmpoweredSlashingEffect : UnforgivenAssets.specialSlashingEffect, new EffectData
             {
                origin = base.transform.position,
             }, transmit: true);
@@ -157,7 +159,7 @@ namespace UnforgivenMod.Unforgiven.SkillStates
         }
         public override InterruptPriority GetMinimumInterruptPriority()
         {
-            return InterruptPriority.PrioritySkill;
+            return InterruptPriority.Death;
         }
     }
 }

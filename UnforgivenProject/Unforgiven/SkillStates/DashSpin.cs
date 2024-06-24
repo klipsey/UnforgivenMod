@@ -6,6 +6,9 @@ using System.Text;
 using UnityEngine;
 using UnityEngine.Networking;
 using UnforgivenMod.Modules.BaseStates;
+using R2API.Networking;
+using UnforgivenMod.Unforgiven.Components;
+using R2API.Networking.Interfaces;
 
 namespace UnforgivenMod.Unforgiven.SkillStates
 {
@@ -48,17 +51,15 @@ namespace UnforgivenMod.Unforgiven.SkillStates
             swingEffectPrefab = null;
             hitEffectPrefab = UnforgivenAssets.unforgivenHitEffect;
 
-            if (empowered) moddedDamageTypeHolder.Add(DamageTypes.KnockAirborne);
+            if (empowered)
+            {
+                if (NetworkServer.active) base.characterBody.ClearTimedBuffs(UnforgivenBuffs.stabMaxStacksBuff);
 
+                moddedDamageTypeHolder.Add(DamageTypes.KnockAirborne);
+            }
             impactSound = empowered ? UnforgivenAssets.nadoImpactSoundEvent.index : UnforgivenAssets.swordImpactSoundEvent.index;
 
             base.OnEnter();
-            
-            if(NetworkServer.active)
-            {
-                stacks = base.characterBody.GetBuffCount(UnforgivenBuffs.stabStackingBuff);
-                base.characterBody.ClearTimedBuffs(UnforgivenBuffs.stabStackingBuff);
-            }
         }
 
         protected override void PlayAttackAnimation()
@@ -78,34 +79,27 @@ namespace UnforgivenMod.Unforgiven.SkillStates
         protected override void OnHitEnemyAuthority()
         {
             base.OnHitEnemyAuthority();
-            if (NetworkServer.active && !hasGrantedStacks)
+            if (!hasGrantedStacks)
             {
                 hasGrantedStacks = true;
-                if (stacks == 2)
-                {
-                    base.characterBody.AddTimedBuff(UnforgivenBuffs.stabMaxStacksBuff, 8f, 1);
-                }
-                else if(!base.characterBody.HasBuff(UnforgivenBuffs.stabMaxStacksBuff))
-                {
-                    for (int i = 0; i < stacks + 1; i++)
-                    {
-                        base.characterBody.AddTimedBuff(UnforgivenBuffs.stabStackingBuff, 6f, 2);
-                    }
-                }
-                else if(empowered)
-                {
-                    base.characterBody.ClearTimedBuffs(UnforgivenBuffs.stabMaxStacksBuff);
-                }
-                if (base.characterBody.HasBuff(UnforgivenBuffs.stabMaxStacksBuff) && !hasPlayedSound)
-                {
-                    hasPlayedSound = true;
-                    Util.PlaySound("sfx_unforgiven_max_stacks", base.gameObject);
-                }
+                NetworkIdentity identity = base.gameObject.GetComponent<NetworkIdentity>();
+                if (!identity) return;
+
+                new SyncStacks(identity.netId).Send(NetworkDestination.Server);
             }
         }
         public override void OnExit()
         {
             base.OnExit();
+        }
+
+        public override InterruptPriority GetMinimumInterruptPriority()
+        {
+            if (stopwatch >= duration * earlyExitPercentTime)
+            {
+                return InterruptPriority.Any;
+            }
+            return InterruptPriority.Skill;
         }
     }
 }

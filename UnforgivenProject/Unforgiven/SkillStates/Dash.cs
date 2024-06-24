@@ -16,11 +16,14 @@ namespace UnforgivenMod.Unforgiven.SkillStates
     {
         public int targetIndex = 0;
         public CharacterBody target;
+
         private Transform modelTransform;
 
         private UnforgivenTracker tracker;
 
         private HurtBoxGroup hurtboxGroup;
+
+        private OverlapAttack overlapAttack;
 
         private Vector3 direction;
         private float distance;
@@ -123,36 +126,15 @@ namespace UnforgivenMod.Unforgiven.SkillStates
 
         private void Fire()
         {
-            if (!this.hasFired)
+            if (base.isAuthority && !this.hasFired)
             {
                 this.hasFired = true;
-                if (base.isAuthority)
-                {
-                    DamageInfo damageInfo = new DamageInfo
-                    {
-                        position = this.target.transform.position,
-                        attacker = base.gameObject,
-                        inflictor = base.gameObject,
-                        damage = this.damageCoefficient * base.damageStat,
-                        damageColorIndex = DamageColorIndex.Default,
-                        damageType = empoweredSpecial ? DamageType.BypassArmor : DamageType.Generic,
-                        crit = false,
-                        force = Vector3.zero,
-                        procChainMask = default(ProcChainMask),
-                        procCoefficient = 1f
-                    };
 
-                    this.target.healthComponent.TakeDamage(damageInfo);
-                    GlobalEventManager.instance.OnHitEnemy(damageInfo, this.target.gameObject);
-                    GlobalEventManager.instance.OnHitAll(damageInfo, this.target.gameObject);
+                overlapAttack = InitMeleeOverlap(damageCoefficient, UnforgivenAssets.unforgivenHitEffect, modelTransform, "SteelTempestHitbox");
+                overlapAttack.damageType = empoweredSpecial ? DamageType.BypassArmor : DamageType.Generic;
+                overlapAttack.isCrit = false;
 
-                    EffectManager.SpawnEffect(UnforgivenAssets.unforgivenHitEffect, new EffectData
-                    {
-                        origin = this.target.transform.position,
-                        rotation = Quaternion.identity,
-                        networkSoundEventIndex = UnforgivenAssets.swordImpactSoundEvent.index
-                    }, true);
-                }
+                overlapAttack.Fire();
             }
         }
 

@@ -10,6 +10,8 @@ using R2API;
 using UnityEngine.Rendering.PostProcessing;
 using ThreeEyedGames;
 using UnforgivenMod.Unforgiven.Components;
+using Rewired.ComponentControls.Effects;
+using static RoR2.Skills.ComboSkillDef;
 
 namespace UnforgivenMod.Unforgiven.Content
 {
@@ -38,22 +40,26 @@ namespace UnforgivenMod.Unforgiven.Content
         internal static GameObject spinSlashNadoEffect;
 
         internal static GameObject specialSlashingEffect;
+        internal static GameObject specialEmpoweredSlashingEffect;
 
-        internal static GameObject batSwingEffect;
         internal static GameObject swordSwingEffect;
+        internal static GameObject swordSwingEmpoweredEffect;
+        internal static GameObject stabSwingEffect;
         internal static GameObject unforgivenHitEffect;
 
         internal static GameObject batHitEffectRed;
 
         internal static GameObject dashEffect;
 
+        internal static GameObject realNado;
+
         //Sounds
         internal static NetworkSoundEventDef swordImpactSoundEvent;
         internal static NetworkSoundEventDef stabImpactSoundEvent;
         internal static NetworkSoundEventDef nadoImpactSoundEvent;
         //Colors
-        internal static Color unforgivenColor = new Color(137f / 255f, 186f / 255f, 217f / 255f);
-        internal static Color unforgivenSecondaryColor = new Color(216f / 255f, 191f / 255f, 216f / 255f);
+        internal static Color unforgivenColor = new Color(255f / 255f, 102f / 255f, 102f / 255f);
+        internal static Color unforgivenSecondaryColor = Color.red;
 
         //UI
         internal static GameObject throwable;
@@ -131,7 +137,57 @@ namespace UnforgivenMod.Unforgiven.Content
             EffectComponent ec2 = specialSlashingEffect.AddComponent<EffectComponent>();
             ec2.applyScale = true;
 
+            specialSlashingEffect.transform.Find("Slashes").gameObject.GetComponent<ParticleSystemRenderer>().material.SetColor("_TintColor", Color.red);
+
+            specialSlashingEffect.transform.Find("BillboardSlashes").gameObject.GetComponent<ParticleSystemRenderer>().material = Object.Instantiate(Addressables.LoadAssetAsync<Material>("RoR2/Base/Common/VFX/matOmniRadialSlash1Generic.mat").WaitForCompletion());
+            specialSlashingEffect.transform.Find("BillboardSlashes").gameObject.GetComponent<ParticleSystemRenderer>().material.SetColor("_TintColor", unforgivenColor);
+            
+            specialSlashingEffect.transform.Find("SharpSlashes").gameObject.GetComponent<ParticleSystemRenderer>().material = Object.Instantiate(Addressables.LoadAssetAsync<Material>("RoR2/Base/Common/VFX/matOmniHitspark2Generic.mat").WaitForCompletion());
+            specialSlashingEffect.transform.Find("SharpSlashes").gameObject.GetComponent<ParticleSystemRenderer>().material.SetColor("_TintColor", unforgivenColor);
+
+            var ssemain = specialSlashingEffect.transform.Find("Flashes").gameObject.GetComponent<ParticleSystem>().main;
+            ssemain.startColor = unforgivenColor;
+
+            specialSlashingEffect.transform.Find("Point Light").GetComponent<Light>().color = Color.red;
+
+            specialSlashingEffect.transform.Find("Hologram").gameObject.GetComponent<ParticleSystemRenderer>().material.SetTexture("_RemapTex", Addressables.LoadAssetAsync<Texture>("RoR2/Base/Common/ColorRamps/texRampGolemElectric.png").WaitForCompletion());
+            specialSlashingEffect.transform.Find("Hologram").gameObject.GetComponent<ParticleSystemRenderer>().material.SetColor("_TintColor", unforgivenColor);
+
+            specialSlashingEffect.transform.Find("HologramReturn").gameObject.GetComponent<ParticleSystemRenderer>().material.SetTexture("_RemapTex", Addressables.LoadAssetAsync<Texture>("RoR2/Base/Common/ColorRamps/texRampGolemElectric.png").WaitForCompletion());
+            specialSlashingEffect.transform.Find("HologramReturn").gameObject.GetComponent<ParticleSystemRenderer>().material.SetColor("_TintColor", unforgivenColor);
+
             Modules.Content.CreateAndAddEffectDef(specialSlashingEffect);
+
+
+            specialEmpoweredSlashingEffect = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Merc/EvisOverlapProjectileGhost.prefab").WaitForCompletion().InstantiateClone("UnforgivenSpecialEmpoweredSlash");
+            if (!specialEmpoweredSlashingEffect.GetComponent<NetworkIdentity>()) specialEmpoweredSlashingEffect.AddComponent<NetworkIdentity>();
+            Component.Destroy(specialEmpoweredSlashingEffect.GetComponent<ProjectileGhostController>());
+
+            Object.Destroy(specialEmpoweredSlashingEffect.transform.Find("Point Light").gameObject);
+
+            ec2 = specialEmpoweredSlashingEffect.AddComponent<EffectComponent>();
+            ec2.applyScale = true;
+
+            specialEmpoweredSlashingEffect.transform.Find("Slashes").gameObject.GetComponent<ParticleSystemRenderer>().material = Addressables.LoadAssetAsync<Material>("RoR2/Base/Imp/matImpSwipe.mat").WaitForCompletion();
+
+            specialEmpoweredSlashingEffect.transform.Find("BillboardSlashes").gameObject.GetComponent<ParticleSystemRenderer>().material = Object.Instantiate(Addressables.LoadAssetAsync<Material>("RoR2/Base/Common/VFX/matOmniRadialSlash1Generic.mat").WaitForCompletion());
+            specialEmpoweredSlashingEffect.transform.Find("BillboardSlashes").gameObject.GetComponent<ParticleSystemRenderer>().material.SetColor("_TintColor", unforgivenColor);
+
+            specialEmpoweredSlashingEffect.transform.Find("SharpSlashes").gameObject.GetComponent<ParticleSystemRenderer>().material = Object.Instantiate(Addressables.LoadAssetAsync<Material>("RoR2/Base/Common/VFX/matOmniHitspark2Generic.mat").WaitForCompletion());
+            specialEmpoweredSlashingEffect.transform.Find("SharpSlashes").gameObject.GetComponent<ParticleSystemRenderer>().material.SetColor("_TintColor", unforgivenColor);
+
+            ssemain = specialEmpoweredSlashingEffect.transform.Find("Flashes").gameObject.GetComponent<ParticleSystem>().main;
+            ssemain.startColor = unforgivenColor;
+
+            specialEmpoweredSlashingEffect.transform.Find("Point Light").GetComponent<Light>().color = Color.red;
+
+            specialEmpoweredSlashingEffect.transform.Find("Hologram").gameObject.GetComponent<ParticleSystemRenderer>().material.SetTexture("_RemapTex", Addressables.LoadAssetAsync<Texture>("RoR2/Base/Common/ColorRamps/texRampGolemElectric.png").WaitForCompletion());
+            specialEmpoweredSlashingEffect.transform.Find("Hologram").gameObject.GetComponent<ParticleSystemRenderer>().material.SetColor("_TintColor", unforgivenColor);
+
+            specialEmpoweredSlashingEffect.transform.Find("HologramReturn").gameObject.GetComponent<ParticleSystemRenderer>().material.SetTexture("_RemapTex", Addressables.LoadAssetAsync<Texture>("RoR2/Base/Common/ColorRamps/texRampGolemElectric.png").WaitForCompletion());
+            specialEmpoweredSlashingEffect.transform.Find("HologramReturn").gameObject.GetComponent<ParticleSystemRenderer>().material.SetColor("_TintColor", unforgivenColor);
+
+            Modules.Content.CreateAndAddEffectDef(specialEmpoweredSlashingEffect);
 
             windExplosionEffect = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/ImpBoss/ImpBossBlink.prefab").WaitForCompletion().InstantiateClone("RoughneckBeerExplosion", false);
 
@@ -181,17 +237,22 @@ namespace UnforgivenMod.Unforgiven.Content
             batHitEffectRed.transform.Find("Particles").Find("TriangleSparks").gameObject.GetComponent<ParticleSystemRenderer>().material.SetColor("_TintColor", Color.red);
             Modules.Content.CreateAndAddEffectDef(batHitEffectRed);
 
-            batSwingEffect = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Merc/MercSwordSlash.prefab").WaitForCompletion().InstantiateClone("UnforgivenBatSwing", false);
-            batSwingEffect.transform.GetChild(0).GetComponent<ParticleSystemRenderer>().material = Addressables.LoadAssetAsync<Material>("RoR2/Base/Huntress/matHuntressSwingTrail.mat").WaitForCompletion();
-            var swing = batSwingEffect.transform.GetChild(0).GetComponent<ParticleSystem>().main;
+            swordSwingEffect = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Merc/MercSwordSlash.prefab").WaitForCompletion().InstantiateClone("UnforgivenSwordSwing", false);
+            swordSwingEffect.transform.GetChild(0).localScale *= 1.5f;
+            swordSwingEffect.transform.GetChild(0).GetComponent<ParticleSystemRenderer>().material.SetColor("_TintColor", Color.red);
+            var swing = swordSwingEffect.transform.GetChild(0).GetComponent<ParticleSystem>().main;
             swing.startLifetimeMultiplier *= 2f;
 
-            swordSwingEffect = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Merc/MercSwordSlash.prefab").WaitForCompletion().InstantiateClone("UnforgivenswordSwing", false);
-            swordSwingEffect.transform.GetChild(0).localScale *= 1.5f;
-            swordSwingEffect.transform.GetChild(0).GetComponent<ParticleSystemRenderer>().material = Addressables.LoadAssetAsync<Material>("RoR2/Base/Common/VFX/matGenericSwingTrail.mat").WaitForCompletion();
-            swordSwingEffect.transform.GetChild(0).GetComponent<ParticleSystemRenderer>().material.SetColor("_TintColor", unforgivenColor);
-            swing = swordSwingEffect.transform.GetChild(0).GetComponent<ParticleSystem>().main;
+            swordSwingEmpoweredEffect = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Merc/MercSwordSlash.prefab").WaitForCompletion().InstantiateClone("UnforgivenSwordEmpoweredSwing", false);
+            swordSwingEmpoweredEffect.transform.GetChild(0).localScale *= 1.5f;
+            swordSwingEmpoweredEffect.transform.GetChild(0).GetComponent<ParticleSystemRenderer>().material = Addressables.LoadAssetAsync<Material>("RoR2/Base/Imp/matImpSwipe.mat").WaitForCompletion();
+            swordSwingEmpoweredEffect.transform.GetChild(0).GetComponent<ParticleSystemRenderer>().material.SetColor("_TintColor", unforgivenColor);
+            swing = swordSwingEmpoweredEffect.transform.GetChild(0).GetComponent<ParticleSystem>().main;
             swing.startLifetimeMultiplier *= 2f;
+
+
+            stabSwingEffect = mainAssetBundle.LoadEffect("SecondaryThrust", false);
+            Component.Destroy(stabSwingEffect.GetComponent<EffectComponent>());
 
             bloodSplatterEffect = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Brother/BrotherSlamImpact.prefab").WaitForCompletion().InstantiateClone("UnforgivenSplat", true);
             bloodSplatterEffect.AddComponent<NetworkIdentity>();
@@ -221,7 +282,7 @@ namespace UnforgivenMod.Unforgiven.Content
         #region projectiles
         private static void CreateProjectiles()
         {
-            nadoPrefab = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Lemurian/Fireball.prefab").WaitForCompletion().InstantiateClone("UnforgivenTornado");
+            nadoPrefab = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Lemurian/Fireball.prefab").WaitForCompletion().InstantiateClone("UnforgivenTornadoProjectile");
             if(!nadoPrefab.GetComponent<NetworkIdentity>()) nadoPrefab.AddComponent<NetworkIdentity>();
 
             nadoPrefab.AddComponent<DamageAPI.ModdedDamageTypeHolderComponent>();
@@ -251,9 +312,22 @@ namespace UnforgivenMod.Unforgiven.Content
             nadoOverlapAttack.impactEffect = unforgivenHitEffect;
 
             ProjectileController nadoController = nadoPrefab.GetComponent<ProjectileController>();
-            nadoController.ghostPrefab = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Vulture/WindbladeProjectileGhost.prefab").WaitForCompletion().InstantiateClone("UnforgivenNadoGhost");
-            nadoController.ghostPrefab.AddComponent<NetworkIdentity>();
+            GameObject ghost = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Vulture/WindbladeProjectileGhost.prefab").WaitForCompletion().InstantiateClone("UnforgivenNadoGhost");
+            ghost.AddComponent<NetworkIdentity>();
 
+            ParticleSystemRenderer baseNadoRend = ghost.transform.Find("Holder").Find("Base").gameObject.GetComponent<ParticleSystemRenderer>();
+            
+            baseNadoRend.material.SetColor("_TintColor", Color.red);
+
+            realNado = mainAssetBundle.LoadAsset<GameObject>("UnforgivenTornado");
+            realNado.GetComponent<ParticleSystemRenderer>().material = baseNadoRend.material;
+            realNado.GetComponent<ParticleSystemRenderer>().mesh = baseNadoRend.mesh;
+            realNado.transform.SetParent(ghost.transform.Find("Holder"));
+
+            GameObject.Destroy(ghost.transform.Find("Holder").Find("Base").gameObject);
+            Component.Destroy(ghost.transform.Find("Holder").gameObject.GetComponent<RotateAroundAxis>());
+
+            nadoController.ghostPrefab = ghost;
         }
         #endregion
 

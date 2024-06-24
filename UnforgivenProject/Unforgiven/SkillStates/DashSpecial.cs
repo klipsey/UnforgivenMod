@@ -43,6 +43,7 @@ namespace UnforgivenMod.Unforgiven.SkillStates
 
         public override void OnEnter()
         {
+            RefreshState();
             base.OnEnter();
 
             if (base.characterBody && NetworkServer.active) base.characterBody.bodyFlags |= CharacterBody.BodyFlags.IgnoreFallDamage;
@@ -51,9 +52,43 @@ namespace UnforgivenMod.Unforgiven.SkillStates
             if (this.tracker)
             {
                 HurtBox h = this.tracker.GetTrackingTarget();
-                if (h && h.healthComponent && h.healthComponent.body) this.target = this.tracker.GetTrackingTarget().healthComponent.body;
+                if (h && h.healthComponent && h.healthComponent.body)
+                {
+                    this.target = this.tracker.GetTrackingTarget().healthComponent.body;
+                }
+                else
+                {
+                    HurtBox[] hurtBoxes = new SphereSearch
+                    {
+                        origin = tracker.gameObject.transform.position,
+                        radius = 40f,
+                        mask = LayerIndex.entityPrecise.mask
+                    }.RefreshCandidates().FilterCandidatesByHurtBoxTeam(TeamMask.GetEnemyTeams(this.teamComponent.teamIndex)).OrderCandidatesByDistance()
+                        .FilterCandidatesByDistinctHurtBoxEntities().GetHurtBoxes();
+                    foreach (HurtBox hurtBox2 in hurtBoxes)
+                    {
+                        if (hurtBox2 && hurtBox2.healthComponent && hurtBox2.healthComponent.body && hurtBox2.healthComponent.body.characterMotor)
+                        {
+                            if (hurtBox2.healthComponent.body.HasBuff(UnforgivenBuffs.airborneBuff) || !hurtBox2.healthComponent.body.characterMotor.isGrounded || hurtBox2.healthComponent.body.characterMotor.isFlying)
+                            {
+                                this.target = hurtBox2.healthComponent.body;
+                                break;
+                            }
+                        }
+                        else if (hurtBox2 && hurtBox2.healthComponent && hurtBox2.healthComponent.body && !hurtBox2.healthComponent.body.characterMotor)
+                        {
+                            this.target = hurtBox2.healthComponent.body;
+                            break;
+                        }
+                    }
+                }
             }
 
+            if(target == null)
+            {
+                skillLocator.special.AddOneStock();
+                return;
+            }
             base.characterMotor.Motor.ForceUnground();
 
             this.distance = (base.transform.position - this.target.coreTransform.position).magnitude + 4f;

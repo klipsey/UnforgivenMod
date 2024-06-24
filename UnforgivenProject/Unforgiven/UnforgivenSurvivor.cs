@@ -72,27 +72,15 @@ namespace UnforgivenMod.Unforgiven
                 },
                 new CustomRendererInfo
                 {
-                    childName = "CableModel",
-                },
-                new CustomRendererInfo
-                {
-                    childName = "ChestPlateModel",
-                },
-                new CustomRendererInfo
-                {
-                    childName = "AccessoryModel",
-                },
-                new CustomRendererInfo
-                {
-                    childName = "HeadModel",
-                },
-                new CustomRendererInfo
-                {
                     childName = "SheathModel",
                 },
                 new CustomRendererInfo
                 {
-                    childName = "HeadDressModel",
+                    childName = "EmpoweredSword"
+                },
+                new CustomRendererInfo
+                {
+                    childName = "ArmModel"
                 }
         };
 
@@ -415,12 +403,9 @@ namespace UnforgivenMod.Unforgiven
             defaultSkin.meshReplacements = Modules.Skins.getMeshReplacements(assetBundle, defaultRendererinfos,
                 "meshBody",
                 "meshDefaultSword",
-                "meshCables",
-                "meshChestPlate",
-                "meshAccessories",
-                "meshHead",
                 "meshSheath",
-                "meshHeadDress");
+                "meshEmpoweredSword",
+                "meshArm");
 
             //add new skindef to our list of skindefs. this is what we'll be passing to the SkinController
             /*
@@ -433,6 +418,7 @@ namespace UnforgivenMod.Unforgiven
                 }
             };
             */
+
             skins.Add(defaultSkin);
             #endregion
 
@@ -535,7 +521,7 @@ namespace UnforgivenMod.Unforgiven
             if (NetworkServer.active && self.alive || !self.godMode || self.ospTimer <= 0f)
             {
                 CharacterBody victimBody = self.body;
-                if (victimBody && victimBody.baseNameToken == "KENKO_UNFORGIVEN_NAME")
+                if (victimBody && victimBody.baseNameToken == "KENKO_UNFORGIVEN_NAME" && !damageInfo.rejected)
                 {
                     if(victimBody.TryGetComponent<UnforgivenController>(out var uCont))
                     {

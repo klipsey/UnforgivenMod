@@ -12,75 +12,69 @@ AvatarMask:
   - m_Path: 
     m_Weight: 1
   - m_Path: Armature
-    m_Weight: 1
+    m_Weight: 0
+  - m_Path: Armature/ik.head
+    m_Weight: 0
   - m_Path: Armature/ROOT
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: Armature/ROOT/base
-    m_Weight: 1
-  - m_Path: Armature/ROOT/base/CoatbackL1
-    m_Weight: 1
-  - m_Path: Armature/ROOT/base/CoatbackL1/CoatbackL2
-    m_Weight: 1
-  - m_Path: Armature/ROOT/base/CoatbackL1/CoatbackL2/CoatbackL3
-    m_Weight: 1
-  - m_Path: Armature/ROOT/base/CoatbackR1
-    m_Weight: 1
-  - m_Path: Armature/ROOT/base/CoatbackR1/CoatbackR2
-    m_Weight: 1
-  - m_Path: Armature/ROOT/base/CoatbackR1/CoatbackR2/CoatbackR3
-    m_Weight: 1
-  - m_Path: Armature/ROOT/base/CoatL1
-    m_Weight: 1
-  - m_Path: Armature/ROOT/base/CoatL1/CoatL2
-    m_Weight: 1
-  - m_Path: Armature/ROOT/base/CoatL1/CoatL2/CoatL3
-    m_Weight: 1
-  - m_Path: Armature/ROOT/base/CoatR1
-    m_Weight: 1
-  - m_Path: Armature/ROOT/base/CoatR1/CoatR2
-    m_Weight: 1
-  - m_Path: Armature/ROOT/base/CoatR1/CoatR2/CoatR3
-    m_Weight: 1
-  - m_Path: Armature/ROOT/base/ik.head
-    m_Weight: 1
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/Coat.l
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/Coat.l/Coat.l.001
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/Coat.l/Coat.l.001/Coat.l.002
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/Coat.r
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/Coat.r/Coat.r.001
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/Coat.r/Coat.r.001/Coat.r.002
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/Coatback.l
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/Coatback.l/Coatback.l.001
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/Coatback.l/Coatback.l.001/Coatback.l.002
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/Coatback.r
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/Coatback.r/Coatback.r.001
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/Coatback.r/Coatback.r.001/Coatback.r.002
+    m_Weight: 0
   - m_Path: Armature/ROOT/base/pelvis
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: Armature/ROOT/base/pelvis/thigh.l
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: Armature/ROOT/base/pelvis/thigh.l/calf.l
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: Armature/ROOT/base/pelvis/thigh.l/calf.l/foot.l
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: Armature/ROOT/base/pelvis/thigh.l/calf.l/foot.l/toe.l
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: Armature/ROOT/base/pelvis/thigh.r
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: Armature/ROOT/base/pelvis/thigh.r/calf.r
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: Armature/ROOT/base/pelvis/thigh.r/calf.r/foot.r
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: Armature/ROOT/base/pelvis/thigh.r/calf.r/foot.r/toe.r
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: Armature/ROOT/base/Ropein1
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: Armature/ROOT/base/Ropein1/Ropein2
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: Armature/ROOT/base/Ropein1/Ropein2/Ropein3
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: Armature/ROOT/base/Ropeout1
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: Armature/ROOT/base/Ropeout1/Ropeout2
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: Armature/ROOT/base/Ropeout1/Ropeout2/Ropeout3
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: Armature/ROOT/base/Sheath
-    m_Weight: 1
-  - m_Path: Armature/ROOT/base/Sleeve1
-    m_Weight: 1
-  - m_Path: Armature/ROOT/base/Sleeve1/Sleeve2
-    m_Weight: 1
-  - m_Path: Armature/ROOT/base/Sleeve1/Sleeve2/Sleeve3
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: Armature/ROOT/base/stomach
     m_Weight: 1
   - m_Path: Armature/ROOT/base/stomach/spine
@@ -126,6 +120,12 @@ AvatarMask:
   - m_Path: Armature/ROOT/base/stomach/spine/spine.001/scarf/scarf.001/scarf.002
     m_Weight: 1
   - m_Path: Armature/ROOT/base/stomach/spine/spine.001/shoulder.l
+    m_Weight: 1
+  - m_Path: Armature/ROOT/base/stomach/spine/spine.001/shoulder.l/Sleeve
+    m_Weight: 1
+  - m_Path: Armature/ROOT/base/stomach/spine/spine.001/shoulder.l/Sleeve/Sleeve.001
+    m_Weight: 1
+  - m_Path: Armature/ROOT/base/stomach/spine/spine.001/shoulder.l/Sleeve/Sleeve.001/Sleeve.002
     m_Weight: 1
   - m_Path: Armature/ROOT/base/stomach/spine/spine.001/shoulder.l/upperarm.l
     m_Weight: 1
@@ -199,35 +199,37 @@ AvatarMask:
     m_Weight: 1
   - m_Path: Armature/ROOT/base/stomach/spine/spine.001/shoulder.r/upperarm.r/lowerarm.r/hand.r/weapon.r
     m_Weight: 1
+  - m_Path: Armature/ROOT/base/stomach/spine/spine.001/shoulder.r/upperarm.r/lowerarm.r/hand.r/weapon.r/weaponSmear
+    m_Weight: 1
+  - m_Path: Armature/ROOT/base/stomach/spine/spine.001/shoulder.r/upperarm.r/lowerarm.r/hand.r/weapon.r/weaponSmear/weaponSmear.001
+    m_Weight: 1
+  - m_Path: Armature/ROOT/base/stomach/spine/spine.001/shoulder.r/upperarm.r/lowerarm.r/hand.r/weapon.r/weaponSmear/weaponSmear.001/weaponSmear.002
+    m_Weight: 1
+  - m_Path: Armature/ROOT/base/stomach/spine/spine.001/shoulder.r/upperarm.r/lowerarm.r/hand.r/weapon.r/weaponSmear/weaponSmear.001/weaponSmear.002/weaponSmear.003
+    m_Weight: 1
   - m_Path: Armature/ROOT/ik.elbow.l
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: Armature/ROOT/ik.elbow.r
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: Armature/ROOT/ik.foot.l
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: Armature/ROOT/ik.foot.r
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: Armature/ROOT/ik.hand.l
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: Armature/ROOT/ik.hand.r
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: Armature/ROOT/ik.knee.l
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: Armature/ROOT/ik.knee.r
-    m_Weight: 1
-  - m_Path: meshAccessories
-    m_Weight: 1
+    m_Weight: 0
+  - m_Path: meshArm
+    m_Weight: 0
   - m_Path: meshBody
-    m_Weight: 1
-  - m_Path: meshCables
-    m_Weight: 1
-  - m_Path: meshChestPlate
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: meshDefaultSword
-    m_Weight: 1
-  - m_Path: meshHead
-    m_Weight: 1
-  - m_Path: meshHeadDress
-    m_Weight: 1
+    m_Weight: 0
+  - m_Path: meshEmpoweredSword
+    m_Weight: 0
   - m_Path: meshSheath
-    m_Weight: 1
+    m_Weight: 0
