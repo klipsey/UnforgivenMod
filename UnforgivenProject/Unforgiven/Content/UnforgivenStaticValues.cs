@@ -8,7 +8,9 @@ namespace UnforgivenMod.Unforgiven.Content
     {
         public static float swingDamageCoefficient = 2.4f;
 
-        public static float dashDamageCoefficient = 2.5f;
+        public static float dashDamageCoefficient = 2f;
+
+        public static float dashStackingDamageCoefficient = 0.75f;
 
         public static float stabDamageCoefficient = 2.6f;
 

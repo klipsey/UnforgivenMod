@@ -1,7 +1,7 @@
 {
     "name": "Wanderer",
     "author": "tsuyoikenko",
-    "version_number": "0.1.0",
+    "version_number": "0.1.2",
     "website_url": "",
     "description": "For the people that like league but hate playing it. Anims WIP.",
     "dependencies": [

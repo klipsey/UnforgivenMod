@@ -34,6 +34,13 @@ namespace UnforgivenMod.Unforgiven.SkillStates
                 return;
             }
 
+            if (b && b.state is DashSpecial)
+            {
+                b.SetNextStateToMain();
+                this.outer.SetNextState(new DashSpin());
+                return;
+            }
+
             if (empowered)
             {
                 this.outer.SetNextState(new Tornado());

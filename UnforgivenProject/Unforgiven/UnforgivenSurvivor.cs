@@ -54,7 +54,7 @@ namespace UnforgivenMod.Unforgiven
 
             maxHealth = 110f,
             healthRegen = 1.5f,
-            armor = 10f,
+            armor = 0f,
             damage = 12f,
 
             jumpCount = 1,
@@ -142,6 +142,9 @@ namespace UnforgivenMod.Unforgiven
             AddHitboxes();
             bodyPrefab.AddComponent<UnforgivenController>();
             bodyPrefab.AddComponent<UnforgivenTracker>();
+            bool tempAdd(CharacterBody body) => body.HasBuff(UnforgivenBuffs.dashCooldownBuff);
+            float pee(CharacterBody body) => body.radius;
+            TempVisualEffectAPI.AddTemporaryVisualEffect(UnforgivenAssets.dashCdEffect, pee, tempAdd);
         }
         public void AddHitboxes()
         {
@@ -245,7 +248,7 @@ namespace UnforgivenMod.Unforgiven
 
                 activationState = new SerializableEntityStateType(typeof(EnterStab)),
 
-                activationStateMachineName = "Weapon",
+                activationStateMachineName = "Weapon2",
                 interruptPriority = InterruptPriority.Skill,
 
                 baseMaxStock = 1,

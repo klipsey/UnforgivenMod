@@ -32,7 +32,7 @@ namespace UnforgivenMod.Unforgiven.SkillStates
 
         public static float stopTrackTime = 0.8f;
         private float baseDuration = 0.1f;
-        public static float extraDuration = 0.1f;
+        public float extraDuration;
         public static float extraDistance = 3.25f;
         public static float exitExtraDistance = 3.25f;
 
@@ -40,6 +40,7 @@ namespace UnforgivenMod.Unforgiven.SkillStates
         public static float basePrepDuration = 0.067f;
         private float prepDuration;
         private float prepStopwatch;
+        private bool bufferedSecondary = false;
 
         public override void OnEnter()
         {
@@ -94,6 +95,7 @@ namespace UnforgivenMod.Unforgiven.SkillStates
             this.distance = (base.transform.position - this.target.coreTransform.position).magnitude + 4f;
             this.direction = (this.target.coreTransform.position - base.transform.position).normalized;
             this.duration = this.baseDuration / this.attackSpeedStat;
+            this.extraDuration = Dash.baseExtraDuration / this.attackSpeedStat;
             this.speed = this.distance / this.duration;
             this.prepDuration = Dash.baseChainPrepDuration / this.attackSpeedStat;
 
@@ -133,16 +135,13 @@ namespace UnforgivenMod.Unforgiven.SkillStates
             base.OnExit();
         }
 
-        private bool bufferedSecondary;
-        private void ReadInputs()
-        {
-            if (this.inputBank.skill2.down || this.inputBank.skill2.wasDown) this.bufferedSecondary = true;
-        }
         public override void FixedUpdate()
         {
             base.FixedUpdate();
 
-            this.ReadInputs();
+            if (this.inputBank.skill2.wasDown || this.inputBank.skill2.down) this.bufferedSecondary = true;
+
+
             if (this.prepStopwatch >= this.prepDuration)
             {
                 this.stopwatch += Time.fixedDeltaTime;
@@ -166,22 +165,18 @@ namespace UnforgivenMod.Unforgiven.SkillStates
                 base.gameObject.layer = LayerIndex.fakeActor.intVal;
                 base.characterMotor.Motor.RebuildCollidableLayers();
 
-                if (this.stopwatch >= this.duration)
+                if (base.isAuthority && this.stopwatch >= this.duration)
                 {
-                    if(bufferedSecondary)
+                    if(this.skillLocator.secondary.CanExecute() && this.bufferedSecondary)
                     {
-                        this.outer.SetNextState(new DashSpin
-                        {
-                            buffered = bufferedSecondary
-                        });
+                        unforgivenController.bufferedSpin = true;
+                        this.skillLocator.secondary.ExecuteIfReady();
                     }
-                    else this.outer.SetNextState(new Special());
-                    return;
                 }
 
-                if (this.stopwatch >= this.duration + extraDuration)
+                if (this.stopwatch >= this.duration + Dash.baseExtraDuration)
                 {
-                    this.outer.SetNextStateToMain();
+                    this.outer.SetNextState(new Special());
                 }
 
             }

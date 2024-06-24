@@ -62,10 +62,12 @@ namespace UnforgivenMod.Unforgiven.SkillStates
             base.OnHitEnemyAuthority();
             if (!hasGrantedStacks)
             {
+                hasGrantedStacks = true;
+
                 NetworkIdentity identity = base.gameObject.GetComponent<NetworkIdentity>();
                 if (!identity) return;
 
-                new SyncStacks(identity.netId).Send(NetworkDestination.Server);
+                new SyncStacks(identity.netId, empowered).Send(NetworkDestination.Server);
             }
         }
 

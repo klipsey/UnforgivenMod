@@ -20,11 +20,15 @@ namespace UnforgivenMod.Unforgiven.Components
 
         public bool pauseTimer = false;
 
+        public bool bufferedSpin;
+
         public static float maxShieldGain = 100f;
 
         public float shieldAmount;
 
         private float shieldStopwatchInterval;
+
+        private float bufferStopwatch;
 
         private Vector3 previousPosition = Vector3.zero;
 
@@ -39,27 +43,31 @@ namespace UnforgivenMod.Unforgiven.Components
             this.skillLocator = this.GetComponent<SkillLocator>();
             this.skinController = modelLocator.modelTransform.gameObject.GetComponent<ModelSkinController>();
         }
-        public void StackBehaviour()
+        public void StackBehaviour(bool isNado = false)
         {
             if(NetworkServer.active)
             {
-                int stacks = characterBody.GetBuffCount(UnforgivenBuffs.stabStackingBuff);
-                if (stacks == 1)
+                if(!isNado) 
                 {
-                    characterBody.AddTimedBuff(UnforgivenBuffs.stabMaxStacksBuff, 8f, 1);
-                    characterBody.ClearTimedBuffs(UnforgivenBuffs.stabStackingBuff);
+                    int stacks = characterBody.GetBuffCount(UnforgivenBuffs.stabStackingBuff);
+                    if (stacks == 1)
+                    {
+                        characterBody.AddTimedBuff(UnforgivenBuffs.stabMaxStacksBuff, 8f, 1);
+                        characterBody.ClearTimedBuffs(UnforgivenBuffs.stabStackingBuff);
+                        Util.PlaySound("sfx_unforgiven_max_stacks", base.gameObject);
+                    }
+                    else
+                    {
+                        characterBody.ClearTimedBuffs(UnforgivenBuffs.stabStackingBuff);
+                        for (int i = 0; i < stacks + 1; i++)
+                        {
+                            characterBody.AddTimedBuff(UnforgivenBuffs.stabStackingBuff, 6f, 2);
+                        }
+                    }
                 }
                 else
                 {
                     characterBody.ClearTimedBuffs(UnforgivenBuffs.stabStackingBuff);
-                    for (int i = 0; i < stacks + 1; i++)
-                    {
-                        characterBody.AddTimedBuff(UnforgivenBuffs.stabStackingBuff, 6f, 2);
-                    }
-                }
-                if (characterBody.HasBuff(UnforgivenBuffs.stabMaxStacksBuff))
-                {
-                    Util.PlaySound("sfx_unforgiven_max_stacks", base.gameObject);
                 }
             }
         }
@@ -76,6 +84,12 @@ namespace UnforgivenMod.Unforgiven.Components
                 {
                     this.previousPosition = base.transform.position;
                 }
+            }
+
+            if(bufferedSpin)
+            {
+                bufferStopwatch += Time.fixedDeltaTime;
+                if(bufferStopwatch >= 1.25f / characterBody.attackSpeed) bufferedSpin = false;
             }
 
             if(shieldStopwatchInterval >= 0.25f && base.transform)

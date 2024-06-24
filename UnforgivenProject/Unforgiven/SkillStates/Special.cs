@@ -35,13 +35,16 @@ namespace UnforgivenMod.Unforgiven.SkillStates
         public override void OnEnter()
         {
             if(NetworkServer.active) base.characterBody.AddBuff(UnforgivenBuffs.lastBreathBuff);
+
             RefreshState();
+
             base.OnEnter();
 
             if (NetworkServer.active)
             {
                 base.characterBody.AddBuff(RoR2Content.Buffs.HiddenInvincibility);
             }
+
             base.characterBody.SetAimTimer(1.5f);
 
             this.roundsCompleted = 0;
@@ -92,7 +95,7 @@ namespace UnforgivenMod.Unforgiven.SkillStates
                 crit = this.crit
             }.Fire();
 
-            EffectManager.SpawnEffect(empowered ? UnforgivenAssets.specialEmpoweredSlashingEffect : UnforgivenAssets.specialSlashingEffect, new EffectData
+            EffectManager.SpawnEffect(UnforgivenAssets.specialEmpoweredSlashingEffect, new EffectData
             {
                origin = base.transform.position,
             }, transmit: true);

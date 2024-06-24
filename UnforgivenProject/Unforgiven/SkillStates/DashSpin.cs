@@ -14,13 +14,9 @@ namespace UnforgivenMod.Unforgiven.SkillStates
 {
     public class DashSpin : BaseMeleeAttack
     {
-        private bool hasPlayedSound;
-
-        public bool buffered;
-
-        private int stacks;
-
         private bool hasGrantedStacks;
+
+        private bool activateNado;
         public override void OnEnter()
         {
             RefreshState();
@@ -32,7 +28,7 @@ namespace UnforgivenMod.Unforgiven.SkillStates
             pushForce = 300f;
             bonusForce = empowered ? Vector3.up * 3000f : Vector3.zero;
             baseDuration = 0.67f;
-
+            if (unforgivenController.bufferedSpin) baseDuration = 0.35f;
             //0-1 multiplier of baseduration, used to time when the hitbox is out (usually based on the run time of the animation)
             //for example, if attackStartPercentTime is 0.5, the attack will start hitting halfway through the ability. if baseduration is 3 seconds, the attack will start happening at 1.5 seconds
             attackStartPercentTime = 0f;
@@ -48,12 +44,15 @@ namespace UnforgivenMod.Unforgiven.SkillStates
             swingSoundString = EntityStates.Merc.Weapon.GroundLight2.slash1Sound;
             hitSoundString = "sfx_unforgiven_stab";
             playbackRateParam = "Swing.playbackRate";
-            swingEffectPrefab = null;
+            muzzleString = "SpinMuzzle";
+            swingEffectPrefab = empowered ? UnforgivenAssets.spinNadoEffect : (empoweredSpecial ? UnforgivenAssets.spinEmpoweredSlashEffect : UnforgivenAssets.spinSlashEffect);
             hitEffectPrefab = UnforgivenAssets.unforgivenHitEffect;
 
             if (empowered)
             {
                 if (NetworkServer.active) base.characterBody.ClearTimedBuffs(UnforgivenBuffs.stabMaxStacksBuff);
+
+                activateNado = true;
 
                 moddedDamageTypeHolder.Add(DamageTypes.KnockAirborne);
             }
@@ -69,23 +68,57 @@ namespace UnforgivenMod.Unforgiven.SkillStates
 
         public override void FixedUpdate()
         {
-            if(buffered && stopwatch >= duration && base.isAuthority)
+            hitPauseTimer -= Time.fixedDeltaTime;
+
+            if (hitPauseTimer <= 0f && inHitPause)
             {
-                outer.SetNextState(new Special());
-                return;
+                RemoveHitstop();
             }
-            base.FixedUpdate();
+
+            if (!inHitPause)
+            {
+                stopwatch += Time.fixedDeltaTime;
+            }
+            else
+            {
+                if (characterMotor) characterMotor.velocity = Vector3.zero;
+                if (animator) animator.SetFloat(playbackRateParam, 0f);
+            }
+
+            bool fireStarted = stopwatch >= duration * attackStartPercentTime;
+            bool fireEnded = stopwatch >= duration * attackEndPercentTime;
+
+            //to guarantee attack comes out if at high attack speed the stopwatch skips past the firing duration between frames
+            if (fireStarted && !fireEnded || fireStarted && fireEnded && !hasFired)
+            {
+                if (!hasFired)
+                {
+                    EnterAttack();
+                }
+                FireAttack();
+            }
+
+            if (base.isAuthority && unforgivenController.bufferedSpin && stopwatch >= duration)
+            {
+                unforgivenController.bufferedSpin = false;
+                outer.SetNextState(new Special());
+            }
+            else if(base.isAuthority && !unforgivenController.bufferedSpin && stopwatch >= duration)
+            {
+                outer.SetNextStateToMain();
+            }
         }
         protected override void OnHitEnemyAuthority()
         {
             base.OnHitEnemyAuthority();
+
             if (!hasGrantedStacks)
             {
                 hasGrantedStacks = true;
                 NetworkIdentity identity = base.gameObject.GetComponent<NetworkIdentity>();
                 if (!identity) return;
 
-                new SyncStacks(identity.netId).Send(NetworkDestination.Server);
+                new SyncStacks(identity.netId, activateNado).Send(NetworkDestination.Server);
             }
         }
         public override void OnExit()

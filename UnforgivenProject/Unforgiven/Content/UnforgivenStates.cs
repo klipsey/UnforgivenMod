@@ -21,6 +21,7 @@ namespace UnforgivenMod.Unforgiven.Content
             Modules.Content.AddEntityState(typeof(DashSpin));
 
             Modules.Content.AddEntityState(typeof(Special));
+            Modules.Content.AddEntityState(typeof(DashSpecial));
         }
     }
 }

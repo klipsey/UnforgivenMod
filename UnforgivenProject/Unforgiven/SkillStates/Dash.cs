@@ -35,7 +35,7 @@ namespace UnforgivenMod.Unforgiven.SkillStates
         private float damageCoefficient = UnforgivenStaticValues.dashDamageCoefficient;
 
         public static float hitRange = 4.5f;
-        private float baseDuration = 0.2f;
+        private float baseDuration = 0.1f;
         public static float baseExtraDuration = 0.1f;
         private float extraDuration;
         private float minDistance = 7f;
@@ -56,7 +56,7 @@ namespace UnforgivenMod.Unforgiven.SkillStates
             if (base.characterBody && NetworkServer.active)
             {
                 base.characterBody.bodyFlags |= CharacterBody.BodyFlags.IgnoreFallDamage;
-                damageCoefficient = UnforgivenStaticValues.dashDamageCoefficient + base.characterBody.GetBuffCount(UnforgivenBuffs.stackingDashDamageBuff) * 0.75f;
+                damageCoefficient = UnforgivenStaticValues.dashDamageCoefficient + base.characterBody.GetBuffCount(UnforgivenBuffs.stackingDashDamageBuff) * UnforgivenStaticValues.dashStackingDamageCoefficient;
             }
 
             this.tracker = base.GetComponent<UnforgivenTracker>();
@@ -73,7 +73,7 @@ namespace UnforgivenMod.Unforgiven.SkillStates
                 return;
             }
 
-            this.target.AddTimedBuff(UnforgivenBuffs.dashCooldownBuff, 6f);
+            if(NetworkServer.active) this.target.AddTimedBuff(UnforgivenBuffs.dashCooldownBuff, 6f);
             base.characterMotor.Motor.ForceUnground();
 
             Vector3 corePosition = Util.GetCorePosition(target);
@@ -119,22 +119,49 @@ namespace UnforgivenMod.Unforgiven.SkillStates
             if (NetworkServer.active)
             {
                 base.characterBody.bodyFlags &= ~CharacterBody.BodyFlags.IgnoreFallDamage;
-                base.characterBody.AddTimedBuff(UnforgivenBuffs.stackingDashDamageBuff, 6f, 4);
+                int stacks = base.characterBody.GetBuffCount(UnforgivenBuffs.stackingDashDamageBuff);
+                if (stacks == 4) stacks = 3;
+                base.characterBody.ClearTimedBuffs(UnforgivenBuffs.stackingDashDamageBuff);
+                for (int i = 0; i < stacks + 1; i++)
+                {
+                    characterBody.AddTimedBuff(UnforgivenBuffs.stackingDashDamageBuff, 4f, 4);
+                }
             }
             base.OnExit();
         }
 
         private void Fire()
         {
-            if (base.isAuthority && !this.hasFired)
+            if (!this.hasFired)
             {
                 this.hasFired = true;
+                if (NetworkServer.active)
+                {
+                    DamageInfo damageInfo = new DamageInfo
+                    {
+                        position = this.target.transform.position,
+                        attacker = base.gameObject,
+                        inflictor = base.gameObject,
+                        damage = this.damageCoefficient * base.damageStat,
+                        damageColorIndex = DamageColorIndex.Default,
+                        damageType = empoweredSpecial ? DamageType.BypassArmor : DamageType.Generic,
+                        crit = RollCrit(),
+                        force = Vector3.zero,
+                        procChainMask = default(ProcChainMask),
+                        procCoefficient = 1f
+                    };
 
-                overlapAttack = InitMeleeOverlap(damageCoefficient, UnforgivenAssets.unforgivenHitEffect, modelTransform, "SteelTempestHitbox");
-                overlapAttack.damageType = empoweredSpecial ? DamageType.BypassArmor : DamageType.Generic;
-                overlapAttack.isCrit = false;
+                    this.target.healthComponent.TakeDamage(damageInfo);
+                    GlobalEventManager.instance.OnHitEnemy(damageInfo, this.target.gameObject);
+                    GlobalEventManager.instance.OnHitAll(damageInfo, this.target.gameObject);
 
-                overlapAttack.Fire();
+                    EffectManager.SpawnEffect(UnforgivenAssets.unforgivenHitEffect, new EffectData
+                    {
+                        origin = this.target.transform.position,
+                        rotation = Quaternion.identity,
+                        networkSoundEventIndex = UnforgivenAssets.swordImpactSoundEvent.index
+                    }, true);
+                }
             }
         }
 
@@ -190,6 +217,5 @@ namespace UnforgivenMod.Unforgiven.SkillStates
         {
             return InterruptPriority.PrioritySkill;
         }
-
     }
 }

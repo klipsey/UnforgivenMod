@@ -36,8 +36,7 @@ namespace UnforgivenMod.Unforgiven.Content
         internal static GameObject bloodSpurtEffect;
 
         internal static GameObject spinSlashEffect;
-
-        internal static GameObject spinSlashNadoEffect;
+        internal static GameObject spinEmpoweredSlashEffect;
 
         internal static GameObject specialSlashingEffect;
         internal static GameObject specialEmpoweredSlashingEffect;
@@ -53,6 +52,9 @@ namespace UnforgivenMod.Unforgiven.Content
 
         internal static GameObject realNado;
 
+        internal static GameObject spinNadoEffect;
+
+        internal static GameObject dashCdEffect;
         //Sounds
         internal static NetworkSoundEventDef swordImpactSoundEvent;
         internal static NetworkSoundEventDef stabImpactSoundEvent;
@@ -106,27 +108,30 @@ namespace UnforgivenMod.Unforgiven.Content
         #region effects
         private static void CreateEffects()
         {
-            spinSlashNadoEffect = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/LunarSkillReplacements/LunarSecondaryGhost.prefab").WaitForCompletion().InstantiateClone("UnforgivenSpinSlash");
-            if(!spinSlashNadoEffect.GetComponent<NetworkIdentity>()) spinSlashNadoEffect.AddComponent<NetworkIdentity>();
-            Component.Destroy(spinSlashNadoEffect.GetComponent<ProjectileGhostController>());
-            EffectComponent ec = spinSlashNadoEffect.AddComponent<EffectComponent>();
-            ec.applyScale = true;
-
-            DestroyOnTimer dot = spinSlashNadoEffect.AddComponent<DestroyOnTimer>();
-            dot.duration = 2f;
-            dot.resetAgeOnDisable = false;
-
-            Modules.Content.CreateAndAddEffectDef(spinSlashNadoEffect);
+            dashCdEffect = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Nullifier/NullifyStack3Effect.prefab").WaitForCompletion().InstantiateClone("UnforgivenDashCdEffect", false);
+            dashCdEffect.AddComponent<NetworkIdentity>();
+            dashCdEffect.transform.GetChild(0).GetChild(0).gameObject.GetComponent<MeshRenderer>().materials[0].SetColor("_TintColor", Color.clear);
+            dashCdEffect.transform.GetChild(0).GetChild(1).gameObject.GetComponent<MeshRenderer>().materials[0].SetColor("_TintColor", Color.clear);
+            dashCdEffect.transform.GetChild(0).GetChild(2).gameObject.GetComponent<MeshRenderer>().materials[0].SetColor("_TintColor", Color.clear);
 
             spinSlashEffect = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Merc/MercSwordSlashWhirlwind.prefab").WaitForCompletion().InstantiateClone("UnforgivenSpinSlash");
             if(!spinSlashEffect.GetComponent<NetworkIdentity>()) spinSlashEffect.AddComponent<NetworkIdentity>();
 
+            spinSlashEffect.transform.GetChild(0).gameObject.GetComponent<ParticleSystemRenderer>().material.SetColor("_TintColor", Color.red);
+
             spinSlashEffect.transform.GetChild(0).localScale *= 1.5f;
 
-            var fard = spinSlashEffect.transform.GetChild(0).gameObject.GetComponent<ParticleSystem>().main;
-            fard.startLifetimeMultiplier = 2f;
-
             Modules.Content.CreateAndAddEffectDef(spinSlashEffect);
+
+            spinEmpoweredSlashEffect = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Merc/MercSwordSlashWhirlwind.prefab").WaitForCompletion().InstantiateClone("UnforgivenSpinSlashEmpowered");
+            if (!spinEmpoweredSlashEffect.GetComponent<NetworkIdentity>()) spinEmpoweredSlashEffect.AddComponent<NetworkIdentity>();
+
+            spinEmpoweredSlashEffect.transform.GetChild(0).gameObject.GetComponent<ParticleSystemRenderer>().material = Object.Instantiate(Addressables.LoadAssetAsync<Material>("RoR2/Base/Imp/matImpSwipe.mat").WaitForCompletion());
+
+            spinEmpoweredSlashEffect.transform.GetChild(0).localScale *= 1.5f;
+
+            Modules.Content.CreateAndAddEffectDef(spinEmpoweredSlashEffect);
+
 
             specialSlashingEffect = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Merc/EvisOverlapProjectileGhost.prefab").WaitForCompletion().InstantiateClone("UnforgivenSpecialSlash");
             if (!specialSlashingEffect.GetComponent<NetworkIdentity>()) specialSlashingEffect.AddComponent<NetworkIdentity>();
@@ -323,6 +328,20 @@ namespace UnforgivenMod.Unforgiven.Content
             realNado.GetComponent<ParticleSystemRenderer>().material = baseNadoRend.material;
             realNado.GetComponent<ParticleSystemRenderer>().mesh = baseNadoRend.mesh;
             realNado.transform.SetParent(ghost.transform.Find("Holder"));
+
+            spinNadoEffect = mainAssetBundle.LoadAsset<GameObject>("UnforgivenTornado").InstantiateClone("UnforgivenSpinTornado");
+            spinNadoEffect.AddComponent<NetworkIdentity>();
+            spinNadoEffect.transform.rotation = new Quaternion(0f, Quaternion.identity.y, Quaternion.identity.z, Quaternion.identity.w);
+            var main2 = spinNadoEffect.GetComponent<ParticleSystem>().main;
+            main2.loop = false;
+            main2.duration = 0.5f;
+            spinNadoEffect.GetComponent<ParticleSystemRenderer>().material = baseNadoRend.material;
+            spinNadoEffect.GetComponent<ParticleSystemRenderer>().mesh = baseNadoRend.mesh;
+
+            spinNadoEffect.AddComponent<EffectComponent>();
+            spinNadoEffect.GetComponent<EffectComponent>().positionAtReferencedTransform = true;
+
+            Modules.Content.CreateAndAddEffectDef(spinNadoEffect);
 
             GameObject.Destroy(ghost.transform.Find("Holder").Find("Base").gameObject);
             Component.Destroy(ghost.transform.Find("Holder").gameObject.GetComponent<RotateAroundAxis>());

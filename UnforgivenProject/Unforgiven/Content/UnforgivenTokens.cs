@@ -68,7 +68,7 @@ namespace UnforgivenMod.Unforgiven.Content
             #region Utility 
             Language.Add(prefix + "UTILITY_SWEEP_NAME", "Sweeping Blade");
             Language.Add(prefix + "UTILITY_SWEEP_DESCRIPTION", $"Dash towards an enemy dealing <style=cIsDamage>{UnforgivenStaticValues.dashDamageCoefficient * 100f}% damage</style>. " +
-                $"After each dash, your next dash will deal and additional <style=cIsDamage>75% damage</style> up to a cap of <style=cIsDamage>300% damage</style>.");
+                $"After each dash, your next dash will deal and additional <style=cIsDamage>{UnforgivenStaticValues.dashStackingDamageCoefficient * 100f}% damage</style> up to a cap of <style=cIsDamage>{UnforgivenStaticValues.dashStackingDamageCoefficient * 4f * 100f}% damage</style>.");
 
             #endregion
 

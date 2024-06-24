@@ -44,15 +44,15 @@ namespace UnforgivenMod.Modules.BaseStates
         protected NetworkSoundEventIndex impactSound = NetworkSoundEventIndex.Invalid;
 
         public float duration;
-        private bool hasFired;
-        private float hitPauseTimer;
-        private OverlapAttack attack;
+        protected bool hasFired;
+        protected float hitPauseTimer;
+        protected OverlapAttack attack;
         protected bool inHitPause;
-        private bool hasHopped;
+        protected bool hasHopped;
         protected float stopwatch;
         protected Animator animator;
-        private HitStopCachedState hitStopCachedState;
-        private Vector3 storedVelocity;
+        protected HitStopCachedState hitStopCachedState;
+        protected Vector3 storedVelocity;
 
         public override void OnEnter()
         {
@@ -142,7 +142,7 @@ namespace UnforgivenMod.Modules.BaseStates
             }
         }
 
-        private void EnterAttack()
+        protected void EnterAttack()
         {
             hasFired = true;
             Util.PlayAttackSpeedSound(swingSoundString, gameObject, attackSpeedStat);
@@ -196,7 +196,7 @@ namespace UnforgivenMod.Modules.BaseStates
             }
         }
 
-        private void RemoveHitstop()
+        protected void RemoveHitstop()
         {
             ConsumeHitStopCachedState(hitStopCachedState, characterMotor, animator);
             inHitPause = false;
