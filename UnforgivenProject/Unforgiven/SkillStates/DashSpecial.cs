@@ -18,8 +18,6 @@ namespace UnforgivenMod.Unforgiven.SkillStates
         public CharacterBody target;
         private Transform modelTransform;
 
-        private UnforgivenTracker tracker;
-
         private HurtBoxGroup hurtboxGroup;
 
         private Vector3 lastKnownPosition;
@@ -47,49 +45,75 @@ namespace UnforgivenMod.Unforgiven.SkillStates
             RefreshState();
             base.OnEnter();
 
-            if (base.characterBody && NetworkServer.active) base.characterBody.bodyFlags |= CharacterBody.BodyFlags.IgnoreFallDamage;
+            RaycastHit hitInfo;
+            Vector3 position = !inputBank.GetAimRaycast(60f, out hitInfo) ? Vector3.MoveTowards(inputBank.GetAimRay().GetPoint(60f), transform.position, 5f) : Vector3.MoveTowards(hitInfo.point, transform.position, 5f);
+            position.y += 2.5f;
 
-            this.tracker = base.GetComponent<UnforgivenTracker>();
-            if (this.tracker)
+            HurtBox[] hurtBoxes = new SphereSearch
             {
-                HurtBox h = this.tracker.GetTrackingTarget();
-                if (h && h.healthComponent && h.healthComponent.body)
+                origin = position,
+                radius = 30f,
+                mask = LayerIndex.entityPrecise.mask
+            }.RefreshCandidates().FilterCandidatesByHurtBoxTeam(TeamMask.GetEnemyTeams(this.teamComponent.teamIndex)).OrderCandidatesByDistance()
+                .FilterCandidatesByDistinctHurtBoxEntities().GetHurtBoxes();
+
+            if(hurtBoxes.Length > 0 )
+            {
+                foreach (HurtBox hurtBox in hurtBoxes)
                 {
-                    this.target = this.tracker.GetTrackingTarget().healthComponent.body;
-                }
-                else
-                {
-                    HurtBox[] hurtBoxes = new SphereSearch
+                    if (hurtBox && hurtBox.healthComponent && hurtBox.healthComponent.body && hurtBox.healthComponent.body.characterMotor)
                     {
-                        origin = tracker.gameObject.transform.position,
-                        radius = 40f,
-                        mask = LayerIndex.entityPrecise.mask
-                    }.RefreshCandidates().FilterCandidatesByHurtBoxTeam(TeamMask.GetEnemyTeams(this.teamComponent.teamIndex)).OrderCandidatesByDistance()
-                        .FilterCandidatesByDistinctHurtBoxEntities().GetHurtBoxes();
-                    foreach (HurtBox hurtBox2 in hurtBoxes)
-                    {
-                        if (hurtBox2 && hurtBox2.healthComponent && hurtBox2.healthComponent.body && hurtBox2.healthComponent.body.characterMotor)
+                        if (hurtBox.healthComponent.body.HasBuff(UnforgivenBuffs.airborneBuff) || !hurtBox.healthComponent.body.characterMotor.isGrounded || hurtBox.healthComponent.body.characterMotor.isFlying)
                         {
-                            if (hurtBox2.healthComponent.body.HasBuff(UnforgivenBuffs.airborneBuff) || !hurtBox2.healthComponent.body.characterMotor.isGrounded || hurtBox2.healthComponent.body.characterMotor.isFlying)
-                            {
-                                this.target = hurtBox2.healthComponent.body;
-                                break;
-                            }
-                        }
-                        else if (hurtBox2 && hurtBox2.healthComponent && hurtBox2.healthComponent.body && !hurtBox2.healthComponent.body.characterMotor)
-                        {
-                            this.target = hurtBox2.healthComponent.body;
+                            this.target = hurtBox.healthComponent.body;
                             break;
                         }
+                    }
+                    else if (hurtBox && hurtBox.healthComponent && hurtBox.healthComponent.body && !hurtBox.healthComponent.body.characterMotor)
+                    {
+                        this.target = hurtBox.healthComponent.body;
+                        break;
                     }
                 }
             }
 
-            if(target == null)
+            if(!target)
+            {
+                HurtBox[] hurtBoxes2 = new SphereSearch
+                {
+                    origin = base.transform.position,
+                    radius = 60f,
+                    mask = LayerIndex.entityPrecise.mask
+                }.RefreshCandidates().FilterCandidatesByHurtBoxTeam(TeamMask.GetEnemyTeams(this.teamComponent.teamIndex)).OrderCandidatesByDistance()
+                .FilterCandidatesByDistinctHurtBoxEntities().GetHurtBoxes();
+                foreach (HurtBox hurtBox in hurtBoxes2)
+                {
+                    if (hurtBox && hurtBox.healthComponent && hurtBox.healthComponent.body && hurtBox.healthComponent.body.characterMotor)
+                    {
+                        if (hurtBox.healthComponent.body.HasBuff(UnforgivenBuffs.airborneBuff) || !hurtBox.healthComponent.body.characterMotor.isGrounded || hurtBox.healthComponent.body.characterMotor.isFlying)
+                        {
+                            this.target = hurtBox.healthComponent.body;
+                            break;
+                        }
+                    }
+                    else if (hurtBox && hurtBox.healthComponent && hurtBox.healthComponent.body && !hurtBox.healthComponent.body.characterMotor)
+                    {
+                        this.target = hurtBox.healthComponent.body;
+                        break;
+                    }
+                }
+            }
+
+
+            if(!this.target)
             {
                 skillLocator.special.AddOneStock();
+                outer.SetNextStateToMain();
                 return;
             }
+
+            if (base.characterBody && NetworkServer.active) base.characterBody.bodyFlags |= CharacterBody.BodyFlags.IgnoreFallDamage;
+
             base.characterMotor.Motor.ForceUnground();
 
             this.distance = (base.transform.position - this.target.coreTransform.position).magnitude + 4f;

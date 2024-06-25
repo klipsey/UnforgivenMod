@@ -78,14 +78,6 @@ namespace UnforgivenMod.Unforgiven.Components
         {
             shieldStopwatchInterval += Time.fixedDeltaTime;
 
-            if(previousPosition == Vector3.zero)
-            {
-                if(base.transform)
-                {
-                    this.previousPosition = base.transform.position;
-                }
-            }
-
             if(bufferedSpin)
             {
                 bufferStopwatch += Time.fixedDeltaTime;

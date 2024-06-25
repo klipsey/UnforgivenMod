@@ -47,7 +47,7 @@ namespace UnforgivenMod.Unforgiven
 
             characterPortrait = assetBundle.LoadAsset<Texture>("texUnforgivenIcon"),
             bodyColor = UnforgivenAssets.unforgivenColor,
-            sortPosition = 69f,
+            sortPosition = 7.9f,
 
             crosshair = Modules.Assets.LoadCrosshair("Standard"),
             podPrefab = RoR2.LegacyResourcesAPI.Load<GameObject>("Prefabs/NetworkedObjects/SurvivorPod"),
@@ -563,6 +563,7 @@ namespace UnforgivenMod.Unforgiven
                 if (self.baseNameToken == "KENKO_UNFORGIVEN_NAME")
                 {
                     self.crit *= 2f;
+                    self.critMultiplier *= 0.9f;
                 }
             }
         }

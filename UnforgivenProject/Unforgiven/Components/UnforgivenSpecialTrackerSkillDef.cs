@@ -10,57 +10,42 @@ namespace UnforgivenMod.Unforgiven.Components
     {
         protected class InstanceData : BaseSkillInstanceData
         {
-            public UnforgivenTracker tracker;        
+            public CharacterBody body;        
         }
 
         public override BaseSkillInstanceData OnAssigned([NotNull] GenericSkill skillSlot)
         {
             return new InstanceData
             {
-                tracker = skillSlot.GetComponent<UnforgivenTracker>(),            
+                body = skillSlot.gameObject.GetComponent<CharacterBody>(),            
             };
         }
 
         private static bool HasTarget([NotNull] GenericSkill skillSlot)
         {
-            UnforgivenTracker tracker = ((UnforgivenSpecialTrackerSkillDef.InstanceData)skillSlot.skillInstanceData).tracker;
+            CharacterBody body = ((UnforgivenSpecialTrackerSkillDef.InstanceData)skillSlot.skillInstanceData).body;
             bool target = false;
-            if (tracker)
+            if (body)
             {
-                HurtBox hurtBox = tracker.GetTrackingTarget();
-                if (hurtBox && hurtBox.healthComponent && hurtBox.healthComponent.body && hurtBox.healthComponent.body.characterMotor)
+                HurtBox[] hurtBoxes = new SphereSearch
                 {
-                    if (hurtBox.healthComponent.body.HasBuff(UnforgivenBuffs.airborneBuff) || !hurtBox.healthComponent.body.characterMotor.isGrounded || hurtBox.healthComponent.body.characterMotor.isFlying)
-                    {
-                        target = true;
-                    }
-                }
-                else if(hurtBox && hurtBox.healthComponent && hurtBox.healthComponent.body && !hurtBox.healthComponent.body.characterMotor)
+                    origin = body.corePosition,
+                    radius = 60f,
+                    mask = LayerIndex.entityPrecise.mask
+                }.RefreshCandidates().FilterCandidatesByHurtBoxTeam(TeamMask.GetEnemyTeams(body.teamComponent.teamIndex)).OrderCandidatesByDistance()
+                .FilterCandidatesByDistinctHurtBoxEntities().GetHurtBoxes();
+                foreach(HurtBox hurtBox2 in hurtBoxes)
                 {
-                    target = true;
-                }
-                else
-                {
-                    HurtBox[] hurtBoxes = new SphereSearch
+                    if (hurtBox2 && hurtBox2.healthComponent && hurtBox2.healthComponent.body && hurtBox2.healthComponent.body.characterMotor)
                     {
-                        origin = tracker.gameObject.transform.position,
-                        radius = 40f,
-                        mask = LayerIndex.entityPrecise.mask
-                    }.RefreshCandidates().FilterCandidatesByHurtBoxTeam(TeamMask.GetEnemyTeams(tracker.gameObject.GetComponent<CharacterBody>().teamComponent.teamIndex)).OrderCandidatesByDistance()
-                    .FilterCandidatesByDistinctHurtBoxEntities().GetHurtBoxes();
-                    foreach(HurtBox hurtBox2 in hurtBoxes)
-                    {
-                        if (hurtBox2 && hurtBox2.healthComponent && hurtBox2.healthComponent.body && hurtBox2.healthComponent.body.characterMotor)
-                        {
-                            if (hurtBox2.healthComponent.body.HasBuff(UnforgivenBuffs.airborneBuff) || !hurtBox2.healthComponent.body.characterMotor.isGrounded || hurtBox2.healthComponent.body.characterMotor.isFlying)
-                            {
-                                target = true;
-                            }
-                        }
-                        else if (hurtBox2 && hurtBox2.healthComponent && hurtBox2.healthComponent.body && !hurtBox2.healthComponent.body.characterMotor)
+                        if (hurtBox2.healthComponent.body.HasBuff(UnforgivenBuffs.airborneBuff) || !hurtBox2.healthComponent.body.characterMotor.isGrounded || hurtBox2.healthComponent.body.characterMotor.isFlying)
                         {
                             target = true;
                         }
+                    }
+                    else if (hurtBox2 && hurtBox2.healthComponent && hurtBox2.healthComponent.body && !hurtBox2.healthComponent.body.characterMotor)
+                    {
+                        target = true;
                     }
                 }
             }
