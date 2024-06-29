@@ -1,3 +1,7 @@
+# 0.5.2
+
+- Quick cleanup
+
 # 0.5.1
 
 - Networked

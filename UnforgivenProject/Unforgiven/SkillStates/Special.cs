@@ -8,6 +8,7 @@ using UnityEngine;
 using UnforgivenMod.Modules.BaseStates;
 using UnforgivenMod.Unforgiven.Components;
 using UnforgivenMod.Unforgiven.Content;
+using UnityEngine.AddressableAssets;
 
 namespace UnforgivenMod.Unforgiven.SkillStates
 {
@@ -57,6 +58,18 @@ namespace UnforgivenMod.Unforgiven.SkillStates
 
             this.unforgivenController.Unsheath();
             base.PlayAnimation("FullBody, Override", "Special", "Slash.playbackRate", this.numRounds * this.roundDuration);
+            Transform modelTransform = characterBody.modelLocator.modelTransform;
+            if(modelTransform)
+            {
+                Animator animator = modelTransform.GetComponent<Animator>();
+                TemporaryOverlay temporaryOverlay = animator.gameObject.AddComponent<TemporaryOverlay>();
+                temporaryOverlay.duration = 1.2f;
+                temporaryOverlay.destroyComponentOnEnd = true;
+                temporaryOverlay.originalMaterial = UnforgivenAssets.specialMaterial;
+                temporaryOverlay.inspectorCharacterModel = animator.gameObject.GetComponent<CharacterModel>();
+                temporaryOverlay.alphaCurve = AnimationCurve.EaseInOut(0f, 1f, 1f, 0f);
+                temporaryOverlay.animateShaderAlpha = true;
+            }
         }
 
         public override void OnExit()

@@ -61,6 +61,8 @@ namespace UnforgivenMod.Unforgiven.Content
         internal static GameObject shieldEffect;
 
         internal static GameObject nadoUpEffect;
+
+        internal static Material specialMaterial;
         //Sounds
         internal static NetworkSoundEventDef swordImpactSoundEvent;
         internal static NetworkSoundEventDef stabImpactSoundEvent;
@@ -111,6 +113,7 @@ namespace UnforgivenMod.Unforgiven.Content
 
         private static void CreateMaterials()
         {
+            specialMaterial = Addressables.LoadAssetAsync<Material>("RoR2/Base/Imp/matImpBossDissolve.mat").WaitForCompletion();
         }
 
         private static void CreateModels()
@@ -253,8 +256,30 @@ namespace UnforgivenMod.Unforgiven.Content
             dashEffect.transform.Find("Dash").GetComponent<ParticleSystemRenderer>().material.SetColor("_TintColor", unforgivenColor);
             Modules.Content.CreateAndAddEffectDef(dashEffect);
 
-            unforgivenHitEffect = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Bandit2/HitsparkBandit.prefab").WaitForCompletion().InstantiateClone("UnforgivenHitEffect");
+            unforgivenHitEffect = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Merc/OmniImpactVFXSlashMerc.prefab").WaitForCompletion().InstantiateClone("WandererImpact", false);
             unforgivenHitEffect.AddComponent<NetworkIdentity>();
+            unforgivenHitEffect.GetComponent<OmniEffect>().enabled = false;
+            Material material = Object.Instantiate(Addressables.LoadAssetAsync<Material>("RoR2/Base/Merc/matOmniHitspark3Merc.mat").WaitForCompletion());
+            material.SetColor("_TintColor", Color.red);
+            unforgivenHitEffect.transform.GetChild(1).gameObject.GetComponent<ParticleSystemRenderer>().material = material;
+            unforgivenHitEffect.transform.GetChild(2).localScale = Vector3.one * 1.5f;
+            unforgivenHitEffect.transform.GetChild(2).gameObject.GetComponent<ParticleSystemRenderer>().material = Object.Instantiate(Addressables.LoadAssetAsync<Material>("RoR2/DLC1/VoidSurvivor/matVoidSurvivorBlasterFireCorrupted.mat").WaitForCompletion());
+            material = Object.Instantiate(Addressables.LoadAssetAsync<Material>("RoR2/Base/Imp/matImpSlashImpact.mat").WaitForCompletion());
+            unforgivenHitEffect.transform.GetChild(5).gameObject.GetComponent<ParticleSystemRenderer>().material = material;
+            unforgivenHitEffect.transform.GetChild(4).localScale = Vector3.one * 3f;
+            unforgivenHitEffect.transform.GetChild(4).gameObject.GetComponent<ParticleSystemRenderer>().material = Object.Instantiate(Addressables.LoadAssetAsync<Material>("RoR2/Base/Imp/matImpDust.mat").WaitForCompletion());
+            unforgivenHitEffect.transform.GetChild(6).GetChild(0).gameObject.GetComponent<ParticleSystemRenderer>().material = Object.Instantiate(Addressables.LoadAssetAsync<Material>("RoR2/DLC1/Common/Void/matOmniHitspark1Void.mat").WaitForCompletion());
+            unforgivenHitEffect.transform.GetChild(6).gameObject.GetComponent<ParticleSystemRenderer>().material = Object.Instantiate(Addressables.LoadAssetAsync<Material>("RoR2/DLC1/Common/Void/matOmniHitspark2Void.mat").WaitForCompletion());
+            unforgivenHitEffect.transform.GetChild(1).localScale = Vector3.one * 1.5f;
+            unforgivenHitEffect.transform.GetChild(1).gameObject.SetActive(true);
+            unforgivenHitEffect.transform.GetChild(2).gameObject.SetActive(true);
+            unforgivenHitEffect.transform.GetChild(3).gameObject.SetActive(true);
+            unforgivenHitEffect.transform.GetChild(4).gameObject.SetActive(true);
+            unforgivenHitEffect.transform.GetChild(5).gameObject.SetActive(true);
+            unforgivenHitEffect.transform.GetChild(6).gameObject.SetActive(true);
+            unforgivenHitEffect.transform.GetChild(6).GetChild(0).gameObject.SetActive(true);
+            unforgivenHitEffect.transform.GetChild(6).transform.localScale = new Vector3(1f, 1f, 3f);
+            unforgivenHitEffect.transform.localScale = Vector3.one * 1.5f;
             Modules.Content.CreateAndAddEffectDef(unforgivenHitEffect);
 
             batHitEffectRed = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Bandit2/HitsparkBandit.prefab").WaitForCompletion().InstantiateClone("InterreogatorBatRedHitEffect");
