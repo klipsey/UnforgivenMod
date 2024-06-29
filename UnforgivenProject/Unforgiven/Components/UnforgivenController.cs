@@ -1,4 +1,6 @@
-﻿using RoR2;
+﻿using R2API.Networking;
+using R2API.Networking.Interfaces;
+using RoR2;
 using RoR2.HudOverlay;
 using System;
 using UnforgivenMod.Unforgiven.Content;
@@ -57,7 +59,11 @@ namespace UnforgivenMod.Unforgiven.Components
                         characterBody.AddTimedBuff(UnforgivenBuffs.stabMaxStacksBuff, 8f, 1);
                         characterBody.ClearTimedBuffs(UnforgivenBuffs.stabStackingBuff);
                         Util.PlaySound("sfx_unforgiven_max_stacks", base.gameObject);
-                        this.characterBody.skillLocator.secondary.skillDef.icon = UnforgivenAssets.secondaryEmpoweredIcon;
+
+                        NetworkIdentity identity = base.gameObject.GetComponent<NetworkIdentity>();
+                        if (!identity) return;
+
+                        new SyncIcon(identity.netId, true).Send(NetworkDestination.Clients);
                     }
                     else
                     {
@@ -118,7 +124,13 @@ namespace UnforgivenMod.Unforgiven.Components
 
             if (this.characterBody.skillLocator.secondary.skillDef.icon != UnforgivenAssets.secondaryIcon)
             {
-                if(!this.characterBody.HasBuff(UnforgivenBuffs.stabMaxStacksBuff)) this.characterBody.skillLocator.secondary.skillDef.icon = UnforgivenAssets.secondaryIcon;
+                if (!this.characterBody.HasBuff(UnforgivenBuffs.stabMaxStacksBuff))
+                {
+                    NetworkIdentity identity = base.gameObject.GetComponent<NetworkIdentity>();
+                    if (!identity) return;
+
+                    new SyncIcon(identity.netId, false).Send(NetworkDestination.Clients);
+                }
             }
         }
 
