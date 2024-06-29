@@ -22,6 +22,8 @@ Contact me on Discord: https://discord.gg/3NaMEsvYeD
 
 tsuyoikenko - Everything.
 
+Zebra - Has exploded. Goodbye.
+
 orbeezeater - Skills base code taken from deprecated Yasuo mod.
 
 TheTimeSweeper - Incredible new Henry template.

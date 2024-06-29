@@ -1,9 +1,9 @@
 {
     "name": "Wanderer",
     "author": "tsuyoikenko",
-    "version_number": "0.1.2",
+    "version_number": "0.5.1",
     "website_url": "",
-    "description": "For the people that like league but hate playing it. Anims WIP.",
+    "description": "Adds the Wanderer. - Removed Zebra - Networked",
     "dependencies": [
         "bbepis-BepInExPack-5.4.1905",
         "RiskofThunder-R2API_Core-5.0.3",

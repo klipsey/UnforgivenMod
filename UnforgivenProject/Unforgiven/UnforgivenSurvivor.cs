@@ -143,8 +143,14 @@ namespace UnforgivenMod.Unforgiven
             bodyPrefab.AddComponent<UnforgivenController>();
             bodyPrefab.AddComponent<UnforgivenTracker>();
             bool tempAdd(CharacterBody body) => body.HasBuff(UnforgivenBuffs.dashCooldownBuff);
-            float pee(CharacterBody body) => body.radius;
-            TempVisualEffectAPI.AddTemporaryVisualEffect(UnforgivenAssets.dashCdEffect, pee, tempAdd);
+            bool tempAddShield(CharacterBody body) => body.HasBuff(UnforgivenBuffs.hasShieldBuff);
+            bool tempNadoUp(CharacterBody body) => body.HasBuff(UnforgivenBuffs.stabMaxStacksBuff);
+            float pee(CharacterBody body) => body.radius * 1.5f;
+            float pee2(CharacterBody body) => body.radius;
+            float pee3(CharacterBody body) => body.radius * 5f;
+            TempVisualEffectAPI.AddTemporaryVisualEffect(UnforgivenAssets.shieldEffect, pee, tempAddShield);
+            TempVisualEffectAPI.AddTemporaryVisualEffect(UnforgivenAssets.dashCdEffect, pee2, tempAdd);
+            TempVisualEffectAPI.AddTemporaryVisualEffect(UnforgivenAssets.nadoUpEffect, pee3, tempNadoUp);
         }
         public void AddHitboxes()
         {
@@ -195,7 +201,7 @@ namespace UnforgivenMod.Unforgiven
                 skillName = UNFORGIVEN_PREFIX + "PASSIVE_NAME",
                 skillNameToken = UNFORGIVEN_PREFIX + "PASSIVE_NAME",
                 skillDescriptionToken = UNFORGIVEN_PREFIX + "PASSIVE_DESCRIPTION",
-                skillIcon = assetBundle.LoadAsset<Sprite>("texUnforgivenPassive"),
+                skillIcon = assetBundle.LoadAsset<Sprite>("texPassiveIcon"),
                 keywordTokens = new string[] { },
                 activationState = new EntityStates.SerializableEntityStateType(typeof(EntityStates.Idle)),
                 activationStateMachineName = "",
@@ -220,12 +226,12 @@ namespace UnforgivenMod.Unforgiven
 
         private void AddPrimarySkills()
         {
-            SteppedSkillDef unforgivenPrimary = Skills.CreateSkillDef<SteppedSkillDef>(new SkillDefInfo
+            UnforgivenSteppedSkillDef unforgivenPrimary = Skills.CreateSkillDef<UnforgivenSteppedSkillDef>(new SkillDefInfo
                 (
                     "Swift Strikes",
                     UNFORGIVEN_PREFIX + "PRIMARY_SWING_NAME",
                     UNFORGIVEN_PREFIX + "PRIMARY_SWING_DESCRIPTION",
-                    assetBundle.LoadAsset<Sprite>("tex"),
+                    assetBundle.LoadAsset<Sprite>("texPrimaryIcon"),
                     new SerializableEntityStateType(typeof(SlashCombo)),
                     "Weapon"
                 ));
@@ -244,7 +250,7 @@ namespace UnforgivenMod.Unforgiven
                 skillNameToken = UNFORGIVEN_PREFIX + "SECONDARY_STEEL_NAME",
                 skillDescriptionToken = UNFORGIVEN_PREFIX + "SECONDARY_STEEL_DESCRIPTION",
                 keywordTokens = new string[] { Tokens.agileKeyword, Tokens.unforgivenSwiftKeyword },
-                skillIcon = assetBundle.LoadAsset<Sprite>("tex"),
+                skillIcon = assetBundle.LoadAsset<Sprite>("texSecondaryIcon"),
 
                 activationState = new SerializableEntityStateType(typeof(EnterStab)),
 
@@ -280,7 +286,7 @@ namespace UnforgivenMod.Unforgiven
                 skillNameToken = UNFORGIVEN_PREFIX + "UTILITY_SWEEP_NAME",
                 skillDescriptionToken = UNFORGIVEN_PREFIX + "UTILITY_SWEEP_DESCRIPTION",
                 keywordTokens = new string[] { },
-                skillIcon = assetBundle.LoadAsset<Sprite>("tex"),
+                skillIcon = assetBundle.LoadAsset<Sprite>("texUtilityIcon"),
 
                 activationState = new SerializableEntityStateType(typeof(Dash)),
                 activationStateMachineName = "Body",
@@ -317,7 +323,7 @@ namespace UnforgivenMod.Unforgiven
                 skillNameToken = UNFORGIVEN_PREFIX + "SPECIAL_BREATH_NAME",
                 skillDescriptionToken = UNFORGIVEN_PREFIX + "SPECIAL_BREATH_DESCRIPTION",
                 keywordTokens = new string[] { },
-                skillIcon = assetBundle.LoadAsset<Sprite>("tex"),
+                skillIcon = assetBundle.LoadAsset<Sprite>("texSpecialIcon"),
 
                 activationState = new EntityStates.SerializableEntityStateType(typeof(DashSpecial)),
                 activationStateMachineName = "Body",
@@ -495,7 +501,7 @@ namespace UnforgivenMod.Unforgiven
             On.RoR2.HealthComponent.TakeDamage += new On.RoR2.HealthComponent.hook_TakeDamage(HealthComponent_TakeDamage);
             RoR2.GlobalEventManager.onCharacterDeathGlobal += GlobalEventManager_onCharacterDeathGlobal;
 
-            //if (UnforgivenPlugin.emotesInstalled) Emotes();
+            if (UnforgivenPlugin.emotesInstalled) Emotes();
         }
 
         [MethodImpl(MethodImplOptions.NoInlining | MethodImplOptions.NoOptimization)]
@@ -532,6 +538,7 @@ namespace UnforgivenMod.Unforgiven
                         {
                             victimBody.healthComponent.AddBarrier(victimBody.healthComponent.fullCombinedHealth * 0.25f);
                             uCont.shieldAmount = 0f;
+                            victimBody.RemoveBuff(UnforgivenBuffs.hasShieldBuff);
                             Util.PlaySound("sfx_unforgiven_nado_impact", victimBody.gameObject);
                             Util.PlaySound("sfx_unforgiven_lost_stacks", victimBody.gameObject);
                         }
@@ -562,7 +569,7 @@ namespace UnforgivenMod.Unforgiven
             {
                 if (self.baseNameToken == "KENKO_UNFORGIVEN_NAME")
                 {
-                    self.crit *= 2f;
+                    self.crit *= 1.5f;
                     self.critMultiplier *= 0.9f;
                 }
             }

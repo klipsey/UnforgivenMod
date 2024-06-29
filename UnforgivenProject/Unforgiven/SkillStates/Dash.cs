@@ -100,6 +100,8 @@ namespace UnforgivenMod.Unforgiven.SkillStates
             base.gameObject.layer = LayerIndex.fakeActor.intVal;
             base.characterMotor.Motor.RebuildCollidableLayers();
 
+            this.unforgivenController.Unsheath();
+
             base.PlayCrossfade("FullBody, Override", "Dash", 0.1f);
             Util.PlaySound("Play_merc_shift_slice", base.gameObject);
         }

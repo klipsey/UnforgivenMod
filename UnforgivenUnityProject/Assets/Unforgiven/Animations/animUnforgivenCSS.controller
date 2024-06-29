@@ -64,7 +64,8 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: a2a3a3b058afdbe4f86e347e881eaa3b, type: 2}
+  m_Motion: {fileID: 7716703115156078458, guid: 66dffad1aab90b948be92de93a10c64f,
+    type: 3}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -78,7 +79,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: CSSIdleIn
-  m_Speed: 0.8
+  m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 1101872020076538228}
@@ -91,7 +92,8 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: ebadad51647b30e44a2133f627927bf8, type: 2}
+  m_Motion: {fileID: 2562173591226776667, guid: 66dffad1aab90b948be92de93a10c64f,
+    type: 3}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -111,7 +113,7 @@ AnimatorStateMachine:
     m_Position: {x: 20, y: 370, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102693935497185128}
-    m_Position: {x: 20, y: 280, z: 0}
+    m_Position: {x: 20, y: 270, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []

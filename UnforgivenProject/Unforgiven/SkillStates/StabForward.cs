@@ -46,7 +46,7 @@ namespace UnforgivenMod.Unforgiven.SkillStates
 
             swingSoundString = "sfx_unforgiven_stab";
             hitSoundString = "";
-            playbackRateParam = "Swing.playbackRate";
+            playbackRateParam = "Slash.playbackRate";
             swingEffectPrefab = UnforgivenAssets.stabSwingEffect;
             hitEffectPrefab = UnforgivenAssets.unforgivenHitEffect;
 
@@ -98,7 +98,12 @@ namespace UnforgivenMod.Unforgiven.SkillStates
 
         protected override void PlayAttackAnimation()
         {
-            PlayCrossfade("Gesture, Override", "Swing" + (1 + swingIndex), playbackRateParam, duration * 1.3f, duration * 0.3f);
+            if (!this.unforgivenController.isUnsheathed)
+            {
+                this.unforgivenController.Unsheath();
+                PlayCrossfade("Gesture, Override", "DrawStab", playbackRateParam, duration * 1.3f, duration * 0.3f);
+            }
+            else PlayCrossfade("Gesture, Override", "Stab", playbackRateParam, duration * 1.3f, duration * 0.3f);
         }
 
         public override void OnExit()

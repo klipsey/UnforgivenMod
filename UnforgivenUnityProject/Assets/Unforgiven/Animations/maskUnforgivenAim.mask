@@ -13,8 +13,6 @@ AvatarMask:
     m_Weight: 1
   - m_Path: Armature
     m_Weight: 0
-  - m_Path: Armature/ik.head
-    m_Weight: 1
   - m_Path: Armature/ROOT
     m_Weight: 0
   - m_Path: Armature/ROOT/base
@@ -43,6 +41,8 @@ AvatarMask:
     m_Weight: 0
   - m_Path: Armature/ROOT/base/Coatback.r/Coatback.r.001/Coatback.r.002
     m_Weight: 0
+  - m_Path: Armature/ROOT/base/ik.head
+    m_Weight: 1
   - m_Path: Armature/ROOT/base/pelvis
     m_Weight: 0
   - m_Path: Armature/ROOT/base/pelvis/thigh.l
@@ -73,27 +73,27 @@ AvatarMask:
     m_Weight: 0
   - m_Path: Armature/ROOT/base/Ropeout1/Ropeout2/Ropeout3
     m_Weight: 0
-  - m_Path: Armature/ROOT/base/Sheath
-    m_Weight: 0
   - m_Path: Armature/ROOT/base/stomach
     m_Weight: 1
+  - m_Path: Armature/ROOT/base/stomach/ik.hand.l
+    m_Weight: 0
   - m_Path: Armature/ROOT/base/stomach/spine
     m_Weight: 1
   - m_Path: Armature/ROOT/base/stomach/spine/spine.001
     m_Weight: 1
   - m_Path: Armature/ROOT/base/stomach/spine/spine.001/head
     m_Weight: 1
+  - m_Path: Armature/ROOT/base/stomach/spine/spine.001/head/trinket
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/spine/spine.001/head/trinket/trinket.001
+    m_Weight: 0
   - m_Path: Armature/ROOT/base/stomach/spine/spine.001/head/trinket.002
-    m_Weight: 0
-  - m_Path: Armature/ROOT/base/stomach/spine/spine.001/head/trinket.002/trinket
-    m_Weight: 0
-  - m_Path: Armature/ROOT/base/stomach/spine/spine.001/head/trinket.002/trinket/trinket.001
     m_Weight: 0
   - m_Path: Armature/ROOT/base/stomach/spine/spine.001/head/trinket.002/trinket.003
     m_Weight: 0
-  - m_Path: Armature/ROOT/base/stomach/spine/spine.001/head/trinket.002/trinket.004
+  - m_Path: Armature/ROOT/base/stomach/spine/spine.001/head/trinket.004
     m_Weight: 0
-  - m_Path: Armature/ROOT/base/stomach/spine/spine.001/head/trinket.002/trinket.004/trinket.005
+  - m_Path: Armature/ROOT/base/stomach/spine/spine.001/head/trinket.004/trinket.005
     m_Weight: 0
   - m_Path: Armature/ROOT/base/stomach/spine/spine.001/head/wire
     m_Weight: 0
@@ -113,11 +113,17 @@ AvatarMask:
     m_Weight: 0
   - m_Path: Armature/ROOT/base/stomach/spine/spine.001/head/wire/wire.001/wire.002/wire.003/wire.004/wire.005/wire.006/wire.007/wire.008
     m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/spine/spine.001/head/wire/wire.001/wire.002/wire.003/wire.004/wire.005/wire.006/wire.007/wire.008/wire.009
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/spine/spine.001/head/wire/wire.001/wire.002/wire.003/wire.004/wire.005/wire.006/wire.007/wire.008/wire.009/wire.010
+    m_Weight: 0
   - m_Path: Armature/ROOT/base/stomach/spine/spine.001/scarf
     m_Weight: 0
   - m_Path: Armature/ROOT/base/stomach/spine/spine.001/scarf/scarf.001
     m_Weight: 0
   - m_Path: Armature/ROOT/base/stomach/spine/spine.001/scarf/scarf.001/scarf.002
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/spine/spine.001/Sheath
     m_Weight: 0
   - m_Path: Armature/ROOT/base/stomach/spine/spine.001/shoulder.l
     m_Weight: 0
@@ -214,8 +220,6 @@ AvatarMask:
   - m_Path: Armature/ROOT/ik.foot.l
     m_Weight: 0
   - m_Path: Armature/ROOT/ik.foot.r
-    m_Weight: 0
-  - m_Path: Armature/ROOT/ik.hand.l
     m_Weight: 0
   - m_Path: Armature/ROOT/ik.hand.r
     m_Weight: 0

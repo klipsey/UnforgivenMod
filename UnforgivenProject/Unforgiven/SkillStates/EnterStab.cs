@@ -46,7 +46,11 @@ namespace UnforgivenMod.Unforgiven.SkillStates
                 this.outer.SetNextState(new Tornado());
                 return;
             }
-            else this.outer.SetNextState(new StabForward());
+            else
+            {
+                this.outer.SetNextState(new StabForward());
+                return;   
+            }
         }
 
         public override InterruptPriority GetMinimumInterruptPriority()

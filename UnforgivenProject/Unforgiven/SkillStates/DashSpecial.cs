@@ -135,6 +135,8 @@ namespace UnforgivenMod.Unforgiven.SkillStates
                 hurtBoxGroup.hurtBoxesDeactivatorCounter = hurtBoxesDeactivatorCounter;
             }
 
+            this.unforgivenController.Unsheath();
+
             base.PlayCrossfade("FullBody, Override", "Dash", 0.1f);
             Util.PlaySound("Play_merc_shift_slice", base.gameObject);
         }

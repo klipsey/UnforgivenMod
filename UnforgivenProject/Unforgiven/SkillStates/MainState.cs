@@ -39,13 +39,27 @@ namespace UnforgivenMod.Unforgiven.SkillStates
 
             if (this.animator)
             {
-                bool cock = false;
-                if (!this.characterBody.outOfDanger || !this.characterBody.outOfCombat) cock = true;
+                bool inCombat = false;
+                if (!this.characterBody.outOfDanger || !this.characterBody.outOfCombat) inCombat = true;
 
-                this.animator.SetBool("inCombat", cock);
+                this.animator.SetBool("inCombat", inCombat);
 
                 if (this.isGrounded) this.animator.SetFloat("airBlend", 0f);
                 else this.animator.SetFloat("airBlend", 1f);
+                
+                if(!inCombat)
+                {
+                    if (this.animator.GetBool("isUnsheathed"))
+                    {
+                        this.animator.SetBool("isUnsheathed", false);
+                        PlayAnimationOnAnimator(this.animator, "Transition", "ToSafe");
+                    }
+                    this.animator.SetLayerWeight(this.animator.GetLayerIndex("Body, Combat"), 0f);
+                }
+                else if(this.animator.GetBool("isUnsheathed"))
+                {
+                    this.animator.SetLayerWeight(this.animator.GetLayerIndex("Body, Combat"), 1f);
+                }
             }
         }
 

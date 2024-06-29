@@ -24,11 +24,11 @@ namespace UnforgivenMod.Unforgiven.Content
             #region Unforgiven
             string prefix = UnforgivenSurvivor.UNFORGIVEN_PREFIX;
 
-            string desc = "<color=#CCD3E0>" + Environment.NewLine + Environment.NewLine;
-            desc = desc + "< ! > " + Environment.NewLine + Environment.NewLine;
-            desc = desc + "< ! > " + Environment.NewLine + Environment.NewLine;
-            desc = desc + "< ! > " + Environment.NewLine + Environment.NewLine;
-            desc = desc + "< ! > " + Environment.NewLine + Environment.NewLine;
+            string desc = "Death is like the wind always by my side.<color=#CCD3E0>" + Environment.NewLine + Environment.NewLine;
+            desc = desc + "< ! > Death is like the wind always by my side." + Environment.NewLine + Environment.NewLine;
+            desc = desc + "< ! > Death is like the wind always by my side." + Environment.NewLine + Environment.NewLine;
+            desc = desc + "< ! > Death is like the wind always by my side." + Environment.NewLine + Environment.NewLine;
+            desc = desc + "< ! > https://leagueoflegends.fandom.com/wiki/Yasuo/LoL" + Environment.NewLine + Environment.NewLine;
 
             string lore = " if you die to yasuo, you got outplayed " +
                 "it means he had to calculate (and execute) the fight exactly to his specifications, taking into account your cooldowns and his, the position of both junglers, the creep waves and the general \"feel\" of the lane (an ability that has to be honed through years, maybe decades of what you call merely \"gaming\"). " +
@@ -51,7 +51,7 @@ namespace UnforgivenMod.Unforgiven.Content
             #region Passive
             Language.Add(prefix + "PASSIVE_NAME", "Way of the Wind");
             Language.Add(prefix + "PASSIVE_DESCRIPTION", $"<color=#FFBF66>Wanderer</color> builds up a passive <style=cIsHealing>shield</style> while moving. " +
-                $"At max stacks, the <style=cIsHealing>shield</style> breaks and grants a <style=cIsHealing>barrier</style>. <color=#FFBF66>Wanderer</color> has <style=cIsDamage>2x crit chance</style>.");
+                $"At max stacks, the <style=cIsHealing>shield</style> breaks and grants a <style=cIsHealing>barrier</style>. <color=#FFBF66>Wanderer</color> has <style=cIsDamage>1.5x crit chance</style>.");
             #endregion
 
             #region Primary

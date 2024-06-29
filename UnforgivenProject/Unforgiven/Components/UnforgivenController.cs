@@ -18,6 +18,8 @@ namespace UnforgivenMod.Unforgiven.Components
         public string currentSkinNameToken => this.skinController.skins[this.skinController.currentSkinIndex].nameToken;
         public string altSkinNameToken => UnforgivenSurvivor.UNFORGIVEN_PREFIX + "MASTERY_SKIN_NAME";
 
+        public bool isUnsheathed => animator.GetBool("isUnsheathed");
+
         public bool pauseTimer = false;
 
         public bool bufferedSpin;
@@ -55,6 +57,7 @@ namespace UnforgivenMod.Unforgiven.Components
                         characterBody.AddTimedBuff(UnforgivenBuffs.stabMaxStacksBuff, 8f, 1);
                         characterBody.ClearTimedBuffs(UnforgivenBuffs.stabStackingBuff);
                         Util.PlaySound("sfx_unforgiven_max_stacks", base.gameObject);
+                        this.characterBody.skillLocator.secondary.skillDef.icon = UnforgivenAssets.secondaryEmpoweredIcon;
                     }
                     else
                     {
@@ -88,27 +91,41 @@ namespace UnforgivenMod.Unforgiven.Components
             {
                 shieldStopwatchInterval = 0f;
                 if (shieldAmount < 100f) shieldAmount += (base.transform.position - previousPosition).magnitude / 2f;
-                else shieldAmount = 100f;
+                else
+                {
+                    if(!characterBody.HasBuff(UnforgivenBuffs.hasShieldBuff))
+                    {
+                        if(NetworkServer.active) characterBody.SetBuffCount(UnforgivenBuffs.hasShieldBuff.buffIndex, 1);
+                    }
+                    shieldAmount = 100f;
+                }
                 previousPosition = base.transform.position;
-                onShieldChange.Invoke();
+                onShieldChange?.Invoke();
             }
 
             if(characterBody.HasBuff(UnforgivenBuffs.lastBreathBuff) && !childLocator.FindChild("EmpoweredSword").gameObject.activeSelf && 
-                childLocator.FindChild("KatanaModel").gameObject.activeSelf && childLocator.FindChild("ArmModel").gameObject.activeSelf)
+                childLocator.FindChild("KatanaModel").gameObject.activeSelf)
             {
                 childLocator.FindChild("EmpoweredSword").gameObject.SetActive(true);
                 childLocator.FindChild("KatanaModel").gameObject.SetActive(false);
-                childLocator.FindChild("ArmModel").gameObject.SetActive(false);
             }
             else if (!characterBody.HasBuff(UnforgivenBuffs.lastBreathBuff) && childLocator.FindChild("EmpoweredSword").gameObject.activeSelf &&
-                !childLocator.FindChild("KatanaModel").gameObject.activeSelf && !childLocator.FindChild("ArmModel").gameObject.activeSelf)
+                !childLocator.FindChild("KatanaModel").gameObject.activeSelf)
             {
                 childLocator.FindChild("EmpoweredSword").gameObject.SetActive(false);
                 childLocator.FindChild("KatanaModel").gameObject.SetActive(true);
-                childLocator.FindChild("ArmModel").gameObject.SetActive(true);
+            }
+
+            if (this.characterBody.skillLocator.secondary.skillDef.icon != UnforgivenAssets.secondaryIcon)
+            {
+                if(!this.characterBody.HasBuff(UnforgivenBuffs.stabMaxStacksBuff)) this.characterBody.skillLocator.secondary.skillDef.icon = UnforgivenAssets.secondaryIcon;
             }
         }
 
+        public void Unsheath()
+        {
+            if(!this.animator.GetBool("isUnsheathed")) this.animator.SetBool("isUnsheathed", true);
+        }
         private void OnDestroy()
         {
         }

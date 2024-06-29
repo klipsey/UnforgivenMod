@@ -26,6 +26,8 @@ namespace UnforgivenMod.Unforgiven.Content
         //Projectiles
         internal static GameObject nadoPrefab;
 
+        internal static GameObject nadoGhost;
+
         //Shader
         internal static Shader hotpoo = Resources.Load<Shader>("Shaders/Deferred/HGStandard");
 
@@ -55,6 +57,10 @@ namespace UnforgivenMod.Unforgiven.Content
         internal static GameObject spinNadoEffect;
 
         internal static GameObject dashCdEffect;
+
+        internal static GameObject shieldEffect;
+
+        internal static GameObject nadoUpEffect;
         //Sounds
         internal static NetworkSoundEventDef swordImpactSoundEvent;
         internal static NetworkSoundEventDef stabImpactSoundEvent;
@@ -66,6 +72,11 @@ namespace UnforgivenMod.Unforgiven.Content
         //UI
         internal static GameObject throwable;
         internal static GameObject throwableEnd;
+
+        internal static Sprite secondaryIcon;
+        internal static Sprite secondaryEmpoweredIcon;
+
+        internal static GameObject unforgivenIndicator;
 
         //Crosshair
         public static void Init(AssetBundle assetBundle)
@@ -109,10 +120,20 @@ namespace UnforgivenMod.Unforgiven.Content
         private static void CreateEffects()
         {
             dashCdEffect = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Nullifier/NullifyStack3Effect.prefab").WaitForCompletion().InstantiateClone("UnforgivenDashCdEffect", false);
-            dashCdEffect.AddComponent<NetworkIdentity>();
             dashCdEffect.transform.GetChild(0).GetChild(0).gameObject.GetComponent<MeshRenderer>().materials[0].SetColor("_TintColor", Color.clear);
             dashCdEffect.transform.GetChild(0).GetChild(1).gameObject.GetComponent<MeshRenderer>().materials[0].SetColor("_TintColor", Color.clear);
             dashCdEffect.transform.GetChild(0).GetChild(2).gameObject.GetComponent<MeshRenderer>().materials[0].SetColor("_TintColor", Color.clear);
+
+            shieldEffect = Addressables.LoadAssetAsync<GameObject>("RoR2/DLC1/OutOfCombatArmor/OutOfCombatArmorEffect.prefab").WaitForCompletion().InstantiateClone("UnforgivenShieldReadyEffect", false);
+            shieldEffect.transform.GetChild(0).GetChild(0).GetComponent<MeshRenderer>().materials[0].SetColor("_TintColor", unforgivenColor);
+            shieldEffect.transform.GetChild(0).GetChild(0).GetComponent<MeshRenderer>().materials[1].SetColor("_TintColor", unforgivenColor);
+            var shieldMain = shieldEffect.transform.GetChild(0).GetChild(1).GetComponent<ParticleSystem>().main;
+            shieldMain.startColor = Color.red;
+            shieldEffect.transform.GetChild(0).Find("Trigger").Find("Sphere, Quick").GetComponent<ParticleSystemRenderer>().material.SetColor("_TintColor", Color.red);
+            shieldEffect.transform.GetChild(0).Find("Trigger").Find("Sphere").GetComponent<ParticleSystemRenderer>().material.SetColor("_TintColor", Color.red);
+            shieldEffect.transform.GetChild(0).Find("Trigger").Find("Point Light").GetComponent<Light>().color = Color.red;
+
+            nadoUpEffect = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/TeamWarCry/TeamWarCryAura.prefab").WaitForCompletion().InstantiateClone("UnforgivenNadoUpEffect", false);
 
             spinSlashEffect = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Merc/MercSwordSlashWhirlwind.prefab").WaitForCompletion().InstantiateClone("UnforgivenSpinSlash");
             if(!spinSlashEffect.GetComponent<NetworkIdentity>()) spinSlashEffect.AddComponent<NetworkIdentity>();
@@ -290,7 +311,7 @@ namespace UnforgivenMod.Unforgiven.Content
             nadoPrefab = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Lemurian/Fireball.prefab").WaitForCompletion().InstantiateClone("UnforgivenTornadoProjectile");
             if(!nadoPrefab.GetComponent<NetworkIdentity>()) nadoPrefab.AddComponent<NetworkIdentity>();
 
-            nadoPrefab.AddComponent<DamageAPI.ModdedDamageTypeHolderComponent>();
+            nadoPrefab.AddComponent<DamageAPI.ModdedDamageTypeHolderComponent>().Add(DamageTypes.KnockAirborne);
 
             nadoPrefab.transform.localScale = new Vector3(1, 1, 1);
             GameObject.Destroy(nadoPrefab.GetComponent<SphereCollider>());
@@ -312,22 +333,22 @@ namespace UnforgivenMod.Unforgiven.Content
             ProjectileOverlapAttack nadoOverlapAttack = nadoPrefab.AddComponent<ProjectileOverlapAttack>();
             nadoOverlapAttack.damageCoefficient = 1f;
             nadoOverlapAttack.forceVector = Vector3.up * 3000f;
-
-
             nadoOverlapAttack.impactEffect = unforgivenHitEffect;
 
             ProjectileController nadoController = nadoPrefab.GetComponent<ProjectileController>();
-            GameObject ghost = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Vulture/WindbladeProjectileGhost.prefab").WaitForCompletion().InstantiateClone("UnforgivenNadoGhost");
-            ghost.AddComponent<NetworkIdentity>();
+            nadoController.allowPrediction = true;
 
-            ParticleSystemRenderer baseNadoRend = ghost.transform.Find("Holder").Find("Base").gameObject.GetComponent<ParticleSystemRenderer>();
+            nadoGhost = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Vulture/WindbladeProjectileGhost.prefab").WaitForCompletion().InstantiateClone("UnforgivenNadoGhost");
+            if(!nadoGhost.GetComponent<NetworkIdentity>()) nadoGhost.AddComponent<NetworkIdentity>();
+
+            ParticleSystemRenderer baseNadoRend = nadoGhost.transform.Find("Holder").Find("Base").gameObject.GetComponent<ParticleSystemRenderer>();
             
-            baseNadoRend.material.SetColor("_TintColor", Color.red);
+            baseNadoRend.material.SetColor("_TintColor", new Color(255f / 255f, 16f / 255f, 16f / 255f));
 
             realNado = mainAssetBundle.LoadAsset<GameObject>("UnforgivenTornado");
             realNado.GetComponent<ParticleSystemRenderer>().material = baseNadoRend.material;
             realNado.GetComponent<ParticleSystemRenderer>().mesh = baseNadoRend.mesh;
-            realNado.transform.SetParent(ghost.transform.Find("Holder"));
+            realNado.transform.SetParent(nadoGhost.transform.Find("Holder"));
 
             spinNadoEffect = mainAssetBundle.LoadAsset<GameObject>("UnforgivenTornado").InstantiateClone("UnforgivenSpinTornado");
             spinNadoEffect.AddComponent<NetworkIdentity>();
@@ -343,10 +364,12 @@ namespace UnforgivenMod.Unforgiven.Content
 
             Modules.Content.CreateAndAddEffectDef(spinNadoEffect);
 
-            GameObject.Destroy(ghost.transform.Find("Holder").Find("Base").gameObject);
-            Component.Destroy(ghost.transform.Find("Holder").gameObject.GetComponent<RotateAroundAxis>());
+            GameObject.Destroy(nadoGhost.transform.Find("Holder").Find("Base").gameObject);
+            Component.Destroy(nadoGhost.transform.Find("Holder").gameObject.GetComponent<RotateAroundAxis>());
 
-            nadoController.ghostPrefab = ghost;
+            nadoController.ghostPrefab = nadoGhost;
+
+            Modules.Content.AddProjectilePrefab(nadoPrefab);
         }
         #endregion
 
@@ -363,6 +386,24 @@ namespace UnforgivenMod.Unforgiven.Content
         {
             throwable = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Common/VFX/BasicThrowableVisualizer.prefab").WaitForCompletion();
             throwableEnd = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Huntress/HuntressArrowRainIndicator.prefab").WaitForCompletion();
+
+            secondaryIcon = mainAssetBundle.LoadAsset<Sprite>("texSecondaryIcon");
+            secondaryEmpoweredIcon = mainAssetBundle.LoadAsset<Sprite>("texSecondaryEmpoweredIcon");
+
+            unforgivenIndicator = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Huntress/HuntressTrackingIndicator.prefab").WaitForCompletion().InstantiateClone("UnforgivenTracker", false);
+            Material component = Object.Instantiate(Addressables.LoadAssetAsync<Material>("RoR2/Base/UI/matUIOverbrighten2x.mat").WaitForCompletion());
+            Object.DestroyImmediate(unforgivenIndicator.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>());
+            SpriteRenderer balls = unforgivenIndicator.transform.GetChild(0).gameObject.AddComponent<SpriteRenderer>();
+            balls.SetMaterial(component);
+            balls.sprite = mainAssetBundle.LoadAsset<Sprite>("texUnforgivenIndicator");
+            unforgivenIndicator.transform.GetChild(1).gameObject.SetActive(false);
+            Sprite sprite = Addressables.LoadAssetAsync<Sprite>("RoR2/Base/UI/texCrosshair2.png").WaitForCompletion();
+            Material component2 = unforgivenIndicator.transform.GetChild(2).gameObject.GetComponent<SpriteRenderer>().material;
+            Object.DestroyImmediate(unforgivenIndicator.transform.GetChild(2).gameObject.GetComponent<SpriteRenderer>());
+            SpriteRenderer balls2 = unforgivenIndicator.transform.GetChild(2).gameObject.AddComponent<SpriteRenderer>();
+            balls2.SetMaterial(component2);
+            balls2.sprite = sprite;
+            balls2.color = unforgivenColor;
         }
 
         #region helpers

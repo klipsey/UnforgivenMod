@@ -40,7 +40,7 @@ namespace UnforgivenMod.Unforgiven.SkillStates
 
             swingSoundString = EntityStates.Merc.Weapon.GroundLight2.slash1Sound;
             hitSoundString = "";
-            playbackRateParam = "Swing.playbackRate";
+            playbackRateParam = "Slash.playbackRate";
             swingEffectPrefab = empoweredSpecial ? UnforgivenAssets.swordSwingEmpoweredEffect : UnforgivenAssets.swordSwingEffect;
             hitEffectPrefab = UnforgivenAssets.unforgivenHitEffect;
 
@@ -55,7 +55,6 @@ namespace UnforgivenMod.Unforgiven.SkillStates
                     muzzleString = "SwingMuzzle2";
                     break;
             }
-
 
             base.OnEnter();
         }
@@ -92,12 +91,23 @@ namespace UnforgivenMod.Unforgiven.SkillStates
 
         protected override void PlayAttackAnimation()
         {
-            PlayCrossfade("Gesture, Override", "Swing" + (1 + swingIndex), playbackRateParam, duration * 1.3f, duration * 0.3f);
+            RefreshState();
+            if (!this.unforgivenController.isUnsheathed)
+            {
+                this.unforgivenController.Unsheath();
+                PlayCrossfade("Gesture, Override", "DrawSlash", playbackRateParam, duration * 1.3f, duration * 0.3f);
+            }
+            else
+            {
+                PlayCrossfade("Gesture, Override", "Slash" + (1 + swingIndex), playbackRateParam, duration * 1.3f, duration * 0.3f);
+            }
         }
 
         public override void OnExit()
         {
             base.OnExit();
+
+            Object.Destroy(this.swingEffectPrefab);
         }
     }
 }

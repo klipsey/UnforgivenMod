@@ -32,6 +32,8 @@ namespace UnforgivenMod.Unforgiven.SkillStates
         private int roundsCompleted = 0;
 
         private bool hasToggled;
+
+        private GameObject swingEffectPrefab;
         public override void OnEnter()
         {
             if(NetworkServer.active) base.characterBody.AddBuff(UnforgivenBuffs.lastBreathBuff);
@@ -53,6 +55,7 @@ namespace UnforgivenMod.Unforgiven.SkillStates
             this.roundDuration /= num + 1f;
             this.crit = base.RollCrit();
 
+            this.unforgivenController.Unsheath();
             base.PlayAnimation("FullBody, Override", "Special", "Slash.playbackRate", this.numRounds * this.roundDuration);
         }
 
@@ -64,6 +67,9 @@ namespace UnforgivenMod.Unforgiven.SkillStates
                 base.characterBody.RemoveBuff(UnforgivenBuffs.lastBreathBuff);
                 base.characterBody.AddTimedBuff(UnforgivenBuffs.lastBreathBuff, 6f);
             }
+
+            if(this.swingEffectPrefab) UnityEngine.Object.Destroy(this.swingEffectPrefab);  
+
             base.OnExit();
         }
 
@@ -95,10 +101,17 @@ namespace UnforgivenMod.Unforgiven.SkillStates
                 crit = this.crit
             }.Fire();
 
-            EffectManager.SpawnEffect(UnforgivenAssets.specialEmpoweredSlashingEffect, new EffectData
+            EffectManager.SpawnEffect(final ? UnforgivenAssets.specialEmpoweredSlashingEffect : UnforgivenAssets.specialSlashingEffect, new EffectData
             {
                origin = base.transform.position,
             }, transmit: true);
+
+            Transform muzzleTransform = this.roundsCompleted % 2 == 0 ? this.FindModelChild("SwingMuzzle2") : this.FindModelChild("SwingMuzzle1");
+            if (muzzleTransform)
+            {
+                if (this.swingEffectPrefab) UnityEngine.Object.Destroy(swingEffectPrefab);
+                this.swingEffectPrefab = UnityEngine.Object.Instantiate<GameObject>(final ? UnforgivenAssets.swordSwingEmpoweredEffect : UnforgivenAssets.swordSwingEffect, muzzleTransform);
+            }
 
             Util.PlayAttackSpeedSound(final ? EntityStates.Merc.Weapon.GroundLight2.slash3Sound : EntityStates.Merc.Weapon.GroundLight2.slash1Sound, base.gameObject, attackSpeedStat);
 

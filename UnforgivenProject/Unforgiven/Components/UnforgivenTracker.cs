@@ -30,7 +30,7 @@ namespace UnforgivenMod.Unforgiven.Components
 
         private void Awake()
         {
-            indicator = new Indicator(base.gameObject, LegacyResourcesAPI.Load<GameObject>("Prefabs/HuntressTrackingIndicator"));
+            indicator = new Indicator(base.gameObject, UnforgivenAssets.unforgivenIndicator);
         }
 
         private void Start()

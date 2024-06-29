@@ -21,22 +21,24 @@ namespace UnforgivenMod.Unforgiven.SkillStates
         public GameObject nado = UnforgivenAssets.nadoPrefab;
 
         private float duration;
-        private float fireTime;
-        private bool hasFired;
-        private Animator animator;
         public override void OnEnter()
         {
             RefreshState();
             base.OnEnter();
 
             this.duration = baseDuration / this.attackSpeedStat;
-            this.fireTime = 0.25f * this.duration;
             base.characterBody.SetAimTimer(2f);
-            this.animator = base.GetModelAnimator();
 
-            base.PlayAnimation("FullBody, Override", "ThrowTornado", "Slash.playbackRate", this.duration);
+            if (!this.unforgivenController.isUnsheathed)
+            {
+                this.unforgivenController.Unsheath();
+                base.PlayAnimation("FullBody, Override", "DrawSlash", "Slash.playbackRate", this.duration);
+            }
+            else base.PlayAnimation("FullBody, Override", "Slash2", "Slash.playbackRate", this.duration);
 
             if (NetworkServer.active) base.characterBody.ClearTimedBuffs(UnforgivenBuffs.stabMaxStacksBuff);
+
+            this.Fire();
         }
 
         public override void OnExit()
@@ -46,27 +48,29 @@ namespace UnforgivenMod.Unforgiven.SkillStates
 
         private void Fire()
         {
-            if (!this.hasFired)
-            {
-                this.hasFired = true;
-                Util.PlaySound("sfx_unforgiven_throw_nado", base.gameObject);
-                nado.GetComponent<DamageAPI.ModdedDamageTypeHolderComponent>().Add(DamageTypes.KnockAirborne);
-                nado.GetComponent<ProjectileDamage>().damageType = empoweredSpecial ? DamageType.BypassArmor : DamageType.Generic;
+            Util.PlaySound("sfx_unforgiven_throw_nado", base.gameObject);
+            DamageType lol = empoweredSpecial ? DamageType.BypassArmor : DamageType.Generic;
 
-                if (base.isAuthority)
+            if (base.isAuthority)
+            {
+                Ray aimRay = base.GetAimRay();
+
+                ProjectileManager.instance.FireProjectile(new FireProjectileInfo
                 {
-                    Ray aimRay = base.GetAimRay();
-                    ProjectileManager.instance.FireProjectile(nado,
-                        aimRay.origin,
-                        Util.QuaternionSafeLookRotation(aimRay.direction),
-                        base.gameObject,
-                        damageCoefficient * this.damageStat,
-                        800f,
-                        base.RollCrit(),
-                        DamageColorIndex.Default,
-                        null,
-                        throwForce);
-                }
+                    projectilePrefab = nado,
+                    position = aimRay.origin,
+                    rotation = Util.QuaternionSafeLookRotation(aimRay.direction),
+                    owner = base.gameObject,
+                    damage = damageCoefficient * this.damageStat,
+                    force = 800f,
+                    crit = base.RollCrit(),
+                    damageColorIndex = DamageColorIndex.Default,
+                    target = null,
+                    speedOverride = throwForce,
+                    useSpeedOverride = false,
+                    damageTypeOverride = lol
+                });
+
             }
         }
 
@@ -74,15 +78,9 @@ namespace UnforgivenMod.Unforgiven.SkillStates
         {
             base.FixedUpdate();
 
-            if (base.fixedAge >= this.fireTime)
-            {
-                this.Fire();
-            }
-
-            if (base.fixedAge >= this.duration && base.isAuthority)
+            if(base.isAuthority && base.fixedAge >= duration)
             {
                 this.outer.SetNextStateToMain();
-                return;
             }
         }
 

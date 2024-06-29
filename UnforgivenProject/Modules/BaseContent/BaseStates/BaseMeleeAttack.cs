@@ -9,10 +9,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 using static R2API.DamageAPI;
+using UnforgivenMod.Unforgiven.Components;
 
 namespace UnforgivenMod.Modules.BaseStates
 {
-    public abstract class BaseMeleeAttack : BaseUnforgivenSkillState, SteppedSkillDef.IStepSetter
+    public abstract class BaseMeleeAttack : BaseUnforgivenSkillState, UnforgivenSteppedSkillDef.IStepSetter
     {
         public int swingIndex;
 

@@ -42,7 +42,7 @@ namespace UnforgivenMod
             instance = this;
 
             NetworkingAPI.RegisterMessageType<Unforgiven.Components.SyncWindExplosion>();
-
+            NetworkingAPI.RegisterMessageType<Unforgiven.Components.SyncStacks>();
             //easy to use logger
             Log.Init(Logger);
 

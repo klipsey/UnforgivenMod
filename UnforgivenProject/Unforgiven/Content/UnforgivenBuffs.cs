@@ -13,6 +13,7 @@ namespace UnforgivenMod.Unforgiven.Content
         public static BuffDef specialSlamTrackerBuff;
         public static BuffDef airborneBuff;
         public static BuffDef lastBreathBuff;
+        public static BuffDef hasShieldBuff;
         public static void Init(AssetBundle assetBundle)
         {
             stabStackingBuff = Modules.Content.CreateAndAddBuff("UnforgivenStackingBuff", Addressables.LoadAssetAsync<Sprite>("RoR2/Base/CritOnUse/texBuffFullCritIcon.tif").WaitForCompletion(),
@@ -34,6 +35,9 @@ namespace UnforgivenMod.Unforgiven.Content
                 UnforgivenAssets.unforgivenColor, false, false, false);
 
             lastBreathBuff = Modules.Content.CreateAndAddBuff("LastBreathBuff", Addressables.LoadAssetAsync<Sprite>("RoR2/Base/LunarSkillReplacements/texBuffLunarDetonatorIcon.tif").WaitForCompletion(),
+                UnforgivenAssets.unforgivenColor, false, false, false);
+
+            hasShieldBuff = Modules.Content.CreateAndAddBuff("UnforgivenShieldChargedBuff", Addressables.LoadAssetAsync<Sprite>("RoR2/DLC1/OutOfCombatArmor/texBuffUtilitySkillArmor.tif").WaitForCompletion(),
                 UnforgivenAssets.unforgivenColor, false, false, false);
         }
     }

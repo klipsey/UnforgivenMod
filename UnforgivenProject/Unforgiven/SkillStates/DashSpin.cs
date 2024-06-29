@@ -43,7 +43,7 @@ namespace UnforgivenMod.Unforgiven.SkillStates
 
             swingSoundString = EntityStates.Merc.Weapon.GroundLight2.slash1Sound;
             hitSoundString = "sfx_unforgiven_stab";
-            playbackRateParam = "Swing.playbackRate";
+            playbackRateParam = "Slash.playbackRate";
             muzzleString = "SpinMuzzle";
             swingEffectPrefab = empowered ? UnforgivenAssets.spinNadoEffect : (empoweredSpecial ? UnforgivenAssets.spinEmpoweredSlashEffect : UnforgivenAssets.spinSlashEffect);
             hitEffectPrefab = UnforgivenAssets.unforgivenHitEffect;
@@ -63,7 +63,8 @@ namespace UnforgivenMod.Unforgiven.SkillStates
 
         protected override void PlayAttackAnimation()
         {
-            base.PlayCrossfade("FullBody, Override", "SpinDash", "Slash.playbackRate", this.duration, 0.05f);
+            this.unforgivenController.Unsheath();
+            base.PlayCrossfade("FullBody, Override", "DashSpin", "Dash.playbackRate", this.duration, 0.05f);
         }
 
         public override void FixedUpdate()
