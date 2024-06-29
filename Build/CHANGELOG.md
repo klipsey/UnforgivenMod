@@ -1,3 +1,8 @@
+# 0.5.3
+
+- Fixed dash not damaging for clients
+- Fixed team damage on melee
+
 # 0.5.2
 
 - Quick cleanup

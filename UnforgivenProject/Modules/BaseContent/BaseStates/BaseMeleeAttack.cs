@@ -72,9 +72,9 @@ namespace UnforgivenMod.Modules.BaseStates
             }
             moddedDamageTypeHolder.Clear();
             attack.damageColorIndex = DamageColorIndex.Default;
-            attack.attacker = this.gameObject;
-            attack.inflictor = this.gameObject;
-            attack.teamIndex = TeamIndex.None;
+            attack.attacker = gameObject;
+            attack.inflictor = gameObject;
+            attack.teamIndex = GetTeam();
             attack.damage = damageCoefficient * damageStat;
             attack.procCoefficient = procCoefficient;
             attack.hitEffectPrefab = hitEffectPrefab;
@@ -134,7 +134,7 @@ namespace UnforgivenMod.Modules.BaseStates
 
         protected virtual void FireAttack()
         {
-            if (base.isAuthority)
+            if (isAuthority)
             {
                 if (attack.Fire())
                 {
@@ -150,7 +150,7 @@ namespace UnforgivenMod.Modules.BaseStates
 
             PlaySwingEffect();
 
-            if (base.isAuthority)
+            if (isAuthority)
             {
                 AddRecoil(-1f * attackRecoil, -2f * attackRecoil, -0.5f * attackRecoil, 0.5f * attackRecoil);
             }

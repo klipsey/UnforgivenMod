@@ -190,11 +190,7 @@ namespace UnforgivenMod.Unforgiven.SkillStates
 
                 if (this.target)
                 {
-                    float dis = (Util.GetCorePosition(this.target) - base.transform.position).magnitude;
-                    if (dis <= hitRange)
-                    {
-                        this.Fire();
-                    }
+                    this.Fire();
                 }
 
                 if (base.isAuthority && this.stopwatch >= this.duration)

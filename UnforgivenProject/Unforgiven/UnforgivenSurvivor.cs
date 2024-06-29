@@ -54,7 +54,7 @@ namespace UnforgivenMod.Unforgiven
 
             maxHealth = 110f,
             healthRegen = 1.5f,
-            armor = 0f,
+            armor = 0f, 
             damage = 12f,
 
             jumpCount = 1,
