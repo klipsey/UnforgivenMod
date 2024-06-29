@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 1815135715
+CRC: 3394017987
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 5a65228cb10755730bd4936648418007
+    Hash: c1a7536adf3fab79bc9d21121b0ce653
   TypeTreeHash:
     serializedVersion: 2
     Hash: 335f42b278930f4cb86ae47bf966b8da
@@ -124,6 +124,7 @@ Assets:
 - Assets/Unforgiven/Projectiles/texAlphaGradient6Mask.png
 - Assets/Unforgiven/Textures/texUnforgivenWeaponExtraEmission.png
 - Assets/Unforgiven/Icons/Skill/texPrimaryIcon.png
+- Assets/Unforgiven/unforgiven_emoteskeleton.prefab
 - Assets/Unforgiven/HUD/WeaponChargeBar.prefab
 - Assets/Unforgiven/Meshes/meshEmpoweredSword.mesh
 - Assets/Unforgiven/Textures/texUnforgivenSwordEmission.png
@@ -137,7 +138,6 @@ Assets:
 - Assets/Unforgiven/VFX/Badass/TinyExplosion.prefab
 - Assets/Unforgiven/VFX/Badass/SandHitEffect.prefab
 - Assets/Unforgiven/HUD/ChargeRing.prefab
-- Assets/Unforgiven/unforgiven_emoteskeleton.prefab
 - Assets/Unforgiven/VFX/texBlackLightning.png
 - Assets/Unforgiven/Projectiles/texRampCoin.png
 - Assets/Unforgiven/Projectiles/CoinProjectileGhost.prefab
