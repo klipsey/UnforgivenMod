@@ -1,3 +1,8 @@
+# 0.5.4
+
+- Hopefully fixed client lag later in game?
+- Hopefully fixed special demolishing the game
+
 # 0.5.3
 
 - Fixed dash not damaging for clients

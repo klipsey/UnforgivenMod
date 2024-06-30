@@ -34,7 +34,16 @@ namespace UnforgivenMod.Unforgiven.SkillStates
 
         private bool hasToggled;
 
-        private GameObject swingEffectPrefab;
+        protected GameObject swingEffectInstance;
+
+        private GameObject swingEffectPrefab = UnforgivenAssets.swordSwingEffect;
+
+        private GameObject swingEffectPrefab2 = UnforgivenAssets.swordSwingEmpoweredEffect;
+
+        private GameObject slashEffectPrefab = UnforgivenAssets.specialSlashingEffect;
+
+        private GameObject slashEffectPrefab2 = UnforgivenAssets.specialEmpoweredSlashingEffect;
+
         public override void OnEnter()
         {
             if(NetworkServer.active) base.characterBody.AddBuff(UnforgivenBuffs.lastBreathBuff);
@@ -81,9 +90,10 @@ namespace UnforgivenMod.Unforgiven.SkillStates
                 base.characterBody.AddTimedBuff(UnforgivenBuffs.lastBreathBuff, 6f);
             }
 
-            if(this.swingEffectPrefab) UnityEngine.Object.Destroy(this.swingEffectPrefab);  
-
             base.OnExit();
+
+            if (this.swingEffectInstance) EntityState.Destroy(this.swingEffectInstance);
+
         }
 
         private void Fire()
@@ -114,16 +124,19 @@ namespace UnforgivenMod.Unforgiven.SkillStates
                 crit = this.crit
             }.Fire();
 
-            EffectManager.SpawnEffect(final ? UnforgivenAssets.specialEmpoweredSlashingEffect : UnforgivenAssets.specialSlashingEffect, new EffectData
+            if(this.slashEffectPrefab && this.slashEffectPrefab2)
             {
-               origin = base.transform.position,
-            }, transmit: true);
+                EffectManager.SpawnEffect(final ? slashEffectPrefab2 : slashEffectPrefab, new EffectData
+                {
+                    origin = base.transform.position,
+                }, transmit: true);
+            }
 
             Transform muzzleTransform = this.roundsCompleted % 2 == 0 ? this.FindModelChild("SwingMuzzle2") : this.FindModelChild("SwingMuzzle1");
-            if (muzzleTransform)
+            if (muzzleTransform && this.swingEffectPrefab2 && this.swingEffectPrefab)
             {
-                if (this.swingEffectPrefab) UnityEngine.Object.Destroy(swingEffectPrefab);
-                this.swingEffectPrefab = UnityEngine.Object.Instantiate<GameObject>(final ? UnforgivenAssets.swordSwingEmpoweredEffect : UnforgivenAssets.swordSwingEffect, muzzleTransform);
+                if (this.swingEffectInstance) EntityState.Destroy(swingEffectInstance);
+                this.swingEffectInstance = UnityEngine.Object.Instantiate<GameObject>(final ? this.swingEffectPrefab2 : this.swingEffectPrefab, muzzleTransform);
             }
 
             Util.PlayAttackSpeedSound(final ? EntityStates.Merc.Weapon.GroundLight2.slash3Sound : EntityStates.Merc.Weapon.GroundLight2.slash1Sound, base.gameObject, attackSpeedStat);

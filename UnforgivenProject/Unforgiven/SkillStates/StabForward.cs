@@ -20,6 +20,7 @@ namespace UnforgivenMod.Unforgiven.SkillStates
 
         private bool hasGrantedStacks;
 
+        protected GameObject swingEffectInstance;
         public override void OnEnter()
         {
             RefreshState();
@@ -91,7 +92,7 @@ namespace UnforgivenMod.Unforgiven.SkillStates
                 Transform muzzleTransform = this.FindModelChild(this.muzzleString);
                 if (muzzleTransform)
                 {
-                    this.swingEffectPrefab = Object.Instantiate<GameObject>(this.swingEffectPrefab, muzzleTransform);
+                    this.swingEffectInstance = Object.Instantiate<GameObject>(this.swingEffectPrefab, muzzleTransform);
                 }
             }
         }
@@ -109,6 +110,8 @@ namespace UnforgivenMod.Unforgiven.SkillStates
         public override void OnExit()
         {
             base.OnExit();
+
+            if(this.swingEffectInstance) EntityState.Destroy(this.swingEffectInstance);
         }
 
         public override InterruptPriority GetMinimumInterruptPriority()

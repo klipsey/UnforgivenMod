@@ -14,6 +14,7 @@ namespace UnforgivenMod.Unforgiven.SkillStates
 {
     public class SlashCombo : BaseMeleeAttack
     {
+        protected GameObject swingEffectInstance;
         public override void OnEnter()
         {
             RefreshState();
@@ -84,7 +85,7 @@ namespace UnforgivenMod.Unforgiven.SkillStates
                 Transform muzzleTransform = this.FindModelChild(this.muzzleString);
                 if (muzzleTransform)
                 {
-                    this.swingEffectPrefab = Object.Instantiate<GameObject>(this.swingEffectPrefab, muzzleTransform);
+                    this.swingEffectInstance = Object.Instantiate<GameObject>(this.swingEffectPrefab, muzzleTransform);
                 }
             }
         }
@@ -107,7 +108,7 @@ namespace UnforgivenMod.Unforgiven.SkillStates
         {
             base.OnExit();
 
-            Object.Destroy(this.swingEffectPrefab);
+            if (this.swingEffectInstance) EntityState.Destroy(this.swingEffectInstance);
         }
     }
 }
