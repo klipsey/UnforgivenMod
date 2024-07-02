@@ -74,6 +74,7 @@ namespace UnforgivenMod.Unforgiven.SkillStates
             }
 
             if(NetworkServer.active) this.target.AddTimedBuff(UnforgivenBuffs.dashCooldownBuff, 6f);
+
             base.characterMotor.Motor.ForceUnground();
 
             Vector3 corePosition = Util.GetCorePosition(target);
@@ -104,6 +105,12 @@ namespace UnforgivenMod.Unforgiven.SkillStates
 
             base.PlayCrossfade("FullBody, Override", "Dash", 0.1f);
             Util.PlaySound("Play_merc_shift_slice", base.gameObject);
+
+
+            if (base.isGrounded)
+            {
+                base.characterMotor.Motor.ForceUnground();
+            }
         }
 
         public override void OnExit()
@@ -173,41 +180,31 @@ namespace UnforgivenMod.Unforgiven.SkillStates
 
             if (this.inputBank.skill2.wasDown || this.inputBank.skill2.down) this.bufferedSecondary = true;
 
-            if (base.isGrounded)
+            this.stopwatch += Time.fixedDeltaTime;
+
+            if (this.stopwatch >= this.duration && extraDuration != 0) this.speed = extraDistance / this.extraDuration;
+
+            base.characterDirection.forward = this.direction;
+            base.characterMotor.rootMotion += this.direction * this.speed * Time.fixedDeltaTime;
+            base.characterMotor.velocity = Vector3.zero;
+
+            if (this.target)
             {
-                base.characterMotor.Motor.ForceUnground();
+                this.Fire();
             }
 
-            if (this.prepStopwatch >= this.prepDuration)
+            if (base.isAuthority && this.stopwatch >= this.duration)
             {
-                this.stopwatch += Time.fixedDeltaTime;
-
-                if (this.stopwatch >= this.duration && extraDuration != 0) this.speed = extraDistance / this.extraDuration;
-
-                base.characterDirection.forward = this.direction;
-                base.characterMotor.rootMotion += this.direction * this.speed * Time.fixedDeltaTime;
-                base.characterMotor.velocity = Vector3.zero;
-
-                if (this.target)
+                if (this.skillLocator.secondary.CanExecute() && this.bufferedSecondary)
                 {
-                    this.Fire();
+                    this.skillLocator.secondary.ExecuteIfReady();
                 }
-
-                if (base.isAuthority && this.stopwatch >= this.duration)
-                {
-                    if (this.skillLocator.secondary.CanExecute() && this.bufferedSecondary)
-                    {
-                        this.skillLocator.secondary.ExecuteIfReady();
-                    }
-                }
-
-                if (base.isAuthority && this.stopwatch >= this.duration + baseExtraDuration)
-                {
-                    this.outer.SetNextStateToMain();
-                }
-
             }
-            else this.prepStopwatch += Time.fixedDeltaTime;
+
+            if (base.isAuthority && this.stopwatch >= this.duration + baseExtraDuration)
+            {
+                this.outer.SetNextStateToMain();
+            }
 
         }
 

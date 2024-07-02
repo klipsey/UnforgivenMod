@@ -83,10 +83,10 @@ namespace UnforgivenMod.Unforgiven.Content
                 ));
             itemDisplayRules.Add(ItemDisplays.CreateDisplayRuleGroupWithRules(ItemDisplays.KeyAssets["BarrierOnOverHeal"],
                 ItemDisplays.CreateDisplayRule(ItemDisplays.LoadDisplay("DisplayAegis"),
-                    "Base",
-                    new Vector3(0.01287F, 0.30071F, 0.27752F),
-                    new Vector3(0F, 0F, 180F),
-                    new Vector3(0.32972F, 0.32972F, 0.32972F)
+                    "LowerArmL",
+                    new Vector3(0.04993F, 0.19812F, 0.07223F),
+                    new Vector3(72.26585F, 355.4418F, 91.69859F),
+                    new Vector3(0.1558F, 0.1558F, 0.1558F)
                     )
                 ));
             itemDisplayRules.Add(ItemDisplays.CreateDisplayRuleGroupWithRules(ItemDisplays.KeyAssets["Bear"],
@@ -523,7 +523,7 @@ namespace UnforgivenMod.Unforgiven.Content
                 ));
             itemDisplayRules.Add(ItemDisplays.CreateDisplayRuleGroupWithRules(ItemDisplays.KeyAssets["IgniteOnKill"],
                 ItemDisplays.CreateDisplayRule(ItemDisplays.LoadDisplay("DisplayGasoline"),
-                    "Chest",
+                    "Stomach",
                     new Vector3(-0.03808F, 0.15311F, -0.24884F),
                     new Vector3(270.3F, 270F, 180F),
                     new Vector3(1F, 1F, 1F)
@@ -1093,13 +1093,13 @@ namespace UnforgivenMod.Unforgiven.Content
                 ItemDisplays.CreateDisplayRule(ItemDisplays.LoadDisplay("DisplayAfterburnerShoulderRing"),
                     "UpperArmL",
                     new Vector3(0F, 0F, 0F),
-                    new Vector3(41.31011F, 125.3208F, 81.3366F),
+                    new Vector3(41.31012F, 125.3208F, 21.51054F),
                     new Vector3(1F, 1F, 1F)
                     ),
                 ItemDisplays.CreateDisplayRule(ItemDisplays.LoadDisplay("DisplayAfterburnerShoulderRing"),
                     "UpperArmR",
                     new Vector3(0F, 0F, 0F),
-                    new Vector3(41.31012F, 234.6792F, 278.6634F),
+                    new Vector3(41.31015F, 125.3208F, 278.6634F),
                     new Vector3(1F, 1F, 1F)
                     )
                 ));

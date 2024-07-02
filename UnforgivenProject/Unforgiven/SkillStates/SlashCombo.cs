@@ -96,11 +96,11 @@ namespace UnforgivenMod.Unforgiven.SkillStates
             if (!this.unforgivenController.isUnsheathed)
             {
                 this.unforgivenController.Unsheath();
-                PlayCrossfade("Gesture, Override", "DrawSlash", playbackRateParam, duration * 1.3f, duration * 0.3f);
+                PlayCrossfade("Gesture, Override", "DrawSlash", playbackRateParam, duration * 1.3f, 0.05f);
             }
             else
             {
-                PlayCrossfade("Gesture, Override", "Slash" + (1 + swingIndex), playbackRateParam, duration * 1.3f, duration * 0.3f);
+                PlayCrossfade("Gesture, Override", "Slash" + (1 + swingIndex), playbackRateParam, duration * 1.3f, 0.05f);
             }
         }
 

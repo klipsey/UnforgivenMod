@@ -21,6 +21,8 @@ using EntityStates;
 using R2API.Networking.Interfaces;
 using EmotesAPI;
 using System.Runtime.CompilerServices;
+using static Rewired.Utils.Classes.Utility.ObjectInstanceTracker;
+using System.Linq;
 
 namespace UnforgivenMod.Unforgiven
 {
@@ -145,7 +147,7 @@ namespace UnforgivenMod.Unforgiven
             bool tempAdd(CharacterBody body) => body.HasBuff(UnforgivenBuffs.dashCooldownBuff);
             bool tempAddShield(CharacterBody body) => body.HasBuff(UnforgivenBuffs.hasShieldBuff);
             bool tempNadoUp(CharacterBody body) => body.HasBuff(UnforgivenBuffs.stabMaxStacksBuff);
-            float pee(CharacterBody body) => body.radius * 1.5f;
+            float pee(CharacterBody body) => body.radius * 0.9f;
             float pee2(CharacterBody body) => body.radius;
             float pee3(CharacterBody body) => body.radius * 5f;
             TempVisualEffectAPI.AddTemporaryVisualEffect(UnforgivenAssets.shieldEffect, pee, tempAddShield);
@@ -363,7 +365,7 @@ namespace UnforgivenMod.Unforgiven
 
                 activationState = new EntityStates.SerializableEntityStateType(typeof(ConvictScepter)),
                 activationStateMachineName = "Dash",
-                interruptPriority = EntityStates.InterruptPriority.PrioritySkill,
+                interruptPriority = EntityStates.InterruptPriority.PrioritySkill,wd 
 
                 baseRechargeInterval = 16f,
                 baseMaxStock = 1,
