@@ -41,11 +41,6 @@ namespace UnforgivenMod.Unforgiven.SkillStates
         private float minDistance = 7f;
         public static float extraDistance = 5f;
 
-        public static float baseChainPrepDuration = 0.067f;
-        public static float basePrepDuration = 0.067f;
-        private float prepDuration;
-        private float prepStopwatch;
-
         private bool bufferedSecondary;
 
         public override void OnEnter()
@@ -84,8 +79,6 @@ namespace UnforgivenMod.Unforgiven.SkillStates
             this.extraDuration = Dash.baseExtraDuration / this.attackSpeedStat;
             this.speed = this.distance / this.duration;
 
-            this.prepDuration = Dash.baseChainPrepDuration / this.attackSpeedStat;
-
             this.modelTransform = base.GetModelTransform();
             if (this.modelTransform)
             {
@@ -119,12 +112,6 @@ namespace UnforgivenMod.Unforgiven.SkillStates
             base.characterMotor.Motor.RebuildCollidableLayers();
             base.characterMotor.velocity = Vector3.zero;
 
-            if (this.hurtboxGroup)
-            {
-                HurtBoxGroup hurtBoxGroup = this.hurtboxGroup;
-                int hurtBoxesDeactivatorCounter = hurtBoxGroup.hurtBoxesDeactivatorCounter - 1;
-                hurtBoxGroup.hurtBoxesDeactivatorCounter = hurtBoxesDeactivatorCounter;
-            }
             if (NetworkServer.active)
             {
                 base.characterBody.bodyFlags &= ~CharacterBody.BodyFlags.IgnoreFallDamage;

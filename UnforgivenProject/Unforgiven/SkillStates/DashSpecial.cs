@@ -121,7 +121,7 @@ namespace UnforgivenMod.Unforgiven.SkillStates
             this.duration = this.baseDuration / this.attackSpeedStat;
             this.extraDuration = Dash.baseExtraDuration / this.attackSpeedStat;
             this.speed = this.distance / this.duration;
-            this.prepDuration = Dash.baseChainPrepDuration / this.attackSpeedStat;
+            this.prepDuration = baseChainPrepDuration / this.attackSpeedStat;
 
             this.modelTransform = base.GetModelTransform();
             if (this.modelTransform)

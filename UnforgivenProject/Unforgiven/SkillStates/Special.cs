@@ -9,6 +9,7 @@ using UnforgivenMod.Modules.BaseStates;
 using UnforgivenMod.Unforgiven.Components;
 using UnforgivenMod.Unforgiven.Content;
 using UnityEngine.AddressableAssets;
+using R2API;
 
 namespace UnforgivenMod.Unforgiven.SkillStates
 {
@@ -21,6 +22,8 @@ namespace UnforgivenMod.Unforgiven.SkillStates
         public static float procCoefficient = 1f;
 
         public bool crit;
+
+        public bool tech;
 
         private float maxRange = 12f;
 
@@ -66,7 +69,7 @@ namespace UnforgivenMod.Unforgiven.SkillStates
             this.crit = base.RollCrit();
 
             this.unforgivenController.Unsheath();
-            base.PlayAnimation("FullBody, Override", "Special", "Slash.playbackRate", this.numRounds * this.roundDuration);
+            if(!tech) base.PlayAnimation("FullBody, Override", "Special", "Slash.playbackRate", this.numRounds * this.roundDuration);
             Transform modelTransform = characterBody.modelLocator.modelTransform;
             if(modelTransform)
             {
@@ -104,7 +107,7 @@ namespace UnforgivenMod.Unforgiven.SkillStates
 
             Util.PlaySound(final ? EntityStates.Merc.Weapon.GroundLight2.slash3Sound : EntityStates.Merc.Weapon.GroundLight2.slash1Sound, base.gameObject);
 
-            new BlastAttack
+            BlastAttack blastAttack = new BlastAttack
             {
                 attacker = base.gameObject,
                 procChainMask = default(ProcChainMask),
@@ -122,7 +125,19 @@ namespace UnforgivenMod.Unforgiven.SkillStates
                 teamIndex = base.GetTeam(),
                 inflictor = base.gameObject,
                 crit = this.crit
-            }.Fire();
+            };
+
+            if(skillLocator.special.skillDef == UnforgivenSurvivor.firstBreath)
+            {
+                blastAttack.AddModdedDamageType(DamageTypes.ResetDashes);
+
+                if(skillLocator.secondary.stock != skillLocator.secondary.maxStock)
+                {
+                    skillLocator.secondary.Reset();
+                }
+            }
+
+            blastAttack.Fire();
 
             if(this.slashEffectPrefab && this.slashEffectPrefab2)
             {

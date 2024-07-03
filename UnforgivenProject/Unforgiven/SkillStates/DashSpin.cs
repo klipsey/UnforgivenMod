@@ -102,7 +102,10 @@ namespace UnforgivenMod.Unforgiven.SkillStates
             if (base.isAuthority && unforgivenController.bufferedSpin && stopwatch >= duration)
             {
                 unforgivenController.bufferedSpin = false;
-                outer.SetNextState(new Special());
+                outer.SetNextState(new Special
+                {
+                    tech = true
+                });
             }
             else if(base.isAuthority && !unforgivenController.bufferedSpin && stopwatch >= duration)
             {

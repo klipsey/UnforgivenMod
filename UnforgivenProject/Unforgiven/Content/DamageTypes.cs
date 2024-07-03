@@ -19,11 +19,13 @@ namespace UnforgivenMod.Unforgiven.Content
     {
         public static DamageAPI.ModdedDamageType Default;
         public static DamageAPI.ModdedDamageType KnockAirborne;
+        public static DamageAPI.ModdedDamageType ResetDashes;
 
         internal static void Init()
         {
             Default = DamageAPI.ReserveDamageType();
             KnockAirborne = DamageAPI.ReserveDamageType();
+            ResetDashes = DamageAPI.ReserveDamageType();
             Hook();
         }
         private static void Hook()
@@ -51,6 +53,13 @@ namespace UnforgivenMod.Unforgiven.Content
                     if(damageInfo.HasModdedDamageType(KnockAirborne)) 
                     {
                         victimBody.gameObject.AddComponent<AirborneComponent>();
+                    }
+                    if(damageInfo.HasModdedDamageType(ResetDashes))
+                    {
+                        if(victimBody.HasBuff(UnforgivenBuffs.dashCooldownBuff))
+                        {
+                            victimBody.RemoveOldestTimedBuff(UnforgivenBuffs.dashCooldownBuff);
+                        }
                     }
                 }
             }

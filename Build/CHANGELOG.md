@@ -1,3 +1,21 @@
+# 0.5.8
+
+- Scepter no icon
+
+# 0.5.7
+
+- Stab hitbox is more stabbier
+
+# 0.5.6
+
+- Fixed some item displays
+- Fixed swing animation
+- Fixed tornado animation
+
+# 0.5.5
+
+- Bubble size
+
 # 0.5.4
 
 - Hopefully fixed client lag later in game?

@@ -76,6 +76,10 @@ namespace UnforgivenMod.Unforgiven.Content
             Language.Add(prefix + "SPECIAL_BREATH_NAME", "Last Breath");
             Language.Add(prefix + "SPECIAL_BREATH_DESCRIPTION", $"Dash towards an <style=cIsUtility>airborne</style> enemy then rapidly attack in an area for <style=cIsDamage>2x{UnforgivenStaticValues.specialFirstDamageCoefficient * 100f}% + {UnforgivenStaticValues.specialFinalDamageCoefficient * 100f}% damage</style> " +
                 $"Gain <style=cIsDamage>armor shred</style> for 6 seconds.");
+
+            Language.Add(prefix + "SPECIAL_SCEP_BREATH_NAME", "First Breath");
+            Language.Add(prefix + "SPECIAL_SCEP_BREATH_DESCRIPTION", $"Dash towards an <style=cIsUtility>airborne</style> enemy then rapidly attack in an area for <style=cIsDamage>2x{UnforgivenStaticValues.specialFirstDamageCoefficient * 100f}% + {UnforgivenStaticValues.specialFinalDamageCoefficient * 100f}% damage</style> " +
+                $"Gain <style=cIsDamage>armor shred</style> for 6 seconds." + Tokens.ScepterDescription("<style=cIsUtility>Reset your secondary cooldown</style>. Enemies hit by <color=#FFBF66>First Breath</color> can be targetted by <color=#FFBF66>Sweeping Blade</color> again."));
             #endregion
 
             #region Achievements

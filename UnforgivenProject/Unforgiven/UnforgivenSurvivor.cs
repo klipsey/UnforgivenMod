@@ -39,7 +39,7 @@ namespace UnforgivenMod.Unforgiven
 
         internal static GameObject characterPrefab;
 
-        public static SkillDef scepterDef;
+        public static SkillDef firstBreath;
 
         public override BodyInfo bodyInfo => new BodyInfo
         {
@@ -352,22 +352,22 @@ namespace UnforgivenMod.Unforgiven
 
             Skills.AddSpecialSkills(bodyPrefab, LastBreath);
         }
-        /*
+        
         private void InitializeScepter()
         {
-            convictScepterSkillDef = Skills.CreateSkillDef(new SkillDefInfo
+            firstBreath = Skills.CreateSkillDef<UnforgivenSpecialTrackerSkillDef>(new SkillDefInfo
             {
-                skillName = "Convict Scepter",
-                skillNameToken = UNFORGIVEN_PREFIX + "SPECIAL_SCEPTER_BREATH_NAME",
-                skillDescriptionToken = UNFORGIVEN_PREFIX + "SPECIAL_SCEPTER_BREATH_DESCRIPTION",
+                skillName = "FirstBreath",
+                skillNameToken = UNFORGIVEN_PREFIX + "SPECIAL_SCEP_BREATH_NAME",
+                skillDescriptionToken = UNFORGIVEN_PREFIX + "SPECIAL_SCEP_BREATH_DESCRIPTION",
                 keywordTokens = new string[] { },
-                skillIcon = assetBundle.LoadAsset<Sprite>("texConvictScepter"),
+                skillIcon = assetBundle.LoadAsset<Sprite>("texSpecialIcon"),
 
-                activationState = new EntityStates.SerializableEntityStateType(typeof(ConvictScepter)),
-                activationStateMachineName = "Dash",
-                interruptPriority = EntityStates.InterruptPriority.PrioritySkill,wd 
+                activationState = new EntityStates.SerializableEntityStateType(typeof(DashSpecial)),
+                activationStateMachineName = "Body",
+                interruptPriority = EntityStates.InterruptPriority.PrioritySkill,
 
-                baseRechargeInterval = 16f,
+                baseRechargeInterval = 9f,
                 baseMaxStock = 1,
 
                 rechargeStock = 1,
@@ -378,17 +378,17 @@ namespace UnforgivenMod.Unforgiven
                 fullRestockOnAssign = true,
                 dontAllowPastMaxStocks = false,
                 mustKeyPress = true,
-                beginSkillCooldownOnSkillEnd = false,
+                beginSkillCooldownOnSkillEnd = true,
 
                 isCombatSkill = true,
-                canceledFromSprinting = false,
-                cancelSprintingOnActivation = false,
+                canceledFromSprinting = true,
+                cancelSprintingOnActivation = true,
                 forceSprintDuringState = false,
             });
 
-            AncientScepter.AncientScepterItem.instance.RegisterScepterSkill(convictScepterSkillDef, bodyName, SkillSlot.Special, 0);
+            AncientScepter.AncientScepterItem.instance.RegisterScepterSkill(firstBreath, bodyName, SkillSlot.Special, 0);
         }
-        */
+        
         #endregion skills
 
         #region skins
