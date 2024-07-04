@@ -1,7 +1,7 @@
 {
     "name": "Wanderer",
     "author": "tsuyoikenko",
-    "version_number": "0.5.8",
+    "version_number": "0.5.9",
     "website_url": "https://github.com/klipsey/UnforgivenMod",
     "description": "Adds the Wanderer. - Removed Zebra - Networked",
     "dependencies": [

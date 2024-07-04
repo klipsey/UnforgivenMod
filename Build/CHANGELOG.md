@@ -1,3 +1,9 @@
+# 0.5.9
+
+- Fixed invincibility thing
+- Fixed some anims
+- Uh need to fix keyblading, its a bit screwed up rn
+
 # 0.5.8
 
 - Scepter no icon

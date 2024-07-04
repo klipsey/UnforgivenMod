@@ -68,7 +68,11 @@ namespace UnforgivenMod.Unforgiven.SkillStates
                 return;
             }
 
-            if(NetworkServer.active) this.target.AddTimedBuff(UnforgivenBuffs.dashCooldownBuff, 6f);
+            if (NetworkServer.active)
+            {
+                this.target.AddTimedBuff(UnforgivenBuffs.dashCooldownBuff, 6f);
+                this.characterBody.AddBuff(RoR2Content.Buffs.HiddenInvincibility);
+            }
 
             base.characterMotor.Motor.ForceUnground();
 
@@ -78,18 +82,6 @@ namespace UnforgivenMod.Unforgiven.SkillStates
             this.duration = this.baseDuration / this.attackSpeedStat;
             this.extraDuration = Dash.baseExtraDuration / this.attackSpeedStat;
             this.speed = this.distance / this.duration;
-
-            this.modelTransform = base.GetModelTransform();
-            if (this.modelTransform)
-            {
-                this.hurtboxGroup = this.modelTransform.GetComponent<HurtBoxGroup>();
-            }
-            if (this.hurtboxGroup)
-            {
-                HurtBoxGroup hurtBoxGroup = this.hurtboxGroup;
-                int hurtBoxesDeactivatorCounter = hurtBoxGroup.hurtBoxesDeactivatorCounter + 1;
-                hurtBoxGroup.hurtBoxesDeactivatorCounter = hurtBoxesDeactivatorCounter;
-            }
 
             base.gameObject.layer = LayerIndex.fakeActor.intVal;
             base.characterMotor.Motor.RebuildCollidableLayers();
@@ -114,6 +106,7 @@ namespace UnforgivenMod.Unforgiven.SkillStates
 
             if (NetworkServer.active)
             {
+                this.characterBody.RemoveBuff(RoR2Content.Buffs.HiddenInvincibility);
                 base.characterBody.bodyFlags &= ~CharacterBody.BodyFlags.IgnoreFallDamage;
                 int stacks = base.characterBody.GetBuffCount(UnforgivenBuffs.stackingDashDamageBuff);
                 if (stacks == 4) stacks = 3;

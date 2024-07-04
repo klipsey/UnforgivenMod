@@ -112,8 +112,11 @@ namespace UnforgivenMod.Unforgiven.SkillStates
                 return;
             }
 
-            if (base.characterBody && NetworkServer.active) base.characterBody.bodyFlags |= CharacterBody.BodyFlags.IgnoreFallDamage;
-
+            if (base.characterBody && NetworkServer.active)
+            {
+                base.characterBody.bodyFlags |= CharacterBody.BodyFlags.IgnoreFallDamage;
+                this.characterBody.AddBuff(RoR2Content.Buffs.HiddenInvincibility);
+            }
             base.characterMotor.Motor.ForceUnground();
 
             this.distance = (base.transform.position - this.target.coreTransform.position).magnitude + 4f;
@@ -122,18 +125,6 @@ namespace UnforgivenMod.Unforgiven.SkillStates
             this.extraDuration = Dash.baseExtraDuration / this.attackSpeedStat;
             this.speed = this.distance / this.duration;
             this.prepDuration = baseChainPrepDuration / this.attackSpeedStat;
-
-            this.modelTransform = base.GetModelTransform();
-            if (this.modelTransform)
-            {
-                this.hurtboxGroup = this.modelTransform.GetComponent<HurtBoxGroup>();
-            }
-            if (this.hurtboxGroup)
-            {
-                HurtBoxGroup hurtBoxGroup = this.hurtboxGroup;
-                int hurtBoxesDeactivatorCounter = hurtBoxGroup.hurtBoxesDeactivatorCounter + 1;
-                hurtBoxGroup.hurtBoxesDeactivatorCounter = hurtBoxesDeactivatorCounter;
-            }
 
             this.unforgivenController.Unsheath();
 
@@ -157,6 +148,7 @@ namespace UnforgivenMod.Unforgiven.SkillStates
             if (NetworkServer.active)
             {
                 base.characterBody.bodyFlags &= ~CharacterBody.BodyFlags.IgnoreFallDamage;
+                this.characterBody.RemoveBuff(RoR2Content.Buffs.HiddenInvincibility);
             }
             base.OnExit();
         }

@@ -150,7 +150,7 @@ namespace UnforgivenMod.Unforgiven
             float pee(CharacterBody body) => body.radius * 0.9f;
             float pee2(CharacterBody body) => body.radius;
             float pee3(CharacterBody body) => body.radius * 5f;
-            TempVisualEffectAPI.AddTemporaryVisualEffect(UnforgivenAssets.shieldEffect, pee, tempAddShield);
+            if(!UnforgivenConfig.noShieldVisual.Value) TempVisualEffectAPI.AddTemporaryVisualEffect(UnforgivenAssets.shieldEffect, pee, tempAddShield);
             TempVisualEffectAPI.AddTemporaryVisualEffect(UnforgivenAssets.dashCdEffect, pee2, tempAdd);
             TempVisualEffectAPI.AddTemporaryVisualEffect(UnforgivenAssets.nadoUpEffect, pee3, tempNadoUp);
         }

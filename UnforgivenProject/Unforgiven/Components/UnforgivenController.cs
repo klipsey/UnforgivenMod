@@ -90,7 +90,7 @@ namespace UnforgivenMod.Unforgiven.Components
             if(bufferedSpin)
             {
                 bufferStopwatch += Time.fixedDeltaTime;
-                if(bufferStopwatch >= 1.25f / characterBody.attackSpeed) bufferedSpin = false;
+                if(bufferStopwatch >= 4f / characterBody.attackSpeed) bufferedSpin = false;
             }
 
             if(shieldStopwatchInterval >= 0.25f && base.transform)
