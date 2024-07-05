@@ -23,7 +23,7 @@ namespace UnforgivenMod.Unforgiven.SkillStates
 
         public bool crit;
 
-        public bool tech;
+        public bool isBuffered;
 
         private float maxRange = 12f;
 
@@ -34,8 +34,6 @@ namespace UnforgivenMod.Unforgiven.SkillStates
         private int numRounds = 3;
 
         private int roundsCompleted = 0;
-
-        private bool hasToggled;
 
         protected GameObject swingEffectInstance;
 
@@ -69,7 +67,7 @@ namespace UnforgivenMod.Unforgiven.SkillStates
             this.crit = base.RollCrit();
 
             this.unforgivenController.Unsheath();
-            if(!tech) base.PlayAnimation("FullBody, Override", "Special", "Slash.playbackRate", this.numRounds * this.roundDuration);
+            if(!unforgivenController.bufferedSpin || !isBuffered) base.PlayAnimation("FullBody, Override", "Special", "Slash.playbackRate", this.numRounds * this.roundDuration);
             Transform modelTransform = characterBody.modelLocator.modelTransform;
             if(modelTransform)
             {
@@ -96,6 +94,10 @@ namespace UnforgivenMod.Unforgiven.SkillStates
             base.OnExit();
 
             if (this.swingEffectInstance) EntityState.Destroy(this.swingEffectInstance);
+
+            unforgivenController.bufferedSpin = false;
+
+            isBuffered = false;
 
         }
 

@@ -14,10 +14,6 @@ namespace UnforgivenMod.Unforgiven.SkillStates
 {
     public class StabForward : BaseMeleeAttack
     {
-        private bool hasPlayedSound;
-
-        private int stacks;
-
         private bool hasGrantedStacks;
 
         protected GameObject swingEffectInstance;

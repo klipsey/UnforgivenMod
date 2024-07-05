@@ -27,15 +27,14 @@ namespace UnforgivenMod.Unforgiven.SkillStates
             procCoefficient = 1f;
             pushForce = 300f;
             bonusForce = empowered ? Vector3.up * 3000f : Vector3.zero;
-            baseDuration = 0.67f;
-            if (unforgivenController.bufferedSpin) baseDuration = 0.35f;
+            baseDuration = 1.1f;
             //0-1 multiplier of baseduration, used to time when the hitbox is out (usually based on the run time of the animation)
             //for example, if attackStartPercentTime is 0.5, the attack will start hitting halfway through the ability. if baseduration is 3 seconds, the attack will start happening at 1.5 seconds
-            attackStartPercentTime = 0f;
-            attackEndPercentTime = 0.2f;
+            attackStartPercentTime = 0.2f;
+            attackEndPercentTime = 0.4f;
 
             //this is the point at which the attack can be interrupted by itself, continuing a combo
-            earlyExitPercentTime = 0.2f;
+            earlyExitPercentTime = 0.5f;
 
             hitStopDuration = 0.05f;
             attackRecoil = 2f / attackSpeedStat;
@@ -99,15 +98,7 @@ namespace UnforgivenMod.Unforgiven.SkillStates
                 FireAttack();
             }
 
-            if (base.isAuthority && unforgivenController.bufferedSpin && stopwatch >= duration)
-            {
-                unforgivenController.bufferedSpin = false;
-                outer.SetNextState(new Special
-                {
-                    tech = true
-                });
-            }
-            else if(base.isAuthority && !unforgivenController.bufferedSpin && stopwatch >= duration)
+            if(base.isAuthority && stopwatch >= duration)
             {
                 outer.SetNextStateToMain();
             }
@@ -128,6 +119,8 @@ namespace UnforgivenMod.Unforgiven.SkillStates
         public override void OnExit()
         {
             base.OnExit();
+
+            unforgivenController.bufferedSpin = false;
         }
 
         public override InterruptPriority GetMinimumInterruptPriority()
@@ -136,7 +129,7 @@ namespace UnforgivenMod.Unforgiven.SkillStates
             {
                 return InterruptPriority.Any;
             }
-            return InterruptPriority.Skill;
+            return InterruptPriority.PrioritySkill;
         }
     }
 }

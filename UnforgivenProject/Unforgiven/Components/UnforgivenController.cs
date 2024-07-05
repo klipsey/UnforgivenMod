@@ -80,9 +80,6 @@ namespace UnforgivenMod.Unforgiven.Components
                 }
             }
         }
-        #region tooMuchCrap
-
-        #endregion
         private void FixedUpdate()
         {
             shieldStopwatchInterval += Time.fixedDeltaTime;

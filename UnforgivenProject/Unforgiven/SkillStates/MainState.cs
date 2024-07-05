@@ -52,7 +52,9 @@ namespace UnforgivenMod.Unforgiven.SkillStates
                     if (this.animator.GetBool("isUnsheathed"))
                     {
                         this.animator.SetBool("isUnsheathed", false);
-                        PlayAnimationOnAnimator(this.animator, "Transition", "ToSafe");
+                        if(this.characterBody.isSprinting) PlayAnimationOnAnimator(this.animator, "Transition", "SprintToSafe");
+                        else if (!this.characterBody.GetNotMoving()) PlayAnimationOnAnimator(this.animator, "Transition", "RunToSafe");
+                        else PlayAnimationOnAnimator(this.animator, "Transition", "ToSafe");
                     }
                     this.animator.SetLayerWeight(this.animator.GetLayerIndex("Body, Combat"), 0f);
                 }

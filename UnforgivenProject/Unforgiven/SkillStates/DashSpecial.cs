@@ -38,12 +38,17 @@ namespace UnforgivenMod.Unforgiven.SkillStates
         public static float basePrepDuration = 0.067f;
         private float prepDuration;
         private float prepStopwatch;
-        private bool bufferedSecondary = false;
+        private bool holdBuffer;
 
         public override void OnEnter()
         {
             RefreshState();
             base.OnEnter();
+
+            if (skillLocator.secondary.rechargeStopwatch >= skillLocator.secondary.finalRechargeInterval - 0.5f)
+            {
+                skillLocator.secondary.rechargeStopwatch = skillLocator.secondary.finalRechargeInterval;
+            }
 
             RaycastHit hitInfo;
             Vector3 position = !inputBank.GetAimRaycast(60f, out hitInfo) ? Vector3.MoveTowards(inputBank.GetAimRay().GetPoint(60f), transform.position, 5f) : Vector3.MoveTowards(hitInfo.point, transform.position, 5f);
@@ -157,9 +162,6 @@ namespace UnforgivenMod.Unforgiven.SkillStates
         {
             base.FixedUpdate();
 
-            if (this.inputBank.skill2.wasDown || this.inputBank.skill2.down) this.bufferedSecondary = true;
-
-
             if (this.prepStopwatch >= this.prepDuration)
             {
                 this.stopwatch += Time.fixedDeltaTime;
@@ -183,18 +185,10 @@ namespace UnforgivenMod.Unforgiven.SkillStates
                 base.gameObject.layer = LayerIndex.fakeActor.intVal;
                 base.characterMotor.Motor.RebuildCollidableLayers();
 
-                if (base.isAuthority && this.stopwatch >= this.duration)
-                {
-                    if(this.skillLocator.secondary.CanExecute() && this.bufferedSecondary)
-                    {
-                        unforgivenController.bufferedSpin = true;
-                        this.skillLocator.secondary.ExecuteIfReady();
-                    }
-                }
-
                 if (this.stopwatch >= this.duration + Dash.baseExtraDuration)
                 {
-                    this.outer.SetNextState(new Special());
+                    if (unforgivenController.bufferedSpin) holdBuffer = true;
+                    EntityStateMachine.FindByCustomName(base.gameObject, "Dash").SetNextState(new Special { isBuffered = holdBuffer });
                 }
 
             }

@@ -1,3 +1,8 @@
+# 0.6.0
+
+- Keyblade, beyblade whatever now works
+- Added sheathing during runs and sprints
+
 # 0.5.9
 
 - Fixed invincibility thing

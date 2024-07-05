@@ -175,6 +175,7 @@ namespace UnforgivenMod.Unforgiven
             Prefabs.AddEntityStateMachine(bodyPrefab, "Weapon");
             Prefabs.AddEntityStateMachine(bodyPrefab, "Weapon2");
             Prefabs.AddEntityStateMachine(bodyPrefab, "Dash");
+            Prefabs.AddEntityStateMachine(bodyPrefab, "Dash2");
         }
 
         #region skills
@@ -291,10 +292,10 @@ namespace UnforgivenMod.Unforgiven
                 skillIcon = assetBundle.LoadAsset<Sprite>("texUtilityIcon"),
 
                 activationState = new SerializableEntityStateType(typeof(Dash)),
-                activationStateMachineName = "Body",
+                activationStateMachineName = "Dash",
                 interruptPriority = InterruptPriority.Skill,
 
-                baseRechargeInterval = 0.1f,
+                baseRechargeInterval = 0.25f,
                 baseMaxStock = 1,
 
                 rechargeStock = 1,
@@ -328,7 +329,7 @@ namespace UnforgivenMod.Unforgiven
                 skillIcon = assetBundle.LoadAsset<Sprite>("texSpecialIcon"),
 
                 activationState = new EntityStates.SerializableEntityStateType(typeof(DashSpecial)),
-                activationStateMachineName = "Body",
+                activationStateMachineName = "Dash",
                 interruptPriority = EntityStates.InterruptPriority.PrioritySkill,
 
                 baseRechargeInterval = 9f,

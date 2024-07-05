@@ -357,7 +357,7 @@ namespace UnforgivenMod.Unforgiven.Content
             nadoPrefab.AddComponent<HitBoxGroup>().hitBoxes = nadoHitbox;
             ProjectileOverlapAttack nadoOverlapAttack = nadoPrefab.AddComponent<ProjectileOverlapAttack>();
             nadoOverlapAttack.damageCoefficient = 1f;
-            nadoOverlapAttack.forceVector = Vector3.up * 3000f;
+            nadoOverlapAttack.forceVector = Vector3.up * 4000f;
             nadoOverlapAttack.impactEffect = unforgivenHitEffect;
 
             ProjectileController nadoController = nadoPrefab.GetComponent<ProjectileController>();

@@ -10,16 +10,23 @@ namespace UnforgivenMod.Unforgiven.SkillStates
 {
     public class EnterStab : BaseUnforgivenSkillState
     {
+        EntityState savedState;
+        bool hasChosenState;
         public override void OnEnter()
         {
             RefreshState();
             base.OnEnter();
+        }
+
+        public override void FixedUpdate()
+        {
+            base.FixedUpdate();
 
             EntityStateMachine b = null;
             EntityStateMachine[] components = base.gameObject.GetComponents<EntityStateMachine>();
             for (int i = 0; i < components.Length; i++)
             {
-                if (components[i].customName == "Body")
+                if (components[i].customName == "Dash")
                 {
                     b = components[i];
 
@@ -27,29 +34,39 @@ namespace UnforgivenMod.Unforgiven.SkillStates
                 }
             }
 
-            if (b && b.state is Dash)
+            if (b && b.state is Dash && !hasChosenState)
             {
-                b.SetNextStateToMain();
-                this.outer.SetNextState(new DashSpin());
+                hasChosenState = true;
+                unforgivenController.bufferedSpin = true;
+                savedState = new DashSpin();
                 return;
             }
 
-            if (b && b.state is DashSpecial)
+            if (b && b.state is DashSpecial && !hasChosenState)
             {
-                b.SetNextStateToMain();
-                this.outer.SetNextState(new DashSpin());
+                hasChosenState = true;
+                unforgivenController.bufferedSpin = true;
+                savedState = new DashSpin();
                 return;
             }
 
-            if (empowered)
+            if(!hasChosenState)
             {
-                this.outer.SetNextState(new Tornado());
-                return;
+                if (empowered)
+                {
+                    this.outer.SetNextState(new Tornado());
+                    return;
+                }
+                else
+                {
+                    this.outer.SetNextState(new StabForward());
+                    return;
+                }
             }
-            else
+            else if(!(b.state is DashSpecial || b.state is Dash))
             {
-                this.outer.SetNextState(new StabForward());
-                return;   
+                this.outer.SetNextState(savedState);
+                return;
             }
         }
 

@@ -14,39 +14,40 @@ namespace UnforgivenMod.Unforgiven.SkillStates
 {
     public class Dash : BaseUnforgivenSkillState
     {
+        public static float baseDuration = 0.1f;
+
+        public static float baseExtraDuration = 0.1f;
+
+        public static float extraDistance = 2.5f;
+
+        public static float hitRange = 4.5f;
+
         public int targetIndex = 0;
+
         public CharacterBody target;
 
         private Transform modelTransform;
 
         private UnforgivenTracker tracker;
 
-        private HurtBoxGroup hurtboxGroup;
-
-        private OverlapAttack overlapAttack;
-
         private Vector3 direction;
         private float distance;
         private float duration;
+        private float extraDuration;
         private float speed;
         private bool hasFired;
-
-        private float stopwatch;
         private float damageCoefficient = UnforgivenStaticValues.dashDamageCoefficient;
-
-        public static float hitRange = 4.5f;
-        private float baseDuration = 0.1f;
-        public static float baseExtraDuration = 0.1f;
-        private float extraDuration;
         private float minDistance = 7f;
-        public static float extraDistance = 5f;
-
-        private bool bufferedSecondary;
 
         public override void OnEnter()
         {
             RefreshState();
             base.OnEnter();
+
+            if (skillLocator.secondary.rechargeStopwatch >= skillLocator.secondary.finalRechargeInterval - 0.5f)
+            {
+                skillLocator.secondary.rechargeStopwatch = skillLocator.secondary.finalRechargeInterval;
+            }
 
             if (base.characterBody && NetworkServer.active)
             {
@@ -79,7 +80,7 @@ namespace UnforgivenMod.Unforgiven.SkillStates
             Vector3 corePosition = Util.GetCorePosition(target);
             this.distance = Mathf.Max(this.minDistance, (base.transform.position - corePosition).magnitude);
             this.direction = (corePosition - base.transform.position).normalized;
-            this.duration = this.baseDuration / this.attackSpeedStat;
+            this.duration = Dash.baseDuration / this.attackSpeedStat;
             this.extraDuration = Dash.baseExtraDuration / this.attackSpeedStat;
             this.speed = this.distance / this.duration;
 
@@ -158,11 +159,7 @@ namespace UnforgivenMod.Unforgiven.SkillStates
         {
             base.FixedUpdate();
 
-            if (this.inputBank.skill2.wasDown || this.inputBank.skill2.down) this.bufferedSecondary = true;
-
-            this.stopwatch += Time.fixedDeltaTime;
-
-            if (this.stopwatch >= this.duration && extraDuration != 0) this.speed = extraDistance / this.extraDuration;
+            if (base.fixedAge >= this.duration && extraDuration != 0) this.speed = extraDistance / this.extraDuration;
 
             base.characterDirection.forward = this.direction;
             base.characterMotor.rootMotion += this.direction * this.speed * Time.fixedDeltaTime;
@@ -173,15 +170,7 @@ namespace UnforgivenMod.Unforgiven.SkillStates
                 this.Fire();
             }
 
-            if (base.isAuthority && this.stopwatch >= this.duration)
-            {
-                if (this.skillLocator.secondary.CanExecute() && this.bufferedSecondary)
-                {
-                    this.skillLocator.secondary.ExecuteIfReady();
-                }
-            }
-
-            if (base.isAuthority && this.stopwatch >= this.duration + baseExtraDuration)
+            if (base.isAuthority && base.fixedAge >= this.duration + extraDuration)
             {
                 this.outer.SetNextStateToMain();
             }
