@@ -1,7 +1,14 @@
+# 0.6.1
+
+- Sprinting consistency
+
 # 0.6.0
 
-- Keyblade, beyblade whatever now works
+- Keyblade, beyblade whatever now works (animation cancel also works)
+- If util is casted and secondary is at a 0.5 second cooldown it will now refresh like in league
+- Nerfed dash damage
 - Added sheathing during runs and sprints
+- Lmk if networking has broken cause of the changes
 
 # 0.5.9
 

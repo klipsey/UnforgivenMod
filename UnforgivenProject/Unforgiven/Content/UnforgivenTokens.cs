@@ -83,8 +83,8 @@ namespace UnforgivenMod.Unforgiven.Content
             #endregion
 
             #region Achievements
-            Language.Add(Tokens.GetAchievementNameToken(UnforgivenMasterAchievement.identifier), "Unforgiven: Mastery");
-            Language.Add(Tokens.GetAchievementDescriptionToken(UnforgivenMasterAchievement.identifier), "As Unforgiven, beat the game or obliterate on Monsoon.");
+            //Language.Add(Tokens.GetAchievementNameToken(UnforgivenMasterAchievement.identifier), "Unforgiven: Mastery");
+            //Language.Add(Tokens.GetAchievementDescriptionToken(UnforgivenMasterAchievement.identifier), "As Unforgiven, beat the game or obliterate on Monsoon.");
             /*
             Language.Add(Tokens.GetAchievementNameToken(UnforgivenUnlockAchievement.identifier), "Dressed to Kill");
             Language.Add(Tokens.GetAchievementDescriptionToken(UnforgivenUnlockAchievement.identifier), "Get a Backstab.");

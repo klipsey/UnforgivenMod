@@ -346,9 +346,9 @@ namespace UnforgivenMod.Unforgiven
                 beginSkillCooldownOnSkillEnd = true,
 
                 isCombatSkill = true,
-                canceledFromSprinting = true,
-                cancelSprintingOnActivation = true,
-                forceSprintDuringState = false,
+                canceledFromSprinting = false,
+                cancelSprintingOnActivation = false,
+                forceSprintDuringState = true,
             });
 
             Skills.AddSpecialSkills(bodyPrefab, LastBreath);
@@ -365,7 +365,7 @@ namespace UnforgivenMod.Unforgiven
                 skillIcon = assetBundle.LoadAsset<Sprite>("texSpecialIcon"),
 
                 activationState = new EntityStates.SerializableEntityStateType(typeof(DashSpecial)),
-                activationStateMachineName = "Body",
+                activationStateMachineName = "Dash",
                 interruptPriority = EntityStates.InterruptPriority.PrioritySkill,
 
                 baseRechargeInterval = 9f,
@@ -382,9 +382,9 @@ namespace UnforgivenMod.Unforgiven
                 beginSkillCooldownOnSkillEnd = true,
 
                 isCombatSkill = true,
-                canceledFromSprinting = true,
-                cancelSprintingOnActivation = true,
-                forceSprintDuringState = false,
+                canceledFromSprinting = false,
+                cancelSprintingOnActivation = false,
+                forceSprintDuringState = true,
             });
 
             AncientScepter.AncientScepterItem.instance.RegisterScepterSkill(firstBreath, bodyName, SkillSlot.Special, 0);

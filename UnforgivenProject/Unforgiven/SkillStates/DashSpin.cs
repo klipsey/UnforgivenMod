@@ -30,9 +30,9 @@ namespace UnforgivenMod.Unforgiven.SkillStates
             baseDuration = 1.1f;
             //0-1 multiplier of baseduration, used to time when the hitbox is out (usually based on the run time of the animation)
             //for example, if attackStartPercentTime is 0.5, the attack will start hitting halfway through the ability. if baseduration is 3 seconds, the attack will start happening at 1.5 seconds
-            attackStartPercentTime = 0.2f;
+            attackStartPercentTime = 0.05f;
             attackEndPercentTime = 0.4f;
-
+    
             //this is the point at which the attack can be interrupted by itself, continuing a combo
             earlyExitPercentTime = 0.5f;
 
@@ -58,16 +58,20 @@ namespace UnforgivenMod.Unforgiven.SkillStates
             impactSound = empowered ? UnforgivenAssets.nadoImpactSoundEvent.index : UnforgivenAssets.swordImpactSoundEvent.index;
 
             base.OnEnter();
+
+            characterBody.isSprinting = true;
         }
 
         protected override void PlayAttackAnimation()
         {
             this.unforgivenController.Unsheath();
-            base.PlayCrossfade("FullBody, Override", "DashSpin", "Dash.playbackRate", this.duration, 0.05f);
+            base.PlayCrossfade("FullBody, Override", "DashSpin", "Dash.playbackRate", this.duration * 1.25f, 0.05f);
         }
 
         public override void FixedUpdate()
         {
+            characterBody.isSprinting = true;
+
             hitPauseTimer -= Time.fixedDeltaTime;
 
             if (hitPauseTimer <= 0f && inHitPause)

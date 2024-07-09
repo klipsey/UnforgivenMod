@@ -16,7 +16,7 @@ namespace UnforgivenMod.Unforgiven.SkillStates
     {
         public static float baseDuration = 0.1f;
 
-        public static float baseExtraDuration = 0.1f;
+        public static float baseExtraDuration = 0.05f;
 
         public static float extraDistance = 2.5f;
 

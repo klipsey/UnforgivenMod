@@ -53,6 +53,8 @@ namespace UnforgivenMod.Unforgiven.SkillStates
 
             base.OnEnter();
 
+            characterBody.isSprinting = true;
+
             if (NetworkServer.active)
             {
                 base.characterBody.AddBuff(RoR2Content.Buffs.HiddenInvincibility);
@@ -199,6 +201,8 @@ namespace UnforgivenMod.Unforgiven.SkillStates
         public override void FixedUpdate()
         {
             base.FixedUpdate();
+
+            characterBody.isSprinting = true;
 
             base.characterMotor.velocity = Vector3.zero;
 
