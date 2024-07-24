@@ -15,7 +15,7 @@ namespace UnforgivenMod.Unforgiven.SkillStates
     public class DashSpecial : BaseUnforgivenSkillState
     {
         public int targetIndex = 0;
-        public CharacterBody target;
+        public CharacterBody victimBody;
         private Transform modelTransform;
 
         private HurtBoxGroup hurtboxGroup;
@@ -70,19 +70,19 @@ namespace UnforgivenMod.Unforgiven.SkillStates
                     {
                         if (hurtBox.healthComponent.body.HasBuff(UnforgivenBuffs.airborneBuff) || !hurtBox.healthComponent.body.characterMotor.isGrounded || hurtBox.healthComponent.body.characterMotor.isFlying)
                         {
-                            this.target = hurtBox.healthComponent.body;
+                            this.victimBody = hurtBox.healthComponent.body;
                             break;
                         }
                     }
                     else if (hurtBox && hurtBox.healthComponent && hurtBox.healthComponent.body && !hurtBox.healthComponent.body.characterMotor)
                     {
-                        this.target = hurtBox.healthComponent.body;
+                        this.victimBody = hurtBox.healthComponent.body;
                         break;
                     }
                 }
             }
 
-            if(!target)
+            if(!victimBody)
             {
                 HurtBox[] hurtBoxes2 = new SphereSearch
                 {
@@ -97,20 +97,20 @@ namespace UnforgivenMod.Unforgiven.SkillStates
                     {
                         if (hurtBox.healthComponent.body.HasBuff(UnforgivenBuffs.airborneBuff) || !hurtBox.healthComponent.body.characterMotor.isGrounded || hurtBox.healthComponent.body.characterMotor.isFlying)
                         {
-                            this.target = hurtBox.healthComponent.body;
+                            this.victimBody = hurtBox.healthComponent.body;
                             break;
                         }
                     }
                     else if (hurtBox && hurtBox.healthComponent && hurtBox.healthComponent.body && !hurtBox.healthComponent.body.characterMotor)
                     {
-                        this.target = hurtBox.healthComponent.body;
+                        this.victimBody = hurtBox.healthComponent.body;
                         break;
                     }
                 }
             }
 
 
-            if(!this.target)
+            if(!this.victimBody)
             {
                 skillLocator.special.AddOneStock();
                 outer.SetNextStateToMain();
@@ -124,8 +124,8 @@ namespace UnforgivenMod.Unforgiven.SkillStates
             }
             base.characterMotor.Motor.ForceUnground();
 
-            this.distance = (base.transform.position - this.target.coreTransform.position).magnitude + 4f;
-            this.direction = (this.target.coreTransform.position - base.transform.position).normalized;
+            this.distance = (base.transform.position - this.victimBody.coreTransform.position).magnitude + 4f;
+            this.direction = (this.victimBody.coreTransform.position - base.transform.position).normalized;
             this.duration = this.baseDuration / this.attackSpeedStat;
             this.extraDuration = Dash.baseExtraDuration / this.attackSpeedStat;
             this.speed = this.distance / this.duration;
@@ -167,9 +167,9 @@ namespace UnforgivenMod.Unforgiven.SkillStates
                 this.stopwatch += Time.fixedDeltaTime;
 
                 Vector3 target;
-                if (this.target)
+                if (this.victimBody)
                 {
-                    target = this.target.coreTransform.position;
+                    target = this.victimBody.coreTransform.position;
                     this.lastKnownPosition = target;
                 }
                 else target = this.lastKnownPosition;

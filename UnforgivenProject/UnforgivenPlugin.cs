@@ -52,7 +52,7 @@ namespace UnforgivenMod
             Modules.Language.Init();
 
             // character initialization
-            //StartCoroutine(UnforgivenAssets.mainAssetBundle.UpgradeStubbedShadersAsync());
+            // StartCoroutine(UnforgivenAssets.mainAssetBundle.UpgradeStubbedShadersAsync());
 
             new UnforgivenMod.Unforgiven.UnforgivenSurvivor().Initialize();
 

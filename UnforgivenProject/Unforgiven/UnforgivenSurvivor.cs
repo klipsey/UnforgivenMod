@@ -261,7 +261,7 @@ namespace UnforgivenMod.Unforgiven
                 interruptPriority = InterruptPriority.Skill,
 
                 baseMaxStock = 1,
-                baseRechargeInterval = 4f,
+                baseRechargeInterval = 2.5f,
                 rechargeStock = 1,
                 requiredStock = 1,
                 stockToConsume = 1,

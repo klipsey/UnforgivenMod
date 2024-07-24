@@ -1,3 +1,7 @@
+# 0.6.2
+
+- Networking
+
 # 0.6.1
 
 - Sprinting consistency

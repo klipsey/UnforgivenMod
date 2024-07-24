@@ -24,9 +24,11 @@ namespace UnforgivenMod.Unforgiven.SkillStates
 
         public int targetIndex = 0;
 
-        public CharacterBody target;
+        public CharacterBody victimBody;
 
         private Transform modelTransform;
+
+        private HurtBox hurtbox;
 
         private UnforgivenTracker tracker;
 
@@ -56,13 +58,14 @@ namespace UnforgivenMod.Unforgiven.SkillStates
             }
 
             this.tracker = base.GetComponent<UnforgivenTracker>();
-            if (this.tracker)
+            if (this.tracker && base.isAuthority)
             {
-                HurtBox hurtbox = this.tracker.GetTrackingTarget();
-                if (hurtbox && hurtbox.healthComponent && hurtbox.healthComponent.body) this.target = this.tracker.GetTrackingTarget().healthComponent.body;
+                hurtbox = this.tracker.GetTrackingTarget();
             }
 
-            if (!this.target)
+            if (hurtbox && hurtbox.healthComponent && hurtbox.healthComponent.body) this.victimBody = hurtbox.healthComponent.body;
+
+            if (!this.victimBody)
             {
                 this.outer.SetNextStateToMain();
                 this.activatorSkillSlot.AddOneStock();
@@ -71,13 +74,13 @@ namespace UnforgivenMod.Unforgiven.SkillStates
 
             if (NetworkServer.active)
             {
-                this.target.AddTimedBuff(UnforgivenBuffs.dashCooldownBuff, 6f);
+                this.victimBody.AddTimedBuff(UnforgivenBuffs.dashCooldownBuff, 6f);
                 this.characterBody.AddBuff(RoR2Content.Buffs.HiddenInvincibility);
             }
 
             base.characterMotor.Motor.ForceUnground();
 
-            Vector3 corePosition = Util.GetCorePosition(target);
+            Vector3 corePosition = Util.GetCorePosition(victimBody);
             this.distance = Mathf.Max(this.minDistance, (base.transform.position - corePosition).magnitude);
             this.direction = (corePosition - base.transform.position).normalized;
             this.duration = Dash.baseDuration / this.attackSpeedStat;
@@ -129,7 +132,7 @@ namespace UnforgivenMod.Unforgiven.SkillStates
                 {
                     DamageInfo damageInfo = new DamageInfo
                     {
-                        position = this.target.transform.position,
+                        position = this.victimBody.transform.position,
                         attacker = base.gameObject,
                         inflictor = base.gameObject,
                         damage = this.damageCoefficient * base.damageStat,
@@ -141,13 +144,13 @@ namespace UnforgivenMod.Unforgiven.SkillStates
                         procCoefficient = 1f
                     };
 
-                    this.target.healthComponent.TakeDamage(damageInfo);
-                    GlobalEventManager.instance.OnHitEnemy(damageInfo, this.target.gameObject);
-                    GlobalEventManager.instance.OnHitAll(damageInfo, this.target.gameObject);
+                    this.victimBody.healthComponent.TakeDamage(damageInfo);
+                    GlobalEventManager.instance.OnHitEnemy(damageInfo, this.victimBody.gameObject);
+                    GlobalEventManager.instance.OnHitAll(damageInfo, this.victimBody.gameObject);
 
                     EffectManager.SpawnEffect(UnforgivenAssets.unforgivenHitEffect, new EffectData
                     {
-                        origin = this.target.transform.position,
+                        origin = this.victimBody.transform.position,
                         rotation = Quaternion.identity,
                         networkSoundEventIndex = UnforgivenAssets.swordImpactSoundEvent.index
                     }, true);
@@ -165,7 +168,7 @@ namespace UnforgivenMod.Unforgiven.SkillStates
             base.characterMotor.rootMotion += this.direction * this.speed * Time.fixedDeltaTime;
             base.characterMotor.velocity = Vector3.zero;
 
-            if (this.target)
+            if (this.victimBody)
             {
                 this.Fire();
             }
@@ -174,12 +177,20 @@ namespace UnforgivenMod.Unforgiven.SkillStates
             {
                 this.outer.SetNextStateToMain();
             }
-
         }
 
         public override InterruptPriority GetMinimumInterruptPriority()
         {
             return InterruptPriority.PrioritySkill;
+        }
+
+        public override void OnSerialize(NetworkWriter writer)
+        {
+            writer.Write(HurtBoxReference.FromHurtBox(hurtbox));
+        }
+        public override void OnDeserialize(NetworkReader reader)
+        {
+            hurtbox = reader.ReadHurtBoxReference().ResolveHurtBox();
         }
     }
 }
