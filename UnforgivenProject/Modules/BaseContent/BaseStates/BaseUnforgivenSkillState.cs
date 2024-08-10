@@ -23,7 +23,7 @@ namespace UnforgivenMod.Modules.BaseStates
         public override void OnEnter()
         {
             RefreshState();
-            base.OnEnter();
+            base.OnEnter    ();
         }
         public override void FixedUpdate()
         {

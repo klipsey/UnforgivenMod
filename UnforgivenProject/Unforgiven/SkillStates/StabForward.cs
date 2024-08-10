@@ -80,6 +80,18 @@ namespace UnforgivenMod.Unforgiven.SkillStates
             base.FireAttack();
         }
 
+        public override void Update()
+        {
+            base.Update();
+
+            if (base.isAuthority && base.GetComponent<UnforgivenTracker>().GetTrackingTarget() && inputBank.skill3.down)
+            {
+                if(!hasFired) FireAttack();
+                outer.SetNextStateToMain();
+                return;
+            }
+        }
+
         protected override void PlaySwingEffect()
         {
             Util.PlaySound(this.swingSoundString, this.gameObject);

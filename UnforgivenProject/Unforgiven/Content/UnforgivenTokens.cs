@@ -24,13 +24,13 @@ namespace UnforgivenMod.Unforgiven.Content
             #region Unforgiven
             string prefix = UnforgivenSurvivor.UNFORGIVEN_PREFIX;
 
-            string desc = "Death is like the wind always by my side.<color=#CCD3E0>" + Environment.NewLine + Environment.NewLine;
-            desc = desc + "< ! > Death is like the wind always by my side." + Environment.NewLine + Environment.NewLine;
-            desc = desc + "< ! > Death is like the wind always by my side." + Environment.NewLine + Environment.NewLine;
-            desc = desc + "< ! > Death is like the wind always by my side." + Environment.NewLine + Environment.NewLine;
-            desc = desc + "< ! > https://leagueoflegends.fandom.com/wiki/Yasuo/LoL" + Environment.NewLine + Environment.NewLine;
+            string desc = "The Wanderer is low skill floor high skill ceiling survivor that can use animation cancels to transfer attacks to across multiple enemies.<color=#CCD3E0>" + Environment.NewLine + Environment.NewLine;
+            desc = desc + "< ! > Use Steel Tempest between Swift Strikes to maximize your damage." + Environment.NewLine + Environment.NewLine;
+            desc = desc + "< ! > Keep track of your Steel Tempest stacks as its tornado can be a devastating skill to clear out enemies." + Environment.NewLine + Environment.NewLine;
+            desc = desc + "< ! > Using Steel Tempest during Sweeping Blade slashes in a radius allowing for more AOE damage." + Environment.NewLine + Environment.NewLine;
+            desc = desc + "< ! > Using Last Breath during Sweeping Blades + Steel Tempest allows you to transfer the damage to Last Breaths targets." + Environment.NewLine + Environment.NewLine;
 
-            string lore = " if you die to yasuo, you got outplayed " +
+            string lore = "if you die to yasuo, you got outplayed " +
                 "it means he had to calculate (and execute) the fight exactly to his specifications, taking into account your cooldowns and his, the position of both junglers, the creep waves and the general \"feel\" of the lane (an ability that has to be honed through years, maybe decades of what you call merely \"gaming\"). " +
                 "Indeed, to be defeated by yasuo is to realise that you have found your better, both as a player and as a man. Your mettle failed you, but the yasuo player is solid steel -hard, cold, reliable- and as he secures first blood and you anxiously await the surrender vote, his mind is still operating at full capacity preparing strategies for a near infinite number of possibilities. " +
                 "I'll be taking my LP now, make sure you do your bans correctly next time.";

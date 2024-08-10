@@ -54,6 +54,14 @@ namespace UnforgivenMod.Unforgiven.Components
             }
         }
 
+        private void FixedUpdate()
+        {
+            if(!UnforgivenController.gameObject.GetComponent<CharacterBody>().healthComponent.alive)
+            {
+                Destroy(this);
+            }
+        }
+
         private void SetDisplay()
         {
             if (this.UnforgivenController)
