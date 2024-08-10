@@ -31,7 +31,7 @@ namespace UnforgivenMod.Unforgiven.SkillStates
         private HurtBox hurtbox;
 
         private UnforgivenTracker tracker;
-
+        private int maxStacks => UnforgivenStaticValues.baseMaxDashStacks + (base.skillLocator.utility.maxStock - 1);
         private Vector3 direction;
         private float distance;
         private float duration;
@@ -112,12 +112,15 @@ namespace UnforgivenMod.Unforgiven.SkillStates
             {
                 this.characterBody.RemoveBuff(RoR2Content.Buffs.HiddenInvincibility);
                 base.characterBody.bodyFlags &= ~CharacterBody.BodyFlags.IgnoreFallDamage;
+
                 int stacks = base.characterBody.GetBuffCount(UnforgivenBuffs.stackingDashDamageBuff);
-                if (stacks == 4) stacks = 3;
+                if (stacks >= maxStacks) stacks = maxStacks - 1;
+
                 base.characterBody.ClearTimedBuffs(UnforgivenBuffs.stackingDashDamageBuff);
+
                 for (int i = 0; i < stacks + 1; i++)
                 {
-                    characterBody.AddTimedBuff(UnforgivenBuffs.stackingDashDamageBuff, 6f, 4);
+                    characterBody.AddTimedBuff(UnforgivenBuffs.stackingDashDamageBuff, 6f, maxStacks);
                 }
             }
             base.OnExit();

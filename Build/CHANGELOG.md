@@ -1,3 +1,19 @@
+# 0.6.6
+
+- Enabled scepter
+
+# 0.6.5
+
+- Added hardlight compat
+
+# 0.6.4
+
+- Spin 
+
+# 0.6.3
+
+- Cooldown buffed for secondary to match with mercenary
+
 # 0.6.2
 
 - Networking

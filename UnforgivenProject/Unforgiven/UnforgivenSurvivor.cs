@@ -188,7 +188,7 @@ namespace UnforgivenMod.Unforgiven
             AddSecondarySkills();
             AddUtilitySkills();
             AddSpecialSkills();
-            //if (UnforgivenPlugin.scepterInstalled) InitializeScepter();
+            if (UnforgivenPlugin.scepterInstalled) InitializeScepter();
         }
 
         private void AddPassiveSkills()

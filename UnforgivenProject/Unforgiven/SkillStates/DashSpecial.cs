@@ -133,7 +133,7 @@ namespace UnforgivenMod.Unforgiven.SkillStates
 
             this.unforgivenController.Unsheath();
 
-            base.PlayCrossfade("FullBody, Override", "Dash", 0.1f);
+            base.PlayCrossfade("FullBody, Override", "Dash", 0.05f);
             Util.PlaySound("Play_merc_shift_slice", base.gameObject);
         }
 

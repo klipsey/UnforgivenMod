@@ -65,7 +65,7 @@ namespace UnforgivenMod.Unforgiven.SkillStates
         protected override void PlayAttackAnimation()
         {
             this.unforgivenController.Unsheath();
-            base.PlayCrossfade("FullBody, Override", "DashSpin", "Dash.playbackRate", this.duration * 1.25f, 0.05f);
+            base.PlayCrossfade("FullBody, Override", "DashSpin", 0.05f);
         }
 
         public override void FixedUpdate()
