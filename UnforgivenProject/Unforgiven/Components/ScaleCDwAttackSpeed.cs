@@ -14,8 +14,8 @@ namespace UnforgivenMod.Unforgiven.Components
         }
         public override float GetRechargeInterval([NotNull] GenericSkill skillSlot)
         {
-            skillSlot.finalRechargeInterval = this.baseRechargeInterval / (2f * skillSlot.characterBody.attackSpeed - 1f);
-            return this.baseRechargeInterval / (2f * skillSlot.characterBody.attackSpeed - 1f);
+            skillSlot.finalRechargeInterval = Mathf.Min(baseRechargeInterval, Mathf.Max(0.5f, baseRechargeInterval / skillSlot.characterBody.attackSpeed));
+            return Mathf.Min(baseRechargeInterval, Mathf.Max(0.5f, baseRechargeInterval / skillSlot.characterBody.attackSpeed));
         }
     }
 }
