@@ -40,10 +40,16 @@ namespace UnforgivenMod.Unforgiven.SkillStates
         private float prepStopwatch;
         private bool holdBuffer;
 
+        private CameraTargetParams.AimRequest aimRequest;
         public override void OnEnter()
         {
             RefreshState();
             base.OnEnter();
+
+            if (base.cameraTargetParams)
+            {
+                aimRequest = base.cameraTargetParams.RequestAimType(CameraTargetParams.AimType.Aura);
+            }
 
             if (skillLocator.secondary.rechargeStopwatch >= skillLocator.secondary.finalRechargeInterval - 0.5f)
             {
@@ -139,10 +145,11 @@ namespace UnforgivenMod.Unforgiven.SkillStates
 
         public override void OnExit()
         {
-
             base.gameObject.layer = LayerIndex.defaultLayer.intVal;
             base.characterMotor.Motor.RebuildCollidableLayers();
             base.characterMotor.velocity = Vector3.zero;
+
+            aimRequest?.Dispose();
 
             if (this.hurtboxGroup)
             {

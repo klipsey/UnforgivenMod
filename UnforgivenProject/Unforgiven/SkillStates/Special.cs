@@ -45,6 +45,8 @@ namespace UnforgivenMod.Unforgiven.SkillStates
 
         private GameObject slashEffectPrefab2 = UnforgivenAssets.specialEmpoweredSlashingEffect;
 
+        private CameraTargetParams.AimRequest aimRequest;
+
         public override void OnEnter()
         {
             if(NetworkServer.active) base.characterBody.AddBuff(UnforgivenBuffs.lastBreathBuff);
@@ -52,6 +54,11 @@ namespace UnforgivenMod.Unforgiven.SkillStates
             RefreshState();
 
             base.OnEnter();
+
+            if (base.cameraTargetParams)
+            {
+                aimRequest = base.cameraTargetParams.RequestAimType(CameraTargetParams.AimType.Aura);
+            }
 
             characterBody.isSprinting = true;
 
@@ -94,6 +101,8 @@ namespace UnforgivenMod.Unforgiven.SkillStates
             }
 
             base.OnExit();
+
+            aimRequest?.Dispose();
 
             if (this.swingEffectInstance) EntityState.Destroy(this.swingEffectInstance);
 

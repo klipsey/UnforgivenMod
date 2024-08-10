@@ -4,7 +4,7 @@ using UnityEngine;
 internal enum UnforgivenCameraParams
 {
     DEFAULT,
-    AIM_PISTOL,
+    LAST_BREATH,
     AIM_SNIPER,
     EMOTE
 }
@@ -14,16 +14,16 @@ namespace UnforgivenMod.Modules
     internal static class CameraParams
     {
         internal static CharacterCameraParamsData defaultCameraParams;
-        internal static CharacterCameraParamsData aimCameraParams;
+        internal static CharacterCameraParamsData lastBreathCameraParams;
         internal static CharacterCameraParamsData sniperAimCameraParams;
         internal static CharacterCameraParamsData emoteCameraParams;
 
         internal static void InitializeParams()
         {
-            defaultCameraParams = NewCameraParams("ccpRobDriver", 70f, 1.37f, new Vector3(0f, 0f, -8.1f));
-            aimCameraParams = NewCameraParams("ccpRobDriverAim", 70f, 0.8f, new Vector3(1f, 0f, -5f));
-            sniperAimCameraParams = NewCameraParams("ccpRobDriverSniperAim", 70f, 0.8f, new Vector3(0f, 0f, 0.75f));
-            emoteCameraParams = NewCameraParams("ccpRobDriverEmote", 70f, 0.4f, new Vector3(0f, 0f, -6f));
+            defaultCameraParams = NewCameraParams("ccpUnforgiven", 70f, 1.37f, new Vector3(0f, 0f, -8.1f));
+            lastBreathCameraParams = NewCameraParams("ccpUnforgivenSpecial", 70f, 0.8f, new Vector3(1f, 0f, -5f));
+            sniperAimCameraParams = NewCameraParams("ccpUnforgivenSniperAim", 70f, 0.8f, new Vector3(0f, 0f, 0.75f));
+            emoteCameraParams = NewCameraParams("ccpUnforgivenEmote", 70f, 0.4f, new Vector3(0f, 0f, -6f));
         }
 
         private static CharacterCameraParamsData NewCameraParams(string name, float pitch, float pivotVerticalOffset, Vector3 standardPosition)
@@ -80,8 +80,8 @@ namespace UnforgivenMod.Modules
                 case UnforgivenCameraParams.DEFAULT:
                     paramsData = defaultCameraParams;
                     break;
-                case UnforgivenCameraParams.AIM_PISTOL:
-                    paramsData = aimCameraParams;
+                case UnforgivenCameraParams.LAST_BREATH:
+                    paramsData = lastBreathCameraParams;
                     break;
                 case UnforgivenCameraParams.AIM_SNIPER:
                     paramsData = sniperAimCameraParams;
