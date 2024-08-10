@@ -41,10 +41,17 @@ namespace UnforgivenMod.Unforgiven.SkillStates
         private float damageCoefficient = UnforgivenStaticValues.dashDamageCoefficient;
         private float minDistance = 7f;
 
+        private CameraTargetParams.AimRequest aimRequest;
+
         public override void OnEnter()
         {
             RefreshState();
             base.OnEnter();
+
+            if (base.cameraTargetParams)
+            {
+                aimRequest = base.cameraTargetParams.RequestAimType(CameraTargetParams.AimType.Aura);
+            }
 
             if (skillLocator.secondary.rechargeStopwatch >= skillLocator.secondary.finalRechargeInterval - 0.5f)
             {
@@ -107,6 +114,8 @@ namespace UnforgivenMod.Unforgiven.SkillStates
             base.gameObject.layer = LayerIndex.defaultLayer.intVal;
             base.characterMotor.Motor.RebuildCollidableLayers();
             base.characterMotor.velocity = Vector3.zero;
+
+            aimRequest?.Dispose();
 
             if (NetworkServer.active)
             {
