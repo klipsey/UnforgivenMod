@@ -1,3 +1,7 @@
+# 0.6.7
+
+- Fixed some math 
+
 # 0.6.6
 
 - Enabled scepter

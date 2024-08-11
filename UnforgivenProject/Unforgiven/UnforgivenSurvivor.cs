@@ -435,49 +435,40 @@ namespace UnforgivenMod.Unforgiven
             #endregion
 
             //uncomment this when you have a mastery skin
-            /*
-            #region MasterySkin
+
+            #region AscendencySkin
 
             ////creating a new skindef as we did before
-            SkinDef masterySkin = Modules.Skins.CreateSkinDef(UNFORGIVEN_PREFIX + "MASTERY_SKIN_NAME",
-                assetBundle.LoadAsset<Sprite>("texMonsoonSkin"),
+            SkinDef ascendencySkin = Modules.Skins.CreateSkinDef(UNFORGIVEN_PREFIX + "MASTERY_SKIN_NAME",
+                assetBundle.LoadAsset<Sprite>("texWhirlwindSkin"),
                 defaultRendererinfos,
                 prefabCharacterModel.gameObject,
-                UnforgivenUnlockables.masterySkinUnlockableDef);
+                UnforgivenUnlockables.ascendencySkinUnlockableDef);
 
             ////adding the mesh replacements as above. 
             ////if you don't want to replace the mesh (for example, you only want to replace the material), pass in null so the order is preserved
-            masterySkin.meshReplacements = Modules.Skins.getMeshReplacements(assetBundle, defaultRendererinfos,
-                "meshUnforgivenAlt",
-                "meshRevolverAlt",//no gun mesh replacement. use same gun mesh
-                "meshKnifeAlt",
-                "meshWatchAlt",
-                null,
-                "meshVisorAlt");
+            ascendencySkin.meshReplacements = Modules.Skins.getMeshReplacements(assetBundle, defaultRendererinfos,
+                "meshAscendancyBody",
+                "meshAscendancySword",//no gun mesh replacement. use same gun mesh
+                "meshAscendancySheath",
+                "meshAscendancySwordEmpowered",
+                "meshAscendancyArm");
 
             ////masterySkin has a new set of RendererInfos (based on default rendererinfos)
             ////you can simply access the RendererInfos' materials and set them to the new materials for your skin.
-            masterySkin.rendererInfos[0].defaultMaterial = UnforgivenAssets.UnforgivenMonsoonMat;
-            masterySkin.rendererInfos[1].defaultMaterial = UnforgivenAssets.UnforgivenMonsoonMat;
-            masterySkin.rendererInfos[2].defaultMaterial = UnforgivenAssets.UnforgivenMonsoonMat;
-            masterySkin.rendererInfos[3].defaultMaterial = UnforgivenAssets.UnforgivenMonsoonMat;
-            masterySkin.rendererInfos[5].defaultMaterial = UnforgivenAssets.UnforgivenVisorMonsoonMat;
+            ascendencySkin.rendererInfos[0].defaultMaterial = UnforgivenAssets.ascendencyMat;
+            ascendencySkin.rendererInfos[1].defaultMaterial = UnforgivenAssets.ascendencyMat;
+            ascendencySkin.rendererInfos[2].defaultMaterial = UnforgivenAssets.ascendencyMat;
+            ascendencySkin.rendererInfos[3].defaultMaterial = UnforgivenAssets.ascendencyMat;
+            ascendencySkin.rendererInfos[4].defaultMaterial = UnforgivenAssets.ascendencyMat;
 
             ////here's a barebones example of using gameobjectactivations that could probably be streamlined or rewritten entirely, truthfully, but it works
-            masterySkin.gameObjectActivations = new SkinDef.GameObjectActivation[]
-            {
-                new SkinDef.GameObjectActivation
-                {
-                    gameObject = childLocator.FindChildGameObject("Tie"),
-                    shouldActivate = false,
-                }
-            };
             ////simply find an object on your child locator you want to activate/deactivate and set if you want to activate/deacitvate it with this skin
 
-            skins.Add(masterySkin);
+            skins.Add(ascendencySkin);
 
             #endregion
-            */
+
             skinController.skins = skins.ToArray();
         }
         #endregion skins

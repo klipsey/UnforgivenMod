@@ -23,6 +23,8 @@ namespace UnforgivenMod.Unforgiven.Content
         //Materials
         internal static Material commandoMat;
 
+        internal static Material ascendencyMat;
+
         //Projectiles
         internal static GameObject nadoPrefab;
 
@@ -71,6 +73,8 @@ namespace UnforgivenMod.Unforgiven.Content
         internal static Color unforgivenColor = new Color(255f / 255f, 102f / 255f, 102f / 255f);
         internal static Color unforgivenSecondaryColor = Color.red;
 
+        internal static Color ascendentColor = new Color(241f / 255f, 156f / 255f, 91f / 255f);
+
         //UI
         internal static GameObject throwable;
         internal static GameObject throwableEnd;
@@ -114,6 +118,8 @@ namespace UnforgivenMod.Unforgiven.Content
         private static void CreateMaterials()
         {
             specialMaterial = Addressables.LoadAssetAsync<Material>("RoR2/Base/Imp/matImpBossDissolve.mat").WaitForCompletion();
+
+            ascendencyMat = mainAssetBundle.LoadMaterial("matUnforgivenAscendency").ConvertDefaultShaderToHopoo();
         }
 
         private static void CreateModels()
