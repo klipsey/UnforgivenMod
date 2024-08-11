@@ -22,6 +22,8 @@ Contact me on Discord: https://discord.gg/3NaMEsvYeD
 
 tsuyoikenko - Everything.
 
+Redacted - Whirlwind Skin.
+
 Zebra - Has exploded. Goodbye.
 
 orbeezeater - Skills base code taken from deprecated Yasuo mod.

@@ -1,9 +1,9 @@
 {
     "name": "Wanderer",
     "author": "tsuyoikenko",
-    "version_number": "0.6.7",
+    "version_number": "0.7.0",
     "website_url": "https://github.com/klipsey/UnforgivenMod",
-    "description": "Adds the Wanderer as a Survivor.",
+    "description": "Adds the Wanderer as a Survivor. New epic skin",
     "dependencies": [
         "bbepis-BepInExPack-5.4.1905",
         "RiskofThunder-R2API_Core-5.0.3",

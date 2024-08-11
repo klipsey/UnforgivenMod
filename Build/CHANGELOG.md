@@ -1,3 +1,7 @@
+# 0.7.0 
+
+- Added Whirlwind Skin
+
 # 0.6.7
 
 - Fixed some math 
