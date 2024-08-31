@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{FE3FA7C5-9E89-40FE-8C7C-97CE0994E519}" SchemaVersion="97">
+	<AudioObjects>
+		<WorkUnit Name="Default Work Unit" ID="{FE3FA7C5-9E89-40FE-8C7C-97CE0994E519}" PersistMode="Standalone">
+			<ChildrenList>
+				<ActorMixer Name="SFX" ID="{8FFB0018-B86F-441D-8E4C-DE0ABDB44B34}" ShortID="682859335">
+					<PropertyList>
+						<Property Name="3DSpatialization" Type="int16" Value="1"/>
+						<Property Name="Pitch" Type="int32">
+							<ModifierList>
+								<ModifierInfo>
+									<Modifier Name="" ID="{353CAD39-727C-4647-9B76-8CBA0ED7D6EA}"/>
+								</ModifierInfo>
+							</ModifierList>
+						</Property>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>1</Value>
+							</ValueList>
+							<RTPCList>
+								<RTPC Name="" ID="{2CCF60F9-1C14-450B-A829-781B191F45B3}" ShortID="940786589">
+									<ReferenceList>
+										<Reference Name="ControlInput">
+											<ObjectRef Name="Volume_SFX" ID="{4FF50BF4-04DE-43F4-BCE1-1243931798A7}" WorkUnitID="{86A48E9A-08D2-42C8-A690-503176424BE7}"/>
+										</Reference>
+									</ReferenceList>
+									<Curve Name="" ID="{612E1B93-527F-4793-AEDF-3189E4B84C69}">
+										<PropertyList>
+											<Property Name="Flags" Type="int32" Value="3"/>
+										</PropertyList>
+										<PointList>
+											<Point>
+												<XPos>0</XPos>
+												<YPos>-200</YPos>
+												<Flags>5</Flags>
+											</Point>
+											<Point>
+												<XPos>100</XPos>
+												<YPos>0</YPos>
+												<Flags>37</Flags>
+											</Point>
+										</PointList>
+									</Curve>
+								</RTPC>
+							</RTPCList>
+						</Property>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Attenuation">
+							<ObjectRef Name="Default Attenuation" ID="{1C16C885-97A9-48B9-99CA-62239B098C14}" WorkUnitID="{E9A01ADD-D16C-4AEF-92DB-DCF89FC42AD2}"/>
+						</Reference>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{140D52C2-62AC-4006-AE21-98F493D2358C}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{92A1A0F3-7047-4165-95AE-D5CFCC30AE61}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<ActorMixer Name="RandomPitch" ID="{C31AD483-1BC0-479D-A832-3A1F151C35B9}" ShortID="109788207">
+							<PropertyList>
+								<Property Name="3DSpatialization" Type="int16" Value="1"/>
+								<Property Name="OverridePositioning" Type="bool" Value="True"/>
+								<Property Name="Pitch" Type="int32">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{CD587375-F973-4D3B-B153-ECD23A50B4D8}">
+												<PropertyList>
+													<Property Name="Enabled" Type="bool" Value="True"/>
+													<Property Name="Max" Type="Real64" Value="177"/>
+													<Property Name="Min" Type="Real64" Value="-152"/>
+												</PropertyList>
+											</Modifier>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Attenuation">
+									<ObjectRef Name="Default Attenuation" ID="{1C16C885-97A9-48B9-99CA-62239B098C14}" WorkUnitID="{E9A01ADD-D16C-4AEF-92DB-DCF89FC42AD2}"/>
+								</Reference>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{140D52C2-62AC-4006-AE21-98F493D2358C}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{92A1A0F3-7047-4165-95AE-D5CFCC30AE61}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<Sound Name="sfx_unforgiven_lost_stacks" ID="{DCFCC818-E47D-41CB-AC54-1083ABF5D59C}" ShortID="925424372">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{140D52C2-62AC-4006-AE21-98F493D2358C}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{92A1A0F3-7047-4165-95AE-D5CFCC30AE61}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="sfx_unforgiven_lost_stacks" ID="{59982DE1-3E13-4189-95D3-10CB3285D6AB}">
+											<Language>SFX</Language>
+											<AudioFile>sfx_unforgiven_lost_stacks.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="479629305"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="sfx_unforgiven_lost_stacks" ID="{59982DE1-3E13-4189-95D3-10CB3285D6AB}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="sfx_unforgiven_max_stacks" ID="{B7A2377F-818F-4935-940C-1ABEB0732FC7}" ShortID="44535100">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{140D52C2-62AC-4006-AE21-98F493D2358C}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{92A1A0F3-7047-4165-95AE-D5CFCC30AE61}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="sfx_unforgiven_max_stacks" ID="{8DF9C1DA-1A76-47C0-AD0F-4F41520DE892}">
+											<PropertyList>
+												<Property Name="FadeOutDuration" Type="Real64" Value="0.6"/>
+											</PropertyList>
+											<Language>SFX</Language>
+											<AudioFile>sfx_unforgiven_max_stacks.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="661973335"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="sfx_unforgiven_max_stacks" ID="{8DF9C1DA-1A76-47C0-AD0F-4F41520DE892}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="sfx_unforgiven_nado_impact" ID="{4694B805-15E8-48F4-BA95-BAC0B0AEC11B}" ShortID="57184191">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{140D52C2-62AC-4006-AE21-98F493D2358C}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{92A1A0F3-7047-4165-95AE-D5CFCC30AE61}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="sfx_unforgiven_nado_impact" ID="{5483C62D-9BC8-4F8D-9460-169823A63CBD}">
+											<Language>SFX</Language>
+											<AudioFile>sfx_unforgiven_nado_impact.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="179223195"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="sfx_unforgiven_nado_impact" ID="{5483C62D-9BC8-4F8D-9460-169823A63CBD}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="sfx_unforgiven_stab_impact" ID="{A478843C-5595-42D9-83AD-BEA7142C418F}" ShortID="621909452">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>2</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{140D52C2-62AC-4006-AE21-98F493D2358C}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{92A1A0F3-7047-4165-95AE-D5CFCC30AE61}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="sfx_unforgiven_stab_impact" ID="{E8D57F8D-844E-4ECC-934D-E4BADB19A9D4}">
+											<Language>SFX</Language>
+											<AudioFile>sfx_unforgiven_stab_impact.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="787089365"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="sfx_unforgiven_stab_impact" ID="{E8D57F8D-844E-4ECC-934D-E4BADB19A9D4}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="sfx_unforgiven_throw_nado" ID="{8A2B096C-2E9B-45F7-A20C-56D727D7E466}" ShortID="1067689464">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{140D52C2-62AC-4006-AE21-98F493D2358C}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{92A1A0F3-7047-4165-95AE-D5CFCC30AE61}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="sfx_unforgiven_throw_nado" ID="{89EFC21A-25CF-4875-922E-23BA1E030B38}">
+											<Language>SFX</Language>
+											<AudioFile>sfx_unforgiven_throw_nado.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="130228945"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="sfx_unforgiven_throw_nado" ID="{89EFC21A-25CF-4875-922E-23BA1E030B38}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<RandomSequenceContainer Name="sfx_unforgiven_stab" ID="{AB024E37-97AB-40C0-9209-18838137E146}" ShortID="397230512">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{140D52C2-62AC-4006-AE21-98F493D2358C}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{92A1A0F3-7047-4165-95AE-D5CFCC30AE61}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<Sound Name="sfx_unforgiven_stab1" ID="{73D06023-2281-4533-9F84-BD80F8E8B3BC}" ShortID="691477730">
+											<PropertyList>
+												<Property Name="3DSpatialization" Type="int16" Value="1"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Attenuation">
+													<ObjectRef Name="Default Attenuation" ID="{1C16C885-97A9-48B9-99CA-62239B098C14}" WorkUnitID="{E9A01ADD-D16C-4AEF-92DB-DCF89FC42AD2}"/>
+												</Reference>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{140D52C2-62AC-4006-AE21-98F493D2358C}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{92A1A0F3-7047-4165-95AE-D5CFCC30AE61}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="sfx_unforgiven_stab" ID="{B4AAA7D9-AAA7-4E0F-8A71-BC40CF13295B}">
+													<Language>SFX</Language>
+													<AudioFile>sfx_unforgiven_stab.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="613211166"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="sfx_unforgiven_stab" ID="{B4AAA7D9-AAA7-4E0F-8A71-BC40CF13295B}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="sfx_unforgiven_stab3" ID="{9BA5C3B4-E27B-4EF6-80BF-DF236C0A101E}" ShortID="204696568">
+											<PropertyList>
+												<Property Name="3DSpatialization" Type="int16" Value="1"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Attenuation">
+													<ObjectRef Name="Default Attenuation" ID="{1C16C885-97A9-48B9-99CA-62239B098C14}" WorkUnitID="{E9A01ADD-D16C-4AEF-92DB-DCF89FC42AD2}"/>
+												</Reference>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{140D52C2-62AC-4006-AE21-98F493D2358C}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{92A1A0F3-7047-4165-95AE-D5CFCC30AE61}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="sfx_unforgiven_stab3" ID="{10910692-5552-471C-A1D1-77B5B044E11A}">
+													<Language>SFX</Language>
+													<AudioFile>sfx_unforgiven_stab3.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="244779934"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="sfx_unforgiven_stab3" ID="{10910692-5552-471C-A1D1-77B5B044E11A}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="sfx_unforgiven_stab2" ID="{DF4931E7-11B8-4220-B40D-C435BC758E30}" ShortID="811031452">
+											<PropertyList>
+												<Property Name="3DSpatialization" Type="int16" Value="1"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Attenuation">
+													<ObjectRef Name="Default Attenuation" ID="{1C16C885-97A9-48B9-99CA-62239B098C14}" WorkUnitID="{E9A01ADD-D16C-4AEF-92DB-DCF89FC42AD2}"/>
+												</Reference>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{140D52C2-62AC-4006-AE21-98F493D2358C}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{92A1A0F3-7047-4165-95AE-D5CFCC30AE61}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="sfx_unforgiven_stab2" ID="{BD5819D6-9B54-4B20-97C9-E5537ED1028A}">
+													<Language>SFX</Language>
+													<AudioFile>sfx_unforgiven_stab2.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="333686716"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="sfx_unforgiven_stab2" ID="{BD5819D6-9B54-4B20-97C9-E5537ED1028A}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+									</ChildrenList>
+								</RandomSequenceContainer>
+							</ChildrenList>
+						</ActorMixer>
+					</ChildrenList>
+				</ActorMixer>
+			</ChildrenList>
+		</WorkUnit>
+	</AudioObjects>
+</WwiseDocument>

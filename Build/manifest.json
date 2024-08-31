@@ -1,22 +1,22 @@
 {
     "name": "Wanderer",
     "author": "tsuyoikenko",
-    "version_number": "0.7.0",
+    "version_number": "0.7.1",
     "website_url": "https://github.com/klipsey/UnforgivenMod",
-    "description": "Adds the Wanderer as a Survivor. New epic skin",
+    "description": "Adds the Wanderer as a Survivor. Fixed for Sots.",
     "dependencies": [
-        "bbepis-BepInExPack-5.4.1905",
-        "RiskofThunder-R2API_Core-5.0.3",
-        "RiskofThunder-R2API_Prefab-1.0.3",
-        "RiskofThunder-R2API_RecalculateStats-1.3.0",
+        "bbepis-BepInExPack-5.4.2117",
 	"RiskofThunder-R2API_TempVisualEffect-1.0.2",
-        "RiskofThunder-R2API_Language-1.0.1",
-	"RiskofThunder-R2API_Unlockable-1.0.2",
-        "RiskofThunder-R2API_Sound-1.0.2",
         "RiskofThunder-R2API_Dot-1.0.1",
         "RiskofThunder-R2API_Orb-1.0.1",
-        "RiskofThunder-R2API_Deployable-1.0.1",
-	"RiskofThunder-R2API_DamageType-1.0.4",
-	"RiskofThunder-R2API_Networking-1.0.2"
+	"RiskofThunder-R2API_Networking-1.0.2",
+	"RiskofThunder-HookGenPatcher-1.2.4",
+	"RiskofThunder-R2API_Core-5.1.1",
+	"RiskofThunder-R2API_Prefab-1.0.4",
+	"RiskofThunder-R2API_Language-1.0.1",
+	"RiskofThunder-R2API_Sound-1.0.3",
+	"RiskofThunder-R2API_RecalculateStats-1.4.0",
+	"RiskofThunder-R2API_DamageType-1.1.1",
+	"RiskofThunder-RoR2BepInExPack-1.19.0"
     ]
 }
