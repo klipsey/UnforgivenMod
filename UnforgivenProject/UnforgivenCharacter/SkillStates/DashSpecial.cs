@@ -171,7 +171,7 @@ namespace UnforgivenMod.Unforgiven.SkillStates
 
             if (this.prepStopwatch >= this.prepDuration)
             {
-                this.stopwatch += Time.deltaTime;
+                this.stopwatch += Time.fixedDeltaTime;
 
                 Vector3 target;
                 if (this.victimBody)
@@ -186,7 +186,7 @@ namespace UnforgivenMod.Unforgiven.SkillStates
                 if (this.stopwatch >= this.duration && extraDuration != 0) this.speed = extraDistance / extraDuration;
 
                 base.characterDirection.forward = this.direction;
-                base.characterMotor.rootMotion += this.direction * this.speed * Time.deltaTime;
+                base.characterMotor.rootMotion += this.direction * this.speed * Time.fixedDeltaTime;
                 base.characterMotor.velocity = Vector3.zero;
 
                 base.gameObject.layer = LayerIndex.fakeActor.intVal;
@@ -199,7 +199,7 @@ namespace UnforgivenMod.Unforgiven.SkillStates
                 }
 
             }
-            else this.prepStopwatch += Time.deltaTime;
+            else this.prepStopwatch += Time.fixedDeltaTime;
         }
 
         public override InterruptPriority GetMinimumInterruptPriority()

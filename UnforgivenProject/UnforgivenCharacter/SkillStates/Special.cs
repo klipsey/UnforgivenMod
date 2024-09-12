@@ -76,7 +76,7 @@ namespace UnforgivenMod.Unforgiven.SkillStates
             this.crit = base.RollCrit();
 
             this.unforgivenController.Unsheath();
-            if(!unforgivenController.bufferedSpin || !isBuffered) base.PlayAnimation("FullBody, Override", "Special", "Slash.playbackRate", this.numRounds * this.roundDuration);
+            if(!unforgivenController.bufferedSpin || !isBuffered) base.PlayCrossfade("FullBody, Override", "Special", "Slash.playbackRate", this.numRounds * this.roundDuration, this.numRounds * this.roundDuration * 0.05f);
             Transform modelTransform = characterBody.modelLocator.modelTransform;
             if(modelTransform)
             {
@@ -215,7 +215,7 @@ namespace UnforgivenMod.Unforgiven.SkillStates
 
             base.characterMotor.velocity = Vector3.zero;
 
-            this.roundStopwatch += Time.deltaTime;
+            this.roundStopwatch += Time.fixedDeltaTime;
             bool flag3 = this.roundStopwatch >= this.roundDuration;
             if (flag3)
             {

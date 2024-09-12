@@ -32,9 +32,9 @@ namespace UnforgivenMod.Unforgiven.SkillStates
             if (!this.unforgivenController.isUnsheathed)
             {
                 this.unforgivenController.Unsheath();
-                base.PlayAnimation("Gesture, Override", "DrawSlash", "Slash.playbackRate", this.duration);
+                base.PlayCrossfade("Gesture, Override", "DrawSlash", "Slash.playbackRate", this.duration, this.duration * 0.05f);
             }
-            else base.PlayAnimation("Gesture, Override", "Slash2", "Slash.playbackRate", this.duration);
+            else base.PlayCrossfade("Gesture, Override", "Slash2", "Slash.playbackRate", this.duration, this.duration * 0.05f);
 
             if (NetworkServer.active) base.characterBody.ClearTimedBuffs(UnforgivenBuffs.stabMaxStacksBuff);
 

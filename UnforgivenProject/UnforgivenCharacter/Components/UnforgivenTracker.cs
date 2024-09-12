@@ -57,7 +57,7 @@ namespace UnforgivenMod.Unforgiven.Components
 
         private void FixedUpdate()
         {
-            trackerUpdateStopwatch += Time.deltaTime;
+            trackerUpdateStopwatch += Time.fixedDeltaTime;
             if (trackerUpdateStopwatch >= 1f / trackerUpdateFrequency)
             {
                 trackerUpdateStopwatch -= 1f / trackerUpdateFrequency;

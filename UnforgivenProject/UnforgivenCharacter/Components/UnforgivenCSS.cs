@@ -13,14 +13,14 @@ namespace UnforgivenMod.Unforgiven.Components
         }
         private void FixedUpdate()
         {
-            timer += Time.deltaTime;
-            if (!hasPlayed && timer >= 0.8f)
+            timer += Time.fixedDeltaTime;
+            if (!hasPlayed && timer >= 0.4f)
             {
                 hasPlayed = true;
                 Util.PlaySound("sfx_driver_gun_throw", this.gameObject);
             }
 
-            if (!hasPlayed2 && timer >= 1.25f)
+            if (!hasPlayed2 && timer >= 0.8f)
             {
                 hasPlayed2 = true;
                 Util.PlaySound("sfx_driver_button_foley", this.gameObject);

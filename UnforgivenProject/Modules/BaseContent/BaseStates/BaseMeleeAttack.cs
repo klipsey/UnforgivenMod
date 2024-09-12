@@ -160,7 +160,7 @@ namespace UnforgivenMod.Modules.BaseStates
         {
             base.FixedUpdate();
 
-            hitPauseTimer -= Time.deltaTime;
+            hitPauseTimer -= Time.fixedDeltaTime;
 
             if (hitPauseTimer <= 0f && inHitPause)
             {
@@ -169,7 +169,7 @@ namespace UnforgivenMod.Modules.BaseStates
 
             if (!inHitPause)
             {
-                stopwatch += Time.deltaTime;
+                stopwatch += Time.fixedDeltaTime;
             }
             else
             {

@@ -24,7 +24,7 @@ namespace UnforgivenMod.Unforgiven.Content
             #region Unforgiven
             string prefix = UnforgivenSurvivor.UNFORGIVEN_PREFIX;
 
-            string desc = "The Wanderer is low skill floor high skill ceiling survivor that can use animation cancels to transfer attacks to across multiple enemies.<color=#CCD3E0>" + Environment.NewLine + Environment.NewLine;
+            string desc = "The Wanderer is low skill floor high skill ceiling survivor that can use animation cancels to transfer attacks across multiple enemies.<color=#CCD3E0>" + Environment.NewLine + Environment.NewLine;
             desc = desc + "< ! > Use Steel Tempest between Swift Strikes to maximize your damage." + Environment.NewLine + Environment.NewLine;
             desc = desc + "< ! > Keep track of your Steel Tempest stacks as its tornado can be a devastating skill to clear out enemies." + Environment.NewLine + Environment.NewLine;
             desc = desc + "< ! > Using Steel Tempest during Sweeping Blade slashes in a radius allowing for more AOE damage." + Environment.NewLine + Environment.NewLine;

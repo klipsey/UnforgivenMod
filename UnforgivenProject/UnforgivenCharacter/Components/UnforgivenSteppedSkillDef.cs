@@ -59,7 +59,7 @@ namespace UnforgivenMod.Unforgiven.Components
             base.OnFixedUpdate(skillSlot, deltaTime);
             if (skillSlot.CanExecute())
             {
-                stepResetTimer += Time.deltaTime;
+                stepResetTimer += Time.fixedDeltaTime;
             }
             else
             {

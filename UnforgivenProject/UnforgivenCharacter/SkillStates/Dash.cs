@@ -177,7 +177,7 @@ namespace UnforgivenMod.Unforgiven.SkillStates
             if (base.fixedAge >= this.duration && extraDuration != 0) this.speed = extraDistance / this.extraDuration;
 
             base.characterDirection.forward = this.direction;
-            base.characterMotor.rootMotion += this.direction * this.speed * Time.deltaTime;
+            base.characterMotor.rootMotion += this.direction * this.speed * Time.fixedDeltaTime;
             base.characterMotor.velocity = Vector3.zero;
 
             if (this.victimBody)

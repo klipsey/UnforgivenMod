@@ -1,3 +1,11 @@
+# 0.7.2
+
+- No more console spam
+
+# 0.7.1
+
+- Sots fixes
+
 # 0.7.0 
 
 - Added Whirlwind Skin

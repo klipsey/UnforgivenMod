@@ -29,5 +29,3 @@ Zebra - Has exploded. Goodbye.
 orbeezeater - Skills base code taken from deprecated Yasuo mod.
 
 TheTimeSweeper - Incredible new Henry template.
-
-rob - Creator of the glorious Henry template.

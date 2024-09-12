@@ -48,7 +48,7 @@ namespace UnforgivenMod.Unforgiven.Content
             UnforgivenController iController = attackerBody.GetComponent<UnforgivenController>();
             if (NetworkServer.active)
             {
-                if (iController && attackerBody.baseNameToken == "KENKO_UNFORGIVEN_NAME")
+                if (iController && attackerBody.bodyIndex == BodyCatalog.FindBodyIndex("UnforgivenBody"))
                 {
                     if(damageInfo.HasModdedDamageType(KnockAirborne)) 
                     {

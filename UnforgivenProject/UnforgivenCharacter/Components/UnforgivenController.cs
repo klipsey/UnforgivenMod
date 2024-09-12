@@ -82,11 +82,11 @@ namespace UnforgivenMod.Unforgiven.Components
         }
         private void FixedUpdate()
         {
-            shieldStopwatchInterval += Time.deltaTime;
+            shieldStopwatchInterval += Time.fixedDeltaTime;
 
             if(bufferedSpin)
             {
-                bufferStopwatch += Time.deltaTime;
+                bufferStopwatch += Time.fixedDeltaTime;
                 if(bufferStopwatch >= 4f / characterBody.attackSpeed) bufferedSpin = false;
             }
 
@@ -134,9 +134,6 @@ namespace UnforgivenMod.Unforgiven.Components
         public void Unsheath()
         {
             if(!this.animator.GetBool("isUnsheathed")) this.animator.SetBool("isUnsheathed", true);
-        }
-        private void OnDestroy()
-        {
         }
     }
 }

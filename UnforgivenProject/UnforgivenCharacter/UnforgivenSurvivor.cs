@@ -124,8 +124,8 @@ namespace UnforgivenMod.Unforgiven
             UnforgivenStates.Init();
             UnforgivenTokens.Init();
 
-            UnforgivenAssets.Init(assetBundle);
             UnforgivenBuffs.Init(assetBundle);
+            UnforgivenAssets.Init(assetBundle);
 
             InitializeEntityStateMachines();
             InitializeSkills();
@@ -492,7 +492,7 @@ namespace UnforgivenMod.Unforgiven
             HUD.onHudTargetChangedGlobal += HUDSetup;
             On.RoR2.UI.LoadoutPanelController.Rebuild += LoadoutPanelController_Rebuild;
             On.RoR2.CharacterBody.RecalculateStats += CharacterBody_RecalculateStats;
-            On.RoR2.HealthComponent.TakeDamage += new On.RoR2.HealthComponent.hook_TakeDamage(HealthComponent_TakeDamage);
+            On.RoR2.HealthComponent.TakeDamageProcess += HealthComponent_TakeDamageProcess;
             RoR2.GlobalEventManager.onCharacterDeathGlobal += GlobalEventManager_onCharacterDeathGlobal;
 
             if (UnforgivenPlugin.emotesInstalled) Emotes();
@@ -511,7 +511,7 @@ namespace UnforgivenMod.Unforgiven
         private static void GlobalEventManager_onCharacterDeathGlobal(DamageReport damageReport)
         {
             CharacterBody attackerBody = damageReport.attackerBody;
-            if (attackerBody && damageReport.attackerMaster && damageReport.victim && attackerBody.baseNameToken == "KENKO_UNFORGIVEN_NAME" && damageReport.victimBody.HasBuff(UnforgivenBuffs.airborneBuff))
+            if (attackerBody && damageReport.attackerMaster && damageReport.victim && attackerBody.bodyIndex == BodyCatalog.FindBodyIndex("UnforgivenBody") && damageReport.victimBody.HasBuff(UnforgivenBuffs.airborneBuff))
             {
                 if (damageReport.victim.gameObject.TryGetComponent<NetworkIdentity>(out var identity))
                 {
@@ -519,12 +519,12 @@ namespace UnforgivenMod.Unforgiven
                 }
             }
         }
-        private void HealthComponent_TakeDamage(On.RoR2.HealthComponent.orig_TakeDamage orig, HealthComponent self, DamageInfo damageInfo)
+        private void HealthComponent_TakeDamageProcess(On.RoR2.HealthComponent.orig_TakeDamageProcess orig, HealthComponent self, DamageInfo damageInfo)
         {
             if (NetworkServer.active && self.alive || !self.godMode || self.ospTimer <= 0f)
             {
                 CharacterBody victimBody = self.body;
-                if (victimBody && victimBody.baseNameToken == "KENKO_UNFORGIVEN_NAME" && !damageInfo.rejected)
+                if (victimBody && victimBody.bodyIndex == BodyCatalog.FindBodyIndex("UnforgivenBody") && !damageInfo.rejected)
                 {
                     if(victimBody.TryGetComponent<UnforgivenController>(out var uCont))
                     {
@@ -561,7 +561,7 @@ namespace UnforgivenMod.Unforgiven
 
             if (self)
             {
-                if (self.baseNameToken == "KENKO_UNFORGIVEN_NAME")
+                if (self.bodyIndex == BodyCatalog.FindBodyIndex("UnforgivenBody"))
                 {
                     self.crit *= 1.5f;
                     self.critMultiplier *= 0.9f;

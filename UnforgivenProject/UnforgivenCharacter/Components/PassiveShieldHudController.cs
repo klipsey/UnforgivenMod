@@ -47,7 +47,7 @@ namespace UnforgivenMod.Unforgiven.Components
                 if (this.durationBarColor)
                 {
                     if (fill >= 1f) this.durationBarColor.fillAmount = 1f;
-                    this.durationBarColor.fillAmount = Mathf.Lerp(this.durationBarColor.fillAmount, fill, Time.deltaTime * 2f);
+                    this.durationBarColor.fillAmount = Mathf.Lerp(this.durationBarColor.fillAmount, fill, Time.fixedDeltaTime * 2f);
                 }
 
                 this.durationBar.fillAmount = fill;

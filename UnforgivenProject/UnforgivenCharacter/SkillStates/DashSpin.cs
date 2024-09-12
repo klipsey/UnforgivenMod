@@ -72,7 +72,7 @@ namespace UnforgivenMod.Unforgiven.SkillStates
         {
             characterBody.isSprinting = true;
 
-            hitPauseTimer -= Time.deltaTime;
+            hitPauseTimer -= Time.fixedDeltaTime;
 
             if (hitPauseTimer <= 0f && inHitPause)
             {
@@ -81,7 +81,7 @@ namespace UnforgivenMod.Unforgiven.SkillStates
 
             if (!inHitPause)
             {
-                stopwatch += Time.deltaTime;
+                stopwatch += Time.fixedDeltaTime;
             }
             else
             {
