@@ -402,7 +402,6 @@ namespace UnforgivenMod.Unforgiven.Content
 
             nadoProjectileController.ghostPrefab = nadoGhost;
 
-
             nadoProjectileController.ghostPrefab.GetComponent<VFXAttributes>().DoNotPool = true;
 
             Modules.Content.AddProjectilePrefab(nadoPrefab);

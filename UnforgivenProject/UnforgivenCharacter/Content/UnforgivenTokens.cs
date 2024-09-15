@@ -24,11 +24,11 @@ namespace UnforgivenMod.Unforgiven.Content
             #region Unforgiven
             string prefix = UnforgivenSurvivor.UNFORGIVEN_PREFIX;
 
-            string desc = "The Wanderer is low skill floor high skill ceiling survivor that can use animation cancels to transfer attacks across multiple enemies.<color=#CCD3E0>" + Environment.NewLine + Environment.NewLine;
+            string desc = "The Wanderer is low skill floor high skill ceiling survivor that can use animation cancels to keep his dps high.<color=#CCD3E0>" + Environment.NewLine + Environment.NewLine;
             desc = desc + "< ! > Use Steel Tempest between Swift Strikes to maximize your damage." + Environment.NewLine + Environment.NewLine;
             desc = desc + "< ! > Keep track of your Steel Tempest stacks as its tornado can be a devastating skill to clear out enemies." + Environment.NewLine + Environment.NewLine;
-            desc = desc + "< ! > Using Steel Tempest during Sweeping Blade slashes in a radius allowing for more AOE damage." + Environment.NewLine + Environment.NewLine;
-            desc = desc + "< ! > Using Last Breath during Sweeping Blades + Steel Tempest allows you to transfer the damage to Last Breaths targets." + Environment.NewLine + Environment.NewLine;
+            desc = desc + "< ! > Using Steel Tempest during Sweeping Blade slashes in a circle allowing for more AOE damage." + Environment.NewLine + Environment.NewLine;
+            desc = desc + "< ! > Using Last Breath during Sweeping Blades + Steel Tempest allows you to transfer the AOE damage to Last Breaths targets." + Environment.NewLine + Environment.NewLine;
 
             string lore = "if you die to yasuo, you got outplayed " +
                 "it means he had to calculate (and execute) the fight exactly to his specifications, taking into account your cooldowns and his, the position of both junglers, the creep waves and the general \"feel\" of the lane (an ability that has to be honed through years, maybe decades of what you call merely \"gaming\"). " +
@@ -50,13 +50,13 @@ namespace UnforgivenMod.Unforgiven.Content
 
             #region Passive
             Language.Add(prefix + "PASSIVE_NAME", "Way of the Wind");
-            Language.Add(prefix + "PASSIVE_DESCRIPTION", $"<color=#FFBF66>Wanderer</color> builds up a passive <style=cIsHealing>shield</style> while moving. " +
-                $"At max stacks, the <style=cIsHealing>shield</style> breaks and grants a <style=cIsHealing>barrier</style>. <color=#FFBF66>Wanderer</color> has <style=cIsDamage>1.5x crit chance</style>.");
+            Language.Add(prefix + "PASSIVE_DESCRIPTION", $"Build up a passive <style=cIsHealing>shield</style> while moving. " +
+                $"At max stacks, the <style=cIsHealing>shield</style> breaks and grants a <style=cIsHealing>barrier</style>. <style=cIsDamage>Critical Strike Chance</style> is increased by <style=cIsDamage>1.5x</style>.");
             #endregion
 
             #region Primary
             Language.Add(prefix + "PRIMARY_SWING_NAME", "Swift Strikes");
-            Language.Add(prefix + "PRIMARY_SWING_DESCRIPTION", $"Swing in front dealing <style=cIsDamage>{UnforgivenStaticValues.swingDamageCoefficient * 100f}% damage</style>.");
+            Language.Add(prefix + "PRIMARY_SWING_DESCRIPTION", $"Slash in front dealing <style=cIsDamage>{UnforgivenStaticValues.swingDamageCoefficient * 100f}% damage</style>.");
             #endregion
 
             #region Secondary
@@ -68,23 +68,23 @@ namespace UnforgivenMod.Unforgiven.Content
             #region Utility 
             Language.Add(prefix + "UTILITY_SWEEP_NAME", "Sweeping Blade");
             Language.Add(prefix + "UTILITY_SWEEP_DESCRIPTION", $"Dash towards an enemy dealing <style=cIsDamage>{UnforgivenStaticValues.dashDamageCoefficient * 100f}% damage</style>. " +
-                $"After each dash, your next dash will deal and additional <style=cIsDamage>{UnforgivenStaticValues.dashStackingDamageCoefficient * 100f}% damage</style> up to a cap of <style=cIsDamage>{UnforgivenStaticValues.dashStackingDamageCoefficient * 4f * 100f}% damage</style>.");
+                $"After each dash, your next dash will deal an additional <style=cIsDamage>{UnforgivenStaticValues.dashStackingDamageCoefficient * 100f}% damage</style> up to a cap of <style=cIsDamage>{UnforgivenStaticValues.dashStackingDamageCoefficient * 4f * 100f}% bonus damage</style>.");
 
             #endregion
 
             #region Special
             Language.Add(prefix + "SPECIAL_BREATH_NAME", "Last Breath");
-            Language.Add(prefix + "SPECIAL_BREATH_DESCRIPTION", $"Dash towards an <style=cIsUtility>airborne</style> enemy then rapidly attack in an area for <style=cIsDamage>2x{UnforgivenStaticValues.specialFirstDamageCoefficient * 100f}% + {UnforgivenStaticValues.specialFinalDamageCoefficient * 100f}% damage</style>. " +
-                $"Gain <style=cIsDamage>armor shred</style> for 6 seconds.");
+            Language.Add(prefix + "SPECIAL_BREATH_DESCRIPTION", $"Blink to a targeted or nearby <style=cIsUtility>airborne</style> enemy and rapidly attack for <style=cIsDamage>2x{UnforgivenStaticValues.specialFirstDamageCoefficient * 100f}% + {UnforgivenStaticValues.specialFinalDamageCoefficient * 100f}% damage</style>. " +
+                $"Gain bonus <style=cIsDamage>armor penetration</style> for 6 seconds.");
 
             Language.Add(prefix + "SPECIAL_SCEP_BREATH_NAME", "First Breath");
-            Language.Add(prefix + "SPECIAL_SCEP_BREATH_DESCRIPTION", $"Dash towards an <style=cIsUtility>airborne</style> enemy then rapidly attack in an area for <style=cIsDamage>2x{UnforgivenStaticValues.specialFirstDamageCoefficient * 100f}% + {UnforgivenStaticValues.specialFinalDamageCoefficient * 100f}% damage</style>. " +
-                $"Gain <style=cIsDamage>armor shred</style> for 6 seconds." + Tokens.ScepterDescription("<style=cIsUtility>Reset your secondary cooldown</style>. Enemies hit by <color=#FFBF66>First Breath</color> can be targetted by <color=#FFBF66>Sweeping Blade</color> again."));
+            Language.Add(prefix + "SPECIAL_SCEP_BREATH_DESCRIPTION", $"Blink to a targeted or nearby <style=cIsUtility>airborne</style> enemy and rapidly attack for <style=cIsDamage>2x{UnforgivenStaticValues.specialFirstDamageCoefficient * 100f}% + {UnforgivenStaticValues.specialFinalDamageCoefficient * 100f}% damage</style>. " +
+                $"Gain bonus <style=cIsDamage>armor penetration</style> for 6 seconds." + Tokens.ScepterDescription("<style=cIsUtility>Reset your secondary cooldown</style>. Enemies hit by <color=#FFBF66>First Breath</color> can be targetted by <color=#FFBF66>Sweeping Blade</color> again."));
             #endregion
 
             #region Achievements
-            //Language.Add(Tokens.GetAchievementNameToken(UnforgivenMasterAchievement.identifier), "Unforgiven: Mastery");
-            //Language.Add(Tokens.GetAchievementDescriptionToken(UnforgivenMasterAchievement.identifier), "As Unforgiven, beat the game or obliterate on Monsoon.");
+            Language.Add(Tokens.GetAchievementNameToken(UnforgivenMasteryAchievement.identifier), "Wanderer: Mastery");
+            Language.Add(Tokens.GetAchievementDescriptionToken(UnforgivenMasteryAchievement.identifier), "As Wanderer, beat the game or obliterate on Monsoon.");
             /*
             Language.Add(Tokens.GetAchievementNameToken(UnforgivenUnlockAchievement.identifier), "Dressed to Kill");
             Language.Add(Tokens.GetAchievementDescriptionToken(UnforgivenUnlockAchievement.identifier), "Get a Backstab.");

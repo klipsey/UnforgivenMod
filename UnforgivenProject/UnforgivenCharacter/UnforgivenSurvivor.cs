@@ -443,7 +443,7 @@ namespace UnforgivenMod.Unforgiven
                 assetBundle.LoadAsset<Sprite>("texWhirlwindSkin"),
                 defaultRendererinfos,
                 prefabCharacterModel.gameObject,
-                UnforgivenUnlockables.ascendencySkinUnlockableDef);
+                UnforgivenUnlockables.masterySkinUnlockableDef);
 
             ////adding the mesh replacements as above. 
             ////if you don't want to replace the mesh (for example, you only want to replace the material), pass in null so the order is preserved

@@ -5,7 +5,7 @@ using UnforgivenMod.Unforgiven;
 namespace UnforgivenMod.Unforgiven.Achievements
 {
     //automatically creates language tokens "ACHIEVMENT_{identifier.ToUpper()}_NAME" and "ACHIEVMENT_{identifier.ToUpper()}_DESCRIPTION" 
-    [RegisterAchievement(identifier, unlockableIdentifier, null, 0)]
+    [RegisterAchievement(identifier, unlockableIdentifier, null, 3)]
     public class UnforgivenMasteryAchievement : BaseMasteryAchievement
     {
         public const string identifier = UnforgivenSurvivor.UNFORGIVEN_PREFIX + "masteryAchievement";

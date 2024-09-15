@@ -1,3 +1,11 @@
+# 0.8.1 
+
+- Tokens
+
+# 0.8.0
+
+- Added Ragdoll
+
 # 0.7.2
 
 - No more console spam

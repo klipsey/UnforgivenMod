@@ -8,11 +8,11 @@ namespace UnforgivenMod.Unforgiven.Content
     public static class UnforgivenUnlockables
     {
         public static UnlockableDef characterUnlockableDef = null;
-        public static UnlockableDef ascendencySkinUnlockableDef = null;
+        public static UnlockableDef masterySkinUnlockableDef = null;
 
         public static void Init()
         {
-            ascendencySkinUnlockableDef = Modules.Content.CreateAndAddUnlockbleDef(UnforgivenMasteryAchievement.unlockableIdentifier,
+            masterySkinUnlockableDef = Modules.Content.CreateAndAddUnlockbleDef(UnforgivenMasteryAchievement.unlockableIdentifier,
                 Modules.Tokens.GetAchievementNameToken(UnforgivenMasteryAchievement.unlockableIdentifier),
                 UnforgivenSurvivor.instance.assetBundle.LoadAsset<Sprite>("texWhirlwindSkin"));
             /*
