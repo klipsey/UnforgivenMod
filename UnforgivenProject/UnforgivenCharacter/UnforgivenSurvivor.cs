@@ -147,12 +147,12 @@ namespace UnforgivenMod.Unforgiven
             bool tempAdd(CharacterBody body) => body.HasBuff(UnforgivenBuffs.dashCooldownBuff);
             bool tempAddShield(CharacterBody body) => body.HasBuff(UnforgivenBuffs.hasShieldBuff);
             bool tempNadoUp(CharacterBody body) => body.HasBuff(UnforgivenBuffs.stabMaxStacksBuff);
-            float pee(CharacterBody body) => body.radius * 0.9f;
-            float pee2(CharacterBody body) => body.radius;
-            float pee3(CharacterBody body) => body.radius * 5f;
-            if(!UnforgivenConfig.noShieldVisual.Value) TempVisualEffectAPI.AddTemporaryVisualEffect(UnforgivenAssets.shieldEffect, pee, tempAddShield);
-            TempVisualEffectAPI.AddTemporaryVisualEffect(UnforgivenAssets.dashCdEffect, pee2, tempAdd);
-            TempVisualEffectAPI.AddTemporaryVisualEffect(UnforgivenAssets.nadoUpEffect, pee3, tempNadoUp);
+            float radius(CharacterBody body) => body.radius * 0.9f;
+            float radius2(CharacterBody body) => body.radius;
+            float radius3(CharacterBody body) => body.radius * 5f;
+            if(!UnforgivenConfig.noShieldVisual.Value) TempVisualEffectAPI.AddTemporaryVisualEffect(UnforgivenAssets.shieldEffect, radius, tempAddShield);
+            TempVisualEffectAPI.AddTemporaryVisualEffect(UnforgivenAssets.dashCdEffect, radius2, tempAdd);
+            TempVisualEffectAPI.AddTemporaryVisualEffect(UnforgivenAssets.nadoUpEffect, radius3, tempNadoUp);
         }
         public void AddHitboxes()
         {
