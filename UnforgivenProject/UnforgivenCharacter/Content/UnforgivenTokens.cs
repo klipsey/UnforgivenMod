@@ -51,7 +51,7 @@ namespace UnforgivenMod.Unforgiven.Content
             #region Passive
             Language.Add(prefix + "PASSIVE_NAME", "Way of the Wind");
             Language.Add(prefix + "PASSIVE_DESCRIPTION", $"Build up a passive <style=cIsHealing>shield</style> while moving. " +
-                $"At max stacks, the <style=cIsHealing>shield</style> breaks and grants a <style=cIsHealing>barrier</style>. <style=cIsDamage>Critical Strike Chance</style> is increased by <style=cIsDamage>1.5x</style>.");
+                $"When hit at max stacks, the <style=cIsHealing>shield</style> breaks and grants a <style=cIsHealing>barrier</style>. <style=cIsDamage>Critical Strike Chance</style> is increased by <style=cIsDamage>1.5x</style>.");
             #endregion
 
             #region Primary

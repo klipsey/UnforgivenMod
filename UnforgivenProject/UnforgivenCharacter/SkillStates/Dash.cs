@@ -155,6 +155,7 @@ namespace UnforgivenMod.Unforgiven.SkillStates
                         procChainMask = default(ProcChainMask),
                         procCoefficient = 1f
                     };
+                    damageInfo.damageType.damageSource = DamageSource.Utility;
 
                     this.victimBody.healthComponent.TakeDamage(damageInfo);
                     GlobalEventManager.instance.OnHitEnemy(damageInfo, this.victimBody.gameObject);

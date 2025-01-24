@@ -20,6 +20,7 @@ namespace UnforgivenMod.Modules.BaseStates
         protected string hitboxGroupName = "SwordGroup";
 
         protected DamageType damageType = DamageType.Generic;
+        protected DamageSource damageSource = DamageSource.Primary;
         protected List<DamageAPI.ModdedDamageType> moddedDamageTypeHolder = new List<DamageAPI.ModdedDamageType>();
         protected float damageCoefficient = 3.5f;
         protected float procCoefficient = 1f;
@@ -66,6 +67,7 @@ namespace UnforgivenMod.Modules.BaseStates
 
             attack = new OverlapAttack();
             attack.damageType = damageType;
+            attack.damageType.damageSource = damageSource;
             foreach (DamageAPI.ModdedDamageType i in moddedDamageTypeHolder)
             {
                 this.attack.AddModdedDamageType(i);

@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using RoR2;
+using UnforgivenMod.Unforgiven.Content;
 
 namespace UnforgivenMod.Unforgiven.Components
 {
@@ -14,16 +15,11 @@ namespace UnforgivenMod.Unforgiven.Components
         private void FixedUpdate()
         {
             timer += Time.fixedDeltaTime;
-            if (!hasPlayed && timer >= 0.4f)
+            if (!hasPlayed)
             {
                 hasPlayed = true;
-                Util.PlaySound("sfx_driver_gun_throw", this.gameObject);
-            }
-
-            if (!hasPlayed2 && timer >= 0.8f)
-            {
-                hasPlayed2 = true;
-                Util.PlaySound("sfx_driver_button_foley", this.gameObject);
+                Util.PlaySound("sfx_unforgiven_max_stacks", base.gameObject);
+                EffectManager.SimpleMuzzleFlash(UnforgivenAssets.spinNadoEffect, base.gameObject, "SpinMuzzle", false);
             }
         }
     }

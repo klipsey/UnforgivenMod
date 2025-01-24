@@ -4,7 +4,7 @@
 
 # Skills
 
-[![Screenshot-2024-06-23-223404.png](https://i.postimg.cc/9QBd1rTz/Screenshot-2024-06-23-223404.png)](https://postimg.cc/3kd0xrtH)
+[![Screenshot-2024-09-15-053840.png](https://i.postimg.cc/FHjV9sZB/Screenshot-2024-09-15-053840.png)](https://postimg.cc/QFdTmDvQ)
 
 Check out my other mods:
 

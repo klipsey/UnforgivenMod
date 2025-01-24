@@ -140,7 +140,9 @@ namespace UnforgivenMod.Unforgiven.SkillStates
                 crit = this.crit
             };
 
-            if(skillLocator.special.skillDef == UnforgivenSurvivor.firstBreath)
+            blastAttack.damageType.damageSource = DamageSource.Secondary;
+
+            if (skillLocator.special.skillDef == UnforgivenSurvivor.firstBreath)
             {
                 blastAttack.AddModdedDamageType(DamageTypes.ResetDashes);
 

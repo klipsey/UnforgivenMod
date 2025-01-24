@@ -344,7 +344,8 @@ namespace UnforgivenMod.Unforgiven.Content
             nadoPrefab = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Lemurian/Fireball.prefab").WaitForCompletion().InstantiateClone("UnforgivenTornadoProjectile");
             if(!nadoPrefab.GetComponent<NetworkIdentity>()) nadoPrefab.AddComponent<NetworkIdentity>();
 
-            nadoPrefab.AddComponent<DamageAPI.ModdedDamageTypeHolderComponent>().Add(DamageTypes.KnockAirborne);
+            nadoPrefab.GetComponent<ProjectileDamage>().damageType.AddModdedDamageType(DamageTypes.KnockAirborne);
+            nadoPrefab.GetComponent <ProjectileDamage>().damageType.damageSource = DamageSource.Secondary;
 
             nadoPrefab.transform.localScale = new Vector3(1, 1, 1);
             GameObject.Destroy(nadoPrefab.GetComponent<SphereCollider>());

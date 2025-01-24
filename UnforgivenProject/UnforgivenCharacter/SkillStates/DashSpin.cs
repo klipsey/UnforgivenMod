@@ -23,6 +23,7 @@ namespace UnforgivenMod.Unforgiven.SkillStates
             hitboxGroupName = "SteelTempestSpinHitbox";
 
             damageType = empoweredSpecial ? DamageType.BypassArmor : DamageType.Generic;
+            damageSource = DamageSource.Secondary;
             damageCoefficient = empowered ? UnforgivenStaticValues.tornadoDamageCoefficient : UnforgivenStaticValues.stabDamageCoefficient;
             procCoefficient = 1f;
             pushForce = 300f;

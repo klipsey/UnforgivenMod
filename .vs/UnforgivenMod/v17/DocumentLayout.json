@@ -1,214 +1,222 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\mario\\Documents\\RoR2Mods\\UnforgivenMod\\",
+  "WorkspaceRootPath": "E:\\RoR2Mods\\Unforgiven\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|c:\\users\\mario\\documents\\ror2mods\\unforgivenmod\\unforgivenproject\\modules\\cameraparams.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|solutionrelative:unforgivenproject\\modules\\cameraparams.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|e:\\ror2mods\\unforgiven\\unforgivenproject\\unforgivencharacter\\skillstates\\special.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|solutionrelative:unforgivenproject\\unforgivencharacter\\skillstates\\special.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|c:\\users\\mario\\documents\\ror2mods\\unforgivenmod\\unforgivenproject\\unforgiven\\unforgivensurvivor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|solutionrelative:unforgivenproject\\unforgiven\\unforgivensurvivor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|e:\\ror2mods\\unforgiven\\unforgivenproject\\unforgivenmod.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
+      "RelativeMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|solutionrelative:unforgivenproject\\unforgivenmod.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|c:\\users\\mario\\documents\\ror2mods\\unforgivenmod\\unforgivenproject\\unforgiven\\content\\unforgivenstaticvalues.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|solutionrelative:unforgivenproject\\unforgiven\\content\\unforgivenstaticvalues.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|e:\\ror2mods\\unforgiven\\unforgivenproject\\unforgivencharacter\\skillstates\\slashcombo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|solutionrelative:unforgivenproject\\unforgivencharacter\\skillstates\\slashcombo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|c:\\users\\mario\\documents\\ror2mods\\unforgivenmod\\unforgivenproject\\unforgiven\\content\\unforgivenassets.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|solutionrelative:unforgivenproject\\unforgiven\\content\\unforgivenassets.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|e:\\ror2mods\\unforgiven\\unforgivenproject\\unforgivencharacter\\content\\unforgivenassets.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|solutionrelative:unforgivenproject\\unforgivencharacter\\content\\unforgivenassets.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|c:\\users\\mario\\documents\\ror2mods\\unforgivenmod\\unforgivenproject\\unforgivenplugin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|solutionrelative:unforgivenproject\\unforgivenplugin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|e:\\ror2mods\\unforgiven\\unforgivenproject\\unforgivencharacter\\skillstates\\tornado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|solutionrelative:unforgivenproject\\unforgivencharacter\\skillstates\\tornado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|c:\\users\\mario\\documents\\ror2mods\\unforgivenmod\\unforgivenproject\\modules\\contentpacks.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|solutionrelative:unforgivenproject\\modules\\contentpacks.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|e:\\ror2mods\\unforgiven\\unforgivenproject\\unforgivencharacter\\skillstates\\stabforward.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|solutionrelative:unforgivenproject\\unforgivencharacter\\skillstates\\stabforward.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|c:\\users\\mario\\documents\\ror2mods\\unforgivenmod\\unforgivenproject\\modules\\content.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|solutionrelative:unforgivenproject\\modules\\content.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|e:\\ror2mods\\unforgiven\\unforgivenproject\\unforgivencharacter\\skillstates\\enterstab.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|solutionrelative:unforgivenproject\\unforgivencharacter\\skillstates\\enterstab.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|c:\\users\\mario\\documents\\ror2mods\\unforgivenmod\\unforgivenproject\\modules\\language.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|solutionrelative:unforgivenproject\\modules\\language.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|e:\\ror2mods\\unforgiven\\unforgivenproject\\unforgivencharacter\\skillstates\\dashspin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|solutionrelative:unforgivenproject\\unforgivencharacter\\skillstates\\dashspin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|c:\\users\\mario\\documents\\ror2mods\\unforgivenmod\\unforgivenproject\\modules\\basecontent\\characters\\characterbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|solutionrelative:unforgivenproject\\modules\\basecontent\\characters\\characterbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|c:\\users\\mario\\documents\\ror2mods\\unforgivenmod\\unforgivenproject\\modules\\basecontent\\characters\\survivorbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|solutionrelative:unforgivenproject\\modules\\basecontent\\characters\\survivorbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|c:\\users\\mario\\documents\\ror2mods\\unforgivenmod\\unforgivenproject\\modules\\assets.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|solutionrelative:unforgivenproject\\modules\\assets.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|c:\\users\\mario\\documents\\ror2mods\\unforgivenmod\\unforgivenproject\\unforgiven\\skillstates\\dash.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|solutionrelative:unforgivenproject\\unforgiven\\skillstates\\dash.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|c:\\users\\mario\\documents\\ror2mods\\unforgivenmod\\unforgivenproject\\unforgiven\\skillstates\\dashspecial.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|solutionrelative:unforgivenproject\\unforgiven\\skillstates\\dashspecial.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|c:\\users\\mario\\documents\\ror2mods\\unforgivenmod\\unforgivenproject\\unforgiven\\components\\unforgiventracker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|solutionrelative:unforgivenproject\\unforgiven\\components\\unforgiventracker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|c:\\users\\mario\\documents\\ror2mods\\unforgivenmod\\unforgivenproject\\unforgivenmod.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|solutionrelative:unforgivenproject\\unforgivenmod.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|c:\\users\\mario\\documents\\ror2mods\\unforgivenmod\\unforgivenproject\\log.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|solutionrelative:unforgivenproject\\log.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|c:\\users\\mario\\documents\\ror2mods\\unforgivenmod\\unforgivenproject\\unforgiven\\components\\unforgivenspecialtrackerskilldef.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|solutionrelative:unforgivenproject\\unforgiven\\components\\unforgivenspecialtrackerskilldef.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|c:\\users\\mario\\documents\\ror2mods\\unforgivenmod\\unforgivenproject\\unforgiven\\components\\unforgivensteppedskilldef.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|solutionrelative:unforgivenproject\\unforgiven\\components\\unforgivensteppedskilldef.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|c:\\users\\mario\\documents\\ror2mods\\unforgivenmod\\unforgivenproject\\unforgiven\\components\\windexplosion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|solutionrelative:unforgivenproject\\unforgiven\\components\\windexplosion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|c:\\users\\mario\\documents\\ror2mods\\unforgivenmod\\unforgivenproject\\unforgiven\\achievements\\unforgivenunlockachievement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|solutionrelative:unforgivenproject\\unforgiven\\achievements\\unforgivenunlockachievement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|c:\\users\\mario\\documents\\ror2mods\\unforgivenmod\\unforgivenproject\\unforgiven\\components\\scalecdwattackspeed.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|solutionrelative:unforgivenproject\\unforgiven\\components\\scalecdwattackspeed.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|c:\\users\\mario\\documents\\ror2mods\\unforgivenmod\\unforgivenproject\\modules\\tokens.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|solutionrelative:unforgivenproject\\modules\\tokens.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|c:\\users\\mario\\documents\\ror2mods\\unforgivenmod\\unforgivenproject\\modules\\soundbanks.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|solutionrelative:unforgivenproject\\modules\\soundbanks.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|c:\\users\\mario\\documents\\ror2mods\\unforgivenmod\\unforgivenproject\\unforgiven\\components\\dashtrackerskilldef.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|solutionrelative:unforgivenproject\\unforgiven\\components\\dashtrackerskilldef.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|c:\\users\\mario\\documents\\ror2mods\\unforgivenmod\\unforgivenproject\\unforgiven\\skillstates\\mainstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|solutionrelative:unforgivenproject\\unforgiven\\skillstates\\mainstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|c:\\users\\mario\\documents\\ror2mods\\unforgivenmod\\unforgivenproject\\unforgiven\\achievements\\unforgivenmasterachievement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|solutionrelative:unforgivenproject\\unforgiven\\achievements\\unforgivenmasterachievement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|c:\\users\\mario\\documents\\ror2mods\\unforgivenmod\\unforgivenproject\\unforgiven\\content\\unforgiventokens.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|solutionrelative:unforgivenproject\\unforgiven\\content\\unforgiventokens.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|c:\\users\\mario\\documents\\ror2mods\\unforgivenmod\\unforgivenproject\\modules\\basecontent\\achievements\\basemasteryachievement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|solutionrelative:unforgivenproject\\modules\\basecontent\\achievements\\basemasteryachievement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|c:\\users\\mario\\documents\\ror2mods\\unforgivenmod\\unforgivenproject\\unforgiven\\skillstates\\dashspin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|solutionrelative:unforgivenproject\\unforgiven\\skillstates\\dashspin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|c:\\users\\mario\\documents\\ror2mods\\unforgivenmod\\unforgivenproject\\unforgiven\\content\\damagetypes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|solutionrelative:unforgivenproject\\unforgiven\\content\\damagetypes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|c:\\users\\mario\\documents\\ror2mods\\unforgivenmod\\unforgivenproject\\unforgiven\\skillstates\\special.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|solutionrelative:unforgivenproject\\unforgiven\\skillstates\\special.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|c:\\users\\mario\\documents\\ror2mods\\unforgivenmod\\unforgivenproject\\unforgiven\\skillstates\\enterstab.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|solutionrelative:unforgivenproject\\unforgiven\\skillstates\\enterstab.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|c:\\users\\mario\\documents\\ror2mods\\unforgivenmod\\unforgivenproject\\unforgiven\\components\\unforgivencontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|solutionrelative:unforgivenproject\\unforgiven\\components\\unforgivencontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|c:\\users\\mario\\documents\\ror2mods\\unforgivenmod\\unforgivenproject\\unforgiven\\skillstates\\stabforward.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|solutionrelative:unforgivenproject\\unforgiven\\skillstates\\stabforward.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|c:\\users\\mario\\documents\\ror2mods\\unforgivenmod\\unforgivenproject\\unforgiven\\skillstates\\slashcombo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|solutionrelative:unforgivenproject\\unforgiven\\skillstates\\slashcombo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|c:\\users\\mario\\documents\\ror2mods\\unforgivenmod\\unforgivenproject\\unforgiven\\content\\unforgivenstates.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|solutionrelative:unforgivenproject\\unforgiven\\content\\unforgivenstates.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|c:\\users\\mario\\documents\\ror2mods\\unforgivenmod\\unforgivenproject\\unforgiven\\content\\unforgivenconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|solutionrelative:unforgivenproject\\unforgiven\\content\\unforgivenconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|c:\\users\\mario\\documents\\ror2mods\\unforgivenmod\\unforgivenproject\\unforgiven\\components\\passiveshieldhudcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|solutionrelative:unforgivenproject\\unforgiven\\components\\passiveshieldhudcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|c:\\users\\mario\\documents\\ror2mods\\unforgivenmod\\unforgivenproject\\unforgiven\\components\\airbornecomponent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|solutionrelative:unforgivenproject\\unforgiven\\components\\airbornecomponent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|c:\\users\\mario\\documents\\ror2mods\\unforgivenmod\\unforgivenproject\\unforgiven\\components\\syncwindexplosion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|solutionrelative:unforgivenproject\\unforgiven\\components\\syncwindexplosion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|c:\\users\\mario\\documents\\ror2mods\\unforgivenmod\\unforgivenproject\\modules\\prefabs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|solutionrelative:unforgivenproject\\modules\\prefabs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|c:\\users\\mario\\documents\\ror2mods\\unforgivenmod\\unforgivenproject\\unforgiven\\content\\unforgivenbuffs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|solutionrelative:unforgivenproject\\unforgiven\\content\\unforgivenbuffs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|c:\\users\\mario\\documents\\ror2mods\\unforgivenmod\\unforgivenproject\\unforgiven\\content\\unforgivenitemdisplays.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|solutionrelative:unforgivenproject\\unforgiven\\content\\unforgivenitemdisplays.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|c:\\users\\mario\\documents\\ror2mods\\unforgivenmod\\unforgivenproject\\unforgiven\\skillstates\\tornado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|solutionrelative:unforgivenproject\\unforgiven\\skillstates\\tornado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|c:\\users\\mario\\documents\\ror2mods\\unforgivenmod\\unforgivenproject\\modules\\basecontent\\characters\\itemdisplaysbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|solutionrelative:unforgivenproject\\modules\\basecontent\\characters\\itemdisplaysbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|c:\\users\\mario\\documents\\ror2mods\\unforgivenmod\\unforgivenproject\\modules\\materials.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|solutionrelative:unforgivenproject\\modules\\materials.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|c:\\users\\mario\\documents\\ror2mods\\unforgivenmod\\unforgivenproject\\modules\\basecontent\\basestates\\basemeleeattack.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|e:\\ror2mods\\unforgiven\\unforgivenproject\\modules\\basecontent\\basestates\\basemeleeattack.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|solutionrelative:unforgivenproject\\modules\\basecontent\\basestates\\basemeleeattack.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|c:\\users\\mario\\documents\\ror2mods\\unforgivenmod\\unforgivenproject\\unforgiven\\components\\syncicon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|solutionrelative:unforgivenproject\\unforgiven\\components\\syncicon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|e:\\ror2mods\\unforgiven\\unforgivenproject\\unforgivencharacter\\skillstates\\dashspecial.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|solutionrelative:unforgivenproject\\unforgivencharacter\\skillstates\\dashspecial.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|c:\\users\\mario\\documents\\ror2mods\\unforgivenmod\\unforgivenproject\\unforgiven\\components\\syncstacks.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|solutionrelative:unforgivenproject\\unforgiven\\components\\syncstacks.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|e:\\ror2mods\\unforgiven\\unforgivenproject\\unforgivencharacter\\skillstates\\dash.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|solutionrelative:unforgivenproject\\unforgivencharacter\\skillstates\\dash.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|c:\\users\\mario\\documents\\ror2mods\\unforgivenmod\\unforgivenproject\\modules\\basecontent\\basestates\\baseunforgivenskillstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|e:\\ror2mods\\unforgiven\\unforgivenproject\\unforgivenmod.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|solutionrelative:unforgivenproject\\unforgivenmod.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|e:\\ror2mods\\unforgiven\\unforgivenproject\\unforgivencharacter\\skillstates\\mainstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|solutionrelative:unforgivenproject\\unforgivencharacter\\skillstates\\mainstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|e:\\ror2mods\\unforgiven\\unforgivenproject\\modules\\cameraparams.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|solutionrelative:unforgivenproject\\modules\\cameraparams.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|e:\\ror2mods\\unforgiven\\unforgivenproject\\unforgivenplugin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|solutionrelative:unforgivenproject\\unforgivenplugin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|e:\\ror2mods\\unforgiven\\unforgivenproject\\modules\\contentpacks.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|solutionrelative:unforgivenproject\\modules\\contentpacks.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|e:\\ror2mods\\unforgiven\\unforgivenproject\\modules\\content.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|solutionrelative:unforgivenproject\\modules\\content.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|e:\\ror2mods\\unforgiven\\unforgivenproject\\modules\\language.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|solutionrelative:unforgivenproject\\modules\\language.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|e:\\ror2mods\\unforgiven\\unforgivenproject\\modules\\basecontent\\characters\\characterbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|solutionrelative:unforgivenproject\\modules\\basecontent\\characters\\characterbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|e:\\ror2mods\\unforgiven\\unforgivenproject\\modules\\basecontent\\characters\\survivorbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|solutionrelative:unforgivenproject\\modules\\basecontent\\characters\\survivorbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|e:\\ror2mods\\unforgiven\\unforgivenproject\\log.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|solutionrelative:unforgivenproject\\log.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|e:\\ror2mods\\unforgiven\\unforgivenproject\\modules\\tokens.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|solutionrelative:unforgivenproject\\modules\\tokens.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|e:\\ror2mods\\unforgiven\\unforgivenproject\\modules\\basecontent\\achievements\\basemasteryachievement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|solutionrelative:unforgivenproject\\modules\\basecontent\\achievements\\basemasteryachievement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|e:\\ror2mods\\unforgiven\\unforgivenproject\\modules\\prefabs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|solutionrelative:unforgivenproject\\modules\\prefabs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|e:\\ror2mods\\unforgiven\\unforgivenproject\\modules\\basecontent\\characters\\itemdisplaysbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|solutionrelative:unforgivenproject\\modules\\basecontent\\characters\\itemdisplaysbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|e:\\ror2mods\\unforgiven\\unforgivenproject\\modules\\materials.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|solutionrelative:unforgivenproject\\modules\\materials.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|e:\\ror2mods\\unforgiven\\unforgivenproject\\modules\\basecontent\\basestates\\baseunforgivenskillstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|solutionrelative:unforgivenproject\\modules\\basecontent\\basestates\\baseunforgivenskillstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|c:\\users\\mario\\documents\\ror2mods\\unforgivenmod\\unforgivenproject\\unforgiven\\content\\unforgivenai.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|solutionrelative:unforgivenproject\\unforgiven\\content\\unforgivenai.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\mario\\Documents\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\Unforgiven\\SkillStates\\DashSpecial.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|c:\\users\\mario\\documents\\ror2mods\\unforgivenmod\\unforgivenproject\\unforgiven\\components\\unforgivenpassive.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|solutionrelative:unforgivenproject\\unforgiven\\components\\unforgivenpassive.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\mario\\Documents\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\Unforgiven\\UnforgivenSurvivor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\mario\\Documents\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\Modules\\Assets.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\mario\\Documents\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\Unforgiven\\SkillStates\\Dash.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\mario\\Documents\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\Unforgiven\\Content\\UnforgivenStaticValues.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\mario\\Documents\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\Unforgiven\\Content\\UnforgivenAssets.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\mario\\Documents\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\Unforgiven\\Components\\UnforgivenTracker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\mario\\Documents\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\Unforgiven\\Components\\UnforgivenSpecialTrackerSkillDef.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\mario\\Documents\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\Unforgiven\\Components\\UnforgivenSteppedSkillDef.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\mario\\Documents\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\Unforgiven\\Components\\WindExplosion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\mario\\Documents\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\Unforgiven\\Achievements\\UnforgivenUnlockAchievement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\mario\\Documents\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\Unforgiven\\Components\\ScaleCDwAttackSpeed.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\mario\\Documents\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\Modules\\SoundBanks.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\mario\\Documents\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\Unforgiven\\Components\\DashTrackerSkillDef.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\mario\\Documents\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\Unforgiven\\SkillStates\\MainState.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\mario\\Documents\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\Unforgiven\\SkillStates\\Special.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\mario\\Documents\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\Unforgiven\\SkillStates\\DashSpin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\mario\\Documents\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\Unforgiven\\Components\\UnforgivenController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\mario\\Documents\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\Unforgiven\\Achievements\\UnforgivenMasterAchievement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\mario\\Documents\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\Unforgiven\\Content\\UnforgivenTokens.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\mario\\Documents\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\Unforgiven\\SkillStates\\EnterStab.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\mario\\Documents\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\Unforgiven\\Content\\DamageTypes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\mario\\Documents\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\Unforgiven\\SkillStates\\StabForward.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\mario\\Documents\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\Unforgiven\\SkillStates\\SlashCombo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\mario\\Documents\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\Unforgiven\\Content\\UnforgivenStates.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\mario\\Documents\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\Unforgiven\\Content\\UnforgivenConfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\mario\\Documents\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\Unforgiven\\Components\\PassiveShieldHudController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\mario\\Documents\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\Unforgiven\\Components\\AirborneComponent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\mario\\Documents\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\Unforgiven\\Components\\SyncWindExplosion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\mario\\Documents\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\Unforgiven\\Content\\UnforgivenBuffs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\mario\\Documents\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\Unforgiven\\Content\\UnforgivenItemDisplays.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\mario\\Documents\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\Unforgiven\\SkillStates\\Tornado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\mario\\Documents\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\Unforgiven\\Components\\SyncIcon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\mario\\Documents\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\Unforgiven\\Components\\SyncStacks.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\mario\\Documents\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\Unforgiven\\Content\\UnforgivenAI.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\mario\\Documents\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\Unforgiven\\Components\\UnforgivenPassive.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -218,28 +226,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 22,
+          "SelectedChildIndex": 24,
           "Children": [
-            {
-              "$type": "Bookmark",
-              "Name": "ST:129:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:1:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:140:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
@@ -282,7 +270,27 @@
             },
             {
               "$type": "Bookmark",
+              "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Bookmark",
               "Name": "ST:130:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:130:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
             },
             {
               "$type": "Bookmark",
@@ -306,77 +314,189 @@
             },
             {
               "$type": "Bookmark",
-              "Name": "ST:130:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "CameraParams.cs",
-              "DocumentMoniker": "C:\\Users\\mario\\Documents\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\Modules\\CameraParams.cs",
-              "RelativeDocumentMoniker": "UnforgivenProject\\Modules\\CameraParams.cs",
-              "ToolTip": "C:\\Users\\mario\\Documents\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\Modules\\CameraParams.cs",
-              "RelativeToolTip": "UnforgivenProject\\Modules\\CameraParams.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABYAAAA2AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-10T01:27:08.131Z",
+              "DocumentIndex": 1,
+              "Title": "UnforgivenMod",
+              "DocumentMoniker": "E:\\RoR2Mods\\Unforgiven\\UnforgivenProject\\UnforgivenMod.csproj",
+              "RelativeDocumentMoniker": "UnforgivenProject\\UnforgivenMod.csproj",
+              "ToolTip": "E:\\RoR2Mods\\Unforgiven\\UnforgivenProject\\UnforgivenMod.csproj",
+              "RelativeToolTip": "UnforgivenProject\\UnforgivenMod.csproj",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-01-24T13:47:29.704Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 2,
+              "Title": "SlashCombo.cs",
+              "DocumentMoniker": "E:\\RoR2Mods\\Unforgiven\\UnforgivenProject\\UnforgivenCharacter\\SkillStates\\SlashCombo.cs",
+              "RelativeDocumentMoniker": "UnforgivenProject\\UnforgivenCharacter\\SkillStates\\SlashCombo.cs",
+              "ToolTip": "E:\\RoR2Mods\\Unforgiven\\UnforgivenProject\\UnforgivenCharacter\\SkillStates\\SlashCombo.cs",
+              "RelativeToolTip": "UnforgivenProject\\UnforgivenCharacter\\SkillStates\\SlashCombo.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-24T13:08:08.61Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Special.cs",
+              "DocumentMoniker": "E:\\RoR2Mods\\Unforgiven\\UnforgivenProject\\UnforgivenCharacter\\SkillStates\\Special.cs",
+              "RelativeDocumentMoniker": "UnforgivenProject\\UnforgivenCharacter\\SkillStates\\Special.cs",
+              "ToolTip": "E:\\RoR2Mods\\Unforgiven\\UnforgivenProject\\UnforgivenCharacter\\SkillStates\\Special.cs",
+              "RelativeToolTip": "UnforgivenProject\\UnforgivenCharacter\\SkillStates\\Special.cs",
+              "ViewState": "AgIAAK0AAAAAAAAAAAAwwLoAAABSAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-24T13:07:43.911Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "UnforgivenAssets.cs",
+              "DocumentMoniker": "E:\\RoR2Mods\\Unforgiven\\UnforgivenProject\\UnforgivenCharacter\\Content\\UnforgivenAssets.cs",
+              "RelativeDocumentMoniker": "UnforgivenProject\\UnforgivenCharacter\\Content\\UnforgivenAssets.cs",
+              "ToolTip": "E:\\RoR2Mods\\Unforgiven\\UnforgivenProject\\UnforgivenCharacter\\Content\\UnforgivenAssets.cs",
+              "RelativeToolTip": "UnforgivenProject\\UnforgivenCharacter\\Content\\UnforgivenAssets.cs",
+              "ViewState": "AgIAAKgBAAAAAAAAAAD4v1sBAABqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-24T13:06:38.093Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Tornado.cs",
+              "DocumentMoniker": "E:\\RoR2Mods\\Unforgiven\\UnforgivenProject\\UnforgivenCharacter\\SkillStates\\Tornado.cs",
+              "RelativeDocumentMoniker": "UnforgivenProject\\UnforgivenCharacter\\SkillStates\\Tornado.cs",
+              "ToolTip": "E:\\RoR2Mods\\Unforgiven\\UnforgivenProject\\UnforgivenCharacter\\SkillStates\\Tornado.cs",
+              "RelativeToolTip": "UnforgivenProject\\UnforgivenCharacter\\SkillStates\\Tornado.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAawBQAAAA8AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-24T13:06:18.192Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "StabForward.cs",
+              "DocumentMoniker": "E:\\RoR2Mods\\Unforgiven\\UnforgivenProject\\UnforgivenCharacter\\SkillStates\\StabForward.cs",
+              "RelativeDocumentMoniker": "UnforgivenProject\\UnforgivenCharacter\\SkillStates\\StabForward.cs",
+              "ToolTip": "E:\\RoR2Mods\\Unforgiven\\UnforgivenProject\\UnforgivenCharacter\\SkillStates\\StabForward.cs",
+              "RelativeToolTip": "UnforgivenProject\\UnforgivenCharacter\\SkillStates\\StabForward.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-24T13:06:11.923Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "EnterStab.cs",
+              "DocumentMoniker": "E:\\RoR2Mods\\Unforgiven\\UnforgivenProject\\UnforgivenCharacter\\SkillStates\\EnterStab.cs",
+              "RelativeDocumentMoniker": "UnforgivenProject\\UnforgivenCharacter\\SkillStates\\EnterStab.cs",
+              "ToolTip": "E:\\RoR2Mods\\Unforgiven\\UnforgivenProject\\UnforgivenCharacter\\SkillStates\\EnterStab.cs",
+              "RelativeToolTip": "UnforgivenProject\\UnforgivenCharacter\\SkillStates\\EnterStab.cs",
+              "ViewState": "AgIAACQAAAAAAAAAAAAowAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-24T13:06:09.115Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "DashSpin.cs",
+              "DocumentMoniker": "E:\\RoR2Mods\\Unforgiven\\UnforgivenProject\\UnforgivenCharacter\\SkillStates\\DashSpin.cs",
+              "RelativeDocumentMoniker": "UnforgivenProject\\UnforgivenCharacter\\SkillStates\\DashSpin.cs",
+              "ToolTip": "E:\\RoR2Mods\\Unforgiven\\UnforgivenProject\\UnforgivenCharacter\\SkillStates\\DashSpin.cs",
+              "RelativeToolTip": "UnforgivenProject\\UnforgivenCharacter\\SkillStates\\DashSpin.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAA1wBkAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-24T13:05:02.133Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "DashSpecial.cs",
+              "DocumentMoniker": "E:\\RoR2Mods\\Unforgiven\\UnforgivenProject\\UnforgivenCharacter\\SkillStates\\DashSpecial.cs",
+              "RelativeDocumentMoniker": "UnforgivenProject\\UnforgivenCharacter\\SkillStates\\DashSpecial.cs",
+              "ToolTip": "E:\\RoR2Mods\\Unforgiven\\UnforgivenProject\\UnforgivenCharacter\\SkillStates\\DashSpecial.cs",
+              "RelativeToolTip": "UnforgivenProject\\UnforgivenCharacter\\SkillStates\\DashSpecial.cs",
+              "ViewState": "AgIAAIYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-24T13:04:35.069Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Dash.cs",
+              "DocumentMoniker": "E:\\RoR2Mods\\Unforgiven\\UnforgivenProject\\UnforgivenCharacter\\SkillStates\\Dash.cs",
+              "RelativeDocumentMoniker": "UnforgivenProject\\UnforgivenCharacter\\SkillStates\\Dash.cs",
+              "ToolTip": "E:\\RoR2Mods\\Unforgiven\\UnforgivenProject\\UnforgivenCharacter\\SkillStates\\Dash.cs",
+              "RelativeToolTip": "UnforgivenProject\\UnforgivenCharacter\\SkillStates\\Dash.cs",
+              "ViewState": "AgIAAIwAAAAAAAAAAAAIwJ0AAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-24T13:03:51.6Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "CameraParams.cs",
+              "DocumentMoniker": "E:\\RoR2Mods\\Unforgiven\\UnforgivenProject\\Modules\\CameraParams.cs",
+              "RelativeDocumentMoniker": "UnforgivenProject\\Modules\\CameraParams.cs",
+              "ToolTip": "E:\\RoR2Mods\\Unforgiven\\UnforgivenProject\\Modules\\CameraParams.cs",
+              "RelativeToolTip": "UnforgivenProject\\Modules\\CameraParams.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAA2AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-10T01:27:08.131Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
               "Title": "DashSpecial.cs",
               "DocumentMoniker": "C:\\Users\\mario\\Documents\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\Unforgiven\\SkillStates\\DashSpecial.cs",
-              "RelativeDocumentMoniker": "UnforgivenProject\\Unforgiven\\SkillStates\\DashSpecial.cs",
               "ToolTip": "C:\\Users\\mario\\Documents\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\Unforgiven\\SkillStates\\DashSpecial.cs",
-              "RelativeToolTip": "UnforgivenProject\\Unforgiven\\SkillStates\\DashSpecial.cs",
               "ViewState": "AQIAALYAAAAAAAAAAAAwwMsAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-08-10T01:26:43.19Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 28,
               "Title": "UnforgivenSurvivor.cs",
               "DocumentMoniker": "C:\\Users\\mario\\Documents\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\Unforgiven\\UnforgivenSurvivor.cs",
-              "RelativeDocumentMoniker": "UnforgivenProject\\Unforgiven\\UnforgivenSurvivor.cs",
               "ToolTip": "C:\\Users\\mario\\Documents\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\Unforgiven\\UnforgivenSurvivor.cs",
-              "RelativeToolTip": "UnforgivenProject\\Unforgiven\\UnforgivenSurvivor.cs",
               "ViewState": "AQIAABIAAAAAAAAAAAAAACEAAABCAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-10T01:26:43.405Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-10T01:26:43.405Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 29,
               "Title": "Assets.cs",
               "DocumentMoniker": "C:\\Users\\mario\\Documents\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\Modules\\Assets.cs",
-              "RelativeDocumentMoniker": "UnforgivenProject\\Modules\\Assets.cs",
               "ToolTip": "C:\\Users\\mario\\Documents\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\Modules\\Assets.cs",
-              "RelativeToolTip": "UnforgivenProject\\Modules\\Assets.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAfAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-08-10T01:26:43.408Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 30,
               "Title": "Dash.cs",
               "DocumentMoniker": "C:\\Users\\mario\\Documents\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\Unforgiven\\SkillStates\\Dash.cs",
-              "RelativeDocumentMoniker": "UnforgivenProject\\Unforgiven\\SkillStates\\Dash.cs",
               "ToolTip": "C:\\Users\\mario\\Documents\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\Unforgiven\\SkillStates\\Dash.cs",
-              "RelativeToolTip": "UnforgivenProject\\Unforgiven\\SkillStates\\Dash.cs",
               "ViewState": "AQIAAFAAAAAAAAAAAAAowGIAAAAgAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-08-10T01:26:43.41Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 14,
               "Title": "UnforgivenPlugin.cs",
-              "DocumentMoniker": "C:\\Users\\mario\\Documents\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\UnforgivenPlugin.cs",
+              "DocumentMoniker": "E:\\RoR2Mods\\Unforgiven\\UnforgivenProject\\UnforgivenPlugin.cs",
               "RelativeDocumentMoniker": "UnforgivenProject\\UnforgivenPlugin.cs",
-              "ToolTip": "C:\\Users\\mario\\Documents\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\UnforgivenPlugin.cs",
+              "ToolTip": "E:\\RoR2Mods\\Unforgiven\\UnforgivenProject\\UnforgivenPlugin.cs",
               "RelativeToolTip": "UnforgivenProject\\UnforgivenPlugin.cs",
               "ViewState": "AQIAAAIAAAAAAAAAAAD4vzkAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -384,11 +504,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 18,
               "Title": "CharacterBase.cs",
-              "DocumentMoniker": "C:\\Users\\mario\\Documents\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\Modules\\BaseContent\\Characters\\CharacterBase.cs",
+              "DocumentMoniker": "E:\\RoR2Mods\\Unforgiven\\UnforgivenProject\\Modules\\BaseContent\\Characters\\CharacterBase.cs",
               "RelativeDocumentMoniker": "UnforgivenProject\\Modules\\BaseContent\\Characters\\CharacterBase.cs",
-              "ToolTip": "C:\\Users\\mario\\Documents\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\Modules\\BaseContent\\Characters\\CharacterBase.cs",
+              "ToolTip": "E:\\RoR2Mods\\Unforgiven\\UnforgivenProject\\Modules\\BaseContent\\Characters\\CharacterBase.cs",
               "RelativeToolTip": "UnforgivenProject\\Modules\\BaseContent\\Characters\\CharacterBase.cs",
               "ViewState": "AQIAAJIAAAAAAAAAAAAUwKYAAABDAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -396,11 +516,35 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
+              "Title": "BaseMeleeAttack.cs",
+              "DocumentMoniker": "E:\\RoR2Mods\\Unforgiven\\UnforgivenProject\\Modules\\BaseContent\\BaseStates\\BaseMeleeAttack.cs",
+              "RelativeDocumentMoniker": "UnforgivenProject\\Modules\\BaseContent\\BaseStates\\BaseMeleeAttack.cs",
+              "ToolTip": "E:\\RoR2Mods\\Unforgiven\\UnforgivenProject\\Modules\\BaseContent\\BaseStates\\BaseMeleeAttack.cs",
+              "RelativeToolTip": "UnforgivenProject\\Modules\\BaseContent\\BaseStates\\BaseMeleeAttack.cs",
+              "ViewState": "AgIAABoAAAAAAAAAAAAlwCsAAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-10T01:26:43.78Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "MainState.cs",
+              "DocumentMoniker": "E:\\RoR2Mods\\Unforgiven\\UnforgivenProject\\UnforgivenCharacter\\SkillStates\\MainState.cs",
+              "RelativeDocumentMoniker": "UnforgivenProject\\UnforgivenCharacter\\SkillStates\\MainState.cs",
+              "ToolTip": "E:\\RoR2Mods\\Unforgiven\\UnforgivenProject\\UnforgivenCharacter\\SkillStates\\MainState.cs",
+              "RelativeToolTip": "UnforgivenProject\\UnforgivenCharacter\\SkillStates\\MainState.cs",
+              "ViewState": "AgIAAFAAAAAAAAAAAAAIwGQAAABTAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-24T12:01:59.784Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
               "Title": "Language.cs",
-              "DocumentMoniker": "C:\\Users\\mario\\Documents\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\Modules\\Language.cs",
+              "DocumentMoniker": "E:\\RoR2Mods\\Unforgiven\\UnforgivenProject\\Modules\\Language.cs",
               "RelativeDocumentMoniker": "UnforgivenProject\\Modules\\Language.cs",
-              "ToolTip": "C:\\Users\\mario\\Documents\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\Modules\\Language.cs",
+              "ToolTip": "E:\\RoR2Mods\\Unforgiven\\UnforgivenProject\\Modules\\Language.cs",
               "RelativeToolTip": "UnforgivenProject\\Modules\\Language.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAqwA4AAAAfAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -408,11 +552,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 15,
               "Title": "ContentPacks.cs",
-              "DocumentMoniker": "C:\\Users\\mario\\Documents\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\Modules\\ContentPacks.cs",
+              "DocumentMoniker": "E:\\RoR2Mods\\Unforgiven\\UnforgivenProject\\Modules\\ContentPacks.cs",
               "RelativeDocumentMoniker": "UnforgivenProject\\Modules\\ContentPacks.cs",
-              "ToolTip": "C:\\Users\\mario\\Documents\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\Modules\\ContentPacks.cs",
+              "ToolTip": "E:\\RoR2Mods\\Unforgiven\\UnforgivenProject\\Modules\\ContentPacks.cs",
               "RelativeToolTip": "UnforgivenProject\\Modules\\ContentPacks.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAfAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -420,35 +564,43 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 11,
+              "Title": "UnforgivenMod.csproj",
+              "DocumentMoniker": "E:\\RoR2Mods\\Unforgiven\\UnforgivenProject\\UnforgivenMod.csproj",
+              "RelativeDocumentMoniker": "UnforgivenProject\\UnforgivenMod.csproj",
+              "ToolTip": "E:\\RoR2Mods\\Unforgiven\\UnforgivenProject\\UnforgivenMod.csproj",
+              "RelativeToolTip": "UnforgivenProject\\UnforgivenMod.csproj",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAABoAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-08-10T01:26:43.441Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
               "Title": "UnforgivenStaticValues.cs",
               "DocumentMoniker": "C:\\Users\\mario\\Documents\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\Unforgiven\\Content\\UnforgivenStaticValues.cs",
-              "RelativeDocumentMoniker": "UnforgivenProject\\Unforgiven\\Content\\UnforgivenStaticValues.cs",
               "ToolTip": "C:\\Users\\mario\\Documents\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\Unforgiven\\Content\\UnforgivenStaticValues.cs",
-              "RelativeToolTip": "UnforgivenProject\\Unforgiven\\Content\\UnforgivenStaticValues.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAA5AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-08-10T01:26:43.423Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 32,
               "Title": "UnforgivenAssets.cs",
               "DocumentMoniker": "C:\\Users\\mario\\Documents\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\Unforgiven\\Content\\UnforgivenAssets.cs",
-              "RelativeDocumentMoniker": "UnforgivenProject\\Unforgiven\\Content\\UnforgivenAssets.cs",
               "ToolTip": "C:\\Users\\mario\\Documents\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\Unforgiven\\Content\\UnforgivenAssets.cs",
-              "RelativeToolTip": "UnforgivenProject\\Unforgiven\\Content\\UnforgivenAssets.cs",
               "ViewState": "AQIAABoBAAAAAAAAAAAAABoBAAAxAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-08-10T01:26:43.426Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 19,
               "Title": "SurvivorBase.cs",
-              "DocumentMoniker": "C:\\Users\\mario\\Documents\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\Modules\\BaseContent\\Characters\\SurvivorBase.cs",
+              "DocumentMoniker": "E:\\RoR2Mods\\Unforgiven\\UnforgivenProject\\Modules\\BaseContent\\Characters\\SurvivorBase.cs",
               "RelativeDocumentMoniker": "UnforgivenProject\\Modules\\BaseContent\\Characters\\SurvivorBase.cs",
-              "ToolTip": "C:\\Users\\mario\\Documents\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\Modules\\BaseContent\\Characters\\SurvivorBase.cs",
+              "ToolTip": "E:\\RoR2Mods\\Unforgiven\\UnforgivenProject\\Modules\\BaseContent\\Characters\\SurvivorBase.cs",
               "RelativeToolTip": "UnforgivenProject\\Modules\\BaseContent\\Characters\\SurvivorBase.cs",
               "ViewState": "AQIAABIAAAAAAAAAAAAowA0AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -456,11 +608,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 16,
               "Title": "Content.cs",
-              "DocumentMoniker": "C:\\Users\\mario\\Documents\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\Modules\\Content.cs",
+              "DocumentMoniker": "E:\\RoR2Mods\\Unforgiven\\UnforgivenProject\\Modules\\Content.cs",
               "RelativeDocumentMoniker": "UnforgivenProject\\Modules\\Content.cs",
-              "ToolTip": "C:\\Users\\mario\\Documents\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\Modules\\Content.cs",
+              "ToolTip": "E:\\RoR2Mods\\Unforgiven\\UnforgivenProject\\Modules\\Content.cs",
               "RelativeToolTip": "UnforgivenProject\\Modules\\Content.cs",
               "ViewState": "AQIAABUAAAAAAAAAAAA1wG8AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -468,47 +620,31 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 33,
               "Title": "UnforgivenTracker.cs",
               "DocumentMoniker": "C:\\Users\\mario\\Documents\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\Unforgiven\\Components\\UnforgivenTracker.cs",
-              "RelativeDocumentMoniker": "UnforgivenProject\\Unforgiven\\Components\\UnforgivenTracker.cs",
               "ToolTip": "C:\\Users\\mario\\Documents\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\Unforgiven\\Components\\UnforgivenTracker.cs",
-              "RelativeToolTip": "UnforgivenProject\\Unforgiven\\Components\\UnforgivenTracker.cs",
               "ViewState": "AQIAAEUAAAAAAAAAAAAmwDQAAAAgAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-08-10T01:26:43.435Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "UnforgivenMod.csproj",
-              "DocumentMoniker": "C:\\Users\\mario\\Documents\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\UnforgivenMod.csproj",
-              "RelativeDocumentMoniker": "UnforgivenProject\\UnforgivenMod.csproj",
-              "ToolTip": "C:\\Users\\mario\\Documents\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\UnforgivenMod.csproj",
-              "RelativeToolTip": "UnforgivenProject\\UnforgivenMod.csproj",
-              "ViewState": "AQIAAA8AAAAAAAAAAADgvxQAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2024-08-10T01:26:43.441Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 34,
               "Title": "UnforgivenSpecialTrackerSkillDef.cs",
               "DocumentMoniker": "C:\\Users\\mario\\Documents\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\Unforgiven\\Components\\UnforgivenSpecialTrackerSkillDef.cs",
-              "RelativeDocumentMoniker": "UnforgivenProject\\Unforgiven\\Components\\UnforgivenSpecialTrackerSkillDef.cs",
               "ToolTip": "C:\\Users\\mario\\Documents\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\Unforgiven\\Components\\UnforgivenSpecialTrackerSkillDef.cs",
-              "RelativeToolTip": "UnforgivenProject\\Unforgiven\\Components\\UnforgivenSpecialTrackerSkillDef.cs",
               "ViewState": "AQIAAAsAAAAAAAAAAAAAAAsAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-08-10T01:26:43.681Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 20,
               "Title": "Log.cs",
-              "DocumentMoniker": "C:\\Users\\mario\\Documents\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\Log.cs",
+              "DocumentMoniker": "E:\\RoR2Mods\\Unforgiven\\UnforgivenProject\\Log.cs",
               "RelativeDocumentMoniker": "UnforgivenProject\\Log.cs",
-              "ToolTip": "C:\\Users\\mario\\Documents\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\Log.cs",
+              "ToolTip": "E:\\RoR2Mods\\Unforgiven\\UnforgivenProject\\Log.cs",
               "RelativeToolTip": "UnforgivenProject\\Log.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -516,48 +652,40 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 35,
               "Title": "UnforgivenSteppedSkillDef.cs",
               "DocumentMoniker": "C:\\Users\\mario\\Documents\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\Unforgiven\\Components\\UnforgivenSteppedSkillDef.cs",
-              "RelativeDocumentMoniker": "UnforgivenProject\\Unforgiven\\Components\\UnforgivenSteppedSkillDef.cs",
               "ToolTip": "C:\\Users\\mario\\Documents\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\Unforgiven\\Components\\UnforgivenSteppedSkillDef.cs",
-              "RelativeToolTip": "UnforgivenProject\\Unforgiven\\Components\\UnforgivenSteppedSkillDef.cs",
               "ViewState": "AQIAAAQAAAAAAAAAAAAgwBUAAAAhAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-08-10T01:26:43.688Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 36,
               "Title": "WindExplosion.cs",
               "DocumentMoniker": "C:\\Users\\mario\\Documents\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\Unforgiven\\Components\\WindExplosion.cs",
-              "RelativeDocumentMoniker": "UnforgivenProject\\Unforgiven\\Components\\WindExplosion.cs",
               "ToolTip": "C:\\Users\\mario\\Documents\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\Unforgiven\\Components\\WindExplosion.cs",
-              "RelativeToolTip": "UnforgivenProject\\Unforgiven\\Components\\WindExplosion.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAABWAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-08-10T01:26:43.69Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 37,
               "Title": "UnforgivenUnlockAchievement.cs",
               "DocumentMoniker": "C:\\Users\\mario\\Documents\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\Unforgiven\\Achievements\\UnforgivenUnlockAchievement.cs",
-              "RelativeDocumentMoniker": "UnforgivenProject\\Unforgiven\\Achievements\\UnforgivenUnlockAchievement.cs",
               "ToolTip": "C:\\Users\\mario\\Documents\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\Unforgiven\\Achievements\\UnforgivenUnlockAchievement.cs",
-              "RelativeToolTip": "UnforgivenProject\\Unforgiven\\Achievements\\UnforgivenUnlockAchievement.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAA3AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-08-10T01:26:43.693Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 38,
               "Title": "ScaleCDwAttackSpeed.cs",
               "DocumentMoniker": "C:\\Users\\mario\\Documents\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\Unforgiven\\Components\\ScaleCDwAttackSpeed.cs",
-              "RelativeDocumentMoniker": "UnforgivenProject\\Unforgiven\\Components\\ScaleCDwAttackSpeed.cs",
               "ToolTip": "C:\\Users\\mario\\Documents\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\Unforgiven\\Components\\ScaleCDwAttackSpeed.cs",
-              "RelativeToolTip": "UnforgivenProject\\Unforgiven\\Components\\ScaleCDwAttackSpeed.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAowBIAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-08-10T01:26:43.696Z"
@@ -566,9 +694,9 @@
               "$type": "Document",
               "DocumentIndex": 21,
               "Title": "Tokens.cs",
-              "DocumentMoniker": "C:\\Users\\mario\\Documents\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\Modules\\Tokens.cs",
+              "DocumentMoniker": "E:\\RoR2Mods\\Unforgiven\\UnforgivenProject\\Modules\\Tokens.cs",
               "RelativeDocumentMoniker": "UnforgivenProject\\Modules\\Tokens.cs",
-              "ToolTip": "C:\\Users\\mario\\Documents\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\Modules\\Tokens.cs",
+              "ToolTip": "E:\\RoR2Mods\\Unforgiven\\UnforgivenProject\\Modules\\Tokens.cs",
               "RelativeToolTip": "UnforgivenProject\\Modules\\Tokens.cs",
               "ViewState": "AQIAAAcAAAAAAAAAAAAowBkAAABGAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -576,83 +704,71 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 39,
               "Title": "SoundBanks.cs",
               "DocumentMoniker": "C:\\Users\\mario\\Documents\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\Modules\\SoundBanks.cs",
-              "RelativeDocumentMoniker": "UnforgivenProject\\Modules\\SoundBanks.cs",
               "ToolTip": "C:\\Users\\mario\\Documents\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\Modules\\SoundBanks.cs",
-              "RelativeToolTip": "UnforgivenProject\\Modules\\SoundBanks.cs",
               "ViewState": "AQIAAAMAAAAAAAAAAAAiwA4AAABuAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-08-10T01:26:43.701Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 40,
               "Title": "DashTrackerSkillDef.cs",
               "DocumentMoniker": "C:\\Users\\mario\\Documents\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\Unforgiven\\Components\\DashTrackerSkillDef.cs",
-              "RelativeDocumentMoniker": "UnforgivenProject\\Unforgiven\\Components\\DashTrackerSkillDef.cs",
               "ToolTip": "C:\\Users\\mario\\Documents\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\Unforgiven\\Components\\DashTrackerSkillDef.cs",
-              "RelativeToolTip": "UnforgivenProject\\Unforgiven\\Components\\DashTrackerSkillDef.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAOAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-08-10T01:26:43.703Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 41,
               "Title": "MainState.cs",
               "DocumentMoniker": "C:\\Users\\mario\\Documents\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\Unforgiven\\SkillStates\\MainState.cs",
-              "RelativeDocumentMoniker": "UnforgivenProject\\Unforgiven\\SkillStates\\MainState.cs",
               "ToolTip": "C:\\Users\\mario\\Documents\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\Unforgiven\\SkillStates\\MainState.cs",
-              "RelativeToolTip": "UnforgivenProject\\Unforgiven\\SkillStates\\MainState.cs",
               "ViewState": "AQIAAAMAAAAAAAAAAADwvzcAAAB+AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-08-10T01:26:43.706Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
+              "DocumentIndex": 42,
               "Title": "Special.cs",
               "DocumentMoniker": "C:\\Users\\mario\\Documents\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\Unforgiven\\SkillStates\\Special.cs",
-              "RelativeDocumentMoniker": "UnforgivenProject\\Unforgiven\\SkillStates\\Special.cs",
               "ToolTip": "C:\\Users\\mario\\Documents\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\Unforgiven\\SkillStates\\Special.cs",
-              "RelativeToolTip": "UnforgivenProject\\Unforgiven\\SkillStates\\Special.cs",
               "ViewState": "AQIAAAoAAAAAAAAAAAAQwDUAAAAbAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-08-10T01:26:43.709Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 43,
               "Title": "DashSpin.cs",
               "DocumentMoniker": "C:\\Users\\mario\\Documents\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\Unforgiven\\SkillStates\\DashSpin.cs",
-              "RelativeDocumentMoniker": "UnforgivenProject\\Unforgiven\\SkillStates\\DashSpin.cs",
               "ToolTip": "C:\\Users\\mario\\Documents\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\Unforgiven\\SkillStates\\DashSpin.cs",
-              "RelativeToolTip": "UnforgivenProject\\Unforgiven\\SkillStates\\DashSpin.cs",
               "ViewState": "AQIAAC4AAAAAAAAAAAAuwEMAAABqAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-08-10T01:26:43.711Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 32,
+              "DocumentIndex": 44,
               "Title": "UnforgivenController.cs",
               "DocumentMoniker": "C:\\Users\\mario\\Documents\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\Unforgiven\\Components\\UnforgivenController.cs",
-              "RelativeDocumentMoniker": "UnforgivenProject\\Unforgiven\\Components\\UnforgivenController.cs",
               "ToolTip": "C:\\Users\\mario\\Documents\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\Unforgiven\\Components\\UnforgivenController.cs",
-              "RelativeToolTip": "UnforgivenProject\\Unforgiven\\Components\\UnforgivenController.cs",
               "ViewState": "AQIAAAoAAAAAAAAAAAAuwBoAAAAgAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-08-10T01:26:43.714Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 22,
               "Title": "BaseMasteryAchievement.cs",
-              "DocumentMoniker": "C:\\Users\\mario\\Documents\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\Modules\\BaseContent\\Achievements\\BaseMasteryAchievement.cs",
+              "DocumentMoniker": "E:\\RoR2Mods\\Unforgiven\\UnforgivenProject\\Modules\\BaseContent\\Achievements\\BaseMasteryAchievement.cs",
               "RelativeDocumentMoniker": "UnforgivenProject\\Modules\\BaseContent\\Achievements\\BaseMasteryAchievement.cs",
-              "ToolTip": "C:\\Users\\mario\\Documents\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\Modules\\BaseContent\\Achievements\\BaseMasteryAchievement.cs",
+              "ToolTip": "E:\\RoR2Mods\\Unforgiven\\UnforgivenProject\\Modules\\BaseContent\\Achievements\\BaseMasteryAchievement.cs",
               "RelativeToolTip": "UnforgivenProject\\Modules\\BaseContent\\Achievements\\BaseMasteryAchievement.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -660,155 +776,131 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 45,
               "Title": "UnforgivenMasterAchievement.cs",
               "DocumentMoniker": "C:\\Users\\mario\\Documents\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\Unforgiven\\Achievements\\UnforgivenMasterAchievement.cs",
-              "RelativeDocumentMoniker": "UnforgivenProject\\Unforgiven\\Achievements\\UnforgivenMasterAchievement.cs",
               "ToolTip": "C:\\Users\\mario\\Documents\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\Unforgiven\\Achievements\\UnforgivenMasterAchievement.cs",
-              "RelativeToolTip": "UnforgivenProject\\Unforgiven\\Achievements\\UnforgivenMasterAchievement.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAvAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-08-10T01:26:43.72Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 46,
               "Title": "UnforgivenTokens.cs",
               "DocumentMoniker": "C:\\Users\\mario\\Documents\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\Unforgiven\\Content\\UnforgivenTokens.cs",
-              "RelativeDocumentMoniker": "UnforgivenProject\\Unforgiven\\Content\\UnforgivenTokens.cs",
               "ToolTip": "C:\\Users\\mario\\Documents\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\Unforgiven\\Content\\UnforgivenTokens.cs",
-              "RelativeToolTip": "UnforgivenProject\\Unforgiven\\Content\\UnforgivenTokens.cs",
               "ViewState": "AQIAAFMAAAAAAAAAAABRwFYAAAAOAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-08-10T01:26:43.723Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 31,
+              "DocumentIndex": 47,
               "Title": "EnterStab.cs",
               "DocumentMoniker": "C:\\Users\\mario\\Documents\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\Unforgiven\\SkillStates\\EnterStab.cs",
-              "RelativeDocumentMoniker": "UnforgivenProject\\Unforgiven\\SkillStates\\EnterStab.cs",
               "ToolTip": "C:\\Users\\mario\\Documents\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\Unforgiven\\SkillStates\\EnterStab.cs",
-              "RelativeToolTip": "UnforgivenProject\\Unforgiven\\SkillStates\\EnterStab.cs",
               "ViewState": "AQIAABMAAAAAAAAAAAAowC8AAAAxAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-08-10T01:26:43.726Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 48,
               "Title": "DamageTypes.cs",
               "DocumentMoniker": "C:\\Users\\mario\\Documents\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\Unforgiven\\Content\\DamageTypes.cs",
-              "RelativeDocumentMoniker": "UnforgivenProject\\Unforgiven\\Content\\DamageTypes.cs",
               "ToolTip": "C:\\Users\\mario\\Documents\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\Unforgiven\\Content\\DamageTypes.cs",
-              "RelativeToolTip": "UnforgivenProject\\Unforgiven\\Content\\DamageTypes.cs",
               "ViewState": "AQIAAAoAAAAAAAAAAAAiwBsAAAA4AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-08-10T01:26:43.729Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 33,
+              "DocumentIndex": 49,
               "Title": "StabForward.cs",
               "DocumentMoniker": "C:\\Users\\mario\\Documents\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\Unforgiven\\SkillStates\\StabForward.cs",
-              "RelativeDocumentMoniker": "UnforgivenProject\\Unforgiven\\SkillStates\\StabForward.cs",
               "ToolTip": "C:\\Users\\mario\\Documents\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\Unforgiven\\SkillStates\\StabForward.cs",
-              "RelativeToolTip": "UnforgivenProject\\Unforgiven\\SkillStates\\StabForward.cs",
               "ViewState": "AQIAAA4AAAAAAAAAAAAxwCEAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-08-10T01:26:43.732Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 34,
+              "DocumentIndex": 50,
               "Title": "SlashCombo.cs",
               "DocumentMoniker": "C:\\Users\\mario\\Documents\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\Unforgiven\\SkillStates\\SlashCombo.cs",
-              "RelativeDocumentMoniker": "UnforgivenProject\\Unforgiven\\SkillStates\\SlashCombo.cs",
               "ToolTip": "C:\\Users\\mario\\Documents\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\Unforgiven\\SkillStates\\SlashCombo.cs",
-              "RelativeToolTip": "UnforgivenProject\\Unforgiven\\SkillStates\\SlashCombo.cs",
               "ViewState": "AQIAAGEAAAAAAAAAAAAcwA4AAAAbAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-08-10T01:26:43.735Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 35,
+              "DocumentIndex": 51,
               "Title": "UnforgivenStates.cs",
               "DocumentMoniker": "C:\\Users\\mario\\Documents\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\Unforgiven\\Content\\UnforgivenStates.cs",
-              "RelativeDocumentMoniker": "UnforgivenProject\\Unforgiven\\Content\\UnforgivenStates.cs",
               "ToolTip": "C:\\Users\\mario\\Documents\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\Unforgiven\\Content\\UnforgivenStates.cs",
-              "RelativeToolTip": "UnforgivenProject\\Unforgiven\\Content\\UnforgivenStates.cs",
               "ViewState": "AQIAAAQAAAAAAAAAAAAWwBcAAABAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-08-10T01:26:43.739Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 36,
+              "DocumentIndex": 52,
               "Title": "UnforgivenConfig.cs",
               "DocumentMoniker": "C:\\Users\\mario\\Documents\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\Unforgiven\\Content\\UnforgivenConfig.cs",
-              "RelativeDocumentMoniker": "UnforgivenProject\\Unforgiven\\Content\\UnforgivenConfig.cs",
               "ToolTip": "C:\\Users\\mario\\Documents\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\Unforgiven\\Content\\UnforgivenConfig.cs",
-              "RelativeToolTip": "UnforgivenProject\\Unforgiven\\Content\\UnforgivenConfig.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAA2AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-08-10T01:26:43.742Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 37,
+              "DocumentIndex": 53,
               "Title": "PassiveShieldHudController.cs",
               "DocumentMoniker": "C:\\Users\\mario\\Documents\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\Unforgiven\\Components\\PassiveShieldHudController.cs",
-              "RelativeDocumentMoniker": "UnforgivenProject\\Unforgiven\\Components\\PassiveShieldHudController.cs",
               "ToolTip": "C:\\Users\\mario\\Documents\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\Unforgiven\\Components\\PassiveShieldHudController.cs",
-              "RelativeToolTip": "UnforgivenProject\\Unforgiven\\Components\\PassiveShieldHudController.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAIBZwBAAAAAhAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-08-10T01:26:43.745Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 38,
+              "DocumentIndex": 54,
               "Title": "AirborneComponent.cs",
               "DocumentMoniker": "C:\\Users\\mario\\Documents\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\Unforgiven\\Components\\AirborneComponent.cs",
-              "RelativeDocumentMoniker": "UnforgivenProject\\Unforgiven\\Components\\AirborneComponent.cs",
               "ToolTip": "C:\\Users\\mario\\Documents\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\Unforgiven\\Components\\AirborneComponent.cs",
-              "RelativeToolTip": "UnforgivenProject\\Unforgiven\\Components\\AirborneComponent.cs",
               "ViewState": "AQIAABUAAAAAAAAAAMBcwDIAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-08-10T01:26:43.749Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 39,
+              "DocumentIndex": 55,
               "Title": "SyncWindExplosion.cs",
               "DocumentMoniker": "C:\\Users\\mario\\Documents\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\Unforgiven\\Components\\SyncWindExplosion.cs",
-              "RelativeDocumentMoniker": "UnforgivenProject\\Unforgiven\\Components\\SyncWindExplosion.cs",
               "ToolTip": "C:\\Users\\mario\\Documents\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\Unforgiven\\Components\\SyncWindExplosion.cs",
-              "RelativeToolTip": "UnforgivenProject\\Unforgiven\\Components\\SyncWindExplosion.cs",
               "ViewState": "AQIAABAAAAAAAAAAAAAlwCIAAAAxAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-08-10T01:26:43.752Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 41,
+              "DocumentIndex": 56,
               "Title": "UnforgivenBuffs.cs",
               "DocumentMoniker": "C:\\Users\\mario\\Documents\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\Unforgiven\\Content\\UnforgivenBuffs.cs",
-              "RelativeDocumentMoniker": "UnforgivenProject\\Unforgiven\\Content\\UnforgivenBuffs.cs",
               "ToolTip": "C:\\Users\\mario\\Documents\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\Unforgiven\\Content\\UnforgivenBuffs.cs",
-              "RelativeToolTip": "UnforgivenProject\\Unforgiven\\Content\\UnforgivenBuffs.cs",
               "ViewState": "AQIAAAgAAAAAAAAAAAAQwAoAAAAuAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-08-10T01:26:43.755Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 40,
+              "DocumentIndex": 23,
               "Title": "Prefabs.cs",
-              "DocumentMoniker": "C:\\Users\\mario\\Documents\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\Modules\\Prefabs.cs",
+              "DocumentMoniker": "E:\\RoR2Mods\\Unforgiven\\UnforgivenProject\\Modules\\Prefabs.cs",
               "RelativeDocumentMoniker": "UnforgivenProject\\Modules\\Prefabs.cs",
-              "ToolTip": "C:\\Users\\mario\\Documents\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\Modules\\Prefabs.cs",
+              "ToolTip": "E:\\RoR2Mods\\Unforgiven\\UnforgivenProject\\Modules\\Prefabs.cs",
               "RelativeToolTip": "UnforgivenProject\\Modules\\Prefabs.cs",
               "ViewState": "AQIAAGMCAAAAAAAAAAAxwGMCAAAzAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -816,47 +908,41 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 42,
+              "DocumentIndex": 57,
               "Title": "UnforgivenItemDisplays.cs",
               "DocumentMoniker": "C:\\Users\\mario\\Documents\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\Unforgiven\\Content\\UnforgivenItemDisplays.cs",
-              "RelativeDocumentMoniker": "UnforgivenProject\\Unforgiven\\Content\\UnforgivenItemDisplays.cs",
               "ToolTip": "C:\\Users\\mario\\Documents\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\Unforgiven\\Content\\UnforgivenItemDisplays.cs",
-              "RelativeToolTip": "UnforgivenProject\\Unforgiven\\Content\\UnforgivenItemDisplays.cs",
               "ViewState": "AQIAADAEAAAAAAAAAAAWwDwEAABEAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-08-10T01:26:43.763Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 43,
+              "DocumentIndex": 58,
               "Title": "Tornado.cs",
               "DocumentMoniker": "C:\\Users\\mario\\Documents\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\Unforgiven\\SkillStates\\Tornado.cs",
-              "RelativeDocumentMoniker": "UnforgivenProject\\Unforgiven\\SkillStates\\Tornado.cs",
               "ToolTip": "C:\\Users\\mario\\Documents\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\Unforgiven\\SkillStates\\Tornado.cs",
-              "RelativeToolTip": "UnforgivenProject\\Unforgiven\\SkillStates\\Tornado.cs",
               "ViewState": "AQIAAA4AAAAAAAAAAAAlwBAAAAAxAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-08-10T01:26:43.766Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 47,
+              "DocumentIndex": 59,
               "Title": "SyncIcon.cs",
               "DocumentMoniker": "C:\\Users\\mario\\Documents\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\Unforgiven\\Components\\SyncIcon.cs",
-              "RelativeDocumentMoniker": "UnforgivenProject\\Unforgiven\\Components\\SyncIcon.cs",
               "ToolTip": "C:\\Users\\mario\\Documents\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\Unforgiven\\Components\\SyncIcon.cs",
-              "RelativeToolTip": "UnforgivenProject\\Unforgiven\\Components\\SyncIcon.cs",
               "ViewState": "AQIAABkAAAAAAAAAAAAgwCoAAAAUAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-08-10T01:26:43.769Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 44,
+              "DocumentIndex": 24,
               "Title": "ItemDisplaysBase.cs",
-              "DocumentMoniker": "C:\\Users\\mario\\Documents\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\Modules\\BaseContent\\Characters\\ItemDisplaysBase.cs",
+              "DocumentMoniker": "E:\\RoR2Mods\\Unforgiven\\UnforgivenProject\\Modules\\BaseContent\\Characters\\ItemDisplaysBase.cs",
               "RelativeDocumentMoniker": "UnforgivenProject\\Modules\\BaseContent\\Characters\\ItemDisplaysBase.cs",
-              "ToolTip": "C:\\Users\\mario\\Documents\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\Modules\\BaseContent\\Characters\\ItemDisplaysBase.cs",
+              "ToolTip": "E:\\RoR2Mods\\Unforgiven\\UnforgivenProject\\Modules\\BaseContent\\Characters\\ItemDisplaysBase.cs",
               "RelativeToolTip": "UnforgivenProject\\Modules\\BaseContent\\Characters\\ItemDisplaysBase.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAhAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -864,11 +950,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 45,
+              "DocumentIndex": 25,
               "Title": "Materials.cs",
-              "DocumentMoniker": "C:\\Users\\mario\\Documents\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\Modules\\Materials.cs",
+              "DocumentMoniker": "E:\\RoR2Mods\\Unforgiven\\UnforgivenProject\\Modules\\Materials.cs",
               "RelativeDocumentMoniker": "UnforgivenProject\\Modules\\Materials.cs",
-              "ToolTip": "C:\\Users\\mario\\Documents\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\Modules\\Materials.cs",
+              "ToolTip": "E:\\RoR2Mods\\Unforgiven\\UnforgivenProject\\Modules\\Materials.cs",
               "RelativeToolTip": "UnforgivenProject\\Modules\\Materials.cs",
               "ViewState": "AQIAAB0AAAAAAAAAAAAqwEMAAAAuAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -876,35 +962,21 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 46,
-              "Title": "BaseMeleeAttack.cs",
-              "DocumentMoniker": "C:\\Users\\mario\\Documents\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\Modules\\BaseContent\\BaseStates\\BaseMeleeAttack.cs",
-              "RelativeDocumentMoniker": "UnforgivenProject\\Modules\\BaseContent\\BaseStates\\BaseMeleeAttack.cs",
-              "ToolTip": "C:\\Users\\mario\\Documents\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\Modules\\BaseContent\\BaseStates\\BaseMeleeAttack.cs",
-              "RelativeToolTip": "UnforgivenProject\\Modules\\BaseContent\\BaseStates\\BaseMeleeAttack.cs",
-              "ViewState": "AQIAABYAAAAAAAAAAAAWwCoAAAAuAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-10T01:26:43.78Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 48,
+              "DocumentIndex": 60,
               "Title": "SyncStacks.cs",
               "DocumentMoniker": "C:\\Users\\mario\\Documents\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\Unforgiven\\Components\\SyncStacks.cs",
-              "RelativeDocumentMoniker": "UnforgivenProject\\Unforgiven\\Components\\SyncStacks.cs",
               "ToolTip": "C:\\Users\\mario\\Documents\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\Unforgiven\\Components\\SyncStacks.cs",
-              "RelativeToolTip": "UnforgivenProject\\Unforgiven\\Components\\SyncStacks.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAZAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-08-10T01:26:43.783Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 49,
+              "DocumentIndex": 26,
               "Title": "BaseUnforgivenSkillState.cs",
-              "DocumentMoniker": "C:\\Users\\mario\\Documents\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\Modules\\BaseContent\\BaseStates\\BaseUnforgivenSkillState.cs",
+              "DocumentMoniker": "E:\\RoR2Mods\\Unforgiven\\UnforgivenProject\\Modules\\BaseContent\\BaseStates\\BaseUnforgivenSkillState.cs",
               "RelativeDocumentMoniker": "UnforgivenProject\\Modules\\BaseContent\\BaseStates\\BaseUnforgivenSkillState.cs",
-              "ToolTip": "C:\\Users\\mario\\Documents\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\Modules\\BaseContent\\BaseStates\\BaseUnforgivenSkillState.cs",
+              "ToolTip": "E:\\RoR2Mods\\Unforgiven\\UnforgivenProject\\Modules\\BaseContent\\BaseStates\\BaseUnforgivenSkillState.cs",
               "RelativeToolTip": "UnforgivenProject\\Modules\\BaseContent\\BaseStates\\BaseUnforgivenSkillState.cs",
               "ViewState": "AQIAAAAAAAAAAAAAACBjwA8AAAAgAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -912,24 +984,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 50,
+              "DocumentIndex": 61,
               "Title": "UnforgivenAI.cs",
               "DocumentMoniker": "C:\\Users\\mario\\Documents\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\Unforgiven\\Content\\UnforgivenAI.cs",
-              "RelativeDocumentMoniker": "UnforgivenProject\\Unforgiven\\Content\\UnforgivenAI.cs",
               "ToolTip": "C:\\Users\\mario\\Documents\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\Unforgiven\\Content\\UnforgivenAI.cs",
-              "RelativeToolTip": "UnforgivenProject\\Unforgiven\\Content\\UnforgivenAI.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-08-10T01:26:43.789Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 51,
+              "DocumentIndex": 62,
               "Title": "UnforgivenPassive.cs",
               "DocumentMoniker": "C:\\Users\\mario\\Documents\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\Unforgiven\\Components\\UnforgivenPassive.cs",
-              "RelativeDocumentMoniker": "UnforgivenProject\\Unforgiven\\Components\\UnforgivenPassive.cs",
               "ToolTip": "C:\\Users\\mario\\Documents\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\Unforgiven\\Components\\UnforgivenPassive.cs",
-              "RelativeToolTip": "UnforgivenProject\\Unforgiven\\Components\\UnforgivenPassive.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-08-10T01:26:43.793Z"
