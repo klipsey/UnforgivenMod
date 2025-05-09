@@ -81,13 +81,13 @@ namespace UnforgivenMod.Unforgiven.SkillStates
             if(modelTransform)
             {
                 Animator animator = modelTransform.GetComponent<Animator>();
-                TemporaryOverlay temporaryOverlay = animator.gameObject.AddComponent<TemporaryOverlay>();
-                temporaryOverlay.duration = 1.2f;
-                temporaryOverlay.destroyComponentOnEnd = true;
-                temporaryOverlay.originalMaterial = UnforgivenAssets.specialMaterial;
-                temporaryOverlay.inspectorCharacterModel = animator.gameObject.GetComponent<CharacterModel>();
-                temporaryOverlay.alphaCurve = AnimationCurve.EaseInOut(0f, 1f, 1f, 0f);
-                temporaryOverlay.animateShaderAlpha = true;
+                TemporaryOverlayInstance temporaryOverlayInstance = TemporaryOverlayManager.AddOverlay(base.gameObject);
+                temporaryOverlayInstance.duration = 1.2f;
+                temporaryOverlayInstance.destroyComponentOnEnd = true;
+                temporaryOverlayInstance.originalMaterial = UnforgivenAssets.specialMaterial;
+                temporaryOverlayInstance.inspectorCharacterModel = animator.gameObject.GetComponent<CharacterModel>();
+                temporaryOverlayInstance.alphaCurve = AnimationCurve.EaseInOut(0f, 1f, 1f, 0f);
+                temporaryOverlayInstance.animateShaderAlpha = true;
             }
         }
 
@@ -140,7 +140,7 @@ namespace UnforgivenMod.Unforgiven.SkillStates
                 crit = this.crit
             };
 
-            blastAttack.damageType.damageSource = DamageSource.Secondary;
+            blastAttack.damageType.damageSource = DamageSource.Special;
 
             if (skillLocator.special.skillDef == UnforgivenSurvivor.firstBreath)
             {

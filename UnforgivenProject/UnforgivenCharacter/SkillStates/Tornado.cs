@@ -13,7 +13,7 @@ namespace UnforgivenMod.Unforgiven.SkillStates
 {
     public class Tornado : BaseUnforgivenSkillState
     {
-        public static float damageCoefficient = UnforgivenStaticValues.tornadoDamageCoefficient;
+        public static float damageCoefficient = UnforgivenConfig.tornadoDamageCoefficient.Value;
         public static float procCoefficient = 1f;
         public static float baseDuration = 0.65f;
         public static float throwForce = 80f;
@@ -49,7 +49,8 @@ namespace UnforgivenMod.Unforgiven.SkillStates
         private void Fire()
         {
             Util.PlaySound("sfx_unforgiven_throw_nado", base.gameObject);
-            DamageType lol = empoweredSpecial ? DamageType.BypassArmor : DamageType.Generic;
+            DamageTypeCombo lol = empoweredSpecial ? DamageType.BypassArmor : DamageType.Generic;
+            lol.damageSource = DamageSource.Secondary;
 
             if (base.isAuthority)
             {

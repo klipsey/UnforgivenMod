@@ -31,14 +31,14 @@ namespace UnforgivenMod.Unforgiven.SkillStates
         private HurtBox hurtbox;
 
         private UnforgivenTracker tracker;
-        private int maxStacks => UnforgivenStaticValues.baseMaxDashStacks + (base.skillLocator.utility.maxStock - 1);
+        private int maxStacks => UnforgivenConfig.baseMaxDashStacks.Value + (base.skillLocator.utility.maxStock - 1);
         private Vector3 direction;
         private float distance;
         private float duration;
         private float extraDuration;
         private float speed;
         private bool hasFired;
-        private float damageCoefficient = UnforgivenStaticValues.dashDamageCoefficient;
+        private float damageCoefficient = UnforgivenConfig.dashDamageCoefficient.Value;
         private float minDistance = 7f;
 
         private CameraTargetParams.AimRequest aimRequest;
@@ -61,7 +61,8 @@ namespace UnforgivenMod.Unforgiven.SkillStates
             if (base.characterBody && NetworkServer.active)
             {
                 base.characterBody.bodyFlags |= CharacterBody.BodyFlags.IgnoreFallDamage;
-                damageCoefficient = UnforgivenStaticValues.dashDamageCoefficient + base.characterBody.GetBuffCount(UnforgivenBuffs.stackingDashDamageBuff) * UnforgivenStaticValues.dashStackingDamageCoefficient;
+                damageCoefficient = UnforgivenConfig.dashDamageCoefficient.Value + 
+                    base.characterBody.GetBuffCount(UnforgivenBuffs.stackingDashDamageBuff) * UnforgivenConfig.dashStackingDamageCoefficient.Value;
             }
 
             this.tracker = base.GetComponent<UnforgivenTracker>();

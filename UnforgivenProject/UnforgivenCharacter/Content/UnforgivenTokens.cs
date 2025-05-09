@@ -56,39 +56,35 @@ namespace UnforgivenMod.Unforgiven.Content
 
             #region Primary
             Language.Add(prefix + "PRIMARY_SWING_NAME", "Swift Strikes");
-            Language.Add(prefix + "PRIMARY_SWING_DESCRIPTION", $"Slash in front dealing <style=cIsDamage>{UnforgivenStaticValues.swingDamageCoefficient * 100f}% damage</style>.");
+            Language.Add(prefix + "PRIMARY_SWING_DESCRIPTION", $"Slash in front dealing <style=cIsDamage>{UnforgivenConfig.swingDamageCoefficient.Value * 100f}% damage</style>.");
             #endregion
 
             #region Secondary
             Language.Add(prefix + "SECONDARY_STEEL_NAME", "Steel Tempest");
-            Language.Add(prefix + "SECONDARY_STEEL_DESCRIPTION", $"<style=cIsUtility>Swift</style>. Stab forward dealing <style=cIsDamage>{UnforgivenStaticValues.stabDamageCoefficient * 100f}% damage</style>. " +
-                $"On hit, gain a stack of <color=#FFBF66>Gathering Storm</color>. At 2 stacks your next <color=#FFBF66>Steel Tempest</color> will fire a tornado dealing <style=cIsDamage>{UnforgivenStaticValues.tornadoDamageCoefficient * 100f}% damage</style>.");
+            Language.Add(prefix + "SECONDARY_STEEL_DESCRIPTION", $"<style=cIsUtility>Swift</style>. Stab forward dealing <style=cIsDamage>{UnforgivenConfig.stabDamageCoefficient.Value * 100f}% damage</style>. " +
+                $"On hit, gain a stack of <color=#FFBF66>Gathering Storm</color>. At 2 stacks your next <color=#FFBF66>Steel Tempest</color> will fire a tornado dealing <style=cIsDamage>{UnforgivenConfig.tornadoDamageCoefficient.Value * 100f}% damage</style>.");
             #endregion
 
             #region Utility 
             Language.Add(prefix + "UTILITY_SWEEP_NAME", "Sweeping Blade");
-            Language.Add(prefix + "UTILITY_SWEEP_DESCRIPTION", $"Dash towards an enemy dealing <style=cIsDamage>{UnforgivenStaticValues.dashDamageCoefficient * 100f}% damage</style>. " +
-                $"After each dash, your next dash will deal an additional <style=cIsDamage>{UnforgivenStaticValues.dashStackingDamageCoefficient * 100f}% damage</style> up to a cap of <style=cIsDamage>{UnforgivenStaticValues.dashStackingDamageCoefficient * 4f * 100f}% bonus damage</style>.");
+            Language.Add(prefix + "UTILITY_SWEEP_DESCRIPTION", $"Dash towards an enemy dealing <style=cIsDamage>{UnforgivenConfig.dashDamageCoefficient.Value * 100f}% damage</style>. " +
+                $"After each dash, your next dash will deal an additional <style=cIsDamage>{UnforgivenConfig.dashStackingDamageCoefficient.Value * 100f}% damage</style> up to a cap of <style=cIsDamage>{UnforgivenConfig.dashStackingDamageCoefficient.Value * 4f * 100f}% bonus damage</style>.");
 
             #endregion
 
             #region Special
             Language.Add(prefix + "SPECIAL_BREATH_NAME", "Last Breath");
-            Language.Add(prefix + "SPECIAL_BREATH_DESCRIPTION", $"Blink to a targeted or nearby <style=cIsUtility>airborne</style> enemy and rapidly attack for <style=cIsDamage>2x{UnforgivenStaticValues.specialFirstDamageCoefficient * 100f}% + {UnforgivenStaticValues.specialFinalDamageCoefficient * 100f}% damage</style>. " +
+            Language.Add(prefix + "SPECIAL_BREATH_DESCRIPTION", $"Blink to a targeted or nearby <style=cIsUtility>airborne</style> enemy and rapidly attack for <style=cIsDamage>2x{UnforgivenConfig.specialFirstDamageCoefficient.Value * 100f}% + {UnforgivenConfig.specialFinalDamageCoefficient.Value * 100f}% damage</style>. " +
                 $"Gain bonus <style=cIsDamage>armor penetration</style> for 6 seconds.");
 
             Language.Add(prefix + "SPECIAL_SCEP_BREATH_NAME", "First Breath");
-            Language.Add(prefix + "SPECIAL_SCEP_BREATH_DESCRIPTION", $"Blink to a targeted or nearby <style=cIsUtility>airborne</style> enemy and rapidly attack for <style=cIsDamage>2x{UnforgivenStaticValues.specialFirstDamageCoefficient * 100f}% + {UnforgivenStaticValues.specialFinalDamageCoefficient * 100f}% damage</style>. " +
+            Language.Add(prefix + "SPECIAL_SCEP_BREATH_DESCRIPTION", $"Blink to a targeted or nearby <style=cIsUtility>airborne</style> enemy and rapidly attack for <style=cIsDamage>2x{UnforgivenConfig.specialFirstDamageCoefficient.Value * 100f}% + {UnforgivenConfig.specialFinalDamageCoefficient.Value * 100f}% damage</style>. " +
                 $"Gain bonus <style=cIsDamage>armor penetration</style> for 6 seconds." + Tokens.ScepterDescription("<style=cIsUtility>Reset your secondary cooldown</style>. Enemies hit by <color=#FFBF66>First Breath</color> can be targetted by <color=#FFBF66>Sweeping Blade</color> again."));
             #endregion
 
             #region Achievements
             Language.Add(Tokens.GetAchievementNameToken(UnforgivenMasteryAchievement.identifier), "Wanderer: Mastery");
             Language.Add(Tokens.GetAchievementDescriptionToken(UnforgivenMasteryAchievement.identifier), "As Wanderer, beat the game or obliterate on Monsoon.");
-            /*
-            Language.Add(Tokens.GetAchievementNameToken(UnforgivenUnlockAchievement.identifier), "Dressed to Kill");
-            Language.Add(Tokens.GetAchievementDescriptionToken(UnforgivenUnlockAchievement.identifier), "Get a Backstab.");
-            */
             #endregion
 
             #endregion

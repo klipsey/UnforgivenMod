@@ -21,7 +21,8 @@ namespace UnforgivenMod.Unforgiven.SkillStates
             hitboxGroupName = "MeleeHitbox";
 
             damageType = empoweredSpecial ? DamageType.BypassArmor : DamageType.Generic;
-            damageCoefficient = UnforgivenStaticValues.swingDamageCoefficient;
+            damageSource = DamageSource.Primary;
+            damageCoefficient = UnforgivenConfig.swingDamageCoefficient.Value;
             procCoefficient = 1f;
             pushForce = 300f;
             bonusForce = Vector3.zero;

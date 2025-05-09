@@ -1,4 +1,11 @@
+# 0.8.3
+
+- Fixed for SOTS v3
+
 # 0.8.2
+
+- Fixed for SOTS
+
 # 0.8.1 
 
 - Tokens

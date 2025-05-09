@@ -19,7 +19,7 @@ namespace UnforgivenMod.Modules.BaseStates
 
         protected string hitboxGroupName = "SwordGroup";
 
-        protected DamageType damageType = DamageType.Generic;
+        protected DamageTypeCombo damageType = DamageType.Generic;
         protected DamageSource damageSource = DamageSource.Primary;
         protected List<DamageAPI.ModdedDamageType> moddedDamageTypeHolder = new List<DamageAPI.ModdedDamageType>();
         protected float damageCoefficient = 3.5f;

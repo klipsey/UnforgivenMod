@@ -441,7 +441,7 @@ namespace UnforgivenMod.Unforgiven.Content
             Object.DestroyImmediate(unforgivenIndicator.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>());
             SpriteRenderer balls = unforgivenIndicator.transform.GetChild(0).gameObject.AddComponent<SpriteRenderer>();
             balls.SetMaterial(component);
-            balls.sprite = mainAssetBundle.LoadAsset<Sprite>("texUnforgivenIndicator");
+            balls.sprite = null;
             unforgivenIndicator.transform.GetChild(1).gameObject.SetActive(false);
             Sprite sprite = Addressables.LoadAssetAsync<Sprite>("RoR2/Base/UI/texCrosshair2.png").WaitForCompletion();
             Material component2 = unforgivenIndicator.transform.GetChild(2).gameObject.GetComponent<SpriteRenderer>().material;

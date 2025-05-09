@@ -24,7 +24,7 @@ namespace UnforgivenMod.Unforgiven.SkillStates
 
             damageType = empoweredSpecial ? DamageType.BypassArmor : DamageType.Generic;
             damageSource = DamageSource.Secondary;
-            damageCoefficient = UnforgivenStaticValues.stabDamageCoefficient;
+            damageCoefficient = UnforgivenConfig.stabDamageCoefficient.Value;
             procCoefficient = 1f;
             pushForce = 300f;
             bonusForce = Vector3.zero;

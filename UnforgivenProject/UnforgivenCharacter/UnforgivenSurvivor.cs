@@ -54,12 +54,27 @@ namespace UnforgivenMod.Unforgiven
             crosshair = Modules.CharacterAssets.LoadCrosshair("Standard"),
             podPrefab = RoR2.LegacyResourcesAPI.Load<GameObject>("Prefabs/NetworkedObjects/SurvivorPod"),
 
-            maxHealth = 110f,
-            healthRegen = 1.5f,
-            armor = 0f, 
-            damage = 12f,
-
-            jumpCount = 1,
+            damage = UnforgivenConfig.damage.Value,
+            damageGrowth = UnforgivenConfig.damageGrowth.Value * UnforgivenConfig.damage.Value,
+            attackSpeed = UnforgivenConfig.attackSpeed.Value,
+            attackSpeedGrowth = UnforgivenConfig.attackSpeedGrowth.Value,
+            crit = UnforgivenConfig.crit.Value,
+            critGrowth = UnforgivenConfig.critGrowth.Value,
+            maxHealth = UnforgivenConfig.maxHealth.Value,
+            healthGrowth = UnforgivenConfig.healthGrowth.Value * UnforgivenConfig.maxHealth.Value,
+            healthRegen = UnforgivenConfig.healthRegen.Value,
+            regenGrowth = UnforgivenConfig.regenGrowth.Value * UnforgivenConfig.healthRegen.Value,
+            shield = UnforgivenConfig.shield.Value,
+            shieldGrowth = UnforgivenConfig.shieldGrowth.Value * UnforgivenConfig.shield.Value,
+            armor = UnforgivenConfig.armor.Value,
+            armorGrowth = UnforgivenConfig.armorGrowth.Value * UnforgivenConfig.armor.Value,
+            moveSpeed = UnforgivenConfig.moveSpeed.Value,
+            moveSpeedGrowth = UnforgivenConfig.moveSpeedGrowth.Value * UnforgivenConfig.moveSpeed.Value,
+            jumpPower = UnforgivenConfig.jumpPower.Value,
+            jumpPowerGrowth = UnforgivenConfig.jumpPowerGrowth.Value * UnforgivenConfig.jumpPower.Value,
+            acceleration = UnforgivenConfig.acceleration.Value,
+            jumpCount = UnforgivenConfig.jumpCount.Value,
+            autoCalculateLevelStats = UnforgivenConfig.autoCalculateLevelStats.Value,
         };
 
         public override CustomRendererInfo[] customRendererInfos => new CustomRendererInfo[]
@@ -144,15 +159,16 @@ namespace UnforgivenMod.Unforgiven
             AddHitboxes();
             bodyPrefab.AddComponent<UnforgivenController>();
             bodyPrefab.AddComponent<UnforgivenTracker>();
-            bool tempAdd(CharacterBody body) => body.HasBuff(UnforgivenBuffs.dashCooldownBuff);
+            bool dashCooldown(CharacterBody body) => body.HasBuff(UnforgivenBuffs.dashCooldownBuff);
             bool tempAddShield(CharacterBody body) => body.HasBuff(UnforgivenBuffs.hasShieldBuff);
             bool tempNadoUp(CharacterBody body) => body.HasBuff(UnforgivenBuffs.stabMaxStacksBuff);
-            float radius(CharacterBody body) => body.radius * 0.9f;
-            float radius2(CharacterBody body) => body.radius;
-            float radius3(CharacterBody body) => body.radius * 5f;
-            if(!UnforgivenConfig.noShieldVisual.Value) TempVisualEffectAPI.AddTemporaryVisualEffect(UnforgivenAssets.shieldEffect, radius, tempAddShield);
-            TempVisualEffectAPI.AddTemporaryVisualEffect(UnforgivenAssets.dashCdEffect, radius2, tempAdd);
-            TempVisualEffectAPI.AddTemporaryVisualEffect(UnforgivenAssets.nadoUpEffect, radius3, tempNadoUp);
+
+            float dashCdRadius(CharacterBody body) => body.radius * 1.25f;
+            float tempAddShieldRadius(CharacterBody body) => body.radius * 0.9f;
+            float nadoUpRadius(CharacterBody body) => body.radius * 5f;
+            if(!UnforgivenConfig.noShieldVisual.Value) TempVisualEffectAPI.AddTemporaryVisualEffect(UnforgivenAssets.shieldEffect, tempAddShieldRadius, tempAddShield);
+            TempVisualEffectAPI.AddTemporaryVisualEffect(UnforgivenAssets.dashCdEffect, dashCdRadius, dashCooldown);
+            TempVisualEffectAPI.AddTemporaryVisualEffect(UnforgivenAssets.nadoUpEffect, nadoUpRadius, tempNadoUp);
         }
         public void AddHitboxes()
         {
