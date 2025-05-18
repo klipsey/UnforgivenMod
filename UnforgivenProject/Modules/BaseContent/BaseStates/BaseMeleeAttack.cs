@@ -35,7 +35,7 @@ namespace UnforgivenMod.Modules.BaseStates
 
         protected float hitStopDuration = 0.012f;
         protected float attackRecoil = 0.75f;
-        protected float hitHopVelocity = 4f;
+        protected float hitHopVelocity = 8f;
 
         protected string swingSoundString = "";
         protected string hitSoundString = "";
