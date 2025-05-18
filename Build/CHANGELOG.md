@@ -1,3 +1,8 @@
+# 0.8.4
+
+- Doubled Melee hitbox ranges
+- Increased hithop velocity 
+
 # 0.8.3
 
 - Fixed for SOTS v3

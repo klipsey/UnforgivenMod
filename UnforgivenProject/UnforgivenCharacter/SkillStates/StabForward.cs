@@ -40,7 +40,7 @@ namespace UnforgivenMod.Unforgiven.SkillStates
 
             hitStopDuration = 0.05f;
             attackRecoil = 2f / attackSpeedStat;
-            hitHopVelocity = 8f;
+            hitHopVelocity = 6f;
 
             swingSoundString = "sfx_unforgiven_stab";
             hitSoundString = "";
