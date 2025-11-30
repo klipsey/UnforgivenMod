@@ -506,24 +506,49 @@ namespace UnforgivenMod.Unforgiven
         private void AddHooks()
         {
             HUD.onHudTargetChangedGlobal += HUDSetup;
-            On.RoR2.UI.LoadoutPanelController.Rebuild += LoadoutPanelController_Rebuild;
             On.RoR2.CharacterBody.RecalculateStats += CharacterBody_RecalculateStats;
             On.RoR2.HealthComponent.TakeDamageProcess += HealthComponent_TakeDamageProcess;
             RoR2.GlobalEventManager.onCharacterDeathGlobal += GlobalEventManager_onCharacterDeathGlobal;
-
-            if (UnforgivenPlugin.emotesInstalled) Emotes();
+            On.RoR2.SurvivorCatalog.Init += SurvivorCatalog_Init;
         }
 
-        [MethodImpl(MethodImplOptions.NoInlining | MethodImplOptions.NoOptimization)]
-        private static void Emotes()
+        private void SurvivorCatalog_Init(On.RoR2.SurvivorCatalog.orig_Init orig)
         {
-            On.RoR2.SurvivorCatalog.Init += (orig) =>
-            {
-                orig();
+            orig();
+
+            if (UnforgivenPlugin.emotesInstalled)
+                EmoteAPICompat.Emotes();
+        }
+
+        public static class EmoteAPICompat
+        {
+            [MethodImpl(MethodImplOptions.NoInlining | MethodImplOptions.NoOptimization)]
+            public static void Emotes() {
                 var skele = UnforgivenAssets.mainAssetBundle.LoadAsset<GameObject>("unforgiven_emoteskeleton");
                 CustomEmotesAPI.ImportArmature(UnforgivenSurvivor.characterPrefab, skele);
-            };
+
+                CustomEmotesAPI.animChanged += CustomEmotesAPI_animChanged;
+            }
+            [MethodImpl(MethodImplOptions.NoInlining | MethodImplOptions.NoOptimization)]
+            private static void CustomEmotesAPI_animChanged(string newAnimation, BoneMapper mapper)
+            {
+                if (newAnimation != "none")
+                {
+                    if (mapper.transform.name == "unforgiven_emoteskeleton")
+                    {
+                        mapper.transform.parent.GetComponent<ChildLocator>().FindChild("KatanaModel").gameObject.SetActive(value: false);
+                    }
+                }
+                else
+                {
+                    if (mapper.transform.name == "unforgiven_emoteskeleton")
+                    {
+                        mapper.transform.parent.GetComponent<ChildLocator>().FindChild("KatanaModel").gameObject.SetActive(value: true);
+                    }
+                }
+            }
         }
+
         private static void GlobalEventManager_onCharacterDeathGlobal(DamageReport damageReport)
         {
             CharacterBody attackerBody = damageReport.attackerBody;
@@ -556,18 +581,6 @@ namespace UnforgivenMod.Unforgiven
                 }
             }
             orig.Invoke(self, damageInfo);
-        }
-        private static void LoadoutPanelController_Rebuild(On.RoR2.UI.LoadoutPanelController.orig_Rebuild orig, LoadoutPanelController self)
-        {
-            orig(self);
-
-            if (self.currentDisplayData.bodyIndex == BodyCatalog.FindBodyIndex("UnforgivenBody"))
-            {
-                foreach (LanguageTextMeshController i in self.gameObject.GetComponentsInChildren<LanguageTextMeshController>())
-                {
-                    if (i && i.token == "LOADOUT_SKILL_MISC") i.token = "Passive";
-                }
-            }
         }
 
         

@@ -33,7 +33,18 @@ namespace UnforgivenMod
 
         public static UnforgivenPlugin instance;
 
-        public static bool emotesInstalled => BepInEx.Bootstrap.Chainloader.PluginInfos.ContainsKey("com.weliveinasociety.CustomEmotesAPI");
+        private static bool? _emotesInstalled;
+        public static bool emotesInstalled
+        {
+            get
+            {
+                if (_emotesInstalled == null)
+                {
+                    _emotesInstalled = BepInEx.Bootstrap.Chainloader.PluginInfos.ContainsKey("com.weliveinasociety.CustomEmotesAPI");
+                }
+                return (bool)_emotesInstalled;
+            }
+        }
 
         public static bool scepterInstalled => BepInEx.Bootstrap.Chainloader.PluginInfos.ContainsKey("com.DestroyedClone.AncientScepter");
         void Awake()

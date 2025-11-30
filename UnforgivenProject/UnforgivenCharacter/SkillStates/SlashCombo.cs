@@ -38,7 +38,7 @@ namespace UnforgivenMod.Unforgiven.SkillStates
 
             hitStopDuration = 0.05f;
             attackRecoil = 2f / attackSpeedStat;
-            hitHopVelocity = 6f;
+            hitHopVelocity = 7f;
 
             swingSoundString = EntityStates.Merc.Weapon.GroundLight2.slash1Sound;
             hitSoundString = "";

@@ -437,11 +437,8 @@ namespace UnforgivenMod.Unforgiven.Content
             secondaryEmpoweredIcon = mainAssetBundle.LoadAsset<Sprite>("texSecondaryEmpoweredIcon");
 
             unforgivenIndicator = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Huntress/HuntressTrackingIndicator.prefab").WaitForCompletion().InstantiateClone("UnforgivenTracker", false);
-            Material component = Object.Instantiate(Addressables.LoadAssetAsync<Material>("RoR2/Base/UI/matUIOverbrighten2x.mat").WaitForCompletion());
             Object.DestroyImmediate(unforgivenIndicator.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>());
             SpriteRenderer balls = unforgivenIndicator.transform.GetChild(0).gameObject.AddComponent<SpriteRenderer>();
-            balls.SetMaterial(component);
-            balls.sprite = null;
             unforgivenIndicator.transform.GetChild(1).gameObject.SetActive(false);
             Sprite sprite = Addressables.LoadAssetAsync<Sprite>("RoR2/Base/UI/texCrosshair2.png").WaitForCompletion();
             Material component2 = unforgivenIndicator.transform.GetChild(2).gameObject.GetComponent<SpriteRenderer>().material;

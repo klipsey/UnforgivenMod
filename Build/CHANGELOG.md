@@ -1,3 +1,15 @@
+# 0.8.7
+
+- Please.
+
+# 0.8.6
+
+- Fixed emotesapi compat
+
+# 0.8.5
+
+- Fixed Camera Params
+
 # 0.8.4
 
 - Doubled Melee hitbox ranges

@@ -50,7 +50,6 @@ namespace UnforgivenMod.Modules.BaseStates
         protected float hitPauseTimer;
         protected OverlapAttack attack;
         protected bool inHitPause;
-        protected bool hasHopped;
         protected float stopwatch;
         protected Animator animator;
         protected HitStopCachedState hitStopCachedState;
@@ -109,16 +108,6 @@ namespace UnforgivenMod.Modules.BaseStates
         protected virtual void OnHitEnemyAuthority()
         {
             Util.PlaySound(hitSoundString, gameObject);
-
-            if (!hasHopped)
-            {
-                if (characterMotor && !characterMotor.isGrounded && hitHopVelocity > 0f)
-                {
-                    SmallHop(characterMotor, hitHopVelocity);
-                }
-
-                hasHopped = true;
-            }
 
             ApplyHitstop();
         }
@@ -203,6 +192,7 @@ namespace UnforgivenMod.Modules.BaseStates
         {
             ConsumeHitStopCachedState(hitStopCachedState, characterMotor, animator);
             inHitPause = false;
+            if (!characterMotor.isGrounded) storedVelocity.y = Mathf.Max(storedVelocity.y, hitHopVelocity / Mathf.Sqrt(attackSpeedStat));
             characterMotor.velocity = storedVelocity;
         }
 
