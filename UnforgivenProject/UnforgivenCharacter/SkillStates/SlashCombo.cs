@@ -40,7 +40,7 @@ namespace UnforgivenMod.Unforgiven.SkillStates
             attackRecoil = 2f / attackSpeedStat;
             hitHopVelocity = 7f;
 
-            swingSoundString = EntityStates.Merc.Weapon.GroundLight2.slash1Sound;
+            swingSoundString = "Play_merc_sword_swing";
             hitSoundString = "";
             playbackRateParam = "Slash.playbackRate";
             swingEffectPrefab = empoweredSpecial ? UnforgivenAssets.swordSwingEmpoweredEffect : UnforgivenAssets.swordSwingEffect;
@@ -80,7 +80,6 @@ namespace UnforgivenMod.Unforgiven.SkillStates
 
         protected override void PlaySwingEffect()
         {
-            Util.PlaySound(this.swingSoundString, this.gameObject);
             if (this.swingEffectPrefab)
             {
                 Transform muzzleTransform = this.FindModelChild(this.muzzleString);

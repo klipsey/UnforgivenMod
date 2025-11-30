@@ -169,6 +169,19 @@ namespace UnforgivenMod.Unforgiven
             if(!UnforgivenConfig.noShieldVisual.Value) TempVisualEffectAPI.AddTemporaryVisualEffect(UnforgivenAssets.shieldEffect, tempAddShieldRadius, tempAddShield);
             TempVisualEffectAPI.AddTemporaryVisualEffect(UnforgivenAssets.dashCdEffect, dashCdRadius, dashCooldown);
             TempVisualEffectAPI.AddTemporaryVisualEffect(UnforgivenAssets.nadoUpEffect, nadoUpRadius, tempNadoUp);
+
+            //stupid ass soundbank bs
+            var ok = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Merc/MercBody.prefab").WaitForCompletion().GetComponent<AkBank>();
+
+            var bodyBank = bodyPrefab.AddComponent<AkBank>();
+            bodyBank.triggerList = ok.triggerList;
+            bodyBank.data = ok.data;
+            bodyBank.useOtherObject = false;
+            bodyBank.decodeBank = false;
+            bodyBank.overrideLoadSetting = false;
+            bodyBank.loadAsynchronous = false;
+            bodyBank.saveDecodedBank = false;
+            bodyBank.unloadTriggerList = ok.unloadTriggerList;
         }
         public void AddHitboxes()
         {
@@ -419,7 +432,7 @@ namespace UnforgivenMod.Unforgiven
 
             #region DefaultSkin
             //this creates a SkinDef with all default fields
-            SkinDef defaultSkin = Skins.CreateSkinDef("DEFAULT_SKIN",
+            SkinDef defaultSkin = Modules.Skins.CreateSkinDef("DEFAULT_SKIN",
                 assetBundle.LoadAsset<Sprite>("texDefaultSkin"),
                 defaultRendererinfos,
                 prefabCharacterModel.gameObject);

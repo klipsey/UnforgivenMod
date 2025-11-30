@@ -1,3 +1,7 @@
+# 0.8.8
+
+- Fixed for the collective
+
 # 0.8.7
 
 - Please.
