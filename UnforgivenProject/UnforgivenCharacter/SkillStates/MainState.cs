@@ -68,14 +68,21 @@ namespace UnforgivenMod.Unforgiven.SkillStates
         public override void ProcessJump()
         {
 
-            if (this.hasCharacterMotor)
+            if (base.characterBody && base.characterBody.inventory && base.hasCharacterMotor && !healthComponent.isInFrozenState)
             {
                 bool hopooFeather = false;
                 bool waxQuail = false;
-
-                if (this.jumpInputReceived && base.characterBody && base.characterMotor.jumpCount < base.characterBody.maxJumpCount)
+                _ = 25f;
+                if (base.characterBody.inventory.GetItemCountEffective(DLC3Content.Items.JumpDamageStrike) > 0)
                 {
-                    int waxQuailCount = base.characterBody.inventory.GetItemCount(RoR2Content.Items.JumpBoost);
+                    _ = base.characterBody.GetBuffCount(DLC3Content.Buffs.JumpDamageStrikeCharge) > 0;
+                }
+                else
+                    _ = 0;
+
+                if (base.jumpInputReceived && base.characterMotor.jumpCount < base.characterBody.maxJumpCount)
+                {
+                    int waxQuailCount = base.characterBody.inventory.GetItemCountEffective(RoR2Content.Items.JumpBoost);
                     float horizontalBonus = 1f;
                     float verticalBonus = 1f;
 
@@ -149,7 +156,7 @@ namespace UnforgivenMod.Unforgiven.SkillStates
                     }
 
                     base.characterMotor.jumpCount++;
-
+                    base.characterBody.TriggerJumpEventGlobally();
                 }
             }
         }

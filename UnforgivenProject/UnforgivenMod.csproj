@@ -29,7 +29,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="RoR2BepInExPack" Version="1.37.0" />
+		<PackageReference Include="RoR2BepInExPack" Version="*" />
 		<PackageReference Include="BepInEx.Analyzers" Version="*">
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>

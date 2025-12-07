@@ -1,3 +1,7 @@
+# 0.8.9
+
+- Jumping item thing fixed
+
 # 0.8.8
 
 - Fixed for the collective
