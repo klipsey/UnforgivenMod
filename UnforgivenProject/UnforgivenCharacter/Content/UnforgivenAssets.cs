@@ -86,6 +86,8 @@ namespace UnforgivenMod.Unforgiven.Content
 
         internal static GameObject unforgivenIndicator;
 
+        internal static GameObject shieldHudPrefab;
+
         //Crosshair
         public static void Init(AssetBundle assetBundle)
         {
@@ -447,6 +449,38 @@ namespace UnforgivenMod.Unforgiven.Content
             balls2.SetMaterial(component2);
             balls2.sprite = sprite;
             balls2.color = unforgivenColor;
+
+            CreateShieldHud();
+        }
+
+        private static void CreateShieldHud()
+        {
+            GameObject chargeBar = mainAssetBundle.LoadAsset<GameObject>("WeaponChargeBar");
+            if (!chargeBar)
+            {
+                Log.ErrorAssetBundle("WeaponChargeBar", mainAssetBundle.name);
+                return;
+            }
+
+            shieldHudPrefab = chargeBar.InstantiateClone("UnforgivenShieldHud", false);
+            RectTransform rect = shieldHudPrefab.GetComponent<RectTransform>();
+            rect.localScale = new Vector3(0.75f, 0.1f, 1f);
+            rect.anchorMin = new Vector2(0.5f, 0.5f);
+            rect.anchorMax = rect.anchorMin;
+            rect.pivot = new Vector2(0.5f, 0f);
+            rect.anchoredPosition = new Vector2(100f, 2f);
+            rect.localRotation = Quaternion.Euler(0f, 0f, 90f);
+
+            PassiveShieldHudController shieldHud = shieldHudPrefab.AddComponent<PassiveShieldHudController>();
+            shieldHud.shieldBar = shieldHudPrefab.transform.Find("Charge").GetComponent<Image>();
+            shieldHud.trailingBar = shieldHudPrefab.transform.Find("RedCharge").GetComponent<Image>();
+            shieldHud.shieldBar.color = unforgivenColor;
+            shieldHud.shieldBar.fillAmount = 0f;
+            shieldHud.trailingBar.fillAmount = 0f;
+            foreach (Graphic graphic in shieldHudPrefab.GetComponentsInChildren<Graphic>(true))
+            {
+                graphic.raycastTarget = false;
+            }
         }
 
         #region helpers

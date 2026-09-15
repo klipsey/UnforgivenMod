@@ -30,6 +30,7 @@ namespace UnforgivenMod.Unforgiven.SkillStates
 
         public static float stopTrackTime = 0.8f;
         private float baseDuration = 0.1f;
+        private const float baseExtraDuration = 0.05f;
         public float extraDuration;
         public static float extraDistance = 3.25f;
         public static float exitExtraDistance = 3.25f;
@@ -39,6 +40,7 @@ namespace UnforgivenMod.Unforgiven.SkillStates
         private float prepDuration;
         private float prepStopwatch;
         private bool holdBuffer;
+        private bool hasStartedDash;
 
         private CameraTargetParams.AimRequest aimRequest;
         public override void OnEnter()
@@ -49,11 +51,6 @@ namespace UnforgivenMod.Unforgiven.SkillStates
             if (base.cameraTargetParams)
             {
                 aimRequest = base.cameraTargetParams.RequestAimType(CameraTargetParams.AimType.Aura);
-            }
-
-            if (skillLocator.secondary.rechargeStopwatch >= skillLocator.secondary.finalRechargeInterval - 0.5f)
-            {
-                skillLocator.secondary.rechargeStopwatch = skillLocator.secondary.finalRechargeInterval;
             }
 
             RaycastHit hitInfo;
@@ -72,17 +69,9 @@ namespace UnforgivenMod.Unforgiven.SkillStates
             {
                 foreach (HurtBox hurtBox in hurtBoxes)
                 {
-                    if (hurtBox && hurtBox.healthComponent && hurtBox.healthComponent.body && hurtBox.healthComponent.body.characterMotor)
+                    if (UnforgivenSpecialTrackerSkillDef.TryGetEligibleBody(hurtBox, out CharacterBody targetBody))
                     {
-                        if (hurtBox.healthComponent.body.HasBuff(UnforgivenBuffs.airborneBuff) || !hurtBox.healthComponent.body.characterMotor.isGrounded || hurtBox.healthComponent.body.characterMotor.isFlying)
-                        {
-                            this.victimBody = hurtBox.healthComponent.body;
-                            break;
-                        }
-                    }
-                    else if (hurtBox && hurtBox.healthComponent && hurtBox.healthComponent.body && !hurtBox.healthComponent.body.characterMotor)
-                    {
-                        this.victimBody = hurtBox.healthComponent.body;
+                        this.victimBody = targetBody;
                         break;
                     }
                 }
@@ -99,17 +88,9 @@ namespace UnforgivenMod.Unforgiven.SkillStates
                 .FilterCandidatesByDistinctHurtBoxEntities().GetHurtBoxes();
                 foreach (HurtBox hurtBox in hurtBoxes2)
                 {
-                    if (hurtBox && hurtBox.healthComponent && hurtBox.healthComponent.body && hurtBox.healthComponent.body.characterMotor)
+                    if (UnforgivenSpecialTrackerSkillDef.TryGetEligibleBody(hurtBox, out CharacterBody targetBody))
                     {
-                        if (hurtBox.healthComponent.body.HasBuff(UnforgivenBuffs.airborneBuff) || !hurtBox.healthComponent.body.characterMotor.isGrounded || hurtBox.healthComponent.body.characterMotor.isFlying)
-                        {
-                            this.victimBody = hurtBox.healthComponent.body;
-                            break;
-                        }
-                    }
-                    else if (hurtBox && hurtBox.healthComponent && hurtBox.healthComponent.body && !hurtBox.healthComponent.body.characterMotor)
-                    {
-                        this.victimBody = hurtBox.healthComponent.body;
+                        this.victimBody = targetBody;
                         break;
                     }
                 }
@@ -118,11 +99,15 @@ namespace UnforgivenMod.Unforgiven.SkillStates
 
             if(!this.victimBody)
             {
-                skillLocator.special.AddOneStock();
-                outer.SetNextStateToMain();
+                if (base.isAuthority)
+                {
+                    skillLocator.special.AddOneStock();
+                    outer.SetNextStateToMain();
+                }
                 return;
             }
 
+            hasStartedDash = true;
             if (base.characterBody && NetworkServer.active)
             {
                 base.characterBody.bodyFlags |= CharacterBody.BodyFlags.IgnoreFallDamage;
@@ -133,7 +118,7 @@ namespace UnforgivenMod.Unforgiven.SkillStates
             this.distance = (base.transform.position - this.victimBody.coreTransform.position).magnitude + 4f;
             this.direction = (this.victimBody.coreTransform.position - base.transform.position).normalized;
             this.duration = this.baseDuration / this.attackSpeedStat;
-            this.extraDuration = Dash.baseExtraDuration / this.attackSpeedStat;
+            this.extraDuration = baseExtraDuration / this.attackSpeedStat;
             this.speed = this.distance / this.duration;
             this.prepDuration = baseChainPrepDuration / this.attackSpeedStat;
 
@@ -157,7 +142,7 @@ namespace UnforgivenMod.Unforgiven.SkillStates
                 int hurtBoxesDeactivatorCounter = hurtBoxGroup.hurtBoxesDeactivatorCounter - 1;
                 hurtBoxGroup.hurtBoxesDeactivatorCounter = hurtBoxesDeactivatorCounter;
             }
-            if (NetworkServer.active)
+            if (NetworkServer.active && hasStartedDash)
             {
                 base.characterBody.bodyFlags &= ~CharacterBody.BodyFlags.IgnoreFallDamage;
                 this.characterBody.RemoveBuff(RoR2Content.Buffs.HiddenInvincibility);
@@ -168,6 +153,11 @@ namespace UnforgivenMod.Unforgiven.SkillStates
         public override void FixedUpdate()
         {
             base.FixedUpdate();
+
+            if (!hasStartedDash)
+            {
+                return;
+            }
 
             if (this.prepStopwatch >= this.prepDuration)
             {
@@ -192,7 +182,7 @@ namespace UnforgivenMod.Unforgiven.SkillStates
                 base.gameObject.layer = LayerIndex.fakeActor.intVal;
                 base.characterMotor.Motor.RebuildCollidableLayers();
 
-                if (this.stopwatch >= this.duration + Dash.baseExtraDuration)
+                if (base.isAuthority && this.stopwatch >= this.duration + baseExtraDuration)
                 {
                     if (unforgivenController.bufferedSpin) holdBuffer = true;
                     EntityStateMachine.FindByCustomName(base.gameObject, "Dash").SetNextState(new Special { isBuffered = holdBuffer });

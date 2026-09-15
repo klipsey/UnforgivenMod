@@ -12,62 +12,78 @@ namespace UnforgivenMod.Unforgiven.SkillStates
     {
         EntityState savedState;
         bool hasChosenState;
+        private EntityStateMachine dashStateMachine;
+        private bool hasLoggedMissingDash;
+        public bool HasBufferedSpin => hasChosenState;
         public override void OnEnter()
         {
             RefreshState();
             base.OnEnter();
+            dashStateMachine = EntityStateMachine.FindByCustomName(base.gameObject, "Dash");
+            if (!dashStateMachine)
+            {
+                LogMissingDashStateMachine();
+            }
+            else if (dashStateMachine.state is Dash)
+            {
+                BufferSpin();
+            }
         }
 
         public override void FixedUpdate()
         {
             base.FixedUpdate();
 
-            EntityStateMachine b = null;
-            EntityStateMachine[] components = base.gameObject.GetComponents<EntityStateMachine>();
-            for (int i = 0; i < components.Length; i++)
+            EntityStateMachine b = dashStateMachine;
+            if (!b)
             {
-                if (components[i].customName == "Dash")
-                {
-                    b = components[i];
-
-                    break;
-                }
+                LogMissingDashStateMachine();
             }
 
             if (b && b.state is Dash && !hasChosenState)
             {
-                hasChosenState = true;
-                unforgivenController.bufferedSpin = true;
-                savedState = new DashSpin();
+                BufferSpin();
+            }
+
+            if (!base.isAuthority)
+            {
                 return;
             }
 
-            if (b && b.state is DashSpecial && !hasChosenState)
-            {
-                hasChosenState = true;
-                unforgivenController.bufferedSpin = true;
-                savedState = new DashSpin();
-                return;
-            }
-
-            if(!hasChosenState)
-            {
-                if (empowered)
-                {
-                    this.outer.SetNextState(new Tornado());
-                    return;
-                }
-                else
-                {
-                    this.outer.SetNextState(new StabForward());
-                    return;
-                }
-            }
-            else if(!(b.state is DashSpecial || b.state is Dash))
+            if (hasChosenState)
             {
                 this.outer.SetNextState(savedState);
                 return;
             }
+
+            if (empowered)
+            {
+                this.outer.SetNextState(new Tornado());
+            }
+            else
+            {
+                this.outer.SetNextState(new StabForward());
+            }
+        }
+
+        private void BufferSpin()
+        {
+            hasChosenState = true;
+            savedState = new DashSpin
+            {
+                empoweredSpin = empowered,
+                activatorSkillSlot = this.activatorSkillSlot
+            };
+        }
+
+        private void LogMissingDashStateMachine()
+        {
+            if (hasLoggedMissingDash)
+            {
+                return;
+            }
+            hasLoggedMissingDash = true;
+            Log.Error("EnterStab could not find the required Dash state machine; continuing without waiting for a dash.");
         }
 
         public override InterruptPriority GetMinimumInterruptPriority()

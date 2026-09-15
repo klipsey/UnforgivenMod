@@ -6,6 +6,11 @@
 
 [![Screenshot-2024-09-15-053840.png](https://i.postimg.cc/FHjV9sZB/Screenshot-2024-09-15-053840.png)](https://postimg.cc/QFdTmDvQ)
 
+# Airblade
+
+With an enemy airborne, use **Shift**, buffer **M2** during the dash, then press **R** before the spin fires. The buffered spin follows Last Breath to its destination. 
+
+
 Check out my other mods:
 
 https://thunderstore.io/package/tsuyoikenko/Scout/

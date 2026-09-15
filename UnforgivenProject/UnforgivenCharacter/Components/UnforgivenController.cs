@@ -1,9 +1,7 @@
-﻿using R2API.Networking;
-using R2API.Networking.Interfaces;
-using RoR2;
+﻿using RoR2;
 using RoR2.HudOverlay;
-using System;
 using UnforgivenMod.Unforgiven.Content;
+using UnforgivenMod.Unforgiven.SkillStates;
 using UnityEngine;
 using UnityEngine.Networking;
 
@@ -24,7 +22,19 @@ namespace UnforgivenMod.Unforgiven.Components
 
         public bool pauseTimer = false;
 
-        public bool bufferedSpin;
+        public bool bufferedSpin
+        {
+            get
+            {
+                if (!skillLocator || !skillLocator.secondary || !skillLocator.secondary.stateMachine)
+                {
+                    return false;
+                }
+
+                var state = skillLocator.secondary.stateMachine.state;
+                return state is DashSpin || state is EnterStab stab && stab.HasBufferedSpin;
+            }
+        }
 
         public static float maxShieldGain = 100f;
 
@@ -32,11 +42,10 @@ namespace UnforgivenMod.Unforgiven.Components
 
         private float shieldStopwatchInterval;
 
-        private float bufferStopwatch;
-
         private Vector3 previousPosition = Vector3.zero;
 
-        public Action onShieldChange;
+        private OverlayController shieldOverlay;
+
         private void Awake()
         {
             this.characterBody = this.GetComponent<CharacterBody>();
@@ -47,6 +56,85 @@ namespace UnforgivenMod.Unforgiven.Components
             this.skillLocator = this.GetComponent<SkillLocator>();
             this.skinController = modelLocator.modelTransform.gameObject.GetComponent<ModelSkinController>();
         }
+
+        private void OnEnable()
+        {
+            if (shieldOverlay != null)
+            {
+                return;
+            }
+            if (!UnforgivenAssets.shieldHudPrefab)
+            {
+                Log.Error("Cannot create the shield HUD because its prefab is missing.");
+                return;
+            }
+
+            shieldOverlay = HudOverlayManager.AddOverlay(gameObject, new OverlayCreationParams
+            {
+                prefab = UnforgivenAssets.shieldHudPrefab,
+                childLocatorEntry = "CrosshairExtras"
+            });
+            shieldOverlay.onInstanceAdded += OnShieldOverlayAdded;
+            UpdateShieldOverlay();
+        }
+
+        private void OnDisable()
+        {
+            RemoveShieldOverlay();
+        }
+
+        private void OnDestroy()
+        {
+            RemoveShieldOverlay();
+        }
+
+        private void Update()
+        {
+            UpdateShieldOverlay();
+        }
+
+        private void UpdateShieldOverlay()
+        {
+            if (shieldOverlay == null)
+            {
+                return;
+            }
+
+            CharacterMaster master = characterBody ? characterBody.master : null;
+            shieldOverlay.active = characterBody && characterBody.isActiveAndEnabled &&
+                characterBody.healthComponent && characterBody.healthComponent.alive &&
+                master && master.hasAuthority;
+        }
+
+        private void OnShieldOverlayAdded(OverlayController overlay, GameObject instance)
+        {
+            if (instance.TryGetComponent<PassiveShieldHudController>(out var shieldHud))
+            {
+                if (!shieldHud.SetSource(this))
+                {
+                    RemoveShieldOverlay();
+                }
+            }
+            else
+            {
+                Log.Error("Shield HUD instance is missing its display controller.");
+                RemoveShieldOverlay();
+            }
+        }
+
+        private void RemoveShieldOverlay()
+        {
+            if (shieldOverlay == null)
+            {
+                return;
+            }
+
+            shieldOverlay.active = false;
+            shieldOverlay.onInstanceAdded -= OnShieldOverlayAdded;
+            HudOverlayManager.RemoveOverlay(shieldOverlay);
+            shieldOverlay = null;
+        }
+
         public void StackBehaviour(bool isNado = false)
         {
             if(NetworkServer.active)
@@ -59,11 +147,6 @@ namespace UnforgivenMod.Unforgiven.Components
                         characterBody.AddTimedBuff(UnforgivenBuffs.stabMaxStacksBuff, 8f, 1);
                         characterBody.ClearTimedBuffs(UnforgivenBuffs.stabStackingBuff);
                         Util.PlaySound("sfx_unforgiven_max_stacks", base.gameObject);
-
-                        NetworkIdentity identity = base.gameObject.GetComponent<NetworkIdentity>();
-                        if (!identity) return;
-
-                        new SyncIcon(identity.netId, true).Send(NetworkDestination.Clients);
                     }
                     else
                     {
@@ -84,12 +167,6 @@ namespace UnforgivenMod.Unforgiven.Components
         {
             shieldStopwatchInterval += Time.fixedDeltaTime;
 
-            if(bufferedSpin)
-            {
-                bufferStopwatch += Time.fixedDeltaTime;
-                if(bufferStopwatch >= 4f / characterBody.attackSpeed) bufferedSpin = false;
-            }
-
             if(shieldStopwatchInterval >= 0.25f && base.transform)
             {
                 shieldStopwatchInterval = 0f;
@@ -103,7 +180,6 @@ namespace UnforgivenMod.Unforgiven.Components
                     shieldAmount = 100f;
                 }
                 previousPosition = base.transform.position;
-                onShieldChange?.Invoke();
             }
 
             if(characterBody.HasBuff(UnforgivenBuffs.lastBreathBuff) && !childLocator.FindChild("EmpoweredSword").gameObject.activeSelf && 
@@ -117,17 +193,6 @@ namespace UnforgivenMod.Unforgiven.Components
             {
                 childLocator.FindChild("EmpoweredSword").gameObject.SetActive(false);
                 childLocator.FindChild("KatanaModel").gameObject.SetActive(true);
-            }
-
-            if (this.characterBody.skillLocator.secondary.skillDef.icon != UnforgivenAssets.secondaryIcon)
-            {
-                if (!this.characterBody.HasBuff(UnforgivenBuffs.stabMaxStacksBuff))
-                {
-                    NetworkIdentity identity = base.gameObject.GetComponent<NetworkIdentity>();
-                    if (!identity) return;
-
-                    new SyncIcon(identity.netId, false).Send(NetworkDestination.Clients);
-                }
             }
         }
 

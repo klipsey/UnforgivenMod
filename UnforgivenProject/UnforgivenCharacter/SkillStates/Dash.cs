@@ -14,13 +14,15 @@ namespace UnforgivenMod.Unforgiven.SkillStates
 {
     public class Dash : BaseUnforgivenSkillState
     {
-        public static float baseDuration = 0.1f;
+        public static float baseDuration = 0.4f;
 
-        public static float baseExtraDuration = 0.05f;
+        public static float baseExtraDuration = 0.2f;
 
         public static float extraDistance = 2.5f;
 
         public static float hitRange = 4.5f;
+
+        private const float minimumDashDuration = 0.2f;
 
         public int targetIndex = 0;
 
@@ -38,6 +40,7 @@ namespace UnforgivenMod.Unforgiven.SkillStates
         private float extraDuration;
         private float speed;
         private bool hasFired;
+        private bool hasStartedDash;
         private float damageCoefficient = UnforgivenConfig.dashDamageCoefficient.Value;
         private float minDistance = 7f;
 
@@ -48,19 +51,24 @@ namespace UnforgivenMod.Unforgiven.SkillStates
             RefreshState();
             base.OnEnter();
 
+            if (!(moveSpeedStat > 0f) || !(characterBody.baseMoveSpeed > 0f))
+            {
+                Log.Warning("Sweeping Blade cannot start with non-positive movement speed.");
+                if (base.isAuthority)
+                {
+                    this.outer.SetNextStateToMain();
+                    this.activatorSkillSlot.AddOneStock();
+                }
+                return;
+            }
+
             if (base.cameraTargetParams)
             {
                 aimRequest = base.cameraTargetParams.RequestAimType(CameraTargetParams.AimType.Aura);
             }
 
-            if (skillLocator.secondary.rechargeStopwatch >= skillLocator.secondary.finalRechargeInterval - 0.5f)
-            {
-                skillLocator.secondary.rechargeStopwatch = skillLocator.secondary.finalRechargeInterval;
-            }
-
             if (base.characterBody && NetworkServer.active)
             {
-                base.characterBody.bodyFlags |= CharacterBody.BodyFlags.IgnoreFallDamage;
                 damageCoefficient = UnforgivenConfig.dashDamageCoefficient.Value + 
                     base.characterBody.GetBuffCount(UnforgivenBuffs.stackingDashDamageBuff) * UnforgivenConfig.dashStackingDamageCoefficient.Value;
             }
@@ -75,13 +83,18 @@ namespace UnforgivenMod.Unforgiven.SkillStates
 
             if (!this.victimBody)
             {
-                this.outer.SetNextStateToMain();
-                this.activatorSkillSlot.AddOneStock();
+                if (base.isAuthority)
+                {
+                    this.outer.SetNextStateToMain();
+                    this.activatorSkillSlot.AddOneStock();
+                }
                 return;
             }
 
+            hasStartedDash = true;
             if (NetworkServer.active)
             {
+                base.characterBody.bodyFlags |= CharacterBody.BodyFlags.IgnoreFallDamage;
                 this.victimBody.AddTimedBuff(UnforgivenBuffs.dashCooldownBuff, 6f);
                 this.characterBody.AddBuff(RoR2Content.Buffs.HiddenInvincibility);
             }
@@ -91,9 +104,16 @@ namespace UnforgivenMod.Unforgiven.SkillStates
             Vector3 corePosition = Util.GetCorePosition(victimBody);
             this.distance = Mathf.Max(this.minDistance, (base.transform.position - corePosition).magnitude);
             this.direction = (corePosition - base.transform.position).normalized;
-            this.duration = Dash.baseDuration / this.attackSpeedStat;
-            this.extraDuration = Dash.baseExtraDuration / this.attackSpeedStat;
+            float baseTotalDuration = Dash.baseDuration + Dash.baseExtraDuration;
+            float totalDuration = Mathf.Max(minimumDashDuration, baseTotalDuration * characterBody.baseMoveSpeed / moveSpeedStat);
+            this.duration = totalDuration * Dash.baseDuration / baseTotalDuration;
+            this.extraDuration = totalDuration - this.duration;
             this.speed = this.distance / this.duration;
+
+            if (base.isAuthority && skillLocator.secondary.cooldownRemaining <= this.duration + this.extraDuration)
+            {
+                skillLocator.secondary.RunRecharge(this.duration + this.extraDuration);
+            }
 
             base.gameObject.layer = LayerIndex.fakeActor.intVal;
             base.characterMotor.Motor.RebuildCollidableLayers();
@@ -118,7 +138,7 @@ namespace UnforgivenMod.Unforgiven.SkillStates
 
             aimRequest?.Dispose();
 
-            if (NetworkServer.active)
+            if (NetworkServer.active && hasStartedDash)
             {
                 this.characterBody.RemoveBuff(RoR2Content.Buffs.HiddenInvincibility);
                 base.characterBody.bodyFlags &= ~CharacterBody.BodyFlags.IgnoreFallDamage;
@@ -175,6 +195,11 @@ namespace UnforgivenMod.Unforgiven.SkillStates
         public override void FixedUpdate()
         {
             base.FixedUpdate();
+
+            if (!hasStartedDash)
+            {
+                return;
+            }
 
             if (base.fixedAge >= this.duration && extraDuration != 0) this.speed = extraDistance / this.extraDuration;
 

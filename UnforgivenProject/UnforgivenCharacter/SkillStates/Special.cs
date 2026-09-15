@@ -35,6 +35,10 @@ namespace UnforgivenMod.Unforgiven.SkillStates
 
         private int roundsCompleted = 0;
 
+        private readonly HashSet<HealthComponent> slamHits = new HashSet<HealthComponent>();
+
+        private Collider[] slamColliders;
+
         protected GameObject swingEffectInstance;
 
         private GameObject swingEffectPrefab = UnforgivenAssets.swordSwingEffect;
@@ -106,8 +110,6 @@ namespace UnforgivenMod.Unforgiven.SkillStates
 
             if (this.swingEffectInstance) EntityState.Destroy(this.swingEffectInstance);
 
-            unforgivenController.bufferedSpin = false;
-
             isBuffered = false;
 
         }
@@ -120,46 +122,50 @@ namespace UnforgivenMod.Unforgiven.SkillStates
 
             Util.PlaySound(final ? EntityStates.Merc.Weapon.GroundLight2.slash3Sound : EntityStates.Merc.Weapon.GroundLight2.slash1Sound, base.gameObject);
 
-            BlastAttack blastAttack = new BlastAttack
+            bool resetsDashes = skillLocator.special.skillDef == UnforgivenSurvivor.firstBreath;
+            if (base.isAuthority && resetsDashes && skillLocator.secondary.stock != skillLocator.secondary.maxStock)
             {
-                attacker = base.gameObject,
-                procChainMask = default(ProcChainMask),
-                losType = BlastAttack.LoSType.NearestHit,
-                damageColorIndex = DamageColorIndex.Default,
-                damageType = empoweredSpecial ? DamageType.BypassArmor : DamageType.Stun1s,
-                procCoefficient = 1f,
-                bonusForce = Vector3.down * 3000f,
-                baseForce = 300f,
-                baseDamage = damage * this.damageStat,
-                falloffModel = BlastAttack.FalloffModel.None,
-                radius = this.maxRange,
-                position = base.transform.position,
-                attackerFiltering = AttackerFiltering.NeverHitSelf,
-                teamIndex = base.GetTeam(),
-                inflictor = base.gameObject,
-                crit = this.crit
-            };
-
-            blastAttack.damageType.damageSource = DamageSource.Special;
-
-            if (skillLocator.special.skillDef == UnforgivenSurvivor.firstBreath)
-            {
-                blastAttack.AddModdedDamageType(DamageTypes.ResetDashes);
-
-                if(skillLocator.secondary.stock != skillLocator.secondary.maxStock)
-                {
-                    skillLocator.secondary.Reset();
-                }
+                skillLocator.secondary.Reset();
             }
 
-            blastAttack.Fire();
-
-            if(this.slashEffectPrefab && this.slashEffectPrefab2)
+            if (NetworkServer.active)
             {
-                EffectManager.SpawnEffect(final ? slashEffectPrefab2 : slashEffectPrefab, new EffectData
+                BlastAttack blastAttack = new BlastAttack
                 {
-                    origin = base.transform.position,
-                }, transmit: true);
+                    attacker = base.gameObject,
+                    procChainMask = default(ProcChainMask),
+                    losType = BlastAttack.LoSType.NearestHit,
+                    damageColorIndex = DamageColorIndex.Default,
+                    damageType = empoweredSpecial ? DamageType.BypassArmor : DamageType.Stun1s,
+                    procCoefficient = 1f,
+                    bonusForce = Vector3.down * 3000f,
+                    baseForce = 300f,
+                    baseDamage = damage * this.damageStat,
+                    falloffModel = BlastAttack.FalloffModel.None,
+                    radius = this.maxRange,
+                    position = base.transform.position,
+                    attackerFiltering = AttackerFiltering.NeverHitSelf,
+                    teamIndex = base.GetTeam(),
+                    inflictor = base.gameObject,
+                    crit = this.crit
+                };
+
+                blastAttack.damageType.damageSource = DamageSource.Special;
+
+                if (resetsDashes)
+                {
+                    blastAttack.AddModdedDamageType(DamageTypes.ResetDashes);
+                }
+
+                blastAttack.Fire();
+
+                if(this.slashEffectPrefab && this.slashEffectPrefab2)
+                {
+                    EffectManager.SpawnEffect(final ? slashEffectPrefab2 : slashEffectPrefab, new EffectData
+                    {
+                        origin = base.transform.position,
+                    }, transmit: true);
+                }
             }
 
             Transform muzzleTransform = this.roundsCompleted % 2 == 0 ? this.FindModelChild("SwingMuzzle2") : this.FindModelChild("SwingMuzzle1");
@@ -177,38 +183,53 @@ namespace UnforgivenMod.Unforgiven.SkillStates
                 if (!final) direction = UnityEngine.Random.insideUnitSphere;
                 direction.y = Mathf.Max(0f, direction.y);
                 direction = direction.normalized;
-                List<HealthComponent> hits = new List<HealthComponent>();
-                Collider[] hit = Physics.OverlapSphere(base.transform.position, this.maxRange, LayerIndex.entityPrecise.mask, QueryTriggerInteraction.UseGlobal);
-                for (int i = 0; i < hit.Length; i++)
+                slamHits.Clear();
+                int hitCount = CollectSlamColliders();
+                for (int i = 0; i < hitCount; i++)
                 {
-                    HurtBox hurtBox = hit[i].GetComponent<HurtBox>();
+                    HurtBox hurtBox = slamColliders[i].GetComponent<HurtBox>();
                     if (hurtBox)
                     {
                         HealthComponent healthComponent = hurtBox.healthComponent;
-                        if (healthComponent)
+                        if (healthComponent && slamHits.Add(healthComponent))
                         {
                             TeamComponent team = healthComponent.GetComponent<TeamComponent>();
                             bool enemy = team.teamIndex != base.teamComponent.teamIndex;
                             if (enemy)
                             {
-                                if (!hits.Contains(healthComponent))
+                                if (healthComponent.body)
                                 {
-                                    hits.Add(healthComponent);
-                                    if (healthComponent.body)
-                                    {
-                                        if (healthComponent.body.characterMotor) healthComponent.body.characterMotor.velocity = direction * 12f;
-                                        else if (healthComponent.body.rigidbody) healthComponent.body.rigidbody.velocity = direction * 12f;
+                                    if (healthComponent.body.characterMotor) healthComponent.body.characterMotor.velocity = direction * 12f;
+                                    else if (healthComponent.body.rigidbody) healthComponent.body.rigidbody.velocity = direction * 12f;
 
-                                        healthComponent.body.AddTimedBuff(UnforgivenBuffs.specialSlamTrackerBuff, 2f, 1);
-                                    }
+                                    healthComponent.body.AddTimedBuff(UnforgivenBuffs.specialSlamTrackerBuff, 2f, 1);
                                 }
                             }
                         }
                     }
-
                 }
+                Array.Clear(slamColliders, 0, hitCount);
+                slamHits.Clear();
             }
         }
+
+        private int CollectSlamColliders()
+        {
+            if (slamColliders == null)
+            {
+                slamColliders = new Collider[32];
+            }
+
+            Vector3 position = base.transform.position;
+            int hitCount;
+            while ((hitCount = Physics.OverlapSphereNonAlloc(position, this.maxRange, slamColliders,
+                LayerIndex.entityPrecise.mask, QueryTriggerInteraction.UseGlobal)) == slamColliders.Length)
+            {
+                slamColliders = new Collider[slamColliders.Length * 2];
+            }
+            return hitCount;
+        }
+
         public override void FixedUpdate()
         {
             base.FixedUpdate();
@@ -219,18 +240,31 @@ namespace UnforgivenMod.Unforgiven.SkillStates
 
             this.roundStopwatch += Time.fixedDeltaTime;
             bool flag3 = this.roundStopwatch >= this.roundDuration;
-            if (flag3)
+            if (flag3 && this.roundsCompleted < this.numRounds)
             {
                 this.Fire();
                 this.roundsCompleted++;
                 this.roundStopwatch = 0f;
             }
             bool flag4 = this.roundsCompleted >= this.numRounds;
-            if (flag4)
+            if (flag4 && base.isAuthority)
             {
                 this.outer.SetNextStateToMain();
             }
         }
+
+        public override void OnSerialize(NetworkWriter writer)
+        {
+            base.OnSerialize(writer);
+            writer.Write(isBuffered);
+        }
+
+        public override void OnDeserialize(NetworkReader reader)
+        {
+            base.OnDeserialize(reader);
+            isBuffered = reader.ReadBoolean();
+        }
+
         public override InterruptPriority GetMinimumInterruptPriority()
         {
             return InterruptPriority.Death;

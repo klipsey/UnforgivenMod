@@ -28,7 +28,7 @@ namespace UnforgivenMod.Unforgiven.Content
             desc = desc + "< ! > Use Steel Tempest between Swift Strikes to maximize your damage." + Environment.NewLine + Environment.NewLine;
             desc = desc + "< ! > Keep track of your Steel Tempest stacks as its tornado can be a devastating skill to clear out enemies." + Environment.NewLine + Environment.NewLine;
             desc = desc + "< ! > Using Steel Tempest during Sweeping Blade slashes in a circle allowing for more AOE damage." + Environment.NewLine + Environment.NewLine;
-            desc = desc + "< ! > Using Last Breath during Sweeping Blades + Steel Tempest allows you to transfer the AOE damage to Last Breaths targets." + Environment.NewLine + Environment.NewLine;
+            desc = desc + "< ! > Airblade: buffer Steel Tempest during Sweeping Blade, then cast Last Breath before the spin lands to carry its damage to your destination. A carried normal spin still grants Gathering Storm on hit." + Environment.NewLine + Environment.NewLine;
 
             string lore = "if you die to yasuo, you got outplayed " +
                 "it means he had to calculate (and execute) the fight exactly to his specifications, taking into account your cooldowns and his, the position of both junglers, the creep waves and the general \"feel\" of the lane (an ability that has to be honed through years, maybe decades of what you call merely \"gaming\"). " +

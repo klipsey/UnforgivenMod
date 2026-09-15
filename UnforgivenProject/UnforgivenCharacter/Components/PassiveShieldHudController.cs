@@ -1,80 +1,56 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
-using RoR2;
-using RoR2.UI;
-using UnforgivenMod.Unforgiven.Components;
-using UnforgivenMod.Unforgiven.Content;
 
 namespace UnforgivenMod.Unforgiven.Components
 {
     public class PassiveShieldHudController : MonoBehaviour
     {
-        public HUD targetHUD;
-        public UnforgivenController UnforgivenController;
+        public Image shieldBar;
+        public Image trailingBar;
 
-        public LanguageTextMeshController targetText;
-        public GameObject durationDisplay;
-        public Image durationBar;
-        public Image durationBarColor;
+        private UnforgivenController source;
 
-        private void Start()
+        public bool SetSource(UnforgivenController controller)
         {
-            this.UnforgivenController = this.targetHUD?.targetBodyObject?.GetComponent<UnforgivenController>();
-            this.UnforgivenController.onShieldChange += SetDisplay;
+            if (!controller || !shieldBar || !trailingBar)
+            {
+                Log.Error("Cannot initialize the shield HUD without its controller and fill images.");
+                gameObject.SetActive(false);
+                enabled = false;
+                return false;
+            }
 
-            this.durationDisplay.SetActive(false);
-            SetDisplay();
+            source = controller;
+            RefreshDisplay(true);
+            return true;
         }
 
-        private void OnDestroy()
+        private void OnEnable()
         {
-            if (this.UnforgivenController) this.UnforgivenController.onShieldChange -= SetDisplay;
-
-            this.targetText.token = string.Empty;
-            this.durationDisplay.SetActive(false);
-            GameObject.Destroy(this.durationDisplay);
+            if (source)
+            {
+                RefreshDisplay(true);
+            }
         }
 
         private void Update()
         {
-            if (targetText.token != string.Empty) { targetText.token = string.Empty; }
-
-            if (this.UnforgivenController && this.UnforgivenController.shieldAmount >= 0f)
+            if (!source)
             {
-                float fill;
-                fill = Util.Remap(this.UnforgivenController.shieldAmount, 0f, 100f, 0f, 1f);
-
-                if (this.durationBarColor)
-                {
-                    if (fill >= 1f) this.durationBarColor.fillAmount = 1f;
-                    this.durationBarColor.fillAmount = Mathf.Lerp(this.durationBarColor.fillAmount, fill, Time.fixedDeltaTime * 2f);
-                }
-
-                this.durationBar.fillAmount = fill;
+                gameObject.SetActive(false);
+                return;
             }
+
+            RefreshDisplay(false);
         }
 
-        private void FixedUpdate()
+        private void RefreshDisplay(bool immediate)
         {
-            if(!UnforgivenController.gameObject.GetComponent<CharacterBody>().healthComponent.alive)
-            {
-                Destroy(this);
-            }
-        }
-
-        private void SetDisplay()
-        {
-            if (this.UnforgivenController)
-            {
-                this.durationDisplay.SetActive(true);
-                this.targetText.token = string.Empty;
-
-                this.durationBar.color = UnforgivenAssets.unforgivenColor;
-            }
-            else
-            {
-                this.durationDisplay.SetActive(false);
-            }
+            float fill = Mathf.Clamp01(source.shieldAmount / UnforgivenController.maxShieldGain);
+            shieldBar.fillAmount = fill;
+            trailingBar.fillAmount = immediate || fill >= 1f
+                ? fill
+                : Mathf.Lerp(trailingBar.fillAmount, fill, Time.deltaTime * 2f);
         }
     }
 }

@@ -50,7 +50,8 @@ namespace UnforgivenMod.Unforgiven.Content
             {
                 if (iController && attackerBody.bodyIndex == BodyCatalog.FindBodyIndex("UnforgivenBody"))
                 {
-                    if(damageInfo.HasModdedDamageType(KnockAirborne)) 
+                    if (damageInfo.HasModdedDamageType(KnockAirborne) && victimBody.characterMotor &&
+                        !victimBody.TryGetComponent<AirborneComponent>(out _))
                     {
                         victimBody.gameObject.AddComponent<AirborneComponent>();
                     }

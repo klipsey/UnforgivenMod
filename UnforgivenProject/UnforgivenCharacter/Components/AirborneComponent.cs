@@ -1,49 +1,50 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using UnityEngine;
+﻿using UnityEngine;
 using RoR2;
 using UnityEngine.Networking;
 using UnforgivenMod.Unforgiven.Content;
 
 namespace UnforgivenMod.Unforgiven.Components
 {
+    [DisallowMultipleComponent]
     public class AirborneComponent : MonoBehaviour
     {
         public CharacterBody body;
+        private bool hasBeenAirborne;
 
         public void Awake()
         {
             body = base.GetComponent<CharacterBody>();
         }
 
-        public void Start()
-        {
-        }
-
         public void FixedUpdate()
         {
-            if (body && !body.HasBuff(UnforgivenBuffs.airborneBuff))
+            if (!NetworkServer.active)
             {
-                if (body.characterMotor)
-                {
-                    if (!body.characterMotor.isGrounded)
-                    {
-                        if(NetworkServer.active) body.AddBuff(UnforgivenBuffs.airborneBuff);
-                    }
-                }
+                return;
             }
 
-            if (body.HasBuff(UnforgivenBuffs.airborneBuff) && body)
+            if (!body || !body.characterMotor)
             {
-                if (body.characterMotor)
+                Destroy(this);
+                return;
+            }
+
+            bool hasAirborneBuff = body.HasBuff(UnforgivenBuffs.airborneBuff);
+            if (!body.characterMotor.isGrounded)
+            {
+                hasBeenAirborne = true;
+                if (!hasAirborneBuff)
                 {
-                    if (body.characterMotor.isGrounded)
-                    {
-                        if(NetworkServer.active) body.RemoveBuff(UnforgivenBuffs.airborneBuff);
-                        Component.Destroy(this);
-                    }
+                    body.AddBuff(UnforgivenBuffs.airborneBuff);
                 }
+            }
+            else if (hasBeenAirborne || hasAirborneBuff)
+            {
+                if (hasAirborneBuff)
+                {
+                    body.RemoveBuff(UnforgivenBuffs.airborneBuff);
+                }
+                Destroy(this);
             }
         }
     }

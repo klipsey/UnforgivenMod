@@ -1,3 +1,13 @@
+# 0.8.10
+
+- Added client-only dashed lines to nearby airborne targets while R can be used
+- Fixed Shift + M2 + R (Airblade) interaction
+- Shift now scales with movement speed rather than attack speed 
+- Significantly slowed down shift by default to help with Airblades
+- Fixed HUD breaking on death
+- Made Shift finish M2's cooldown when its remaining time fits within the dash duration
+- Optimizations
+
 # 0.8.9
 
 - Jumping item thing fixed

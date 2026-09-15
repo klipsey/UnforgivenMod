@@ -159,6 +159,7 @@ namespace UnforgivenMod.Unforgiven
             AddHitboxes();
             bodyPrefab.AddComponent<UnforgivenController>();
             bodyPrefab.AddComponent<UnforgivenTracker>();
+            bodyPrefab.AddComponent<AirborneTargetLineController>();
             bool dashCooldown(CharacterBody body) => body.HasBuff(UnforgivenBuffs.dashCooldownBuff);
             bool tempAddShield(CharacterBody body) => body.HasBuff(UnforgivenBuffs.hasShieldBuff);
             bool tempNadoUp(CharacterBody body) => body.HasBuff(UnforgivenBuffs.stabMaxStacksBuff);
@@ -518,7 +519,6 @@ namespace UnforgivenMod.Unforgiven
 
         private void AddHooks()
         {
-            HUD.onHudTargetChangedGlobal += HUDSetup;
             On.RoR2.CharacterBody.RecalculateStats += CharacterBody_RecalculateStats;
             On.RoR2.HealthComponent.TakeDamageProcess += HealthComponent_TakeDamageProcess;
             RoR2.GlobalEventManager.onCharacterDeathGlobal += GlobalEventManager_onCharacterDeathGlobal;
@@ -612,62 +612,5 @@ namespace UnforgivenMod.Unforgiven
         }
         
 
-        private static void HUDSetup(HUD hud)
-        {
-            if (hud.targetBodyObject && hud.targetMaster && hud.targetMaster.bodyPrefab == UnforgivenSurvivor.characterPrefab)
-            {
-                if (!hud.targetMaster.hasAuthority) return;
-                Transform skillsContainer = hud.equipmentIcons[0].gameObject.transform.parent;
-
-                // ammo display for atomic
-                Transform healthbarContainer = hud.transform.Find("MainContainer").Find("MainUIArea").Find("SpringCanvas").Find("BottomLeftCluster").Find("BarRoots").Find("LevelDisplayCluster");
-
-                GameObject shieldTracker = GameObject.Instantiate(healthbarContainer.gameObject, hud.transform.Find("MainContainer").Find("MainUIArea").Find("SpringCanvas").Find("BottomLeftCluster"));
-                shieldTracker.name = "ShieldTracker";
-                shieldTracker.transform.SetParent(hud.transform.Find("MainContainer").Find("MainUIArea").Find("CrosshairCanvas").Find("CrosshairExtras"));
-
-                GameObject.DestroyImmediate(shieldTracker.transform.GetChild(0).gameObject);
-                MonoBehaviour.Destroy(shieldTracker.GetComponentInChildren<LevelText>());
-                MonoBehaviour.Destroy(shieldTracker.GetComponentInChildren<ExpBar>());
-
-                shieldTracker.transform.Find("LevelDisplayRoot").Find("ValueText").gameObject.SetActive(false);
-                GameObject.DestroyImmediate(shieldTracker.transform.Find("ExpBarRoot").gameObject);
-
-                shieldTracker.transform.Find("LevelDisplayRoot").GetComponent<RectTransform>().anchoredPosition = new Vector2(-12f, 0f);
-
-                RectTransform rect = shieldTracker.GetComponent<RectTransform>();
-                rect.localScale = new Vector3(0.8f, 0.8f, 1f);
-                rect.anchorMin = new Vector2(0f, 0f);
-                rect.anchorMax = new Vector2(0f, 0f);
-                rect.offsetMin = new Vector2(120f, -40f);
-                rect.offsetMax = new Vector2(120f, -40f);
-                rect.pivot = new Vector2(0.5f, 0f);
-                //positional data doesnt get sent to clients? Manually making offsets works..
-                rect.anchoredPosition = new Vector2(50f, 0f);
-                rect.localPosition = new Vector3(120f, -40f, 0f);
-
-                GameObject chargeBarAmmo = GameObject.Instantiate(UnforgivenAssets.mainAssetBundle.LoadAsset<GameObject>("WeaponChargeBar"));
-                chargeBarAmmo.name = "WindShieldMeter";
-                chargeBarAmmo.transform.SetParent(hud.transform.Find("MainContainer").Find("MainUIArea").Find("CrosshairCanvas").Find("CrosshairExtras"));
-
-                rect = chargeBarAmmo.GetComponent<RectTransform>();
-
-                rect.localScale = new Vector3(0.75f, 0.1f, 1f);
-                rect.anchorMin = new Vector2(100f, 2f);
-                rect.anchorMax = new Vector2(100f, 2f);
-                rect.pivot = new Vector2(0.5f, 0f);
-                rect.anchoredPosition = new Vector2(100f, 2f);
-                rect.localPosition = new Vector3(100f, 2f, 0f);
-                rect.rotation = Quaternion.Euler(new Vector3(0f, 0f, 90f));
-
-                PassiveShieldHudController stealthComponent = shieldTracker.AddComponent<PassiveShieldHudController>();
-
-                stealthComponent.targetHUD = hud;
-                stealthComponent.targetText = shieldTracker.transform.Find("LevelDisplayRoot").Find("PrefixText").gameObject.GetComponent<LanguageTextMeshController>();
-                stealthComponent.durationDisplay = chargeBarAmmo;
-                stealthComponent.durationBar = chargeBarAmmo.transform.GetChild(1).gameObject.GetComponent<UnityEngine.UI.Image>();
-                stealthComponent.durationBarColor = chargeBarAmmo.transform.GetChild(0).gameObject.GetComponent<UnityEngine.UI.Image>();
-            }
-        }
     }
 }

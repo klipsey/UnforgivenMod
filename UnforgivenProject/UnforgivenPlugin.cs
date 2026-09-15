@@ -53,7 +53,6 @@ namespace UnforgivenMod
 
             NetworkingAPI.RegisterMessageType<Unforgiven.Components.SyncWindExplosion>();
             NetworkingAPI.RegisterMessageType<Unforgiven.Components.SyncStacks>();
-            NetworkingAPI.RegisterMessageType<Unforgiven.Components.SyncIcon>();
 
             //easy to use logger
             Log.Init(Logger);

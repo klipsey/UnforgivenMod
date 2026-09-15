@@ -1,5 +1,4 @@
 ﻿using RoR2;
-using System.Linq;
 using UnforgivenMod.Unforgiven.Content;
 using UnityEngine;
 
@@ -61,7 +60,6 @@ namespace UnforgivenMod.Unforgiven.Components
             if (trackerUpdateStopwatch >= 1f / trackerUpdateFrequency)
             {
                 trackerUpdateStopwatch -= 1f / trackerUpdateFrequency;
-                _ = trackingTarget;
                 Ray aimRay = new Ray(inputBank.aimOrigin, inputBank.aimDirection);
                 SearchForTarget(aimRay);
                 indicator.targetTransform = (trackingTarget ? trackingTarget.transform : null);
@@ -79,17 +77,16 @@ namespace UnforgivenMod.Unforgiven.Components
             search.maxAngleFilter = maxTrackingAngle;
             search.RefreshCandidates();
             search.FilterOutGameObject(base.gameObject);
-            foreach(HurtBox hurt in this.search.GetResults()) 
+            trackingTarget = null;
+            foreach (HurtBox hurt in search.GetResults())
             {
-                if(hurt && hurt.healthComponent && hurt.healthComponent.body)
+                if (hurt && hurt.healthComponent && hurt.healthComponent.body &&
+                    !hurt.healthComponent.body.HasBuff(UnforgivenBuffs.dashCooldownBuff))
                 {
-                    if(hurt.healthComponent.body.HasBuff(UnforgivenBuffs.dashCooldownBuff))
-                    {
-                        this.search.FilterOutGameObject(hurt.healthComponent.gameObject);
-                    }
+                    trackingTarget = hurt;
+                    break;
                 }
             }
-            trackingTarget = search.GetResults().FirstOrDefault();
         }
     }
 }

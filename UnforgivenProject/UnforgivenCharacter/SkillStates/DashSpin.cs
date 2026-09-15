@@ -14,24 +14,35 @@ namespace UnforgivenMod.Unforgiven.SkillStates
 {
     public class DashSpin : BaseMeleeAttack
     {
+        public bool empoweredSpin;
+
         private bool hasGrantedStacks;
 
         private bool activateNado;
+        private EntityStateMachine dashStateMachine;
+        private bool waitingForDash;
+
+        public bool IsWaitingForDash => !hasFired && dashStateMachine &&
+            (dashStateMachine.state is Dash || dashStateMachine.state is DashSpecial || dashStateMachine.HasPendingState());
+
         public override void OnEnter()
         {
             RefreshState();
+            dashStateMachine = EntityStateMachine.FindByCustomName(base.gameObject, "Dash");
+            if (!dashStateMachine)
+            {
+                Log.Error("DashSpin could not find the required Dash state machine; the spin cannot wait for a dash.");
+            }
             hitboxGroupName = "SteelTempestSpinHitbox";
 
             damageType = empoweredSpecial ? DamageType.BypassArmor : DamageType.Generic;
             damageSource = DamageSource.Secondary;
-            damageCoefficient = empowered ? UnforgivenConfig.tornadoDamageCoefficient.Value : UnforgivenConfig.stabDamageCoefficient.Value;
+            damageCoefficient = empoweredSpin ? UnforgivenConfig.tornadoDamageCoefficient.Value : UnforgivenConfig.stabDamageCoefficient.Value;
             procCoefficient = 1f;
             pushForce = 300f;
-            bonusForce = empowered ? Vector3.up * 3000f : Vector3.zero;
+            bonusForce = empoweredSpin ? Vector3.up * 3000f : Vector3.zero;
             baseDuration = 1.1f;
-            //0-1 multiplier of baseduration, used to time when the hitbox is out (usually based on the run time of the animation)
-            //for example, if attackStartPercentTime is 0.5, the attack will start hitting halfway through the ability. if baseduration is 3 seconds, the attack will start happening at 1.5 seconds
-            attackStartPercentTime = 0.05f;
+            attackStartPercentTime = 0f;
             attackEndPercentTime = 0.4f;
     
             //this is the point at which the attack can be interrupted by itself, continuing a combo
@@ -45,19 +56,18 @@ namespace UnforgivenMod.Unforgiven.SkillStates
             hitSoundString = "sfx_unforgiven_stab";
             playbackRateParam = "Slash.playbackRate";
             muzzleString = "SpinMuzzle";
-            swingEffectPrefab = empowered ? UnforgivenAssets.spinNadoEffect : (empoweredSpecial ? UnforgivenAssets.spinEmpoweredSlashEffect : UnforgivenAssets.spinSlashEffect);
+            swingEffectPrefab = empoweredSpin ? UnforgivenAssets.spinNadoEffect : (empoweredSpecial ? UnforgivenAssets.spinEmpoweredSlashEffect : UnforgivenAssets.spinSlashEffect);
             hitEffectPrefab = UnforgivenAssets.unforgivenHitEffect;
 
-            if (empowered)
+            if (empoweredSpin)
             {
-                if (NetworkServer.active) base.characterBody.ClearTimedBuffs(UnforgivenBuffs.stabMaxStacksBuff);
-
                 activateNado = true;
 
                 moddedDamageTypeHolder.Add(DamageTypes.KnockAirborne);
             }
-            impactSound = empowered ? UnforgivenAssets.nadoImpactSoundEvent.index : UnforgivenAssets.swordImpactSoundEvent.index;
+            impactSound = empoweredSpin ? UnforgivenAssets.nadoImpactSoundEvent.index : UnforgivenAssets.swordImpactSoundEvent.index;
 
+            waitingForDash = IsWaitingForDash;
             base.OnEnter();
 
             characterBody.isSprinting = true;
@@ -65,6 +75,11 @@ namespace UnforgivenMod.Unforgiven.SkillStates
 
         protected override void PlayAttackAnimation()
         {
+            if (IsWaitingForDash)
+            {
+                return;
+            }
+
             this.unforgivenController.Unsheath();
             base.PlayCrossfade("FullBody, Override", "DashSpin", 0.05f);
         }
@@ -72,6 +87,18 @@ namespace UnforgivenMod.Unforgiven.SkillStates
         public override void FixedUpdate()
         {
             characterBody.isSprinting = true;
+
+            if (IsWaitingForDash)
+            {
+                waitingForDash = true;
+                return;
+            }
+
+            if (waitingForDash)
+            {
+                waitingForDash = false;
+                PlayAttackAnimation();
+            }
 
             hitPauseTimer -= Time.fixedDeltaTime;
 
@@ -98,6 +125,10 @@ namespace UnforgivenMod.Unforgiven.SkillStates
             {
                 if (!hasFired)
                 {
+                    if (empoweredSpin && NetworkServer.active)
+                    {
+                        base.characterBody.ClearTimedBuffs(UnforgivenBuffs.stabMaxStacksBuff);
+                    }
                     EnterAttack();
                 }
                 FireAttack();
@@ -121,13 +152,6 @@ namespace UnforgivenMod.Unforgiven.SkillStates
                 new SyncStacks(identity.netId, activateNado).Send(NetworkDestination.Server);
             }
         }
-        public override void OnExit()
-        {
-            base.OnExit();
-
-            unforgivenController.bufferedSpin = false;
-        }
-
         public override InterruptPriority GetMinimumInterruptPriority()
         {
             if (stopwatch >= duration * earlyExitPercentTime)
@@ -135,6 +159,18 @@ namespace UnforgivenMod.Unforgiven.SkillStates
                 return InterruptPriority.Any;
             }
             return InterruptPriority.PrioritySkill;
+        }
+
+        public override void OnSerialize(NetworkWriter writer)
+        {
+            base.OnSerialize(writer);
+            writer.Write(empoweredSpin);
+        }
+
+        public override void OnDeserialize(NetworkReader reader)
+        {
+            base.OnDeserialize(reader);
+            empoweredSpin = reader.ReadBoolean();
         }
     }
 }
