@@ -8,8 +8,9 @@
 
 # Airblade
 
-With an enemy airborne, use **Shift**, buffer **M2** during the dash, then press **R** before the spin fires. The buffered spin follows Last Breath to its destination. 
+With an enemy airborne, use Shift, buffer M2 during the dash, then press R before the spin fires. The buffered spin follows Last Breath to its destination. 
 
+# 
 
 Check out my other mods:
 
