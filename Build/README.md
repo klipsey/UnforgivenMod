@@ -14,13 +14,7 @@ With an enemy airborne, use Utility, buffer Secondary during the dash, then pres
 
 Check out my other mods:
 
-https://thunderstore.io/package/tsuyoikenko/Scout/
-
-https://thunderstore.io/package/tsuyoikenko/Seamstress/
-
-https://thunderstore.io/package/tsuyoikenko/Spy/
-
-https://thunderstore.io/package/tsuyoikenko/Interrogator/
+https://thunderstore.io/c/riskofrain2/p/tsuyoikenko/
 
 Contact me on Discord: https://discord.gg/GKFCa8z2y8
 
