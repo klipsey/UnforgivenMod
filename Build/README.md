@@ -8,7 +8,7 @@
 
 # Airblade
 
-With an enemy airborne, use Shift, buffer M2 during the dash, then press R before the spin fires. The buffered spin follows Last Breath to its destination. 
+With an enemy airborne, use Utility, buffer Secondary during the dash, then press Special before the spin fires. The buffered spin follows Last Breath to its destination. 
 
 # 
 
@@ -22,7 +22,7 @@ https://thunderstore.io/package/tsuyoikenko/Spy/
 
 https://thunderstore.io/package/tsuyoikenko/Interrogator/
 
-Contact me on Discord: https://discord.gg/3NaMEsvYeD
+Contact me on Discord: https://discord.gg/GKFCa8z2y8
 
 Currently needs skill icons
 
