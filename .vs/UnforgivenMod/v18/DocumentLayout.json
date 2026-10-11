@@ -3,6 +3,18 @@
   "WorkspaceRootPath": "D:\\RoR2Mods\\UnforgivenMod\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|d:\\ror2mods\\unforgivenmod\\unforgivenproject\\modules\\config.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|solutionrelative:unforgivenproject\\modules\\config.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|d:\\ror2mods\\unforgivenmod\\unforgivenproject\\modules\\prefabs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|solutionrelative:unforgivenproject\\modules\\prefabs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|d:\\ror2mods\\unforgivenmod\\unforgivenproject\\modules\\materials.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|solutionrelative:unforgivenproject\\modules\\materials.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|d:\\ror2mods\\unforgivenmod\\unforgivenproject\\unforgivencharacter\\components\\unforgivensecondaryskilldef.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|solutionrelative:unforgivenproject\\unforgivencharacter\\components\\unforgivensecondaryskilldef.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -127,10 +139,6 @@
       "RelativeMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|solutionrelative:unforgivenproject\\modules\\characterassets.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|d:\\ror2mods\\unforgivenmod\\unforgivenproject\\modules\\prefabs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|solutionrelative:unforgivenproject\\modules\\prefabs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|d:\\ror2mods\\unforgivenmod\\unforgivenproject\\modules\\cameraparams.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|solutionrelative:unforgivenproject\\modules\\cameraparams.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -145,10 +153,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|d:\\ror2mods\\unforgivenmod\\unforgivenproject\\unforgivencharacter\\skillstates\\tornado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|solutionrelative:unforgivenproject\\unforgivencharacter\\skillstates\\tornado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|d:\\ror2mods\\unforgivenmod\\unforgivenproject\\modules\\config.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|solutionrelative:unforgivenproject\\modules\\config.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|d:\\ror2mods\\unforgivenmod\\unforgivenproject\\modules\\contentpacks.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -193,10 +197,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|d:\\ror2mods\\unforgivenmod\\unforgivenproject\\modules\\basecontent\\characters\\itemdisplaysbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|solutionrelative:unforgivenproject\\modules\\basecontent\\characters\\itemdisplaysbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|d:\\ror2mods\\unforgivenmod\\unforgivenproject\\modules\\materials.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|solutionrelative:unforgivenproject\\modules\\materials.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|d:\\ror2mods\\unforgivenmod\\unforgivenproject\\modules\\basecontent\\basestates\\baseunforgivenskillstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -318,7 +318,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 27,
+          "SelectedChildIndex": 36,
           "Children": [
             {
               "$type": "Bookmark",
@@ -418,31 +418,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "AirborneTargetLines.cs",
-              "DocumentMoniker": "D:\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\UnforgivenCharacter\\Components\\AirborneTargetLines.cs",
-              "RelativeDocumentMoniker": "UnforgivenProject\\UnforgivenCharacter\\Components\\AirborneTargetLines.cs",
-              "ToolTip": "D:\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\UnforgivenCharacter\\Components\\AirborneTargetLines.cs",
-              "RelativeToolTip": "UnforgivenProject\\UnforgivenCharacter\\Components\\AirborneTargetLines.cs",
-              "ViewState": "AgIAAFUAAAAAAAAAAAAQwGkAAAAOAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-01T01:45:14.248Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "UnforgivenPassive.cs",
-              "DocumentMoniker": "D:\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\UnforgivenCharacter\\Components\\UnforgivenPassive.cs",
-              "RelativeDocumentMoniker": "UnforgivenProject\\UnforgivenCharacter\\Components\\UnforgivenPassive.cs",
-              "ToolTip": "D:\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\UnforgivenCharacter\\Components\\UnforgivenPassive.cs",
-              "RelativeToolTip": "UnforgivenProject\\UnforgivenCharacter\\Components\\UnforgivenPassive.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-01T01:45:30.033Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
               "Title": "UnforgivenController.cs",
               "DocumentMoniker": "D:\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\UnforgivenCharacter\\Components\\UnforgivenController.cs",
               "RelativeDocumentMoniker": "UnforgivenProject\\UnforgivenCharacter\\Components\\UnforgivenController.cs",
@@ -450,12 +426,11 @@
               "RelativeToolTip": "UnforgivenProject\\UnforgivenCharacter\\Components\\UnforgivenController.cs",
               "ViewState": "AgIAAKQAAAAAAAAAAAAAAMQAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-01T01:45:27.098Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-10-01T01:45:27.098Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "UnforgivenSecondarySkillDef.cs",
               "DocumentMoniker": "D:\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\UnforgivenCharacter\\Components\\UnforgivenSecondarySkillDef.cs",
               "RelativeDocumentMoniker": "UnforgivenProject\\UnforgivenCharacter\\Components\\UnforgivenSecondarySkillDef.cs",
@@ -463,12 +438,11 @@
               "RelativeToolTip": "UnforgivenProject\\UnforgivenCharacter\\Components\\UnforgivenSecondarySkillDef.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-01T01:45:17.769Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-10-01T01:45:17.769Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "UnforgivenSurvivor.cs",
               "DocumentMoniker": "D:\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\UnforgivenCharacter\\UnforgivenSurvivor.cs",
               "RelativeDocumentMoniker": "UnforgivenProject\\UnforgivenCharacter\\UnforgivenSurvivor.cs",
@@ -476,12 +450,11 @@
               "RelativeToolTip": "UnforgivenProject\\UnforgivenCharacter\\UnforgivenSurvivor.cs",
               "ViewState": "AgIAAJ0AAAAAAAAAAAAwwK8AAACoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-26T20:50:46.125Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-26T20:50:46.125Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 13,
               "Title": "MainState.cs",
               "DocumentMoniker": "D:\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\UnforgivenCharacter\\SkillStates\\MainState.cs",
               "RelativeDocumentMoniker": "UnforgivenProject\\UnforgivenCharacter\\SkillStates\\MainState.cs",
@@ -493,7 +466,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 12,
               "Title": "UnforgivenConfig.cs",
               "DocumentMoniker": "D:\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\UnforgivenCharacter\\Content\\UnforgivenConfig.cs",
               "RelativeDocumentMoniker": "UnforgivenProject\\UnforgivenCharacter\\Content\\UnforgivenConfig.cs",
@@ -505,7 +478,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 8,
               "Title": "UnforgivenAssets.cs",
               "DocumentMoniker": "D:\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\UnforgivenCharacter\\Content\\UnforgivenAssets.cs",
               "RelativeDocumentMoniker": "UnforgivenProject\\UnforgivenCharacter\\Content\\UnforgivenAssets.cs",
@@ -513,12 +486,11 @@
               "RelativeToolTip": "UnforgivenProject\\UnforgivenCharacter\\Content\\UnforgivenAssets.cs",
               "ViewState": "AgIAAH0AAAAAAAAAAAAkwHcBAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-26T20:50:46.105Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-26T20:50:46.105Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 6,
               "Title": "Dash.cs",
               "DocumentMoniker": "D:\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\UnforgivenCharacter\\SkillStates\\Dash.cs",
               "RelativeDocumentMoniker": "UnforgivenProject\\UnforgivenCharacter\\SkillStates\\Dash.cs",
@@ -526,12 +498,11 @@
               "RelativeToolTip": "UnforgivenProject\\UnforgivenCharacter\\SkillStates\\Dash.cs",
               "ViewState": "AgIAAAwAAAAAAAAAAAAAABAAAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-26T20:50:46.152Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-26T20:50:46.152Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 11,
               "Title": "Special.cs",
               "DocumentMoniker": "D:\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\UnforgivenCharacter\\SkillStates\\Special.cs",
               "RelativeDocumentMoniker": "UnforgivenProject\\UnforgivenCharacter\\SkillStates\\Special.cs",
@@ -539,12 +510,11 @@
               "RelativeToolTip": "UnforgivenProject\\UnforgivenCharacter\\SkillStates\\Special.cs",
               "ViewState": "AgIAADAAAAAAAAAAAAAywDQAAAAbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-26T20:50:46.165Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-26T20:50:46.165Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 10,
               "Title": "DashSpin.cs",
               "DocumentMoniker": "D:\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\UnforgivenCharacter\\SkillStates\\DashSpin.cs",
               "RelativeDocumentMoniker": "UnforgivenProject\\UnforgivenCharacter\\SkillStates\\DashSpin.cs",
@@ -552,12 +522,11 @@
               "RelativeToolTip": "UnforgivenProject\\UnforgivenCharacter\\SkillStates\\DashSpin.cs",
               "ViewState": "AgIAANsAAAAAAAAAAAAqwL0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-26T20:50:46.106Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-26T20:50:46.106Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 9,
               "Title": "EnterStab.cs",
               "DocumentMoniker": "D:\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\UnforgivenCharacter\\SkillStates\\EnterStab.cs",
               "RelativeDocumentMoniker": "UnforgivenProject\\UnforgivenCharacter\\SkillStates\\EnterStab.cs",
@@ -565,12 +534,73 @@
               "RelativeToolTip": "UnforgivenProject\\UnforgivenCharacter\\SkillStates\\EnterStab.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-26T20:50:46.116Z",
+              "WhenOpened": "2026-04-26T20:50:46.116Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Materials.cs",
+              "DocumentMoniker": "D:\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\Modules\\Materials.cs",
+              "RelativeDocumentMoniker": "UnforgivenProject\\Modules\\Materials.cs",
+              "ToolTip": "D:\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\Modules\\Materials.cs",
+              "RelativeToolTip": "UnforgivenProject\\Modules\\Materials.cs",
+              "ViewState": "AgIAAB0AAAAAAAAAAAAqwDQAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-26T20:50:46.234Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Prefabs.cs",
+              "DocumentMoniker": "D:\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\Modules\\Prefabs.cs",
+              "RelativeDocumentMoniker": "UnforgivenProject\\Modules\\Prefabs.cs",
+              "ToolTip": "D:\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\Modules\\Prefabs.cs",
+              "RelativeToolTip": "UnforgivenProject\\Modules\\Prefabs.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAA2AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-26T20:50:46.112Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 0,
+              "Title": "Config.cs",
+              "DocumentMoniker": "D:\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\Modules\\Config.cs",
+              "RelativeDocumentMoniker": "UnforgivenProject\\Modules\\Config.cs",
+              "ToolTip": "D:\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\Modules\\Config.cs",
+              "RelativeToolTip": "UnforgivenProject\\Modules\\Config.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAQwCIAAABgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-26T20:50:46.162Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "UnforgivenPassive.cs",
+              "DocumentMoniker": "D:\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\UnforgivenCharacter\\Components\\UnforgivenPassive.cs",
+              "RelativeDocumentMoniker": "UnforgivenProject\\UnforgivenCharacter\\Components\\UnforgivenPassive.cs",
+              "ToolTip": "D:\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\UnforgivenCharacter\\Components\\UnforgivenPassive.cs",
+              "RelativeToolTip": "UnforgivenProject\\UnforgivenCharacter\\Components\\UnforgivenPassive.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-01T01:45:30.033Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "AirborneTargetLines.cs",
+              "DocumentMoniker": "D:\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\UnforgivenCharacter\\Components\\AirborneTargetLines.cs",
+              "RelativeDocumentMoniker": "UnforgivenProject\\UnforgivenCharacter\\Components\\AirborneTargetLines.cs",
+              "ToolTip": "D:\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\UnforgivenCharacter\\Components\\AirborneTargetLines.cs",
+              "RelativeToolTip": "UnforgivenProject\\UnforgivenCharacter\\Components\\AirborneTargetLines.cs",
+              "ViewState": "AgIAAFUAAAAAAAAAAAAQwGkAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-01T01:45:14.248Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
               "Title": "UnforgivenBuffs.cs",
               "DocumentMoniker": "D:\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\UnforgivenCharacter\\Content\\UnforgivenBuffs.cs",
               "RelativeDocumentMoniker": "UnforgivenProject\\UnforgivenCharacter\\Content\\UnforgivenBuffs.cs",
@@ -578,12 +608,11 @@
               "RelativeToolTip": "UnforgivenProject\\UnforgivenCharacter\\Content\\UnforgivenBuffs.cs",
               "ViewState": "AgIAABAAAAAAAAAAAAAzwCoAAAClAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-26T20:50:46.156Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-26T20:50:46.156Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 15,
               "Title": "SyncWindExplosion.cs",
               "DocumentMoniker": "D:\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\UnforgivenCharacter\\Components\\SyncWindExplosion.cs",
               "RelativeDocumentMoniker": "UnforgivenProject\\UnforgivenCharacter\\Components\\SyncWindExplosion.cs",
@@ -595,7 +624,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 17,
               "Title": "UnforgivenTracker.cs",
               "DocumentMoniker": "D:\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\UnforgivenCharacter\\Components\\UnforgivenTracker.cs",
               "RelativeDocumentMoniker": "UnforgivenProject\\UnforgivenCharacter\\Components\\UnforgivenTracker.cs",
@@ -607,7 +636,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 16,
               "Title": "UnforgivenCSS.cs",
               "DocumentMoniker": "D:\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\UnforgivenCharacter\\Components\\UnforgivenCSS.cs",
               "RelativeDocumentMoniker": "UnforgivenProject\\UnforgivenCharacter\\Components\\UnforgivenCSS.cs",
@@ -619,7 +648,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 20,
               "Title": "UnforgivenSpecialTrackerSkillDef.cs",
               "DocumentMoniker": "D:\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\UnforgivenCharacter\\Components\\UnforgivenSpecialTrackerSkillDef.cs",
               "RelativeDocumentMoniker": "UnforgivenProject\\UnforgivenCharacter\\Components\\UnforgivenSpecialTrackerSkillDef.cs",
@@ -631,7 +660,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 19,
               "Title": "UnforgivenSteppedSkillDef.cs",
               "DocumentMoniker": "D:\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\UnforgivenCharacter\\Components\\UnforgivenSteppedSkillDef.cs",
               "RelativeDocumentMoniker": "UnforgivenProject\\UnforgivenCharacter\\Components\\UnforgivenSteppedSkillDef.cs",
@@ -643,7 +672,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 18,
               "Title": "WindExplosion.cs",
               "DocumentMoniker": "D:\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\UnforgivenCharacter\\Components\\WindExplosion.cs",
               "RelativeDocumentMoniker": "UnforgivenProject\\UnforgivenCharacter\\Components\\WindExplosion.cs",
@@ -655,7 +684,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 24,
               "Title": "AirborneTargetLineController.cs",
               "DocumentMoniker": "D:\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\UnforgivenCharacter\\Components\\AirborneTargetLineController.cs",
               "RelativeDocumentMoniker": "UnforgivenProject\\UnforgivenCharacter\\Components\\AirborneTargetLineController.cs",
@@ -667,7 +696,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 25,
               "Title": "AirborneComponent.cs",
               "DocumentMoniker": "D:\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\UnforgivenCharacter\\Components\\AirborneComponent.cs",
               "RelativeDocumentMoniker": "UnforgivenProject\\UnforgivenCharacter\\Components\\AirborneComponent.cs",
@@ -679,7 +708,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 29,
               "Title": "BaseMeleeAttack.cs",
               "DocumentMoniker": "D:\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\Modules\\BaseContent\\BaseStates\\BaseMeleeAttack.cs",
               "RelativeDocumentMoniker": "UnforgivenProject\\Modules\\BaseContent\\BaseStates\\BaseMeleeAttack.cs",
@@ -691,7 +720,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 22,
               "Title": "SyncStacks.cs",
               "DocumentMoniker": "D:\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\UnforgivenCharacter\\Components\\SyncStacks.cs",
               "RelativeDocumentMoniker": "UnforgivenProject\\UnforgivenCharacter\\Components\\SyncStacks.cs",
@@ -703,7 +732,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 32,
               "Title": "ItemDisplayCheck.cs",
               "DocumentMoniker": "D:\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\Modules\\ItemDisplayCheck.cs",
               "RelativeDocumentMoniker": "UnforgivenProject\\Modules\\ItemDisplayCheck.cs",
@@ -715,19 +744,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 31,
-              "Title": "Prefabs.cs",
-              "DocumentMoniker": "D:\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\Modules\\Prefabs.cs",
-              "RelativeDocumentMoniker": "UnforgivenProject\\Modules\\Prefabs.cs",
-              "ToolTip": "D:\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\Modules\\Prefabs.cs",
-              "RelativeToolTip": "UnforgivenProject\\Modules\\Prefabs.cs",
-              "ViewState": "AgIAACQCAAAAAAAAAAAYwG0CAABNAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-26T20:50:46.112Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 23,
               "Title": "DashTrackerSkillDef.cs",
               "DocumentMoniker": "D:\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\UnforgivenCharacter\\Components\\DashTrackerSkillDef.cs",
               "RelativeDocumentMoniker": "UnforgivenProject\\UnforgivenCharacter\\Components\\DashTrackerSkillDef.cs",
@@ -739,7 +756,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
+              "DocumentIndex": 33,
               "Title": "CharacterAssets.cs",
               "DocumentMoniker": "D:\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\Modules\\CharacterAssets.cs",
               "RelativeDocumentMoniker": "UnforgivenProject\\Modules\\CharacterAssets.cs",
@@ -751,7 +768,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 26,
               "Title": "UnforgivenPlugin.cs",
               "DocumentMoniker": "D:\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\UnforgivenPlugin.cs",
               "RelativeDocumentMoniker": "UnforgivenProject\\UnforgivenPlugin.cs",
@@ -763,7 +780,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 34,
+              "DocumentIndex": 36,
               "Title": "UnforgivenMod",
               "DocumentMoniker": "D:\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\UnforgivenMod.csproj",
               "RelativeDocumentMoniker": "UnforgivenProject\\UnforgivenMod.csproj",
@@ -774,7 +791,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 28,
               "Title": "Tokens.cs",
               "DocumentMoniker": "D:\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\Modules\\Tokens.cs",
               "RelativeDocumentMoniker": "UnforgivenProject\\Modules\\Tokens.cs",
@@ -786,7 +803,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 27,
               "Title": "UnforgivenTokens.cs",
               "DocumentMoniker": "D:\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\UnforgivenCharacter\\Content\\UnforgivenTokens.cs",
               "RelativeDocumentMoniker": "UnforgivenProject\\UnforgivenCharacter\\Content\\UnforgivenTokens.cs",
@@ -798,7 +815,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 31,
               "Title": "SlashCombo.cs",
               "DocumentMoniker": "D:\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\UnforgivenCharacter\\SkillStates\\SlashCombo.cs",
               "RelativeDocumentMoniker": "UnforgivenProject\\UnforgivenCharacter\\SkillStates\\SlashCombo.cs",
@@ -810,7 +827,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 30,
               "Title": "UnforgivenMod.csproj",
               "DocumentMoniker": "D:\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\UnforgivenMod.csproj",
               "RelativeDocumentMoniker": "UnforgivenProject\\UnforgivenMod.csproj",
@@ -822,7 +839,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 33,
+              "DocumentIndex": 35,
               "Title": "StabForward.cs",
               "DocumentMoniker": "D:\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\UnforgivenCharacter\\SkillStates\\StabForward.cs",
               "RelativeDocumentMoniker": "UnforgivenProject\\UnforgivenCharacter\\SkillStates\\StabForward.cs",
@@ -834,7 +851,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 32,
+              "DocumentIndex": 34,
               "Title": "CameraParams.cs",
               "DocumentMoniker": "D:\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\Modules\\CameraParams.cs",
               "RelativeDocumentMoniker": "UnforgivenProject\\Modules\\CameraParams.cs",
@@ -846,7 +863,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 35,
+              "DocumentIndex": 37,
               "Title": "Tornado.cs",
               "DocumentMoniker": "D:\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\UnforgivenCharacter\\SkillStates\\Tornado.cs",
               "RelativeDocumentMoniker": "UnforgivenProject\\UnforgivenCharacter\\SkillStates\\Tornado.cs",
@@ -858,19 +875,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 36,
-              "Title": "Config.cs",
-              "DocumentMoniker": "D:\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\Modules\\Config.cs",
-              "RelativeDocumentMoniker": "UnforgivenProject\\Modules\\Config.cs",
-              "ToolTip": "D:\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\Modules\\Config.cs",
-              "RelativeToolTip": "UnforgivenProject\\Modules\\Config.cs",
-              "ViewState": "AgIAAA4AAAAAAAAAAAAQwAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-26T20:50:46.162Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 37,
+              "DocumentIndex": 38,
               "Title": "ContentPacks.cs",
               "DocumentMoniker": "D:\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\Modules\\ContentPacks.cs",
               "RelativeDocumentMoniker": "UnforgivenProject\\Modules\\ContentPacks.cs",
@@ -882,7 +887,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 38,
+              "DocumentIndex": 39,
               "Title": "DashSpecial.cs",
               "DocumentMoniker": "D:\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\UnforgivenCharacter\\SkillStates\\DashSpecial.cs",
               "RelativeDocumentMoniker": "UnforgivenProject\\UnforgivenCharacter\\SkillStates\\DashSpecial.cs",
@@ -894,7 +899,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 39,
+              "DocumentIndex": 40,
               "Title": "UnforgivenUnlockables.cs",
               "DocumentMoniker": "D:\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\UnforgivenCharacter\\Content\\UnforgivenUnlockables.cs",
               "RelativeDocumentMoniker": "UnforgivenProject\\UnforgivenCharacter\\Content\\UnforgivenUnlockables.cs",
@@ -906,7 +911,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 40,
+              "DocumentIndex": 41,
               "Title": "CharacterBase.cs",
               "DocumentMoniker": "D:\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\Modules\\BaseContent\\Characters\\CharacterBase.cs",
               "RelativeDocumentMoniker": "UnforgivenProject\\Modules\\BaseContent\\Characters\\CharacterBase.cs",
@@ -918,7 +923,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 41,
+              "DocumentIndex": 42,
               "Title": "UnforgivenStates.cs",
               "DocumentMoniker": "D:\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\UnforgivenCharacter\\Content\\UnforgivenStates.cs",
               "RelativeDocumentMoniker": "UnforgivenProject\\UnforgivenCharacter\\Content\\UnforgivenStates.cs",
@@ -966,7 +971,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 43,
+              "DocumentIndex": 44,
               "Title": "Language.cs",
               "DocumentMoniker": "D:\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\Modules\\Language.cs",
               "RelativeDocumentMoniker": "UnforgivenProject\\Modules\\Language.cs",
@@ -996,7 +1001,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 44,
+              "DocumentIndex": 45,
               "Title": "SurvivorBase.cs",
               "DocumentMoniker": "D:\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\Modules\\BaseContent\\Characters\\SurvivorBase.cs",
               "RelativeDocumentMoniker": "UnforgivenProject\\Modules\\BaseContent\\Characters\\SurvivorBase.cs",
@@ -1008,7 +1013,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 42,
+              "DocumentIndex": 43,
               "Title": "Content.cs",
               "DocumentMoniker": "D:\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\Modules\\Content.cs",
               "RelativeDocumentMoniker": "UnforgivenProject\\Modules\\Content.cs",
@@ -1038,7 +1043,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 45,
+              "DocumentIndex": 46,
               "Title": "Log.cs",
               "DocumentMoniker": "D:\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\Log.cs",
               "RelativeDocumentMoniker": "UnforgivenProject\\Log.cs",
@@ -1140,7 +1145,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 46,
+              "DocumentIndex": 47,
               "Title": "BaseMasteryAchievement.cs",
               "DocumentMoniker": "D:\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\Modules\\BaseContent\\Achievements\\BaseMasteryAchievement.cs",
               "RelativeDocumentMoniker": "UnforgivenProject\\Modules\\BaseContent\\Achievements\\BaseMasteryAchievement.cs",
@@ -1287,7 +1292,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 47,
+              "DocumentIndex": 48,
               "Title": "ItemDisplaysBase.cs",
               "DocumentMoniker": "D:\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\Modules\\BaseContent\\Characters\\ItemDisplaysBase.cs",
               "RelativeDocumentMoniker": "UnforgivenProject\\Modules\\BaseContent\\Characters\\ItemDisplaysBase.cs",
@@ -1296,18 +1301,6 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-04-26T20:50:46.233Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 48,
-              "Title": "Materials.cs",
-              "DocumentMoniker": "D:\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\Modules\\Materials.cs",
-              "RelativeDocumentMoniker": "UnforgivenProject\\Modules\\Materials.cs",
-              "ToolTip": "D:\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\Modules\\Materials.cs",
-              "RelativeToolTip": "UnforgivenProject\\Modules\\Materials.cs",
-              "ViewState": "AgIAAB0AAAAAAAAAAAAqwEMAAAAuAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-26T20:50:46.234Z"
             },
             {
               "$type": "Document",

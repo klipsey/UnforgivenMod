@@ -117,7 +117,8 @@ namespace UnforgivenMod.Unforgiven.SkillStates
                 EffectManager.SpawnEffect(UnforgivenSkinVFX.GetEffect(UnforgivenAssets.windExplosionEffect, gameObject), new EffectData
                 {
                     origin = characterBody.corePosition,
-                    rotation = Quaternion.identity
+                    rotation = Quaternion.identity,
+                    networkSoundEventIndex = UnforgivenAssets.airbladeImpactSoundEvent.index
                 }, true);
             }
         }

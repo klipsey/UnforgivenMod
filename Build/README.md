@@ -4,11 +4,15 @@
 
 # Skills
 
-[![Screenshot-2024-09-15-053840.png](https://i.postimg.cc/FHjV9sZB/Screenshot-2024-09-15-053840.png)](https://postimg.cc/QFdTmDvQ)
+[![Screenshot-2026-10-10-185044.png](https://i.postimg.cc/JhSfwGKw/Screenshot-2026-10-10-185044.png)](https://postimg.cc/zLStKD9p)
 
-# Airblade
+# Hidden Mechanics [Airblade]
 
 With an enemy airborne, use Utility, buffer Secondary during the dash, then press Special before the spin fires. The buffered spin follows Last Breath to its destination. 
+
+# Skins
+
+[![Screenshot-2026-10-10-185230.png](https://i.postimg.cc/gk41zM4t/Screenshot-2026-10-10-185230.png)](https://postimg.cc/MvM9tmC1)
 
 # 
 
@@ -17,8 +21,6 @@ Check out my other mods:
 https://thunderstore.io/c/riskofrain2/p/tsuyoikenko/
 
 Contact me on Discord: https://discord.gg/GKFCa8z2y8
-
-Currently needs skill icons
 
 # Credits
 

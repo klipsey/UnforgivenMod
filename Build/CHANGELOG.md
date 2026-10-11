@@ -1,3 +1,11 @@
+# 1.0.1
+
+- Fixed sfx
+
+# 1.0.0
+
+- STUPID STUPID STUPID
+
 # 0.9.0
 
 - Swapped secondary to use Rapid keyword from Acolyte instead of Swift (Lol this shit is identical)

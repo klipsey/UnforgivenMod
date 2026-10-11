@@ -71,6 +71,7 @@ namespace UnforgivenMod.Unforgiven.Content
         internal static NetworkSoundEventDef swordImpactSoundEvent;
         internal static NetworkSoundEventDef stabImpactSoundEvent;
         internal static NetworkSoundEventDef nadoImpactSoundEvent;
+        internal static NetworkSoundEventDef airbladeImpactSoundEvent;
         //Colors
         internal static Color unforgivenColor = new Color(255f / 255f, 102f / 255f, 102f / 255f);
         internal static Color unforgivenSecondaryColor = Color.red;
@@ -457,6 +458,7 @@ namespace UnforgivenMod.Unforgiven.Content
             swordImpactSoundEvent = Modules.Content.CreateAndAddNetworkSoundEventDef("Play_merc_sword_impact");
             stabImpactSoundEvent = Modules.Content.CreateAndAddNetworkSoundEventDef("sfx_unforgiven_stab_impact");
             nadoImpactSoundEvent = Modules.Content.CreateAndAddNetworkSoundEventDef("sfx_unforgiven_nado_impact");
+            airbladeImpactSoundEvent = Modules.Content.CreateAndAddNetworkSoundEventDef("Play_imp_overlord_teleport_end");
         }
         #endregion
         internal static void LoadSoundbank()
