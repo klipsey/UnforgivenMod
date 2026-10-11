@@ -1,3 +1,19 @@
+# 0.9.0
+
+- Swapped secondary to use Rapid keyword from Acolyte instead of Swift (Lol this shit is identical)
+- Smoothed secondary reset from utility
+- Removed passive HUD bar in favor of a buff to track shield charge
+- Risk of options support
+- Added vfx for successful airblade
+- Successful airblades now increases the radius of the secondary by 3x
+- Fixed special to place Wanderer closer to enemies after blinking
+- Added movespeed scaling to utility duration (60% of bonus movement speed decreases duration)
+- Added running and sprinting slashing and stabbing animations
+- Fixed clipping with coat when running or sprinting
+- Fixed character icon
+- Added rest of skill icons
+- Added orange vfx for alternate skin
+
 # 0.8.10
 
 - Added client-only dashed lines to nearby airborne targets while R can be used

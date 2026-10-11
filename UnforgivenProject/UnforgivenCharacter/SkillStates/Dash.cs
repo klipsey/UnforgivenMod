@@ -14,15 +14,15 @@ namespace UnforgivenMod.Unforgiven.SkillStates
 {
     public class Dash : BaseUnforgivenSkillState
     {
-        public static float baseDuration = 0.4f;
+        public static float baseDuration = 0.3f;
 
-        public static float baseExtraDuration = 0.2f;
+        public static float baseExtraDuration = 0.1f;
 
         public static float extraDistance = 2.5f;
 
         public static float hitRange = 4.5f;
 
-        private const float minimumDashDuration = 0.2f;
+        private const float minimumDashDuration = 0.1f;
 
         public int targetIndex = 0;
 
@@ -51,9 +51,16 @@ namespace UnforgivenMod.Unforgiven.SkillStates
             RefreshState();
             base.OnEnter();
 
-            if (!(moveSpeedStat > 0f) || !(characterBody.baseMoveSpeed > 0f))
+            float baseTotalDuration = Dash.baseDuration + Dash.baseExtraDuration;
+            float bonusMoveSpeed = Mathf.Max(0f, moveSpeedStat / characterBody.baseMoveSpeed - 1f);
+            float dashSpeedMultiplier = 1f + 0.6f * bonusMoveSpeed;
+            float totalDuration = Mathf.Max(minimumDashDuration, baseTotalDuration / dashSpeedMultiplier);
+            if (!(moveSpeedStat > 0f) || !(characterBody.baseMoveSpeed > 0f) ||
+                float.IsInfinity(moveSpeedStat) || float.IsInfinity(characterBody.baseMoveSpeed) ||
+                !(dashSpeedMultiplier > 0f) || float.IsInfinity(dashSpeedMultiplier) ||
+                float.IsNaN(totalDuration) || float.IsInfinity(totalDuration))
             {
-                Log.Warning("Sweeping Blade cannot start with non-positive movement speed.");
+                Log.Warning("Sweeping Blade cannot start with an invalid movement speed, dash speed multiplier, or dash duration.");
                 if (base.isAuthority)
                 {
                     this.outer.SetNextStateToMain();
@@ -104,15 +111,15 @@ namespace UnforgivenMod.Unforgiven.SkillStates
             Vector3 corePosition = Util.GetCorePosition(victimBody);
             this.distance = Mathf.Max(this.minDistance, (base.transform.position - corePosition).magnitude);
             this.direction = (corePosition - base.transform.position).normalized;
-            float baseTotalDuration = Dash.baseDuration + Dash.baseExtraDuration;
-            float totalDuration = Mathf.Max(minimumDashDuration, baseTotalDuration * characterBody.baseMoveSpeed / moveSpeedStat);
             this.duration = totalDuration * Dash.baseDuration / baseTotalDuration;
             this.extraDuration = totalDuration - this.duration;
             this.speed = this.distance / this.duration;
 
-            if (base.isAuthority && skillLocator.secondary.cooldownRemaining <= this.duration + this.extraDuration)
+            float secondaryCooldownRemaining = skillLocator.secondary.cooldownRemaining;
+            float secondaryRecharge = baseTotalDuration * skillLocator.secondary.rechargeRate;
+            if (base.isAuthority && secondaryCooldownRemaining > 0f && secondaryCooldownRemaining < secondaryRecharge)
             {
-                skillLocator.secondary.RunRecharge(this.duration + this.extraDuration);
+                skillLocator.secondary.RunRecharge(secondaryRecharge);
             }
 
             base.gameObject.layer = LayerIndex.fakeActor.intVal;
@@ -182,7 +189,7 @@ namespace UnforgivenMod.Unforgiven.SkillStates
                     GlobalEventManager.instance.OnHitEnemy(damageInfo, this.victimBody.gameObject);
                     GlobalEventManager.instance.OnHitAll(damageInfo, this.victimBody.gameObject);
 
-                    EffectManager.SpawnEffect(UnforgivenAssets.unforgivenHitEffect, new EffectData
+                    EffectManager.SpawnEffect(UnforgivenSkinVFX.GetEffect(UnforgivenAssets.unforgivenHitEffect, gameObject), new EffectData
                     {
                         origin = this.victimBody.transform.position,
                         rotation = Quaternion.identity,

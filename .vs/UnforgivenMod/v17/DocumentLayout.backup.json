@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "D:\\RoR2Mods\\UnforgivenMod\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|d:\\ror2mods\\unforgivenmod\\unforgivenproject\\unforgivencharacter\\skillstates\\dash.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|solutionrelative:unforgivenproject\\unforgivencharacter\\skillstates\\dash.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|d:\\ror2mods\\unforgivenmod\\unforgivenproject\\unforgivencharacter\\unforgivensurvivor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|solutionrelative:unforgivenproject\\unforgivencharacter\\unforgivensurvivor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|d:\\ror2mods\\unforgivenmod\\unforgivenproject\\unforgivencharacter\\skillstates\\dash.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|solutionrelative:unforgivenproject\\unforgivencharacter\\skillstates\\dash.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{7123AB06-B74C-425C-A5F1-C9B91229A8B2}|UnforgivenProject\\UnforgivenMod.csproj|d:\\ror2mods\\unforgivenmod\\unforgivenproject\\unforgivencharacter\\content\\unforgiventokens.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -362,6 +362,10 @@
             },
             {
               "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Bookmark",
               "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
             },
             {
@@ -505,25 +509,24 @@
               "RelativeToolTip": "UnforgivenProject\\UnforgivenCharacter\\Content\\UnforgivenTokens.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAACKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-09T20:28:24.316Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-09T20:28:24.316Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "UnforgivenSurvivor.cs",
               "DocumentMoniker": "D:\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\UnforgivenCharacter\\UnforgivenSurvivor.cs",
               "RelativeDocumentMoniker": "UnforgivenProject\\UnforgivenCharacter\\UnforgivenSurvivor.cs",
               "ToolTip": "D:\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\UnforgivenCharacter\\UnforgivenSurvivor.cs",
               "RelativeToolTip": "UnforgivenProject\\UnforgivenCharacter\\UnforgivenSurvivor.cs",
-              "ViewState": "AgIAAOgBAAAAAAAAAAAowLMAAAAoAAAAAAAAAA==",
+              "ViewState": "AgIAAHwAAAAAAAAAAAAQwJIAAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-09T20:32:28.421Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Dash.cs",
               "DocumentMoniker": "D:\\RoR2Mods\\UnforgivenMod\\UnforgivenProject\\UnforgivenCharacter\\SkillStates\\Dash.cs",
               "RelativeDocumentMoniker": "UnforgivenProject\\UnforgivenCharacter\\SkillStates\\Dash.cs",
@@ -531,8 +534,7 @@
               "RelativeToolTip": "UnforgivenProject\\UnforgivenCharacter\\SkillStates\\Dash.cs",
               "ViewState": "AgIAAEUAAAAAAAAAAAAhwB4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-24T13:03:51.6Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-24T13:03:51.6Z"
             },
             {
               "$type": "Document",

@@ -7,6 +7,7 @@ namespace UnforgivenMod.Unforgiven.Content
     {
         public static ConfigEntry<bool> forceUnlock;
         public static ConfigEntry<bool> noShieldVisual;
+        public static ConfigEntry<bool> enableAirborneIndicators;
 
         public static ConfigEntry<float> maxHealth;
         public static ConfigEntry<float> healthRegen;
@@ -57,51 +58,51 @@ namespace UnforgivenMod.Unforgiven.Content
             string section = "Stats - 01";
             string section2 = "QOL - 02";
 
-            damage = Config.BindAndOptions(section, "Change Base Damage Value", 12f);
+            damage = Config.BindAndOptions(section, "Change Base Damage Value", 12f, 0f, 100f, restartRequired: true);
 
-            maxHealth = Config.BindAndOptions(section, "Change Max Health Value", 110f);
-            healthRegen = Config.BindAndOptions(section, "Change Health Regen Value", 1.5f);
-            armor = Config.BindAndOptions(section, "Change Armor Value", 0f);
-            shield = Config.BindAndOptions(section, "Change Shield Value", 0f);
+            maxHealth = Config.BindAndOptions(section, "Change Max Health Value", 110f, 1f, 1000f, restartRequired: true);
+            healthRegen = Config.BindAndOptions(section, "Change Health Regen Value", 1.5f, 0f, 20f, restartRequired: true);
+            armor = Config.BindAndOptions(section, "Change Armor Value", 0f, -100f, 200f, restartRequired: true);
+            shield = Config.BindAndOptions(section, "Change Shield Value", 0f, 0f, 1000f, restartRequired: true);
 
-            jumpCount = Config.BindAndOptions(section, "Change Jump Count", 1);
+            jumpCount = Config.BindAndOptions(section, "Change Jump Count", 1, 0f, 20f, restartRequired: true);
 
-            attackSpeed = Config.BindAndOptions(section, "Change Attack Speed Value", 1f);
-            crit = Config.BindAndOptions(section, "Change Crit Value", 1f);
+            attackSpeed = Config.BindAndOptions(section, "Change Attack Speed Value", 1f, 0.1f, 10f, restartRequired: true);
+            crit = Config.BindAndOptions(section, "Change Crit Value", 1f, 0f, 100f, restartRequired: true);
 
-            moveSpeed = Config.BindAndOptions(section, "Change Move Speed Value", 7f);
-            acceleration = Config.BindAndOptions(section, "Change Acceleration Value", 80f);
-            jumpPower = Config.BindAndOptions(section, "Change Jump Power Value", 15f);
+            moveSpeed = Config.BindAndOptions(section, "Change Move Speed Value", 7f, 0.1f, 100f, restartRequired: true);
+            acceleration = Config.BindAndOptions(section, "Change Acceleration Value", 80f, 0.1f, 200f, restartRequired: true);
+            jumpPower = Config.BindAndOptions(section, "Change Jump Power Value", 15f, 0f, 100f, restartRequired: true);
 
-            autoCalculateLevelStats = Config.BindAndOptions(section, "Auto Calculate Level Stats", true);
+            autoCalculateLevelStats = Config.BindAndOptions(section, "Auto Calculate Level Stats", true, restartRequired: true);
 
-            healthGrowth = Config.BindAndOptions(section, "Change Health Growth Value", 0.3f);
-            regenGrowth = Config.BindAndOptions(section, "Change Regen Growth Value", 0.2f);
-            armorGrowth = Config.BindAndOptions(section, "Change Armor Growth Value", 0f);
-            shieldGrowth = Config.BindAndOptions(section, "Change Shield Growth Value", 0f);
+            healthGrowth = Config.BindAndOptions(section, "Change Health Growth Value", 0.3f, 0f, 10f, restartRequired: true);
+            regenGrowth = Config.BindAndOptions(section, "Change Regen Growth Value", 0.2f, 0f, 10f, restartRequired: true);
+            armorGrowth = Config.BindAndOptions(section, "Change Armor Growth Value", 0f, -20f, 20f, restartRequired: true);
+            shieldGrowth = Config.BindAndOptions(section, "Change Shield Growth Value", 0f, 0f, 10f, restartRequired: true);
 
-            damageGrowth = Config.BindAndOptions(section, "Change Damage Growth Value", 0.2f);
-            attackSpeedGrowth = Config.BindAndOptions(section, "Change Attack Speed Growth Value", 0f);
-            critGrowth = Config.BindAndOptions(section, "Change Crit Growth Value", 0f);
+            damageGrowth = Config.BindAndOptions(section, "Change Damage Growth Value", 0.2f, 0f, 10f, restartRequired: true);
+            attackSpeedGrowth = Config.BindAndOptions(section, "Change Attack Speed Growth Value", 0f, 0f, 10f, restartRequired: true);
+            critGrowth = Config.BindAndOptions(section, "Change Crit Growth Value", 0f, 0f, 100f, restartRequired: true);
 
-            moveSpeedGrowth = Config.BindAndOptions(section, "Change Move Speed Growth Value", 0f);
-            jumpPowerGrowth = Config.BindAndOptions(section, "Change Jump Power Growth Value", 0f);
+            moveSpeedGrowth = Config.BindAndOptions(section, "Change Move Speed Growth Value", 0f, 0f, 10f, restartRequired: true);
+            jumpPowerGrowth = Config.BindAndOptions(section, "Change Jump Power Growth Value", 0f, 0f, 10f, restartRequired: true);
 
-            swingDamageCoefficient = Config.BindAndOptions(section, "Change Swift Strikes Damage Coefficient", 2.4f);
+            swingDamageCoefficient = Config.BindAndOptions(section, "Change Swift Strikes Damage Coefficient", 2.4f, 0f, 100f, restartRequired: true);
 
-            dashDamageCoefficient = Config.BindAndOptions(section, "Change Sweeping Blade Damage Coefficient", 1.5f);
+            dashDamageCoefficient = Config.BindAndOptions(section, "Change Sweeping Blade Damage Coefficient", 1.5f, 0f, 100f, restartRequired: true);
 
-            dashStackingDamageCoefficient = Config.BindAndOptions(section, "Change Sweeping Blade Stacking Damage Coefficient", 0.5f);
+            dashStackingDamageCoefficient = Config.BindAndOptions(section, "Change Sweeping Blade Stacking Damage Coefficient", 0.25f, 0f, 100f, restartRequired: true);
 
-            baseMaxDashStacks = Config.BindAndOptions(section, "Change Max Sweeping Blade Stacks", 4);
+            baseMaxDashStacks = Config.BindAndOptions(section, "Change Max Sweeping Blade Stacks", 4, 1f, 20f, restartRequired: true);
 
-            stabDamageCoefficient = Config.BindAndOptions(section, "Change Steel Tempest Stab Damage Coefficient", 2.6f);
+            stabDamageCoefficient = Config.BindAndOptions(section, "Change Steel Tempest Stab Damage Coefficient", 2.6f, 0f, 100f, restartRequired: true);
 
-            tornadoDamageCoefficient = Config.BindAndOptions(section, "Change Steel Tempest Tornado Damage Coefficient", 4f);
+            tornadoDamageCoefficient = Config.BindAndOptions(section, "Change Steel Tempest Tornado Damage Coefficient", 4f, 0f, 100f, restartRequired: true);
 
-            specialFirstDamageCoefficient = Config.BindAndOptions(section, "Change Last Breaths First 2 Slashes Damage Coefficient", 2.5f);
+            specialFirstDamageCoefficient = Config.BindAndOptions(section, "Change Last Breaths First 2 Slashes Damage Coefficient", 2.5f, 0f, 100f, restartRequired: true);
 
-            specialFinalDamageCoefficient = Config.BindAndOptions(section, "Change Last Breaths Final Slash Damage Coefficient", 8f);
+            specialFinalDamageCoefficient = Config.BindAndOptions(section, "Change Last Breaths Final Slash Damage Coefficient", 8f, 0f, 100f, restartRequired: true);
 
             forceUnlock = Config.BindAndOptions(
                 section2,
@@ -114,6 +115,12 @@ namespace UnforgivenMod.Unforgiven.Content
                 "No Shield Visual",
                 false,
                 "Remove Wanderer's shield visual.", true);
+
+            enableAirborneIndicators = Config.BindAndOptions(
+                section2,
+                "Enable Airborne Indicators",
+                true,
+                "Show lines to eligible airborne Last Breath targets. Disabling this only hides the indicators and does not affect targeting.");
         }
     }
 }

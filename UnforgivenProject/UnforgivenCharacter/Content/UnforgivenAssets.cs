@@ -2,14 +2,11 @@
 using UnityEngine;
 using UnforgivenMod.Modules;
 using RoR2.Projectile;
-using RoR2.UI;
-using UnityEngine.UI;
 using UnityEngine.AddressableAssets;
 using UnityEngine.Networking;
 using R2API;
 using UnityEngine.Rendering.PostProcessing;
 using ThreeEyedGames;
-using UnforgivenMod.Unforgiven.Components;
 using Rewired.ComponentControls.Effects;
 using static RoR2.Skills.ComboSkillDef;
 using System.IO;
@@ -43,6 +40,9 @@ namespace UnforgivenMod.Unforgiven.Content
 
         internal static GameObject spinSlashEffect;
         internal static GameObject spinEmpoweredSlashEffect;
+        internal static GameObject airbladeSlashEffect;
+        internal static GameObject airbladeEmpoweredSlashEffect;
+        internal static GameObject airbladeNadoEffect;
 
         internal static GameObject specialSlashingEffect;
         internal static GameObject specialEmpoweredSlashingEffect;
@@ -86,8 +86,6 @@ namespace UnforgivenMod.Unforgiven.Content
 
         internal static GameObject unforgivenIndicator;
 
-        internal static GameObject shieldHudPrefab;
-
         //Crosshair
         public static void Init(AssetBundle assetBundle)
         {
@@ -129,22 +127,54 @@ namespace UnforgivenMod.Unforgiven.Content
         private static void CreateModels()
         {
         }
+
+        private static GameObject CreateAirbladeEffect(GameObject source, string name)
+        {
+            GameObject effect = source.InstantiateClone(name, false);
+            effect.GetComponent<EffectComponent>().applyScale = false;
+            foreach (ParticleSystem particles in effect.GetComponentsInChildren<ParticleSystem>(true))
+            {
+                var main = particles.main;
+                main.scalingMode = ParticleSystemScalingMode.Local;
+                particles.transform.localScale *= SkillStates.DashSpin.airbladeRangeMultiplier;
+            }
+            Modules.Content.CreateAndAddEffectDef(effect);
+            return effect;
+        }
+
         #region effects
         private static void CreateEffects()
         {
             dashCdEffect = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Nullifier/NullifyStack3Effect.prefab").WaitForCompletion().InstantiateClone("UnforgivenDashCdEffect", false);
+            foreach (AkEvent soundEvent in dashCdEffect.GetComponentsInChildren<AkEvent>(true))
+            {
+                Object.DestroyImmediate(soundEvent);
+            }
             dashCdEffect.transform.GetChild(0).GetChild(0).gameObject.GetComponent<MeshRenderer>().materials[0].SetColor("_TintColor", Color.clear);
             dashCdEffect.transform.GetChild(0).GetChild(1).gameObject.GetComponent<MeshRenderer>().materials[0].SetColor("_TintColor", Color.clear);
             dashCdEffect.transform.GetChild(0).GetChild(2).gameObject.GetComponent<MeshRenderer>().materials[0].SetColor("_TintColor", Color.clear);
 
             shieldEffect = Addressables.LoadAssetAsync<GameObject>("RoR2/DLC1/OutOfCombatArmor/OutOfCombatArmorEffect.prefab").WaitForCompletion().InstantiateClone("UnforgivenShieldReadyEffect", false);
-            shieldEffect.transform.GetChild(0).GetChild(0).GetComponent<MeshRenderer>().materials[0].SetColor("_TintColor", unforgivenColor);
-            shieldEffect.transform.GetChild(0).GetChild(0).GetComponent<MeshRenderer>().materials[1].SetColor("_TintColor", unforgivenColor);
+            Color shieldTint = new Color(unforgivenColor.r, unforgivenColor.g, unforgivenColor.b, 0.2f);
+            foreach (Renderer renderer in shieldEffect.GetComponentsInChildren<Renderer>(true))
+            {
+                foreach (Material shieldMaterial in renderer.materials)
+                {
+                    if (shieldMaterial && shieldMaterial.HasProperty("_TintColor"))
+                    {
+                        shieldMaterial.SetColor("_TintColor", shieldTint);
+                    }
+                    if (shieldMaterial && shieldMaterial.HasProperty("_Boost"))
+                    {
+                        shieldMaterial.SetFloat("_Boost", shieldMaterial.GetFloat("_Boost") * 0.25f);
+                    }
+                }
+            }
             var shieldMain = shieldEffect.transform.GetChild(0).GetChild(1).GetComponent<ParticleSystem>().main;
             shieldMain.startColor = Color.red;
-            shieldEffect.transform.GetChild(0).Find("Trigger").Find("Sphere, Quick").GetComponent<ParticleSystemRenderer>().material.SetColor("_TintColor", Color.red);
-            shieldEffect.transform.GetChild(0).Find("Trigger").Find("Sphere").GetComponent<ParticleSystemRenderer>().material.SetColor("_TintColor", Color.red);
-            shieldEffect.transform.GetChild(0).Find("Trigger").Find("Point Light").GetComponent<Light>().color = Color.red;
+            Light shieldLight = shieldEffect.transform.GetChild(0).Find("Trigger").Find("Point Light").GetComponent<Light>();
+            shieldLight.color = Color.red;
+            shieldLight.intensity *= 0.2f;
 
             nadoUpEffect = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/TeamWarCry/TeamWarCryAura.prefab").WaitForCompletion().InstantiateClone("UnforgivenNadoUpEffect", false);
 
@@ -165,6 +195,9 @@ namespace UnforgivenMod.Unforgiven.Content
             spinEmpoweredSlashEffect.transform.GetChild(0).localScale *= 1.5f;
 
             Modules.Content.CreateAndAddEffectDef(spinEmpoweredSlashEffect);
+
+            airbladeSlashEffect = CreateAirbladeEffect(spinSlashEffect, "UnforgivenAirbladeSlash");
+            airbladeEmpoweredSlashEffect = CreateAirbladeEffect(spinEmpoweredSlashEffect, "UnforgivenAirbladeEmpoweredSlash");
 
 
             specialSlashingEffect = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Merc/EvisOverlapProjectileGhost.prefab").WaitForCompletion().InstantiateClone("UnforgivenSpecialSlash");
@@ -246,7 +279,7 @@ namespace UnforgivenMod.Unforgiven.Content
             windExplosionEffect.transform.Find("Particles/DashRings").GetComponent<ParticleSystemRenderer>().material.SetColor("_TintColor", Color.cyan);
             windExplosionEffect.GetComponentInChildren<Light>().gameObject.SetActive(false);
 
-            windExplosionEffect.GetComponentInChildren<PostProcessVolume>().sharedProfile = Addressables.LoadAssetAsync<PostProcessProfile>("RoR2/Base/title/ppLocalGold.asset").WaitForCompletion();
+            windExplosionEffect.GetComponentInChildren<PostProcessVolume>().sharedProfile = Addressables.LoadAssetAsync<PostProcessProfile>("RoR2/Base/title/PostProcessing/ppLocalGold.asset").WaitForCompletion();
 
             Modules.Content.CreateAndAddEffectDef(windExplosionEffect);
 
@@ -381,10 +414,9 @@ namespace UnforgivenMod.Unforgiven.Content
             
             baseNadoRend.material.SetColor("_TintColor", new Color(255f / 255f, 16f / 255f, 16f / 255f));
 
-            realNado = mainAssetBundle.LoadAsset<GameObject>("UnforgivenTornado");
+            realNado = Object.Instantiate(mainAssetBundle.LoadAsset<GameObject>("UnforgivenTornado"), nadoGhost.transform.Find("Holder"), false);
             realNado.GetComponent<ParticleSystemRenderer>().material = baseNadoRend.material;
             realNado.GetComponent<ParticleSystemRenderer>().mesh = baseNadoRend.mesh;
-            realNado.transform.SetParent(nadoGhost.transform.Find("Holder"));
 
             spinNadoEffect = mainAssetBundle.LoadAsset<GameObject>("UnforgivenTornado").InstantiateClone("UnforgivenSpinTornado");
             spinNadoEffect.AddComponent<NetworkIdentity>();
@@ -392,17 +424,23 @@ namespace UnforgivenMod.Unforgiven.Content
             var main2 = spinNadoEffect.GetComponent<ParticleSystem>().main;
             main2.loop = false;
             main2.duration = 0.5f;
+            main2.simulationSpeed *= 0.5f;
             spinNadoEffect.GetComponent<ParticleSystemRenderer>().material = baseNadoRend.material;
             spinNadoEffect.GetComponent<ParticleSystemRenderer>().mesh = baseNadoRend.mesh;
 
             spinNadoEffect.AddComponent<EffectComponent>();
             spinNadoEffect.GetComponent<EffectComponent>().positionAtReferencedTransform = true;
+            spinNadoEffect.AddComponent<DestroyOnTimer>().duration =
+                (main2.duration + main2.startLifetime.constantMax) / main2.simulationSpeed;
 
             Modules.Content.CreateAndAddEffectDef(spinNadoEffect);
+
+            airbladeNadoEffect = CreateAirbladeEffect(spinNadoEffect, "UnforgivenAirbladeTornado");
 
             GameObject.Destroy(nadoGhost.transform.Find("Holder").Find("Base").gameObject);
             Component.Destroy(nadoGhost.transform.Find("Holder").gameObject.GetComponent<RotateAroundAxis>());
 
+            nadoProjectileController.ghostPrefabAddress = null;
             nadoProjectileController.ghostPrefab = nadoGhost;
 
             nadoProjectileController.ghostPrefab.GetComponent<VFXAttributes>().DoNotPool = true;
@@ -450,37 +488,6 @@ namespace UnforgivenMod.Unforgiven.Content
             balls2.sprite = sprite;
             balls2.color = unforgivenColor;
 
-            CreateShieldHud();
-        }
-
-        private static void CreateShieldHud()
-        {
-            GameObject chargeBar = mainAssetBundle.LoadAsset<GameObject>("WeaponChargeBar");
-            if (!chargeBar)
-            {
-                Log.ErrorAssetBundle("WeaponChargeBar", mainAssetBundle.name);
-                return;
-            }
-
-            shieldHudPrefab = chargeBar.InstantiateClone("UnforgivenShieldHud", false);
-            RectTransform rect = shieldHudPrefab.GetComponent<RectTransform>();
-            rect.localScale = new Vector3(0.75f, 0.1f, 1f);
-            rect.anchorMin = new Vector2(0.5f, 0.5f);
-            rect.anchorMax = rect.anchorMin;
-            rect.pivot = new Vector2(0.5f, 0f);
-            rect.anchoredPosition = new Vector2(100f, 2f);
-            rect.localRotation = Quaternion.Euler(0f, 0f, 90f);
-
-            PassiveShieldHudController shieldHud = shieldHudPrefab.AddComponent<PassiveShieldHudController>();
-            shieldHud.shieldBar = shieldHudPrefab.transform.Find("Charge").GetComponent<Image>();
-            shieldHud.trailingBar = shieldHudPrefab.transform.Find("RedCharge").GetComponent<Image>();
-            shieldHud.shieldBar.color = unforgivenColor;
-            shieldHud.shieldBar.fillAmount = 0f;
-            shieldHud.trailingBar.fillAmount = 0f;
-            foreach (Graphic graphic in shieldHudPrefab.GetComponentsInChildren<Graphic>(true))
-            {
-                graphic.raycastTarget = false;
-            }
         }
 
         #region helpers

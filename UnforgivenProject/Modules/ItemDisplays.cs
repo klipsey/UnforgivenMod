@@ -1,12 +1,15 @@
 ﻿using RoR2;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
+using UnityEngine.ResourceManagement.AsyncOperations;
 
 namespace UnforgivenMod.Modules
 {
     internal static class ItemDisplays
     {
         private static Dictionary<string, GameObject> itemDisplayPrefabs = new Dictionary<string, GameObject>();
+        private static Dictionary<string, Object> resolvedAddresses = new Dictionary<string, Object>();
         public static Dictionary<Object, ItemDisplayRule[]> KeyAssetDisplayPrefabs = new Dictionary<Object, ItemDisplayRule[]>();
         public static Dictionary<string, Object> KeyAssets = new Dictionary<string, Object>();
 
@@ -33,6 +36,7 @@ namespace UnforgivenMod.Modules
             initialized = false;
 
             itemDisplayPrefabs = null;
+            resolvedAddresses = null;
             KeyAssetDisplayPrefabs = null;
             KeyAssets = null;
         }
@@ -54,13 +58,22 @@ namespace UnforgivenMod.Modules
 
             for (int i = 0; i < itemRuleGroups.Length; i++)
             {
-                ItemDisplayRule[] rules = itemRuleGroups[i].displayRuleGroup.rules;
+                Object keyAsset = ResolveKeyAsset(itemRuleGroups[i], bodyName);
+                if (!keyAsset)
+                    continue;
 
-                KeyAssetDisplayPrefabs[itemRuleGroups[i].keyAsset] = rules;
-                KeyAssets[itemRuleGroups[i].keyAsset.name] = itemRuleGroups[i].keyAsset;
+                ItemDisplayRule[] sourceRules = itemRuleGroups[i].displayRuleGroup.rules ?? new ItemDisplayRule[0];
+                ItemDisplayRule[] rules = new ItemDisplayRule[sourceRules.Length];
+
+                KeyAssetDisplayPrefabs[keyAsset] = rules;
+                KeyAssets[keyAsset.name] = keyAsset;
 
                 for (int j = 0; j < rules.Length; j++)
                 {
+                    rules[j] = sourceRules[j];
+                    if (!rules[j].followerPrefab)
+                        rules[j].followerPrefab = ResolveFollowerPrefab(rules[j], keyAsset, bodyName);
+
                     GameObject followerPrefab = rules[j].followerPrefab;
                     if (followerPrefab)
                     {
@@ -72,6 +85,43 @@ namespace UnforgivenMod.Modules
                     }
                 }
             }
+        }
+
+        private static Object ResolveKeyAsset(ItemDisplayRuleSet.KeyAssetRuleGroup group, string bodyName)
+        {
+            if (group.keyAsset)
+                return group.keyAsset;
+
+            return LoadAddress<Object>(group.keyAssetAddress, $"keyAsset of {bodyName}");
+        }
+
+        private static GameObject ResolveFollowerPrefab(ItemDisplayRule rule, Object keyAsset, string bodyName)
+        {
+            if (rule.ruleType == ItemDisplayRuleType.LimbMask)
+                return null;
+
+            return LoadAddress<GameObject>(rule.followerPrefabAddress, $"followerPrefab of {keyAsset.name} on {bodyName}");
+        }
+
+        private static T LoadAddress<T>(AssetReference reference, string description) where T : Object
+        {
+            if (reference == null || !reference.RuntimeKeyIsValid())
+                return null;
+
+            string cacheKey = typeof(T).Name + ":" + reference.RuntimeKey;
+            if (resolvedAddresses.TryGetValue(cacheKey, out Object cached))
+                return cached as T;
+
+            AsyncOperationHandle<T> handle = Addressables.LoadAssetAsync<T>(reference.RuntimeKey);
+            T result = handle.WaitForCompletion();
+            if (handle.Status != AsyncOperationStatus.Succeeded || !result)
+            {
+                Log.Error($"Failed to resolve {description} from address {reference.RuntimeKey}");
+                return null;
+            }
+
+            resolvedAddresses[cacheKey] = result;
+            return result;
         }
 
         private static void PopulateCustomLightningArm()

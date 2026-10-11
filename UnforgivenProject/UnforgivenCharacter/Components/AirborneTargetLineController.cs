@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using RoR2;
+using UnforgivenMod.Unforgiven.Content;
 using UnityEngine;
 
 namespace UnforgivenMod.Unforgiven.Components
@@ -24,7 +25,8 @@ namespace UnforgivenMod.Unforgiven.Components
 
         private void LateUpdate()
         {
-            if (!body || !body.isActiveAndEnabled || !body.healthComponent || !body.healthComponent.alive)
+            if (!UnforgivenConfig.enableAirborneIndicators.Value ||
+                !body || !body.isActiveAndEnabled || !body.healthComponent || !body.healthComponent.alive)
             {
                 ReleaseLines();
                 return;

@@ -15,6 +15,22 @@ namespace UnforgivenMod.Unforgiven.SkillStates
     public class DashSpin : BaseMeleeAttack
     {
         public bool empoweredSpin;
+        public const float airbladeRangeMultiplier = 3f;
+        private bool isAirblade;
+        private HitBox[] scaledHitBoxes;
+        private Vector3[] originalHitBoxScales;
+
+        public bool HasPendingSpin => !hasFired;
+
+        public bool TryConfirmAirblade()
+        {
+            if (hasFired)
+            {
+                return false;
+            }
+            isAirblade = true;
+            return true;
+        }
 
         private bool hasGrantedStacks;
 
@@ -84,6 +100,58 @@ namespace UnforgivenMod.Unforgiven.SkillStates
             base.PlayCrossfade("FullBody, Override", "DashSpin", 0.05f);
         }
 
+        protected override void PlaySwingEffect()
+        {
+            if (!isAuthority)
+            {
+                return;
+            }
+
+            GameObject effect = isAirblade
+                ? (empoweredSpin ? UnforgivenAssets.airbladeNadoEffect :
+                    empoweredSpecial ? UnforgivenAssets.airbladeEmpoweredSlashEffect : UnforgivenAssets.airbladeSlashEffect)
+                : swingEffectPrefab;
+            EffectManager.SimpleMuzzleFlash(UnforgivenSkinVFX.GetEffect(effect, gameObject), gameObject, muzzleString, true);
+            if (isAirblade)
+            {
+                EffectManager.SpawnEffect(UnforgivenSkinVFX.GetEffect(UnforgivenAssets.windExplosionEffect, gameObject), new EffectData
+                {
+                    origin = characterBody.corePosition,
+                    rotation = Quaternion.identity
+                }, true);
+            }
+        }
+
+        protected override void FireAttack()
+        {
+            if (isAuthority && isAirblade && originalHitBoxScales == null)
+            {
+                scaledHitBoxes = attack.hitBoxGroup.hitBoxes;
+                originalHitBoxScales = new Vector3[scaledHitBoxes.Length];
+                for (int i = 0; i < scaledHitBoxes.Length; i++)
+                {
+                    originalHitBoxScales[i] = scaledHitBoxes[i].transform.localScale;
+                    scaledHitBoxes[i].transform.localScale = originalHitBoxScales[i] * airbladeRangeMultiplier;
+                }
+            }
+            base.FireAttack();
+        }
+
+        public override void OnExit()
+        {
+            if (originalHitBoxScales != null)
+            {
+                for (int i = 0; i < scaledHitBoxes.Length; i++)
+                {
+                    if (scaledHitBoxes[i])
+                    {
+                        scaledHitBoxes[i].transform.localScale = originalHitBoxScales[i];
+                    }
+                }
+            }
+            base.OnExit();
+        }
+
         public override void FixedUpdate()
         {
             characterBody.isSprinting = true;
@@ -120,7 +188,6 @@ namespace UnforgivenMod.Unforgiven.SkillStates
             bool fireStarted = stopwatch >= duration * attackStartPercentTime;
             bool fireEnded = stopwatch >= duration * attackEndPercentTime;
 
-            //to guarantee attack comes out if at high attack speed the stopwatch skips past the firing duration between frames
             if (fireStarted && !fireEnded || fireStarted && fireEnded && !hasFired)
             {
                 if (!hasFired)
@@ -165,12 +232,14 @@ namespace UnforgivenMod.Unforgiven.SkillStates
         {
             base.OnSerialize(writer);
             writer.Write(empoweredSpin);
+            writer.Write(isAirblade);
         }
 
         public override void OnDeserialize(NetworkReader reader)
         {
             base.OnDeserialize(reader);
             empoweredSpin = reader.ReadBoolean();
+            isAirblade = reader.ReadBoolean();
         }
     }
 }

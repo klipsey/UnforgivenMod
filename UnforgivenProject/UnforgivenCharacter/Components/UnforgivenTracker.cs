@@ -24,12 +24,29 @@ namespace UnforgivenMod.Unforgiven.Components
         private float trackerUpdateStopwatch;
 
         private Indicator indicator;
+        private GameObject indicatorPrefab;
 
         private readonly BullseyeSearch search = new BullseyeSearch();
 
         private void Awake()
         {
-            indicator = new Indicator(base.gameObject, UnforgivenAssets.unforgivenIndicator);
+            UpdateIndicator();
+        }
+
+        private void UpdateIndicator()
+        {
+            GameObject prefab = UnforgivenSkinVFX.GetEffect(UnforgivenAssets.unforgivenIndicator, gameObject);
+            if (prefab == indicatorPrefab)
+            {
+                return;
+            }
+            if (indicator != null)
+            {
+                indicator.active = false;
+            }
+            indicatorPrefab = prefab;
+            indicator = new Indicator(gameObject, prefab);
+            indicator.active = isActiveAndEnabled;
         }
 
         private void Start()
@@ -56,6 +73,7 @@ namespace UnforgivenMod.Unforgiven.Components
 
         private void FixedUpdate()
         {
+            UpdateIndicator();
             trackerUpdateStopwatch += Time.fixedDeltaTime;
             if (trackerUpdateStopwatch >= 1f / trackerUpdateFrequency)
             {

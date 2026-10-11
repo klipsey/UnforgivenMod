@@ -25,6 +25,7 @@ namespace UnforgivenMod.Unforgiven.SkillStates
         {
             RefreshState();
             base.OnEnter();
+            nado = UnforgivenSkinVFX.GetEffect(nado, gameObject);
 
             this.duration = baseDuration / this.attackSpeedStat;
             base.characterBody.SetAimTimer(2f);

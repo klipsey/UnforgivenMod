@@ -1,195 +1,202 @@
-﻿using UnforgivenMod.Modules.BaseStates;
-using RoR2;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using UnityEngine.Networking;
-using UnityEngine;
-using UnforgivenMod.Unforgiven.Content;
-using R2API;
 using EntityStates;
+using RoR2;
+using UnforgivenMod.Modules.BaseStates;
 using UnforgivenMod.Unforgiven.Components;
+using UnforgivenMod.Unforgiven.Content;
+using UnityEngine;
+using UnityEngine.Networking;
 
 namespace UnforgivenMod.Unforgiven.SkillStates
 {
     public class DashSpecial : BaseUnforgivenSkillState
     {
-        public int targetIndex = 0;
-        public CharacterBody victimBody;
-        private Transform modelTransform;
-
-        private HurtBoxGroup hurtboxGroup;
-
-        private Vector3 lastKnownPosition;
-        private Vector3 direction;
-        private float distance;
+        private const float baseDuration = 0.167f;
+        private HurtBox target;
+        private CharacterBody victimBody;
         private float duration;
-        private float speed;
-
-        private float stopwatch;
-
-        public static float stopTrackTime = 0.8f;
-        private float baseDuration = 0.1f;
-        private const float baseExtraDuration = 0.05f;
-        public float extraDuration;
-        public static float extraDistance = 3.25f;
-        public static float exitExtraDistance = 3.25f;
-
-        public static float baseChainPrepDuration = 0.067f;
-        public static float basePrepDuration = 0.067f;
-        private float prepDuration;
-        private float prepStopwatch;
-        private bool holdBuffer;
         private bool hasStartedDash;
-
+        private bool holdBuffer;
         private CameraTargetParams.AimRequest aimRequest;
+
         public override void OnEnter()
         {
-            RefreshState();
             base.OnEnter();
 
-            if (base.cameraTargetParams)
+            if (isAuthority)
             {
-                aimRequest = base.cameraTargetParams.RequestAimType(CameraTargetParams.AimType.Aura);
+                target = FindTarget();
+                holdBuffer = unforgivenController.bufferedSpin;
             }
 
-            RaycastHit hitInfo;
-            Vector3 position = !inputBank.GetAimRaycast(60f, out hitInfo) ? Vector3.MoveTowards(inputBank.GetAimRay().GetPoint(60f), transform.position, 5f) : Vector3.MoveTowards(hitInfo.point, transform.position, 5f);
-            position.y += 2.5f;
-
-            HurtBox[] hurtBoxes = new SphereSearch
+            if (!target || !target.healthComponent || !target.healthComponent.alive || !target.healthComponent.body)
             {
-                origin = position,
-                radius = 30f,
-                mask = LayerIndex.entityPrecise.mask
-            }.RefreshCandidates().FilterCandidatesByHurtBoxTeam(TeamMask.GetEnemyTeams(this.teamComponent.teamIndex)).OrderCandidatesByDistance()
-                .FilterCandidatesByDistinctHurtBoxEntities().GetHurtBoxes();
-
-            if(hurtBoxes.Length > 0 )
-            {
-                foreach (HurtBox hurtBox in hurtBoxes)
-                {
-                    if (UnforgivenSpecialTrackerSkillDef.TryGetEligibleBody(hurtBox, out CharacterBody targetBody))
-                    {
-                        this.victimBody = targetBody;
-                        break;
-                    }
-                }
-            }
-
-            if(!victimBody)
-            {
-                HurtBox[] hurtBoxes2 = new SphereSearch
-                {
-                    origin = base.transform.position,
-                    radius = 60f,
-                    mask = LayerIndex.entityPrecise.mask
-                }.RefreshCandidates().FilterCandidatesByHurtBoxTeam(TeamMask.GetEnemyTeams(this.teamComponent.teamIndex)).OrderCandidatesByDistance()
-                .FilterCandidatesByDistinctHurtBoxEntities().GetHurtBoxes();
-                foreach (HurtBox hurtBox in hurtBoxes2)
-                {
-                    if (UnforgivenSpecialTrackerSkillDef.TryGetEligibleBody(hurtBox, out CharacterBody targetBody))
-                    {
-                        this.victimBody = targetBody;
-                        break;
-                    }
-                }
-            }
-
-
-            if(!this.victimBody)
-            {
-                if (base.isAuthority)
-                {
-                    skillLocator.special.AddOneStock();
-                    outer.SetNextStateToMain();
-                }
+                Cancel();
                 return;
             }
 
+            victimBody = target.healthComponent.body;
             hasStartedDash = true;
-            if (base.characterBody && NetworkServer.active)
+            duration = baseDuration / attackSpeedStat;
+
+            if (cameraTargetParams)
             {
-                base.characterBody.bodyFlags |= CharacterBody.BodyFlags.IgnoreFallDamage;
-                this.characterBody.AddBuff(RoR2Content.Buffs.HiddenInvincibility);
+                aimRequest = cameraTargetParams.RequestAimType(CameraTargetParams.AimType.Aura);
             }
-            base.characterMotor.Motor.ForceUnground();
 
-            this.distance = (base.transform.position - this.victimBody.coreTransform.position).magnitude + 4f;
-            this.direction = (this.victimBody.coreTransform.position - base.transform.position).normalized;
-            this.duration = this.baseDuration / this.attackSpeedStat;
-            this.extraDuration = baseExtraDuration / this.attackSpeedStat;
-            this.speed = this.distance / this.duration;
-            this.prepDuration = baseChainPrepDuration / this.attackSpeedStat;
+            if (NetworkServer.active)
+            {
+                characterBody.AddBuff(RoR2Content.Buffs.HiddenInvincibility);
+                characterBody.AddBuff(UnforgivenBuffs.specialSuspensionBuff);
+                victimBody.AddBuff(UnforgivenBuffs.specialSuspensionBuff);
+            }
 
-            this.unforgivenController.Unsheath();
-
-            base.PlayCrossfade("FullBody, Override", "Dash", 0.05f);
-            Util.PlaySound("Play_merc_shift_slice", base.gameObject);
+            characterMotor.Motor.ForceUnground();
+            characterMotor.rootMotion = Vector3.zero;
+            characterMotor.velocity = Vector3.zero;
+            unforgivenController.Unsheath();
+            PlayCrossfade("FullBody, Override", "Dash", 0.05f);
+            Util.PlaySound("Play_merc_shift_slice", gameObject);
         }
 
-        public override void OnExit()
+        private HurtBox FindTarget()
         {
-            base.gameObject.layer = LayerIndex.defaultLayer.intVal;
-            base.characterMotor.Motor.RebuildCollidableLayers();
-            base.characterMotor.velocity = Vector3.zero;
-
-            aimRequest?.Dispose();
-
-            if (this.hurtboxGroup)
+            Ray aimRay = inputBank.GetAimRay();
+            Vector3 aimPosition = inputBank.GetAimRaycast(60f, out RaycastHit hit)
+                ? hit.point : aimRay.GetPoint(60f);
+            HurtBox bestTarget = null;
+            float bestDistance = float.PositiveInfinity;
+            HurtBox[] candidates = new SphereSearch
             {
-                HurtBoxGroup hurtBoxGroup = this.hurtboxGroup;
-                int hurtBoxesDeactivatorCounter = hurtBoxGroup.hurtBoxesDeactivatorCounter - 1;
-                hurtBoxGroup.hurtBoxesDeactivatorCounter = hurtBoxesDeactivatorCounter;
-            }
-            if (NetworkServer.active && hasStartedDash)
+                origin = characterBody.corePosition,
+                radius = 60f,
+                mask = LayerIndex.entityPrecise.mask
+            }.RefreshCandidates()
+                .FilterCandidatesByHurtBoxTeam(TeamMask.GetEnemyTeams(GetTeam()))
+                .FilterCandidatesByDistinctHurtBoxEntities()
+                .GetHurtBoxes();
+
+            foreach (HurtBox candidate in candidates)
             {
-                base.characterBody.bodyFlags &= ~CharacterBody.BodyFlags.IgnoreFallDamage;
-                this.characterBody.RemoveBuff(RoR2Content.Buffs.HiddenInvincibility);
+                if (UnforgivenSpecialTrackerSkillDef.TryGetEligibleBody(candidate, out _) &&
+                    (candidate.transform.position - aimPosition).sqrMagnitude < bestDistance)
+                {
+                    bestTarget = candidate;
+                    bestDistance = (candidate.transform.position - aimPosition).sqrMagnitude;
+                }
             }
-            base.OnExit();
+            return bestTarget;
+        }
+
+        private bool TryGetArrivalPosition(out Vector3 position)
+        {
+            Vector3 targetPosition = target.transform.position;
+            Vector3 approach = Vector3.ProjectOnPlane(characterBody.corePosition - targetPosition, Vector3.up).normalized;
+            if (approach == Vector3.zero)
+            {
+                approach = -characterDirection.forward;
+            }
+
+            CapsuleCollider capsule = characterMotor.Motor.Capsule;
+            Vector3 scale = transform.lossyScale;
+            float radius = capsule.radius * Mathf.Max(Mathf.Abs(scale.x), Mathf.Abs(scale.z));
+            float halfHeight = Mathf.Max(0f, capsule.height * Mathf.Abs(scale.y) * 0.5f - radius);
+            Vector3 coreOffset = characterBody.corePosition - transform.position;
+            Collider targetCollider = target.GetComponent<Collider>();
+            float targetRadius = targetCollider ? targetCollider.bounds.extents.magnitude : victimBody.radius;
+            for (int height = 0; height < 2; height++)
+            {
+                for (int i = 0; i < 8; i++)
+                {
+                    Vector3 direction = Quaternion.AngleAxis(i * 45f, Vector3.up) * approach;
+                    Vector3 surface = targetCollider
+                        ? targetCollider.ClosestPoint(targetPosition + direction * (targetRadius + 1f))
+                        : targetPosition + direction * targetRadius;
+                    position = surface + direction * (radius + 0.5f) - coreOffset +
+                        Vector3.up * (height * (halfHeight + radius));
+                    Vector3 capsuleCenter = position + transform.TransformVector(capsule.center);
+                    if (!Physics.CheckCapsule(capsuleCenter + Vector3.up * halfHeight,
+                        capsuleCenter - Vector3.up * halfHeight, radius,
+                        LayerIndex.world.mask, QueryTriggerInteraction.Ignore))
+                    {
+                        return true;
+                    }
+                }
+            }
+
+            position = transform.position;
+            return false;
+        }
+
+        private void Cancel()
+        {
+            if (isAuthority)
+            {
+                skillLocator.special.AddOneStock();
+                outer.SetNextStateToMain();
+            }
         }
 
         public override void FixedUpdate()
         {
             base.FixedUpdate();
-
-            if (!hasStartedDash)
+            if (!hasStartedDash || !isAuthority || fixedAge < duration)
             {
                 return;
             }
 
-            if (this.prepStopwatch >= this.prepDuration)
+            if (!target || !target.healthComponent || !target.healthComponent.alive)
             {
-                this.stopwatch += Time.fixedDeltaTime;
-
-                Vector3 target;
-                if (this.victimBody)
-                {
-                    target = this.victimBody.coreTransform.position;
-                    this.lastKnownPosition = target;
-                }
-                else target = this.lastKnownPosition;
-
-                if (this.stopwatch < this.duration * 0.5f) this.direction = (target - base.transform.position).normalized;
-
-                if (this.stopwatch >= this.duration && extraDuration != 0) this.speed = extraDistance / extraDuration;
-
-                base.characterDirection.forward = this.direction;
-                base.characterMotor.rootMotion += this.direction * this.speed * Time.fixedDeltaTime;
-                base.characterMotor.velocity = Vector3.zero;
-
-                base.gameObject.layer = LayerIndex.fakeActor.intVal;
-                base.characterMotor.Motor.RebuildCollidableLayers();
-
-                if (base.isAuthority && this.stopwatch >= this.duration + baseExtraDuration)
-                {
-                    if (unforgivenController.bufferedSpin) holdBuffer = true;
-                    EntityStateMachine.FindByCustomName(base.gameObject, "Dash").SetNextState(new Special { isBuffered = holdBuffer });
-                }
-
+                Cancel();
+                return;
             }
-            else this.prepStopwatch += Time.fixedDeltaTime;
+
+            if (!TryGetArrivalPosition(out Vector3 arrivalPosition))
+            {
+                Log.Warning("Last Breath could not find an unobstructed position next to its target; refunding the skill.");
+                Cancel();
+                return;
+            }
+
+            Vector3 arrivalCorePosition = arrivalPosition + characterBody.corePosition - transform.position;
+            TeleportHelper.TeleportGameObject(gameObject, arrivalPosition);
+            characterMotor.velocity = Vector3.zero;
+            characterDirection.forward = Vector3.ProjectOnPlane(target.transform.position - arrivalCorePosition, Vector3.up).normalized;
+            outer.SetNextState(new Special
+            {
+                target = target,
+                arrivalPosition = arrivalPosition,
+                isBuffered = holdBuffer,
+                activatorSkillSlot = activatorSkillSlot
+            });
+        }
+
+        public override void OnExit()
+        {
+            aimRequest?.Dispose();
+            if (NetworkServer.active && hasStartedDash)
+            {
+                characterBody.RemoveBuff(RoR2Content.Buffs.HiddenInvincibility);
+                characterBody.RemoveBuff(UnforgivenBuffs.specialSuspensionBuff);
+                if (victimBody)
+                {
+                    victimBody.RemoveBuff(UnforgivenBuffs.specialSuspensionBuff);
+                }
+            }
+            base.OnExit();
+        }
+
+        public override void OnSerialize(NetworkWriter writer)
+        {
+            base.OnSerialize(writer);
+            writer.Write(HurtBoxReference.FromHurtBox(target));
+            writer.Write(holdBuffer);
+        }
+
+        public override void OnDeserialize(NetworkReader reader)
+        {
+            base.OnDeserialize(reader);
+            target = reader.ReadHurtBoxReference().ResolveHurtBox();
+            holdBuffer = reader.ReadBoolean();
         }
 
         public override InterruptPriority GetMinimumInterruptPriority()

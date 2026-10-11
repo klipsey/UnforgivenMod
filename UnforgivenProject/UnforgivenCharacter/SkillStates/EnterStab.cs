@@ -15,6 +15,12 @@ namespace UnforgivenMod.Unforgiven.SkillStates
         private EntityStateMachine dashStateMachine;
         private bool hasLoggedMissingDash;
         public bool HasBufferedSpin => hasChosenState;
+
+        public bool TryConfirmAirblade()
+        {
+            return savedState is DashSpin spin && spin.TryConfirmAirblade();
+        }
+
         public override void OnEnter()
         {
             RefreshState();

@@ -19,7 +19,7 @@ namespace UnforgivenMod.Unforgiven.Components
             {
                 hasPlayed = true;
                 Util.PlaySound("sfx_unforgiven_max_stacks", base.gameObject);
-                EffectManager.SimpleMuzzleFlash(UnforgivenAssets.spinNadoEffect, base.gameObject, "SpinMuzzle", false);
+                EffectManager.SimpleMuzzleFlash(UnforgivenSkinVFX.GetEffect(UnforgivenAssets.spinNadoEffect, gameObject), base.gameObject, "SpinMuzzle", false);
             }
         }
     }

@@ -31,6 +31,5 @@ public class FootstepHandler : MonoBehaviour
     }
     public void Footstep(string childName, GameObject footstepEffect)
     {
-        Debug.Log("hi xD");
     }
 }

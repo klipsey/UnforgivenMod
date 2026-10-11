@@ -1,5 +1,4 @@
 ﻿using RoR2;
-using RoR2.HudOverlay;
 using UnforgivenMod.Unforgiven.Content;
 using UnforgivenMod.Unforgiven.SkillStates;
 using UnityEngine;
@@ -15,6 +14,14 @@ namespace UnforgivenMod.Unforgiven.Components
         private CharacterModel characterModel;
         private Animator animator;
         private SkillLocator skillLocator;
+        private const float gestureBlendDuration = 0.15f;
+        private static readonly int isMovingParameter = Animator.StringToHash("isMoving");
+        private static readonly int isSprintingParameter = Animator.StringToHash("isSprinting");
+        private int gestureLayer = -1;
+        private int runningGestureLayer = -1;
+        private int sprintingGestureLayer = -1;
+        private float runningGestureWeight;
+        private float sprintingGestureWeight;
         public string currentSkinNameToken => this.skinController.skins[this.skinController.currentSkinIndex].nameToken;
         public string altSkinNameToken => UnforgivenSurvivor.UNFORGIVEN_PREFIX + "MASTERY_SKIN_NAME";
 
@@ -32,19 +39,29 @@ namespace UnforgivenMod.Unforgiven.Components
                 }
 
                 var state = skillLocator.secondary.stateMachine.state;
-                return state is DashSpin || state is EnterStab stab && stab.HasBufferedSpin;
+                return state is DashSpin spin && spin.HasPendingSpin || state is EnterStab stab && stab.HasBufferedSpin;
             }
         }
 
-        public static float maxShieldGain = 100f;
+        public bool TryConfirmAirblade()
+        {
+            if (!bufferedSpin)
+            {
+                return false;
+            }
+            var state = skillLocator.secondary.stateMachine.state;
+            if (state is DashSpin spin)
+            {
+                return spin.TryConfirmAirblade();
+            }
+            return state is EnterStab stab && stab.TryConfirmAirblade();
+        }
 
-        public float shieldAmount;
-
-        private float shieldStopwatchInterval;
-
-        private Vector3 previousPosition = Vector3.zero;
-
-        private OverlayController shieldOverlay;
+        private const int maxShieldCharge = 100;
+        private const float distanceForFullShield = 100f;
+        private int shieldCharge;
+        private float shieldChargeDistance;
+        private Vector3 previousPosition;
 
         private void Awake()
         {
@@ -55,84 +72,99 @@ namespace UnforgivenMod.Unforgiven.Components
             this.characterModel = modelLocator.modelTransform.GetComponentInChildren<CharacterModel>();
             this.skillLocator = this.GetComponent<SkillLocator>();
             this.skinController = modelLocator.modelTransform.gameObject.GetComponent<ModelSkinController>();
+            gestureLayer = animator.GetLayerIndex("Gesture, Override");
+            runningGestureLayer = animator.GetLayerIndex("Gesture, Running");
+            sprintingGestureLayer = animator.GetLayerIndex("Gesture, Sprinting");
         }
 
         private void OnEnable()
         {
-            if (shieldOverlay != null)
+            previousPosition = transform.position;
+            UpdateGestureWeights(true);
+            if (NetworkServer.active)
             {
-                return;
+                RefreshShieldBuffs();
             }
-            if (!UnforgivenAssets.shieldHudPrefab)
-            {
-                Log.Error("Cannot create the shield HUD because its prefab is missing.");
-                return;
-            }
-
-            shieldOverlay = HudOverlayManager.AddOverlay(gameObject, new OverlayCreationParams
-            {
-                prefab = UnforgivenAssets.shieldHudPrefab,
-                childLocatorEntry = "CrosshairExtras"
-            });
-            shieldOverlay.onInstanceAdded += OnShieldOverlayAdded;
-            UpdateShieldOverlay();
         }
 
         private void OnDisable()
         {
-            RemoveShieldOverlay();
-        }
-
-        private void OnDestroy()
-        {
-            RemoveShieldOverlay();
+            runningGestureWeight = 0f;
+            sprintingGestureWeight = 0f;
+            ApplyGestureWeights();
+            if (NetworkServer.active && characterBody)
+            {
+                characterBody.SetBuffCount(UnforgivenBuffs.shieldChargingBuff.buffIndex, 0);
+                characterBody.SetBuffCount(UnforgivenBuffs.hasShieldBuff.buffIndex, 0);
+            }
         }
 
         private void Update()
         {
-            UpdateShieldOverlay();
+            UpdateGestureWeights(false);
         }
 
-        private void UpdateShieldOverlay()
+        private void UpdateGestureWeights(bool immediate)
         {
-            if (shieldOverlay == null)
+            if (!animator || gestureLayer < 0 || runningGestureLayer < 0 || sprintingGestureLayer < 0)
             {
                 return;
             }
 
-            CharacterMaster master = characterBody ? characterBody.master : null;
-            shieldOverlay.active = characterBody && characterBody.isActiveAndEnabled &&
-                characterBody.healthComponent && characterBody.healthComponent.alive &&
-                master && master.hasAuthority;
+            bool moving = animator.GetBool(isMovingParameter);
+            bool sprinting = moving && animator.GetBool(isSprintingParameter);
+            float runningTarget = moving && !sprinting ? 1f : 0f;
+            float sprintingTarget = sprinting ? 1f : 0f;
+            float step = Time.deltaTime / gestureBlendDuration;
+            runningGestureWeight = immediate ? runningTarget : Mathf.MoveTowards(runningGestureWeight, runningTarget, step);
+            sprintingGestureWeight = immediate ? sprintingTarget : Mathf.MoveTowards(sprintingGestureWeight, sprintingTarget, step);
+            ApplyGestureWeights();
         }
 
-        private void OnShieldOverlayAdded(OverlayController overlay, GameObject instance)
+        private void ApplyGestureWeights()
         {
-            if (instance.TryGetComponent<PassiveShieldHudController>(out var shieldHud))
-            {
-                if (!shieldHud.SetSource(this))
-                {
-                    RemoveShieldOverlay();
-                }
-            }
-            else
-            {
-                Log.Error("Shield HUD instance is missing its display controller.");
-                RemoveShieldOverlay();
-            }
+            float remainingWeight = 1f - sprintingGestureWeight;
+            float runningLayerWeight = remainingWeight > 0f ? Mathf.Clamp01(runningGestureWeight / remainingWeight) : 0f;
+            animator.SetLayerWeight(gestureLayer, 1f);
+            animator.SetLayerWeight(runningGestureLayer, runningLayerWeight);
+            animator.SetLayerWeight(sprintingGestureLayer, sprintingGestureWeight);
         }
 
-        private void RemoveShieldOverlay()
+        private void RefreshShieldBuffs()
         {
-            if (shieldOverlay == null)
+            bool charged = shieldCharge >= maxShieldCharge;
+            characterBody.SetBuffCount(UnforgivenBuffs.shieldChargingBuff.buffIndex, charged ? 0 : shieldCharge + 1);
+            characterBody.SetBuffCount(UnforgivenBuffs.hasShieldBuff.buffIndex, charged ? 1 : 0);
+        }
+
+        public bool TryConsumeShield()
+        {
+            if (!NetworkServer.active || shieldCharge < maxShieldCharge)
+            {
+                return false;
+            }
+
+            shieldCharge = 0;
+            shieldChargeDistance = 0f;
+            previousPosition = transform.position;
+            RefreshShieldBuffs();
+            return true;
+        }
+
+        private void UpdateShieldCharge(float distanceTraveled)
+        {
+            if (shieldCharge >= maxShieldCharge)
             {
                 return;
             }
 
-            shieldOverlay.active = false;
-            shieldOverlay.onInstanceAdded -= OnShieldOverlayAdded;
-            HudOverlayManager.RemoveOverlay(shieldOverlay);
-            shieldOverlay = null;
+            shieldChargeDistance = Mathf.Min(distanceForFullShield, shieldChargeDistance + distanceTraveled);
+            int newCharge = Mathf.FloorToInt(shieldChargeDistance * maxShieldCharge / distanceForFullShield);
+            if (shieldCharge != newCharge)
+            {
+                shieldCharge = newCharge;
+                RefreshShieldBuffs();
+            }
         }
 
         public void StackBehaviour(bool isNado = false)
@@ -165,21 +197,12 @@ namespace UnforgivenMod.Unforgiven.Components
         }
         private void FixedUpdate()
         {
-            shieldStopwatchInterval += Time.fixedDeltaTime;
-
-            if(shieldStopwatchInterval >= 0.25f && base.transform)
+            Vector3 position = transform.position;
+            float distanceTraveled = (position - previousPosition).magnitude;
+            previousPosition = position;
+            if (NetworkServer.active && characterBody.healthComponent && characterBody.healthComponent.alive)
             {
-                shieldStopwatchInterval = 0f;
-                if (shieldAmount < 100f) shieldAmount += (base.transform.position - previousPosition).magnitude / 2f;
-                else
-                {
-                    if(!characterBody.HasBuff(UnforgivenBuffs.hasShieldBuff))
-                    {
-                        if(NetworkServer.active) characterBody.SetBuffCount(UnforgivenBuffs.hasShieldBuff.buffIndex, 1);
-                    }
-                    shieldAmount = 100f;
-                }
-                previousPosition = base.transform.position;
+                UpdateShieldCharge(distanceTraveled);
             }
 
             if(characterBody.HasBuff(UnforgivenBuffs.lastBreathBuff) && !childLocator.FindChild("EmpoweredSword").gameObject.activeSelf && 

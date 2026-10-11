@@ -140,6 +140,7 @@ namespace UnforgivenMod.Unforgiven
             UnforgivenTokens.Init();
 
             UnforgivenBuffs.Init(assetBundle);
+            LastBreathSuspension.Init();
             UnforgivenAssets.Init(assetBundle);
 
             InitializeEntityStateMachines();
@@ -161,15 +162,22 @@ namespace UnforgivenMod.Unforgiven
             bodyPrefab.AddComponent<UnforgivenTracker>();
             bodyPrefab.AddComponent<AirborneTargetLineController>();
             bool dashCooldown(CharacterBody body) => body.HasBuff(UnforgivenBuffs.dashCooldownBuff);
-            bool tempAddShield(CharacterBody body) => body.HasBuff(UnforgivenBuffs.hasShieldBuff);
-            bool tempNadoUp(CharacterBody body) => body.HasBuff(UnforgivenBuffs.stabMaxStacksBuff);
+            bool tempAddShield(CharacterBody body) => body.HasBuff(UnforgivenBuffs.hasShieldBuff) && !UnforgivenSkinVFX.IsMonsoon(body.gameObject);
+            bool tempMonsoonShield(CharacterBody body) => body.HasBuff(UnforgivenBuffs.hasShieldBuff) && UnforgivenSkinVFX.IsMonsoon(body.gameObject);
+            bool tempNadoUp(CharacterBody body) => body.HasBuff(UnforgivenBuffs.stabMaxStacksBuff) && !UnforgivenSkinVFX.IsMonsoon(body.gameObject);
+            bool tempMonsoonNadoUp(CharacterBody body) => body.HasBuff(UnforgivenBuffs.stabMaxStacksBuff) && UnforgivenSkinVFX.IsMonsoon(body.gameObject);
 
             float dashCdRadius(CharacterBody body) => body.radius * 1.25f;
-            float tempAddShieldRadius(CharacterBody body) => body.radius * 0.9f;
+            float tempAddShieldRadius(CharacterBody body) => body.radius * 1.1f;
             float nadoUpRadius(CharacterBody body) => body.radius * 5f;
-            if(!UnforgivenConfig.noShieldVisual.Value) TempVisualEffectAPI.AddTemporaryVisualEffect(UnforgivenAssets.shieldEffect, tempAddShieldRadius, tempAddShield);
+            if (!UnforgivenConfig.noShieldVisual.Value)
+            {
+                TempVisualEffectAPI.AddTemporaryVisualEffect(UnforgivenAssets.shieldEffect, tempAddShieldRadius, tempAddShield);
+                TempVisualEffectAPI.AddTemporaryVisualEffect(UnforgivenSkinVFX.GetMonsoonEffect(UnforgivenAssets.shieldEffect), tempAddShieldRadius, tempMonsoonShield);
+            }
             TempVisualEffectAPI.AddTemporaryVisualEffect(UnforgivenAssets.dashCdEffect, dashCdRadius, dashCooldown);
             TempVisualEffectAPI.AddTemporaryVisualEffect(UnforgivenAssets.nadoUpEffect, nadoUpRadius, tempNadoUp);
+            TempVisualEffectAPI.AddTemporaryVisualEffect(UnforgivenSkinVFX.GetMonsoonEffect(UnforgivenAssets.nadoUpEffect), nadoUpRadius, tempMonsoonNadoUp);
 
             //stupid ass soundbank bs
             var ok = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Merc/MercBody.prefab").WaitForCompletion().GetComponent<AkBank>();
@@ -277,12 +285,12 @@ namespace UnforgivenMod.Unforgiven
 
         private void AddSecondarySkills()
         {
-            SkillDef secondary = Skills.CreateSkillDef<ScaleCDwAttackSpeed>(new SkillDefInfo
+            SkillDef secondary = Skills.CreateSkillDef<UnforgivenSecondarySkillDef>(new SkillDefInfo
             {
                 skillName = "SteelTempest",
                 skillNameToken = UNFORGIVEN_PREFIX + "SECONDARY_STEEL_NAME",
                 skillDescriptionToken = UNFORGIVEN_PREFIX + "SECONDARY_STEEL_DESCRIPTION",
-                keywordTokens = new string[] { Tokens.agileKeyword, Tokens.unforgivenSwiftKeyword },
+                keywordTokens = new string[] { Tokens.agileKeyword, "KEYWORD_RAPID" },
                 skillIcon = assetBundle.LoadAsset<Sprite>("texSecondaryIcon"),
 
                 activationState = new SerializableEntityStateType(typeof(EnterStab)),
@@ -307,6 +315,9 @@ namespace UnforgivenMod.Unforgiven
                 cancelSprintingOnActivation = false,
                 forceSprintDuringState = false,
             });
+
+            secondary.attackSpeedBuffsRestockSpeed = true;
+            secondary.attackSpeedBuffsRestockSpeed_Multiplier = 1f;
 
             Skills.AddSecondarySkills(bodyPrefab, secondary);
         }
@@ -496,6 +507,7 @@ namespace UnforgivenMod.Unforgiven
             ////simply find an object on your child locator you want to activate/deactivate and set if you want to activate/deacitvate it with this skin
 
             skins.Add(ascendencySkin);
+            UnforgivenSkinVFX.Init(ascendencySkin);
 
             #endregion
 
@@ -569,24 +581,22 @@ namespace UnforgivenMod.Unforgiven
             {
                 if (damageReport.victim.gameObject.TryGetComponent<NetworkIdentity>(out var identity))
                 {
-                    new SyncWindExplosion(identity.netId, damageReport.victim.gameObject).Send(NetworkDestination.Clients);
+                    new SyncWindExplosion(identity.netId, damageReport.victim.gameObject, UnforgivenSkinVFX.IsMonsoon(attackerBody.gameObject)).Send(NetworkDestination.Clients);
                 }
             }
         }
         private void HealthComponent_TakeDamageProcess(On.RoR2.HealthComponent.orig_TakeDamageProcess orig, HealthComponent self, DamageInfo damageInfo)
         {
-            if (NetworkServer.active && self.alive || !self.godMode || self.ospTimer <= 0f)
+            if (NetworkServer.active && self.alive)
             {
                 CharacterBody victimBody = self.body;
                 if (victimBody && victimBody.bodyIndex == BodyCatalog.FindBodyIndex("UnforgivenBody") && !damageInfo.rejected)
                 {
                     if(victimBody.TryGetComponent<UnforgivenController>(out var uCont))
                     {
-                        if(uCont.shieldAmount == 100f)
+                        if(uCont.TryConsumeShield())
                         {
                             victimBody.healthComponent.AddBarrier(victimBody.healthComponent.fullCombinedHealth * 0.25f);
-                            uCont.shieldAmount = 0f;
-                            victimBody.RemoveBuff(UnforgivenBuffs.hasShieldBuff);
                             Util.PlaySound("sfx_unforgiven_nado_impact", victimBody.gameObject);
                             Util.PlaySound("sfx_unforgiven_lost_stacks", victimBody.gameObject);
                         }

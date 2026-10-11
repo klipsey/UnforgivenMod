@@ -17,7 +17,6 @@ namespace UnforgivenMod.Unforgiven.Components
         private const float LineHalfWidth = 0.03f;
         private const int MaxDashesPerTrail = 64;
         private static readonly Color32 LineColor = new Color32(160, 210, 225, 128);
-
         private readonly List<Vector3> vertices = new List<Vector3>();
         private readonly List<Color32> colors = new List<Color32>();
         private readonly List<Vector2> uvs = new List<Vector2>();

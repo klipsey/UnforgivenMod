@@ -11,9 +11,11 @@ namespace UnforgivenMod.Unforgiven.Content
         public static BuffDef dashCooldownBuff;
         public static BuffDef stackingDashDamageBuff;
         public static BuffDef specialSlamTrackerBuff;
+        public static BuffDef specialSuspensionBuff;
         public static BuffDef airborneBuff;
         public static BuffDef lastBreathBuff;
         public static BuffDef hasShieldBuff;
+        public static BuffDef shieldChargingBuff;
         public static void Init(AssetBundle assetBundle)
         {
             stabStackingBuff = Modules.Content.CreateAndAddBuff("UnforgivenStackingBuff", Addressables.LoadAssetAsync<Sprite>("RoR2/Base/CritOnUse/texBuffFullCritIcon.tif").WaitForCompletion(),
@@ -31,6 +33,10 @@ namespace UnforgivenMod.Unforgiven.Content
             specialSlamTrackerBuff = Modules.Content.CreateAndAddBuff("UnforgivenSlamTrackerBuff", Addressables.LoadAssetAsync<Sprite>("RoR2/Base/Common/texBuffSlow50Icon.tif").WaitForCompletion(),
                 UnforgivenAssets.unforgivenColor, false, false, false);
 
+            specialSuspensionBuff = Modules.Content.CreateAndAddBuff("UnforgivenSpecialSuspension", null,
+                UnforgivenAssets.unforgivenColor, true, false, false);
+            specialSuspensionBuff.isHidden = true;
+
             airborneBuff = Modules.Content.CreateAndAddBuff("UnforgivenAirborneTrackerBuff", Addressables.LoadAssetAsync<Sprite>("RoR2/Base/EliteLunar/texBuffAffixLunar.tif").WaitForCompletion(),
                 UnforgivenAssets.unforgivenColor, false, false, false);
 
@@ -39,6 +45,11 @@ namespace UnforgivenMod.Unforgiven.Content
 
             hasShieldBuff = Modules.Content.CreateAndAddBuff("UnforgivenShieldChargedBuff", Addressables.LoadAssetAsync<Sprite>("RoR2/DLC1/OutOfCombatArmor/texBuffUtilitySkillArmor.tif").WaitForCompletion(),
                 UnforgivenAssets.unforgivenColor, false, false, false);
+
+            shieldChargingBuff = Modules.Content.CreateAndAddBuff("UnforgivenShieldChargingBuff", hasShieldBuff.iconSprite,
+                Color.gray, true, false, false);
+            shieldChargingBuff.stackingDisplayMethod = BuffDef.StackingDisplayMethod.Percentage;
+            shieldChargingBuff.displayOffset = -1;
         }
     }
 }

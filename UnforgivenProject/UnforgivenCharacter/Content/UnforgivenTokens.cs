@@ -61,7 +61,7 @@ namespace UnforgivenMod.Unforgiven.Content
 
             #region Secondary
             Language.Add(prefix + "SECONDARY_STEEL_NAME", "Steel Tempest");
-            Language.Add(prefix + "SECONDARY_STEEL_DESCRIPTION", $"<style=cIsUtility>Swift</style>. Stab forward dealing <style=cIsDamage>{UnforgivenConfig.stabDamageCoefficient.Value * 100f}% damage</style>. " +
+            Language.Add(prefix + "SECONDARY_STEEL_DESCRIPTION", $"<style=cIsUtility>Rapid</style>. Stab forward dealing <style=cIsDamage>{UnforgivenConfig.stabDamageCoefficient.Value * 100f}% damage</style>. " +
                 $"On hit, gain a stack of <color=#FFBF66>Gathering Storm</color>. At 2 stacks your next <color=#FFBF66>Steel Tempest</color> will fire a tornado dealing <style=cIsDamage>{UnforgivenConfig.tornadoDamageCoefficient.Value * 100f}% damage</style>.");
             #endregion
 

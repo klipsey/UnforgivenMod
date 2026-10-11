@@ -10,7 +10,6 @@ namespace UnforgivenMod.Modules
 
         public static string slayerKeyword = KeywordText("Slayer", "The skill deals 2% more damage per 1% of health the target has lost, up to <style=cIsDamage>3x</style> damage.");
 
-        public static string unforgivenSwiftKeyword = KeywordText("Swift", "The skill has a lower <style=cIsUtility>cooldown</style> based on your <style=cIsDamage>attack speed</style>.");
         public static string DamageText(string text)
         {
             return $"<style=cIsDamage>{text}</style>";

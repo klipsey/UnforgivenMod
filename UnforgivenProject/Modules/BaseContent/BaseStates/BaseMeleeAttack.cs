@@ -58,6 +58,8 @@ namespace UnforgivenMod.Modules.BaseStates
         public override void OnEnter()
         {
             base.OnEnter();
+            swingEffectPrefab = UnforgivenSkinVFX.GetEffect(swingEffectPrefab, gameObject);
+            hitEffectPrefab = UnforgivenSkinVFX.GetEffect(hitEffectPrefab, gameObject);
             duration = baseDuration / attackSpeedStat;
             animator = GetModelAnimator();
             StartAimMode(0.5f + duration, false);

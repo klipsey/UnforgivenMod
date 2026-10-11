@@ -19,6 +19,7 @@ namespace UnforgivenMod
     [BepInDependency(NetworkingAPI.PluginGUID)]
     [BepInDependency("com.weliveinasociety.CustomEmotesAPI", BepInDependency.DependencyFlags.SoftDependency)]
     [BepInDependency("com.DestroyedClone.AncientScepter", BepInDependency.DependencyFlags.SoftDependency)]
+    [BepInDependency("com.rune580.riskofoptions", BepInDependency.DependencyFlags.SoftDependency)]
     public class UnforgivenPlugin : BaseUnityPlugin
     {
         // if you do not change this, you are giving permission to deprecate the mod-
@@ -47,6 +48,7 @@ namespace UnforgivenMod
         }
 
         public static bool scepterInstalled => BepInEx.Bootstrap.Chainloader.PluginInfos.ContainsKey("com.DestroyedClone.AncientScepter");
+        public static bool riskOfOptionsInstalled => BepInEx.Bootstrap.Chainloader.PluginInfos.ContainsKey("com.rune580.riskofoptions");
         void Awake()
         {
             instance = this;
@@ -63,7 +65,13 @@ namespace UnforgivenMod
             // character initialization
             // StartCoroutine(UnforgivenAssets.mainAssetBundle.UpgradeStubbedShadersAsync());
 
-            new UnforgivenMod.Unforgiven.UnforgivenSurvivor().Initialize();
+            var survivor = new UnforgivenMod.Unforgiven.UnforgivenSurvivor();
+            survivor.Initialize();
+
+            if (riskOfOptionsInstalled)
+            {
+                Modules.Config.InitializeOptions(survivor.prefabCharacterBody.portraitIcon);
+            }
 
             // make a content pack and add it. this has to be last
             new Modules.ContentPacks().Initialize();
